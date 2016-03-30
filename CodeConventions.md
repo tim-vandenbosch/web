@@ -2,6 +2,7 @@
 
 - MAP: localhost/project
 - SITE: fairytickets.pxl.be
+
 ## Algemene regels
 
   - Inspringen
@@ -35,3 +36,6 @@
       if( isFoo() ) {
     	$a = 'foo';
       }
+  - Geen spaties bij commentaar 
+    // dit: is een goed voorbeeld
+    //dit is geen goed voorbeeld (geen spatie bij begin) 
