@@ -14,28 +14,20 @@
   - Methodes beginnen met een kleine letter
 
 ## Spaties
-  - No:
-    $a=$b+$c;
+  - No: `$a=$b+$c;`
 
-  - Yes:
-    $a = $b + $c;
+  - Yes: `$a = $b + $c;`
     
-  - spatie bij parameters
-    $a = getFoo( $b );
+  - spatie bij parameters: `$a = getFoo( $b );`
     
-  - geen spatie bij geen paramater
-    $c = getBar();
+  - geen spatie bij geen paramater: `$c = getBar();`
     
-  - Bij iteraties en catch
-    - yes
-      if ( isFoo() ) {
-    	$a = 'foo';
-      }
-    
+  - Bij iteraties en catch:
+    - Yes
+      `if(isFoo()) { $a = 'foo'; }`
     - No
-      if( isFoo() ) {
-    	$a = 'foo';
-      }
-  - Geen spaties bij commentaar 
+      `if(isFoo()) { $a = 'foo'; }`
+      
+  - Geen spaties bij commentaar: 
     // dit: is een goed voorbeeld
     //dit is geen goed voorbeeld (geen spatie bij begin) 
