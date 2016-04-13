@@ -1,6 +1,6 @@
 # Ticketingsystem_Web
 ## Groepssamenstelling
-- Brit
+- Britt
 - Marnix
 - Nida
 - Daniela
