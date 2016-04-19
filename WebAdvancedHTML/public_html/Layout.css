@@ -1,0 +1,66 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18-Apr-2016, 09:49:05
+    Author     : Marnix_laptop
+*/
+body{
+    background-image: url(Pictures/Body_Background.jpg);
+}
+.container{
+   position: absolute;
+   margin-bottom: 50px;
+   top: 5%;
+   left:0%;
+   right: 0%;
+   bottom: 5%;
+}
+.container img{
+    z-index: 2;
+    position: relative;
+    float: left;
+    left:15%;
+}
+.container h1{
+    margin: 0;
+    padding: 0;
+    padding-top: 14px;
+    width: 625px;
+    font-family: Calibri, Arial;
+    font-size: 40px;
+    z-index: 2;
+    position: relative;
+    float: left;
+    clear: right;
+    color: white;
+    left:30%;
+    padding-bottom: 8%;
+    text-transform: uppercase;
+}
+.container #backgr{
+    top:5%;
+    height:59px;
+    position: absolute;
+    width: 100%;
+    background-color: black;
+    z-index: 1;
+}
+.container .main{
+    position: relative;
+    float: left;
+    
+    padding:47px;
+    width: 1300px;
+    background-color: white;
+    height: 70%;
+    align-items: center;
+    left: 10%;
+    right: 10%;
+    border-left: 1px solid black; 
+    border-top: 1px solid black; 
+    border-right: 1px solid black;
+    border-bottom: 5px solid green ;
+}
