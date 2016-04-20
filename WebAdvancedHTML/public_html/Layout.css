@@ -17,17 +17,19 @@ body{
    left:0%;
    right: 0%;
    bottom: 5%;
+   min-width: 800px;
 }
 .container img{
+    padding-bottom: 0px;
     z-index: 2;
     position: relative;
     float: left;
     left:15%;
 }
 .container h1{
-    margin: 0;
+    margin-top: 40px;
     padding: 0;
-    padding-top: 14px;
+    
     width: 625px;
     font-family: Calibri, Arial;
     font-size: 40px;
@@ -37,11 +39,11 @@ body{
     clear: right;
     color: white;
     left:30%;
-    padding-bottom: 8%;
+    padding-bottom: 40px;
     text-transform: uppercase;
 }
 .container #backgr{
-    top:5%;
+    top:38px;
     height:59px;
     position: absolute;
     width: 100%;
