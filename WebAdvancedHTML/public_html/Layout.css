@@ -53,16 +53,39 @@ body{
 .container .main{
     position: relative;
     float: left;
-    
-    padding:47px;
-    width: 1300px;
+    padding-left: 30%;
+    padding-right: 30%;
     background-color: white;
     height: 70%;
     align-items: center;
     left: 10%;
-    right: 10%;
+    right: 40%;
     border-left: 1px solid black; 
     border-top: 1px solid black; 
     border-right: 1px solid black;
     border-bottom: 5px solid green ;
+   
 }
+.container h2{
+    margin-left: 20%;
+    color: green;
+    font-family: Calibri, Arial;
+    font-size: 30px;
+}
+.login{
+    
+}
+.login label, input,a,button{
+    position: relative;
+    float: left;
+    margin: 5px;
+}
+.login a{
+    left: 20%;
+}
+.login button{
+    left: 30%;
+    clear: both;
+}
+
+
