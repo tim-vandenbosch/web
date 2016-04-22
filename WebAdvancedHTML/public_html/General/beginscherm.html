@@ -6,29 +6,33 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <link href="../Layout.css" rel="stylesheet"/>
+        <link href="../bootstrap/css/bootstrap.css" rel="stylesheet"/>
+        <link href="../bootstrap/css/customStyle.css" rel="stylesheet"/>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
-        
-        <div class="container">
-            <div id="backgr"></div>
-            <img src="../Pictures/Logo_PXL.png" alt="PXL logo"/>
-            <h1>
-               HOGESCHOOL PXL 
-            </h1>
-            <section class="main">
-                <h2>Ticketingsysteem</h2>
-                <form class="login"  >
-                    <label>Gebruiker: </label><input size="25" name="user" id="user" type="text" /><br>
-                <label>Wachtwoord: </label><input size="25" name="password" id="password" type="password" /><br>
+    <body id="body">
+        <div class="container hoofding">
+        <div id="pxlLine"></div>
+        <img class="col-md-2" src="../Pictures/Logo_PXL.png" alt="PXL logo"/>
+        <h1 class="col-md-10">HOGESCHOOL PXL</h1>
+        </div>
+        <div class="container main">
+            <h2 class="col-md-12">Ticketingsysteem</h2>
+            <form class="col-md-12">
+                    <div class="form-group">
+                    <label for="user">Gebruiker: </label>
+                    <input class="form-control" name="user" id="user" type="text" />
+                    </div>
+                    <div class="form-group">
+                    <label for="password">Wachtwoord: </label>
+                    <input class="form-control" name="password" id="password" type="password" /><br>
+                    </div>
                 <a href="">wachtwoord vergeten?</a><br>
                 <button type="submit" >Inloggen</button>
-                </form>
-            </section>
+            </form>
         </div>
-        
+        <div class=""></div>
     </body>
 </html>
