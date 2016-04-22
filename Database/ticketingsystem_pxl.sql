@@ -6,6 +6,8 @@
 -- Gegenereerd op: 17 apr 2016 om 17:48
 -- Serverversie: 10.1.10-MariaDB
 -- PHP-versie: 7.0.4
+DROP Database IF EXISTS 'ticketingsystem@pxl';
+CREATE DATABASE 'ticketingsystem@pxl';
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -114,8 +116,8 @@ CREATE TABLE `users` (
   `userID` int(3) NOT NULL,
   `email` varchar(255) NOT NULL,
   `pws` varchar(50) NOT NULL,
-  `rol` enum('Admin','Dispatcher','Werkman','Medewerker','Docent','Schoonmaak medewerker') NOT NULL,
-  `active` tinyint(1) NOT NULL
+  `rol` enum('Admin','Dispatcher','Werkman','Gebruiker') NOT NULL,
+  `active` enum('ACTIVE', 'DISABLE') NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
