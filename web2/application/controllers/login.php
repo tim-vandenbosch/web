@@ -1,4 +1,11 @@
+
+
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+// Britt Verschakelen
+// 22/04/2016
+// Bron
+// http://www.kodingmadesimple.com/2014/08/how-to-create-login-form-codeigniter-mysql-twitter-bootstrap.html
 
 class login extends CI_Controller
 {
