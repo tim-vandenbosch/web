@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+	-- phpMyAdmin SQL Dump
 -- version 4.5.1
 -- http://www.phpmyadmin.net
 --
@@ -6,8 +6,7 @@
 -- Gegenereerd op: 17 apr 2016 om 17:48
 -- Serverversie: 10.1.10-MariaDB
 -- PHP-versie: 7.0.4
-DROP Database IF EXISTS 'ticketingsystem@pxl';
-CREATE DATABASE 'ticketingsystem@pxl';
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -21,12 +20,14 @@ SET time_zone = "+00:00";
 --
 -- Database: `ticketingsystem@pxl`
 --
-
+DROP database 'ticketingsystem@pxl';
+CREATE DATABASE 'ticketingsystem@pxl';
 -- --------------------------------------------------------
 
 --
 -- Tabelstructuur voor tabel `blokken`
 --
+
 
 DROP TABLE IF EXISTS `blokken`;
 CREATE TABLE `blokken` (
