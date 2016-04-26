@@ -1,11 +1,5 @@
 <!DOCTYPE html>
-<?php
-  /**
-    * Gebruiker: Marnix
-    * Datum: 26/04/2016
-    * Bron: /
-    */
-?>
+
 <html>
 <head>
     <link href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
@@ -22,6 +16,15 @@
  * Datum: 26/04/2016
  * Bron: https://ellislab.com/codeigniter/user-guide/libraries/form_validation.html#theform
  */
+?>
+<?php
+/**
+ * Edit
+ * Gebruiker: britt
+ * Datum: 26/04/2016
+ * Bron: https://ellislab.com/codeigniter/user-guide/libraries/form_validation.html#theform
+ */
+
       echo validation_errors(); ?>
 <?php echo form_open('form'); ?>
 
