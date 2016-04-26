@@ -5,9 +5,15 @@
 
 ## Bekendmaking in commentaar
 	/**
-	 * Gebruiker: 
+	 * Gebruiker: Naam
 	 * Datum: dd/mm/yyyy
-	 * Tijd: hh:mm
+	 * Bron: none of bron zetten
+	*/
+## Edit van code
+	/**
+	 * Edit: 
+	 * Gebruiker: Naam
+	 * Datum: dd/mm/yyyy
 	 * Bron: none of bron zetten
 	*/
 
