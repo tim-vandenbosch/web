@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body id="background">
+<!--
 <?php
 /**
  * Edit
@@ -17,6 +18,7 @@
  * Bron: https://ellislab.com/codeigniter/user-guide/libraries/form_validation.html#theform
  */
 ?>
+<<<<<<< HEAD
 <?php
 /**
  * Edit
@@ -27,6 +29,10 @@
 
       echo validation_errors(); ?>
 <?php echo form_open('form'); ?>
+=======
+<?php echo validation_errors(); ?> -->
+<!-- <?php echo form_open('form'); ?> -->
+>>>>>>> origin/master
 
 <header class="container hoofding">
     <div id="pxlLine"></div>
