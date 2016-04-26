@@ -3,6 +3,14 @@
 - MAP: localhost/project
 - SITE: fairytickets.pxl.be
 
+## Bekendmaking in commentaar
+	/**
+	 * Gebruiker: 
+	 * Datum: dd/mm/yyyy
+	 * Tijd: hh:mm
+	 * Bron: none of bron zetten
+	*/
+
 ## Algemene regels
 
   - Inspringen
