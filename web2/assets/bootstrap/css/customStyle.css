@@ -11,7 +11,7 @@ and open the template in the editor.
     background-image: url(../..//Pictures/Body_Background.jpg);
 }
 #pxlLine{
-    top:34px;
+    top:60px;
     height:59px;
     position: absolute;
     left: 0;
@@ -20,14 +20,29 @@ and open the template in the editor.
     z-index: -1;
 }
 .hoofding{
-    
+    margin-top: 36px; 
+    margin-bottom: 12px;
 }
 .hoofding h1{
-    
     color: white;
-    padding-top: 25px;
+    padding-top: 15px;
     padding-left: 150px;
 }
+.navbar-style{
+    text-transform: uppercase;
+    margin-top: 25px;
+    padding-left:200px; 
+    font-family: arial;
+    font-weight: bold;
+    font-size: 15px;
+}
+.navbar-style a{
+    color: white;
+}
+.navbar-style a:hover{
+    color:green;
+}
+
 .main{
     background-color: white;
     border-bottom: solid green 5px;

@@ -8,15 +8,15 @@
 <html>
     <head>
         <title>TODO supply a title</title>
-        <link href="../bootstrap/css/bootstrap.css" rel="stylesheet"/>
-        <link href="../bootstrap/css/customStyle.css" rel="stylesheet"/>
+    <link href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo base_url();?>/assets/bootstrap/css/customStyle.css" rel="stylesheet"/>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body id="background">
         <header class="container hoofding">
             <div id="pxlLine"></div>
-            <img class="navbar-header" src="../Pictures/Logo_PXL.png" alt="PXL logo"/>
+            <img class="navbar-header" src="<?php echo base_url();?>assets/Pictures/Logo_PXL.png" alt="PXL logo"/>
             <nav class="nav">
                 <ul class="nav navbar-nav navbar-style">
                     <li class="active"><a href="TemplateHome.html">Home</a></li>
