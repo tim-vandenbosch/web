@@ -21,7 +21,8 @@ class Welcome extends CI_Controller {
 
 	/**
 	 * Gebruiker: Britt
-	 * 
+	 * Date: 26/04/2016
+	 * Bron: https://ellislab.com/codeigniter
 	 */
 	public function index()
 	{
@@ -30,11 +31,13 @@ class Welcome extends CI_Controller {
 
 		if ($this->form_validation->run() == FALSE)
 		{
+			// dit zijn test pagina's
 			$this->load->view('TemplateHome');
 		}
 		else
 		{
-			$this->load->view('formsuccess');
+			//dit zijn test paginas's
+			$this->load->view('welcome_message');
 		}
 	}
 }
