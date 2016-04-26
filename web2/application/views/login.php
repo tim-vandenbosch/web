@@ -9,8 +9,8 @@
 ?>
 <html>
 <head>
-    <link href="../../assets/bootstrap/css/bootstrap.css" rel="stylesheet"/>
-    <link href="../../assets/bootstrap/css/customStyle.css" rel="stylesheet"/>
+    <link href="../assets/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../assets/bootstrap/css/customStyle.css" rel="stylesheet"/>
     <title>TODO supply a title</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
