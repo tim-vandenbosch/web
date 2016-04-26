@@ -7,7 +7,7 @@ and open the template in the editor.
     Created on : 18-Apr-2016, 09:49:05
     Author     : Marnix_laptop
 */
-#body{
+#background{
     background-image: url(../..//Pictures/Body_Background.jpg);
 }
 #pxlLine{
@@ -23,6 +23,7 @@ and open the template in the editor.
     
 }
 .hoofding h1{
+    
     color: white;
     padding-top: 25px;
     padding-left: 150px;
@@ -33,8 +34,16 @@ and open the template in the editor.
     border-left: solid black 1px;
     border-right: solid black 1px;
     border-top: solid black 1px;
+   
+}
+.login{
+    min-width: 800px;
     padding-right: 20%; 
     padding-left:20%;
     padding-bottom:10%;
     padding-top: 5%; 
+}
+.home{
+    width: 100%;
+    height: 800px;
 }
