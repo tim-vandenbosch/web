@@ -18,9 +18,23 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
+	/**
+	 * Gebruiker: Britt
+	 * 
+	 */
 	public function index()
 	{
 		$this->load->view('General/login');
 		$this->load->helper('url');
+
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->load->view('TemplateHome');
+		}
+		else
+		{
+			$this->load->view('formsuccess');
+		}
 	}
 }
