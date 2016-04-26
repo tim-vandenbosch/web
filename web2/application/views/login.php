@@ -9,36 +9,33 @@
 ?>
 <html>
 <head>
-    <meta charset="utf-8">
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../bootstrap/css/customStyle.css" rel="stylesheet"/>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
-    <!--link the bootstrap css file-->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-
-    <style type="text/css">
-        .colbox {
-            margin-left: 0px;
-            margin-right: 0px;
-        }
-    </style>
 </head>
-<body>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-6 col-sm-6">
-            <h1>login</h1>
+<body id="background">
+<header class="container hoofding">
+    <div id="pxlLine"></div>
+    <img class="col-md-2" src="../Pictures/Logo_PXL.png" alt="PXL logo"/>
+    <h1 class="col-md-8">HOGESCHOOL PXL</h1>
+    <div class="col-md-2"></div>
+</header>
+<div class="container main login">
+    <h2 class="col-md-12">Ticketingsysteem</h2>
+    <form class="col-md-12">
+        <div class="form-group">
+            <label for="user">Gebruiker: </label>
+            <input class="form-control" name="user" id="user" type="text" />
         </div>
-        <div class="col-lg-6 col-sm-6">
-
-            <ul class="nav nav-pills pull-right" style="margin-top:20px">
-                <li class="active"><a href="#">Login</a></li>
-                <li><a href="#">Signup</a></li>
-            </ul>
-
+        <div class="form-group">
+            <label for="password">Wachtwoord: </label>
+            <input class="form-control" name="password" id="password" type="password" /><br>
         </div>
-    </div>
+        <a href="">wachtwoord vergeten?</a><br>
+        <button type="submit" >Inloggen</button>
+    </form>
 </div>
-<hr/>
-
 </body>
 </html>
