@@ -28,6 +28,8 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('General/login');
 		$this->load->helper('url');
+		$this -> form_validation->set_rules('user','Gebruiker','required');
+		$this -> form_validation->set_rules('password','Wachtwoord','required');
 
 		if ($this->form_validation->run() == FALSE)
 		{
