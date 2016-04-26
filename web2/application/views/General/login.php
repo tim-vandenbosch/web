@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<?php
-    /**
-    * Gebruiker: britt
-    * Datum: 26/04/2016
-    * Tijd: 9:13
-    * Bron: /
-    */
-?>
 <html>
 <head>
     <link href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
     <link href="<?php echo base_url();?>/assets/bootstrap/css/customStyle.css" rel="stylesheet"/>
-    <title>TODO supply a title</title>
+    <title>Tickets</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body id="background">
+<?php
+/**
+ * Edit
+ * Gebruiker: britt
+ * Datum: 26/04/2016
+ * Bron: https://ellislab.com/codeigniter/user-guide/libraries/form_validation.html#theform
+ */
+?>
+<?php echo validation_errors(); ?>
+<?php echo form_open('form'); ?>
+
 <header class="container hoofding">
     <div id="pxlLine"></div>
     <img class="col-md-2" src="<?php echo base_url();?>assets/Pictures/Logo_PXL.png" alt="PXL logo"/>
