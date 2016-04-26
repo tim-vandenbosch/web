@@ -22,8 +22,13 @@ and open the template in the editor.
     <body id="background">
         <header class="container hoofding">
             <div id="pxlLine"></div>
-            <img class="col-md-2" src="../Pictures/Logo_PXL.png" alt="PXL logo"/>
-            <h1 class="col-md-8">HOGESCHOOL PXL</h1>
+            <img class="navbar-header" src="../Pictures/Logo_PXL.png" alt="PXL logo"/>
+            <nav class="nav">
+                <ul class="nav navbar-nav navbar-style">
+                    <li class="active"><a href="TemplateHome.html">Home</a></li>
+                    <li><a href="#">Testscreen</a></li>
+                </ul>                 
+            </nav>
             <div class="col-md-2"></div>
         </header>
         <div class="col-lg-12 main home">
