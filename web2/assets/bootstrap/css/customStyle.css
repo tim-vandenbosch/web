@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : Marnix_laptop
 */
 #background{
-    background-image: url(../..//Pictures/Body_Background.jpg);
+    background-image: url(../../Pictures/Body_Background.jpg);
 }
 #pxlLine{
     top:60px;
