@@ -37,16 +37,24 @@
                 <div class="col-md-4 left">
                     <h2>Tickets</h2>
                 </div>
-                <div class="col-md-8 right ">
+                <div class="col-md-8 right">
                     <div>LALALALALA tekst</div>
+                </div>
+                <div class="row">
+                <div class="col-md-12 center">
+                <!--hier moet de table komen-->
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">
+                        <button class="btn-default">
+                           Nieuw Ticket
+                        </button>
+                    </div>
                 </div>
             </div>   
         </div>
-        <div class="row">
-            <div class="col-md-12 center">
-                <!--hier moet de table komen-->
-            </div>
-        </div>
+       
+        
     </body>
 </html>
-
