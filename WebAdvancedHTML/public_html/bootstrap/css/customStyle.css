@@ -77,6 +77,8 @@ and open the template in the editor.
     border: 1px black solid;
 }
 .home .center{
-    
+    height: 400px;
+    border: 1px black solid;
 }
+
 
