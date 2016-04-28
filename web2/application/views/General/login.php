@@ -25,8 +25,8 @@
         if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
             alert("Not a valid e-mail address");
             event.preventDefault();
-        } else
-            alert("valid en sent");
+        } /*else
+            alert("valid en sent");*/
     }
 </script>
 
