@@ -7,11 +7,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<script src="/assets/bootstrap/js/validatieLoginForm.js" type="">
+<script type="text/javascript">
     window.addEventListener('load', function () {
         var form = document.getElementById("myForm");
         form.addEventListener('submit',validateEmail);
     });
+
+    function validateEmail() {
+        var x = document.getElementById("user").value;
+        var atpos = x.indexOf("@");
+        var dotpos = x.lastIndexOf(".");
+        if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+            alert("Not a valid e-mail address");
+            event.preventDefault();
+        } else
+            alert("valid en sent");
+    }
 </script>
 
 <body id="background">
