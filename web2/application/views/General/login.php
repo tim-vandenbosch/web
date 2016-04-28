@@ -8,6 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <script type="text/javascript">
+    /*
+        * Gebruiker: Britt
+        * Datum: 28/04/2016
+        * Bron: /
+     */
     window.addEventListener('load', function () {
         var form = document.getElementById("myForm");
         form.addEventListener('submit',validateEmail);
