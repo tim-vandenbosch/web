@@ -16,7 +16,7 @@
 </header>
 <div class="container main login">
     <h2 class="col-md-12">Ticketingsysteem</h2>
-    <form class="col-md-12" action="" onsubmit="return(validate());>
+    <form class="col-md-12" action="">
         <div class="form-group">
             <label for="user">Gebruiker: </label>
             <input class="form-control" name="user" id="user" type="text" />
