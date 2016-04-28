@@ -20,7 +20,6 @@
         <div class="form-group">
             <label for="user">Gebruiker: </label>
             <input class="form-control" name="user" id="user" type="text" />
-        </div>
         <div class="form-group">
             <label for="password">Wachtwoord: </label>
             <input class="form-control" name="password" id="password" type="password" /><br>
