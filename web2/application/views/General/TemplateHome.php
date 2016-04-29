@@ -8,8 +8,10 @@
 <html>
     <head>
         <title>TODO supply a title</title>
+
         <link href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url();?>/assets/bootstrap/css/customStyle.css" rel="stylesheet"/>
+
        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -27,7 +29,6 @@
         </header>
         <div class="col-lg-12 main home">
             <!-- HIER MOET JE CODE -->
-        </div>   
-        
+        </div>
     </body>
 </html>
