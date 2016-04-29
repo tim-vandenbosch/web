@@ -35,15 +35,11 @@ class Welcome extends CI_Controller {
 		$this->load->model(login_model);
 	}
 
-	/**
-	 * Gebruiker: Britt
-	 * Date: 26/04/2016
-	 * Bron: https://ellislab.com/codeigniter
-	 */
 	public function index()
 	{
-		$this->load->view('General/index');
-		$this->load->helper('url');
+		//krijg de ingegeven logingegevens en wachtwoord
+		$username = $this->input->post("user");
+		$password = $this->input->post("password");
 
 	}
 }
