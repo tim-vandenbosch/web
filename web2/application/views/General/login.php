@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-    <link href="<?php echo base_url();?>/assets/bootstrap/css/customStyle.css" rel="stylesheet"/>
+   <!-- <link href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo base_url();?>/assets/bootstrap/css/customStyle.css" rel="stylesheet"/> -->
+    <?= link_tag('assets/bootstrap/css/bootstrap.css"') ?>
+    <?= link_tag('assets/bootstrap/css/customStyle.css"') ?>
     <title>Tickets</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
