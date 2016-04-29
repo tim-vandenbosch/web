@@ -32,7 +32,7 @@ class GeneralController extends CI_Controller {
 		$this->load->helper('html');
 		$this->load->database();
 		//model
-		$this->load->model(login_model);
+		$this->load->model('login_model');
 
 
 	}
