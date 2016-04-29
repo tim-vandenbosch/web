@@ -22,7 +22,7 @@ class user_model extends CI_Model
 
     function getAll()
     {
-        $query = $this -> db ->get('overzicht');
+        $query = $this -> db ->get('users');
         return $query -> result();
     }
 }

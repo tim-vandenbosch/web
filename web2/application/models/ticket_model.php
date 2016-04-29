@@ -28,4 +28,10 @@ class ticket_model
     {
         parent::__construct();
     }
+
+    function getAll()
+    {
+        $query = $this -> db ->get('tickets');
+        return $query -> result();
+    }
 }
