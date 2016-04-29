@@ -33,10 +33,13 @@ class Welcome extends CI_Controller {
 		$this->load->database();
 		//model
 		$this->load->model(login_model);
+
+
 	}
 
 	public function index()
 	{
+		$this->load->view('General/login');
 		//krijg de ingegeven logingegevens en wachtwoord
 		$username = $this->input->post("user");
 		$password = $this->input->post("password");
