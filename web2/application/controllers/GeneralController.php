@@ -32,7 +32,7 @@ class GeneralController extends CI_Controller {
 		$this->load->helper('html');
 		$this->load->database();
 		//model
-		$this->load->model(login_model);
+		$this->load->model('login_model');
 
 
 	}
@@ -43,6 +43,8 @@ class GeneralController extends CI_Controller {
 		//krijg de ingegeven logingegevens en wachtwoord
 		$username = $this->input->post("user");
 		$password = $this->input->post("password");
+
+		if($this->input->)
 
 	}
 }
