@@ -13,6 +13,7 @@ class user_model extends CI_Model
     var $pws="";
     var $rol="";
     var $active="";
+    var $salt="";
 
     function __construct()
     {
