@@ -17,7 +17,7 @@ class login_model extends CI_Model
     //get the username & password from tbl_usrs
     function get_user($usr, $pwd)
     {
-        $sql = "select * from users where username = '" . $usr . "' and password = '" . md5($pwd) . "' and status = 'active'";
+        $sql = "select * from users where username = '" . $usr . "' and password = '" . md5($pwd) . "' and active = '1'";
         $query = $this->db->query($sql);
         return $query->num_rows();
     }

@@ -18,6 +18,22 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	/**
+	 * Gebruiker: Britt
+	 * Date: 29/04/2016
+	 * Bron: https://ellislab.com/codeigniter
+	 */
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->library('session');
+		$this->load->helper('form');
+		$this->load->helper('url');
+		$this->load->helper('html');
+		$this->load->database();
+		//model
+		$this->load->model(login_model);
+	}
 
 	/**
 	 * Gebruiker: Britt
@@ -28,18 +44,6 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('General/index');
 		$this->load->helper('url');
-		/* $this -> form_validation->set_rules('user','Gebruiker','required');
-		$this -> form_validation->set_rules('password','Wachtwoord','required');
 
-		if ($this->form_validation->run() == FALSE)
-		{
-			// dit zijn test pagina's
-			$this->load->view('TemplateHome');
-		}
-		else
-		{
-			//dit zijn test paginas's
-			$this->load->view('welcome_message');
-		}*/
 	}
 }
