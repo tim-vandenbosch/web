@@ -26,7 +26,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('Leerkracht/index');
+		$this->load->view('User/index');
 		$this->load->helper('url');
 		/* $this -> form_validation->set_rules('user','Gebruiker','required');
 		$this -> form_validation->set_rules('password','Wachtwoord','required');
@@ -41,5 +41,12 @@ class Welcome extends CI_Controller {
 			//dit zijn test paginas's
 			$this->load->view('welcome_message');
 		}*/
+		$controller = $this -> router -> fetch_class();
+		$method = $this -> router -> fetch_method();
+		$args = func_get_args();
+
+		$overzicht = array();
+
 	}
+
 }
