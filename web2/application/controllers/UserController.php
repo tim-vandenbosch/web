@@ -45,11 +45,14 @@ class Welcome extends CI_Controller {
 		$method = $this -> router -> fetch_method();
 		$args = func_get_args();
 
-		$results = $this -> Ticket ->
+		$results = $this -> ticket_model -> getAll();
 		$overzicht = array(
-
-		);
-
+            'result' => $results,
+            "controller" => $controller,
+            "method" => $method,
+            "args" => $args
+        );
+        $this ->load -> view('User/index',$overzicht);
 	}
 
 }
