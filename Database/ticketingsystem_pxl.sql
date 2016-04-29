@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 29 apr 2016 om 13:16
+-- Gegenereerd op: 29 apr 2016 om 14:07
 -- Serverversie: 10.1.10-MariaDB
 -- PHP-versie: 7.0.4
 
@@ -153,7 +153,7 @@ INSERT INTO `users` (`userID`, `email`, `pws`, `rol`, `active`, `salt`) VALUES
 (1, 'admin@pxl.be', '21232f297a57a5a743894a0e4a801fc3', 'Admin', 1, ''),
 (2, 'dis@pxl.be', 'ab642ce62f55b2ca05b4697f3bd7b53a', 'Dispatcher', 1, ''),
 (3, 'wm1@pxl.be', 'ab642ce62f55b2ca05b4697f3bd7b53a', 'Werkman', 1, ''),
-(4, 'docent1@pxl.be', 'pxl', 'Docent', 1, '');
+(4, 'docent1@pxl.be', 'ab642ce62f55b2ca05b4697f3bd7b53a', 'Docent', 1, '');
 
 -- --------------------------------------------------------
 
