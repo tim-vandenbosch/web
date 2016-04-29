@@ -26,7 +26,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('General/login');
+		$this->load->view('Errors/error_404');
 		$this->load->helper('url');
 		/* $this -> form_validation->set_rules('user','Gebruiker','required');
 		$this -> form_validation->set_rules('password','Wachtwoord','required');
