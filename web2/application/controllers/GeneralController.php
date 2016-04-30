@@ -31,6 +31,7 @@ class GeneralController extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->helper('html');
         $this->load->library('form_validation');
+        $this->load->view('General/login');
 		$this->load->database();
 		//model
 		$this->load->model('login_model');
@@ -38,7 +39,8 @@ class GeneralController extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('General/login');
+        //Deze code wordt al bij login scherm gedaan, zou pas na de knop login moeten gebeuren (de if)
+        
 		//krijg de ingegeven logingegevens en wachtwoord
 		$username = $this->input->post("user");
 		$password = $this->input->post("password");
@@ -50,7 +52,7 @@ class GeneralController extends CI_Controller {
 		if ($this->form_validation->run() == FALSE)
 		{
 			//mislukte validatie gaat terug naar login
-			$this->load->view('General/login');
+			// $this->load->view('General/login');
 		}
 		else
 		{
