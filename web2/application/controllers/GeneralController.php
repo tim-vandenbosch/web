@@ -40,7 +40,7 @@ class GeneralController extends CI_Controller {
 	public function index()
 	{
         //Deze code wordt al bij login scherm gedaan, zou pas na de knop login moeten gebeuren (de if)
-        
+
 		//krijg de ingegeven logingegevens en wachtwoord
 		$username = $this->input->post("user");
 		$password = $this->input->post("password");
