@@ -33,8 +33,6 @@ class GeneralController extends CI_Controller {
 		$this->load->database();
 		//model
 		$this->load->model('login_model');
-
-
 	}
 
 	public function index()
@@ -44,9 +42,42 @@ class GeneralController extends CI_Controller {
 		$username = $this->input->post("user");
 		$password = $this->input->post("password");
 
-		if($this->input->post() == "Login"){
+		//php validatie
+		$this->form_validation->set_rules("user", "Username", "trim|required");
+		$this->form_validation->set_rules("password", "Password", "trim|required");
 
+		if ($this->form_validation->run() == FALSE)
+		{
+			//mislukte validatie gaat terug naar login
+			$this->load->view('General/login');
 		}
+		else
+		{
+			//validation wel gelukt
+            if($this->input->post() == "Login"){
+                //controlo user en passwoord
+                $user_result = $this->login_model->get_user($username,$password);
+
+                if($user_result > 0)
+                {
+                    //sessie variabelen
+                    $sessiondata = array(
+                        'username' => $username,
+                        'loginuser' => TRUE
+                    );
+                    $this->session->set_userdata($sessiondata);
+                    redirect("User/index");
+                }
+                else {
+                    //laat de gebruiker weten dat het niet klopt
+                    $this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">Invalid username and password!</div>');
+                    redirect('General/login');
+                }
+            } else
+            {
+                redirect("User/index");
+            }
+            }
 
 	}
 }
