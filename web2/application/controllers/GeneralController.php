@@ -44,7 +44,9 @@ class GeneralController extends CI_Controller {
 		$username = $this->input->post("user");
 		$password = $this->input->post("password");
 
-		if($this->input->)
+		if($this->input->post() == "Login"){
+
+		}
 
 	}
 }
