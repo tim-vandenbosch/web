@@ -30,6 +30,7 @@ class GeneralController extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->helper('url');
 		$this->load->helper('html');
+        $this->load->library('form_validation');
 		$this->load->database();
 		//model
 		$this->load->model('login_model');
