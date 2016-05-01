@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class TechnischeDienstController extends CI_Controller {
+class WerkmanController extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -26,7 +26,7 @@ class TechnischeDienstController extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('TechnisheDienst/index');
+		$this->load->view('Werkman/index');
 		$this->load->helper('url');
 		/* $this -> form_validation->set_rules('user','Gebruiker','required');
 		$this -> form_validation->set_rules('password','Wachtwoord','required');
