@@ -11,14 +11,19 @@ class login_model extends CI_Model
     {
         // Call the Model constructor
         parent::__construct();
-        $this->load->database();
     }
 
     //get the username & password from tbl_usrs
-    function get_user($usr, $pwd)
+    function neem_user($usr, $pwd, $active)
     {
-        $sql = "select * from users where username = '" . $usr . "' and password = '" . md5($pwd) . "' and active = '1'";
+        /*$sql = "select * from users where username = '" . $usr . "' and password = '" . md5($pwd) . "' and active = '1'";
         $query = $this->db->query($sql);
-        return $query->num_rows();
+        return $query->num_rows();*/
+
+        $this->db->select('*');
+        $this->db->from('users');
+        //toekennnen variabelen
+        $this->db->where('email',$usr);
+        $this->db->where('pws',$pwd);
     }
 }?>
