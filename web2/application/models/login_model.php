@@ -25,5 +25,8 @@ class login_model extends CI_Model
         //toekennnen variabelen
         $this->db->where('email',$usr);
         $this->db->where('pws',$pwd);
+        $this->db->where('active',$active);
+        $query = $this->db->get();
+        return $query->num_rows();
     }
 }?>
