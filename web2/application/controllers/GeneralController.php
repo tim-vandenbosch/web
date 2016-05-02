@@ -36,7 +36,7 @@ class GeneralController extends CI_Controller {
 		//model
 		$this->load->model('login_model');
 	}
-
+/*
 	public function index()
 	{
         //krijg de ingegeven logingegevens en wachtwoord
@@ -82,4 +82,5 @@ class GeneralController extends CI_Controller {
             }
 
 	}
+*/
 }
