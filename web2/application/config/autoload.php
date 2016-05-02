@@ -58,7 +58,13 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array();
+/*
+ * Gebruiker: Britt
+ * Datum: 2/05/2016
+ * Bron: http://www.w3programmers.com/making-multi-level-login-system-codeigniter/
+ * Toevoegen array db, sess en form val
+ */
+$autoload['libraries'] = array("database","session","form_validation");
 $autoload['helper'] = array('url');
 
 /*
