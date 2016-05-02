@@ -29,4 +29,12 @@ class login_model extends CI_Model
         $query = $this->db->get();
         return $query->num_rows();
     }
+
+    public function userData($usr){
+        $this->db->select('email');
+        $this->db->select('name');
+        $this->db->where('email',$usr);
+        $query = $this->db->get('user');
+        return $query->row();
+    }
 }?>
