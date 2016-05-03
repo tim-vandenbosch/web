@@ -5,7 +5,7 @@
  */
 // Alleen na login beschikbaar
  //nodig voor de sessie te onthouden (wordt automatisch gestopt na 1 min
-session_start();
+// session_start();
 class Home extends CI_Controller
 {
     function __construct()
