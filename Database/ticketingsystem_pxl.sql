@@ -148,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 -- Gegevens worden geëxporteerd voor tabel `users`
 --
-
+-- ww zijn: 1=admin, 2=pxl, 3=pxl, 4=pxl
 INSERT INTO `users` (`userID`, `email`, `pws`, `rol`, `active`, `salt`) VALUES
 (1, 'admin@pxl.be', '21232f297a57a5a743894a0e4a801fc3', 'Admin', 1, ''),
 (2, 'dis@pxl.be', 'ab642ce62f55b2ca05b4697f3bd7b53a', 'Dispatcher', 1, ''),
