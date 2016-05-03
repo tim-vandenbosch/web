@@ -51,7 +51,7 @@ class GeneralController extends CI_Controller {
 		}
 	}
 	public function login_form(){
-		$this->form_validation->set_rules('username', 'Username', 'required|trim|xss_clean');
+		$this->form_validation->set_rules('user', 'email', 'required|trim|xss_clean');
 		$this->form_validation->set_rules('password', 'Password', 'required|md5|xss_clean');
  		$this->form_validation->set_error_delimiters('<span class="error">', '</span>');
 
