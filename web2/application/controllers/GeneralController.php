@@ -26,61 +26,28 @@ class GeneralController extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->library('session');
-		$this->load->helper('form');
+		// $this->load->library('session');
+		// $this->load->helper('form');
 		$this->load->helper('url');
-		$this->load->helper('html');
-        $this->load->library('form_validation');
-        $this->load->view('General/login');
-		$this->load->database();
+		// $this->load->helper('html');
+        // $this->load->library('form_validation');
+
+		// $this->load->database();
 		//model
 		$this->load->model('login_model');
 	}
-/*
+
+
+
 	public function index()
 	{
-        //krijg de ingegeven logingegevens en wachtwoord
-		$username = $this->input->post("user");
-		$password = $this->input->post("password");
-
-		//php validatie
-		$this->form_validation->set_rules("user", "Username", "trim|required");
-		$this->form_validation->set_rules("password", "Password", "trim|required");
-
-		if ($this->form_validation->run() == FALSE)
-		{
-			//mislukte validatie gaat terug naar login
-            //Deze code wordt al bij login scherm gedaan, zou pas na de knop login moeten gebeuren (de if)
-			//$this->load->view('General/login');
+		$this->load->view('General/login');
+		$session = $this->session->userdata('isLogin');
+		if ($session == FALSE) {
+			redirect('General/login');
+		} else {
+			redirect('home');
 		}
-		else
-		{
-			//validation wel gelukt
-            if($this->input->post() == "Login"){
-                //controlo user en passwoord
-                $user_result = $this->login_model->get_user($username,$password);
-
-                if($user_result > 0)
-                {
-                    //sessie variabelen
-                    $sessiondata = array(
-                        'username' => $username,
-                        'loginuser' => TRUE
-                    );
-                    $this->session->set_userdata($sessiondata);
-                    redirect("User/index");
-                }
-                else {
-                    //laat de gebruiker weten dat het niet klopt
-                    $this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">Invalid username and password!</div>');
-                    redirect('General/login');
-                }
-            } else
-            {
-                redirect("User/index");
-            }
-            }
-
 	}
-*/
+	
 }

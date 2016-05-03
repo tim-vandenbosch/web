@@ -47,10 +47,10 @@
             <input class="form-control" name="user" id="user" type="text" />
         <div class="form-group">
             <label for="password">Wachtwoord: </label>
-            <input class="form-control" name="password" id="password" type="password" /><br>
+            <input class="form-control" name="password" id="password" type="password" value="<?php echo set_value('password');?>"/><br>
         </div>
         <a href="">wachtwoord vergeten?</a><br>
-        <button type="submit" >Inloggen</button>
+        <button type="submit" name="login">Inloggen</button>
     </form>
 </div>
 </body>
