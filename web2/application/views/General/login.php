@@ -44,10 +44,10 @@
     <form class="col-md-12" action="" id="myForm" method="post">
         <div class="form-group">
             <label for="user">Gebruiker: </label>
-            <input class="form-control" name="user" id="user" type="text" />
+            <input class="form-control" name="user" id="user" type="text" value="<?php echo set_value('email'); ?>"/>
         <div class="form-group">
             <label for="password">Wachtwoord: </label>
-            <input class="form-control" name="password" id="password" type="password"/><br>
+            <input class="form-control" name="password" id="password" type="password" value="<?php echo set_value('password'); ?>"/><br>
         </div>
         <a href="">wachtwoord vergeten?</a><br>
         <button type="submit" name="login">Inloggen</button>
