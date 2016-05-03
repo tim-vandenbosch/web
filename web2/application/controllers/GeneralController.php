@@ -30,7 +30,7 @@ class GeneralController extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->helper('url');
 		$this->load->helper('html');
-		$this->load->view('General/login');
+		$this->load->view('User/index');
         // $this->load->library('form_validation');
 
 		// $this->load->database();
@@ -42,11 +42,7 @@ class GeneralController extends CI_Controller {
 
 	public function index()
 	{
-<<<<<<< HEAD
-		/*
-=======
 		//Als gebruiker niet ingelogd is komt de login page boven de home page
->>>>>>> 32c24b0f2908434ad111329f2a9729caf069c833
 		$session = $this->session->userdata('isLogin');
 		if ($session == FALSE) {
 			redirect('General/login');
@@ -54,7 +50,6 @@ class GeneralController extends CI_Controller {
 			// General login aanpassen naar werkende view SOON
 			redirect('General/login');
 		}
-		*/
 	}
 	
 	public function login_form(){
