@@ -47,6 +47,7 @@ class GeneralController extends CI_Controller {
 		if ($session == FALSE) {
 			redirect('General/login');
 		} else {
+			// General login aanpassen naar werkende view SOON
 			redirect('General/login');
 		}
 	}
