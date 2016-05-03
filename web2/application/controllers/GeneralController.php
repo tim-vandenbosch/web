@@ -47,24 +47,25 @@ class GeneralController extends CI_Controller {
 		if ($session == FALSE) {
 			redirect('General/login');
 		} else {
-			redirect('home');
+			redirect('General/login');
 		}
 	}
 	public function login_form(){
 		$this->form_validation->set_rules('user', 'email', 'required|trim|xss_clean');
 		$this->form_validation->set_rules('password', 'Password', 'required|md5|xss_clean');
- 		$this->form_validation->set_error_delimiters('<span class="error">', '</span>');
+ 		// $this->form_validation->set_error_delimiters('<span class="error">', '</span>');
 
 		if($this->form_validation->run()==FALSE){
 			$this->load->view->view("General/login");
 		} else{
 			$username = $this->input->post('user');
-			$password = $this->input->post('pwd');
+			$password = $this->input->post('password');
 			$cek = $this->login_model->neem_user($username,$password,1);
 			if ($cek <> 0){
 				$this->session->set_userdata('isLogin',TRUE);
 				$this->session->set_userdata('username',$username);
-				redirect('User/index');
+				// General login aanpassen naar werkende view SOON
+				redirect('General/login');
 			}else{
 				?>
 				<script>
