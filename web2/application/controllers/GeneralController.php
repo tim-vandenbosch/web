@@ -47,8 +47,7 @@ class GeneralController extends CI_Controller {
 		if ($session == FALSE) {
 			redirect('General/login');
 		} else {
-			// General login aanpassen naar werkende view SOON
-			redirect('General/login');
+			redirect('User/index');
 		}
 	}
 	
@@ -66,8 +65,7 @@ class GeneralController extends CI_Controller {
 			if ($cek <> 0){
 				$this->session->set_userdata('isLogin',TRUE);
 				$this->session->set_userdata('username',$username);
-				// General login aanpassen naar werkende view SOON
-				redirect('General/login');
+				redirect('User/index');
 			}else{
 				?>
 				<script>
