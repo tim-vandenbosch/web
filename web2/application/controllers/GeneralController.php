@@ -27,9 +27,10 @@ class GeneralController extends CI_Controller {
 	{
 		parent::__construct();
 		// $this->load->library('session');
-		// $this->load->helper('form');
+		$this->load->helper('form');
 		$this->load->helper('url');
-		// $this->load->helper('html');
+		$this->load->helper('html');
+		$this->load->view('General/login');
         // $this->load->library('form_validation');
 
 		// $this->load->database();
@@ -41,7 +42,7 @@ class GeneralController extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('General/login');
+
 		$session = $this->session->userdata('isLogin');
 		if ($session == FALSE) {
 			redirect('General/login');
