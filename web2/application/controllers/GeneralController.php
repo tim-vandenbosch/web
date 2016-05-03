@@ -42,7 +42,7 @@ class GeneralController extends CI_Controller {
 
 	public function index()
 	{
-
+		//Als gebruiker niet ingelogd is komt de login page boven de home page
 		$session = $this->session->userdata('isLogin');
 		if ($session == FALSE) {
 			redirect('General/login');
