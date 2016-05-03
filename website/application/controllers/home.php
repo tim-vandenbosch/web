@@ -29,7 +29,7 @@ class Home extends CI_Controller
     }
     function logout()
     {
-        $this->session->unset_userdate('logged_in');
+        $this->session->unset_userdata('logged_in');
         session_destroy();
         redirect('home','refresh');
     }
