@@ -42,14 +42,16 @@ class GeneralController extends CI_Controller {
 
 	public function index()
 	{
-
+		/*
 		$session = $this->session->userdata('isLogin');
 		if ($session == FALSE) {
 			redirect('General/login');
 		} else {
 			redirect('home');
 		}
+		*/
 	}
+	
 	public function login_form(){
 		$this->form_validation->set_rules('username', 'Username', 'required|trim|xss_clean');
 		$this->form_validation->set_rules('password', 'Password', 'required|md5|xss_clean');
