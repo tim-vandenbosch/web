@@ -64,7 +64,7 @@ $autoload['packages'] = array();
  * Bron: http://www.w3programmers.com/making-multi-level-login-system-codeigniter/
  * Toevoegen array db, sess en form val
  */
-$autoload['libraries'] = array("database","session","form_validation");
+$autoload['libraries'] = array("database","session");
 $autoload['helper'] = array('url');
 
 /*
@@ -96,6 +96,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
+$autoload['libraries']=array('database','session');
 $autoload['helper'] = array('url');
 //$autoload['helper'] = array('url','utility');
 
