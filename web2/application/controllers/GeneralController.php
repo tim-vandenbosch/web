@@ -49,5 +49,29 @@ class GeneralController extends CI_Controller {
 			redirect('home');
 		}
 	}
-	
+	public function login_form(){
+		$this->form_validation->set_rules('username', 'Username', 'required|trim|xss_clean');
+		$this->form_validation->set_rules('password', 'Password', 'required|md5|xss_clean');
+ 		$this->form_validation->set_error_delimiters('<span class="error">', '</span>');
+
+		if($this->form_validation->run()==FALSE){
+			$this->load->view->view("General/login");
+		} else{
+			$username = $this->input->post('user');
+			$password = $this->input->post('pwd');
+			$cek = $this->login_model->neem_user($username,$password,1);
+			if ($cek <> 0){
+				$this->session->set_userdata('isLogin',TRUE);
+				$this->session->set_userdata('username',$username);
+				redirect('User/index');
+			}else{
+				?>
+				<script>
+					alert('Login niet correct, controleer je email en je passwoord');
+					history.go(-1);
+				</script>
+				<?php
+			}
+		}
+	}
 }
