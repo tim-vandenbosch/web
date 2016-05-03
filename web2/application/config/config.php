@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 //$config['base_url'] = '';
 // $this->load->helper('url');
-$config['base_url']	= 'http://ticket';
+$config['base_url']	= 'http://localhost/project/web/web2';
 
 /*
 |--------------------------------------------------------------------------
