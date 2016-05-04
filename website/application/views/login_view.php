@@ -58,3 +58,9 @@
     </div>
     </body>
 </html>
+
+<!-- 
+    BRONVERMELDING:
+        Deze volledige login is gebaseerd op de login van:
+            http://www.iluv2code.com/login-with-codeigniter-php.html
+-->
