@@ -26,5 +26,4 @@ echo "
         
     </body>
 </html>
-"
 ?>

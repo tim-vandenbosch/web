@@ -7,7 +7,7 @@ Class User extends CI_Model
 {
     function login($email,$password)
     {
-        $this->db->select('userID, email, pws');
+        $this->db->select('userID, email, pws, rol');
         $this->db->from('users');
         $this->db->where('email',$email);
         $this->db->where('pws',MD5($password));
