@@ -19,7 +19,22 @@ class Home extends CI_Controller
         {
             $session_data = $this->session->userdata('logged_in');
             $data['email']=$session_data['email'];
-            $this->load->view('home_view',$data);
+            //Hier komt de pagina
+            $this->load->view('user_view',$data);
+            /* code onafgewerkt
+            switch (rol) {
+                case 'Admin':
+                    $this->load->view('admin_view');
+                    break;
+                case 'Werkman':
+                    break;
+                case 'Dispatcher':
+                    break;
+                case'Docent':
+                    break;
+                default:
+                    break;
+            } */
         }
         else
         {

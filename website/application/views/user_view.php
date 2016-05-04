@@ -8,10 +8,8 @@
 <html>
 <head>
     <title>User ticket</title>
-    <!--   <link href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <link href="<?php echo base_url();?>/assets/bootstrap/css/customStyle.css" rel="stylesheet"/> -->
-    <?= link_tag('assets/bootstrap/css/bootstrap.css"') ?>
-    <?= link_tag('assets/bootstrap/css/customStyle.css"') ?>
+    <link href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo base_url();?>/assets/bootstrap/css/customStyle.css" rel="stylesheet"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
