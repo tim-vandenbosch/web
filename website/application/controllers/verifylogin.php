@@ -26,7 +26,7 @@ class Verifylogin extends CI_Controller
             redirect('home','refresh');
         }
     }
-
+    
     function check_database($password)
     {
         $email = $this->input->post('email');
