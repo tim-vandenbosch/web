@@ -28,7 +28,7 @@ Class User extends CI_Model
 
     function neem_rol($email)
     {
-        $this->db->selec('email, rol');
+        $this->db->select('rol');
         $this->db->from('users');
         $this->db->where('email', $email);
         $this->db->limit(1);

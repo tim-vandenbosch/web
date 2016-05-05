@@ -11,6 +11,7 @@ class Home extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        $this->load->model('user','',TRUE);
     }
 
     function index()
@@ -20,7 +21,29 @@ class Home extends CI_Controller
             $session_data = $this->session->userdata('logged_in');
             $data['email']=$session_data['email'];
             //Hier komt de pagina
-            $this->load->view('user_view',$data);
+            // Deze werkt wel
+            //$this->load->view('user_view',$data);
+            $email1 = $this->input->post('email');
+            $rol = $this->user->neem_rol('email');
+            //switch werkt niet
+            switch ($rol)
+            {
+                case "Admin":
+                    $this->load->view('admin_view',$data);
+                    break;
+                case "Dispatcher":
+                    $this->load->view('dispatcher_view',$data);
+                    break;
+                case "Docent":
+                    $this->load->view('user_view',$data);
+                    break;
+                case "Werkman":
+                    $this->load->view('werkman_view',$data);
+                    break;
+                default:
+                    $this->load->view('home_view',$data);
+                    break;
+            }
             /* code onafgewerkt
             switch (rol) {
                 case 'Admin':
