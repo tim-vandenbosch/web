@@ -15,8 +15,8 @@ Class Ticket extends CI_Model{
 
         $query = $this -> db -> get();
 
-        // Als er geen tickets gevonden worden in de db
-        if($query -> num_rows() == 1)
+        // Als er tickets gevonden worden in de db
+        if($query -> num_rows() >= 1)
         {
             return $query->result();
         }
