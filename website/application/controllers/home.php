@@ -20,7 +20,7 @@ class Home extends CI_Controller
         if ($this->session->userdata('logged_in')) {
             $session_data = $this->session->userdata('logged_in');
             $data['userID'] = $session_data['userID'];
-            $userID = $session_data['userId'];
+            $userID = $session_data['userID'];
             //Hier komt de pagina
             // Deze werkt wel
             //$this->load->view('user_view',$data);
