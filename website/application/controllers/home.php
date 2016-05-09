@@ -28,6 +28,7 @@ class Home extends CI_Controller
             //switch werkt niet
             switch ($rol)
             {
+                //voert enkel eerste uit maar niet meer default 
                 case 0:
                     $this->load->view('admin_view',$data);
                     break;
@@ -40,7 +41,6 @@ class Home extends CI_Controller
                 case 3:
                     $this->load->view('werkman_view',$data);
                     break;
-                // Voert enkel default uit ? Raar
                 default:
                     $this->load->view('home_view',$data);
                     break;
