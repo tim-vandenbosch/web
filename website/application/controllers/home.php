@@ -11,38 +11,40 @@ class Home extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('user','',TRUE);
+        $this->load->model('user', '', TRUE);
+        $this->load->model('ticket', '', TRUE);
     }
 
     function index()
     {
-        if($this->session->userdata('logged_in'))
-        {
+        if ($this->session->userdata('logged_in')) {
             $session_data = $this->session->userdata('logged_in');
-            $data['email']=$session_data['email'];
+            $data['userID'] = $session_data['userID'];
+            $userID = $session_data['userId'];
             //Hier komt de pagina
             // Deze werkt wel
             //$this->load->view('user_view',$data);
-            $email1 = $this->input->post('email');
-            $rol = $this->user->neem_rol('email');
+            //$email1 = $this->input->post('userID');
+            $rol = $this->user->neem_rol('userID');
             //switch werkt niet
-            switch ($rol)
-            {
+            switch ($rol) {
                 //voert enkel eerste uit maar niet meer default 
                 case 0:
-                    $this->load->view('admin_view',$data);
+                    $this->load->view('admin_view', $data);
                     break;
                 case 1:
-                    $this->load->view('dispatcher_view',$data);
+                    $this->load->view('dispatcher_view', $data);
                     break;
                 case 2:
-                    $this->load->view('user_view',$data);
+                    $data = array('userID' => $session_data['userID'],
+                        'tickets' => $this->ticket->getUserTickets($userID));
+                    $this->load->view('user_view', $data);
                     break;
                 case 3:
-                    $this->load->view('werkman_view',$data);
+                    $this->load->view('werkman_view', $data);
                     break;
                 default:
-                    $this->load->view('home_view',$data);
+                    $this->load->view('home_view', $data);
                     break;
             }
             /* code onafgewerkt
@@ -59,17 +61,16 @@ class Home extends CI_Controller
                 default:
                     break;
             } */
-        }
-        else
-        {
+        } else {
             // Als sessie niet bestaat of verlopen is
-            redirect('login','refresh');
+            redirect('login', 'refresh');
         }
     }
+
     function logout()
     {
         $this->session->unset_userdata('logged_in');
         session_destroy();
-        redirect('home','refresh');
+        redirect('home', 'refresh');
     }
 }

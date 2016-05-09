@@ -41,8 +41,23 @@
             <div>LALALALALA tekst</div>
         </div>
         <div class="row">
-            <div class="col-md-12 center">
-                <!--hier moet de table komen-->
+            < class="col-md-12 center">
+                    <?php if(count($tickets)>0):?>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th><?php echo implode('</th><th>',array_keys(current($tickets)));?></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($tickets as $row):array_map('htmlentities',$row);?>
+                            <tr>
+                                <td><?php echo implode('</td><td>',$row);?></td>
+                            </tr>
+                            <?php endforeach;?>
+                        </tbody>
+                    </table>
+                    <?php endif; ?>
             </div>
         </div>
         <div class="row">

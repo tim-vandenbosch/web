@@ -7,13 +7,9 @@
  */
 Class Ticket extends CI_Model{
 
-    function getTicketArray($userID){
+    function getUserTickets($userId){
 
-        $this -> db -> select('*');
-        $this -> db -> from('tickets');
-        $this -> db -> where('aanmaker',$userID);
-
-        $query = $this -> db -> get();
+        $query = $this -> db -> get_where('tickets',array('aanmaker'=>$userId));
 
         // Als er tickets gevonden worden in de db
         if($query -> num_rows() >= 1)
