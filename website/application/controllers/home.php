@@ -28,7 +28,7 @@ class Home extends CI_Controller
             switch ($rol) {
                 case 0:
                     $data = array('userID' => $session_data['userID'],
-                        'tickets' => $this->ticket_model->getUserTickets($userID));
+                        'tickets' => $this->ticket_model->getUserTickets($userID), $rol);
                     $this->load->view('user_view', $data);
                     break;
                 case 1:
