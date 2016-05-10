@@ -42,30 +42,38 @@
         </div>
         <div class="row">
             <div class="col-md-12 center">
-                    <?php if(count($tickets)>0): ?>
+                    <?php if(count($tickets)>0){ ?>
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th><td>lekker zelf doen</td></th>
+                                <th>ID</th>
+                                <th>Onderwerp</th>
+                                <th>Prioriteit</th>
+                                <th>Type</th>
+                                <th>Campus</th>
+                                <th>Blok</th>
+                                <th>lokaalNr</th>
+                                <th>Herstellings datum</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach($tickets as $ticket):?>
-                            <tr>
-                                <td> <?= htmlentities($ticket ->ticketID,ENT_QUOTES,'UTF-8');?></td>
-                                <td> <?= htmlentities($ticket ->onderwerp,ENT_QUOTES,'UTF-8');?></td>
-                                <td> <?= htmlentities($ticket ->prioriteit,ENT_QUOTES,'UTF-8');?></td>
-                                <td> <?= htmlentities($ticket ->type,ENT_QUOTES,'UTF-8');?></td>
-                                <td> <?= htmlentities($ticket ->campusID,ENT_QUOTES,'UTF-8');?></td>
-                                <td> <?= htmlentities($ticket ->BlokID,ENT_QUOTES,'UTF-8');?></td>
-                                <td> <?= htmlentities($ticket ->lokaalNummer,ENT_QUOTES,'UTF-8');?></td>
-                                <td> <?= htmlentities($ticket ->herstellingDatum,ENT_QUOTES,'UTF-8');?></td>
-                                <td> <?= htmlentities($ticket ->status,ENT_QUOTES,'UTF-8');?></td>
-                            </tr>
+                                <tr>
+                                    <td> <?= htmlentities($ticket ->ticketID,ENT_QUOTES,'UTF-8');?></td>
+                                    <td> <?= htmlentities($ticket ->onderwerp,ENT_QUOTES,'UTF-8');?></td>
+                                    <td> <?= htmlentities($ticket ->prioriteit,ENT_QUOTES,'UTF-8');?></td>
+                                    <td> <?= htmlentities($ticket ->type,ENT_QUOTES,'UTF-8');?></td>
+                                    <td> <?= htmlentities($ticket ->campusID,ENT_QUOTES,'UTF-8');?></td>
+                                    <td> <?= htmlentities($ticket ->blokID,ENT_QUOTES,'UTF-8');?></td>
+                                    <td> <?= htmlentities($ticket ->lokaalNummer,ENT_QUOTES,'UTF-8');?></td>
+                                    <td> <?= htmlentities($ticket ->herstellingDatum,ENT_QUOTES,'UTF-8');?></td>
+                                    <td> <?= htmlentities($ticket ->status,ENT_QUOTES,'UTF-8');?></td>
+                                </tr>
                             <?php endforeach;?>
                         </tbody>
                     </table>
-                    <?php endif;  ?>
+                    <?php }?>
             </div>
         </div>
         <div class="row">
