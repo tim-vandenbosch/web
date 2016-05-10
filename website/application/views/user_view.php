@@ -20,9 +20,9 @@
     <nav class="nav">
         <ul class="nav navbar-nav navbar-style">
             <li class="active"><a href="TemplateHome.html">Overzicht</a></li>
-            <li><a href="#">Nieuw Ticket</a></li>
-            <li><a href="#">Profiel</a></li>
-            <li><a href="#">Afmelden</a></li>
+            <li><a><?php anchor(site_url(array('newTicket_controller','index')),'Nieuw ticket');?></a></li>
+            <li><a><?php anchor(site_url('profiel_controller','index'),'Profiel');?></a></li>
+            <li><a><?php /*exit*/ ?></a></li>
         </ul>
     </nav>
     <div class="col-md-2"></div>
