@@ -13,8 +13,3 @@
     <div class="col-md-2"></div>
 </header>
 
-<div class="row">
-    <div class="col-md-8 col-md-offset-2 titel">
-        <h1>Overzicht</h1>
-    </div>
-</div>

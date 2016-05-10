@@ -1,7 +1,9 @@
-
+<div class="row">
+    <div class="col-md-8 col-md-offset-2 titel">
+        <h1>Overzicht tickets</h1>
+    </div>
+</div>
 <div class="col-md-8 col-md-offset-2 main home ">
-    <h2>Condensed Table</h2>
-
 
     <table class="table table-condensed">
         <thead>
@@ -21,5 +23,4 @@
 
         </tbody>
     </table>
-
 </div>

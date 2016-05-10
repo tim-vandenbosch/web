@@ -24,8 +24,6 @@ class Werkman extends CI_Controller
             $data['aanmaakDatum']=$row->datum;
             $data['type']=$row->type;
         }
-        //$this->load->view('user_view');
-
 
         $this->load->view('header');
         $this->load->view('navigation');
