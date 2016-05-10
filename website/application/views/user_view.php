@@ -41,8 +41,8 @@
             <div>LALALALALA tekst</div>
         </div>
         <div class="row">
-            <class="col-md-12 center">
-                    <?php/** if(count($tickets)>0):**/ ?>
+            <div class="col-md-12 center">
+                    <?php if(count($tickets)>0): ?>
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -65,7 +65,7 @@
                             <?php endforeach;?>
                         </tbody>
                     </table>
-                    <?php/* endif;*/ ?>
+                    <?php endif;  ?>
             </div>
         </div>
         <div class="row">
