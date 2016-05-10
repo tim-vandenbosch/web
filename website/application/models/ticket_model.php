@@ -5,11 +5,11 @@
  * Date: 09/05/2016
  * Time: 09:48
  */
-Class Ticket extends CI_Model{
+Class Ticket_model extends CI_Model{
 
     function getUserTickets($userID){
 
-        $this -> db -> select('ticketID,onderwerp,prioriteit,type,campusID,blokID,lokaalNummer,herstellingsDatum,status');
+        $this -> db -> select('ticketID,onderwerp,prioriteit,type,campusID,blokID,lokaalNummer,herstellingDatum,status');
         $this -> db -> from('tickets');
         $this -> db -> where('aanmaker',$userID);
 

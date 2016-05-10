@@ -11,8 +11,8 @@ class Home extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('user', '', TRUE);
-        $this->load->model('ticket', '', TRUE);
+        $this->load->model('user_model', '', TRUE);
+        $this->load->model('ticket_model', '', TRUE);
     }
 
     function index()
@@ -21,11 +21,12 @@ class Home extends CI_Controller
             $session_data = $this->session->userdata('logged_in');
             $data['userID'] = $session_data['userID'];
             $userID = $session_data['userID'];
+
             //Hier komt de pagina
             // Deze werkt wel
             //$this->load->view('user_view',$data);
             //$email1 = $this->input->post('userID');
-            $rol = $this->user->neem_rol('userID');
+            $rol = $this->user_model->neem_rol('userID');
 
             /*if ($rol == "Admin")
             {
@@ -48,14 +49,15 @@ class Home extends CI_Controller
             switch ($rol) {
                 //voert enkel eerste uit maar niet meer default 
                 case 0:
+                    $data = array('userID' => $session_data['userID'],
+                        'tickets' => $this->ticket_model->getUserTickets($userID));
                     $this->load->view('user_view', $data);
                     break;
                 case 1:
                     $this->load->view('dispatcher_view', $data);
                     break;
                 case 2:
-                    $data = array('userID' => $session_data['userID'],
-                        'tickets' => $this->ticket->getUserTickets($userID));
+
                     $this->load->view('user_view', $data);
                     break;
                 case 3:

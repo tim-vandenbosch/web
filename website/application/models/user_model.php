@@ -3,7 +3,7 @@
  * User: britt & Tim
  * Date: 3/05/2016
  */
-Class User extends CI_Model
+Class User_model extends CI_Model
 {
     function login($email,$password)
     {

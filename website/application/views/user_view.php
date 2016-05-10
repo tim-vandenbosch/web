@@ -41,23 +41,31 @@
             <div>LALALALALA tekst</div>
         </div>
         <div class="row">
-            < class="col-md-12 center">
-                    <?php if(count($tickets)>0):?>
+            <class="col-md-12 center">
+                    <?php/** if(count($tickets)>0):**/ ?>
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th><?php echo implode('</th><th>',array_keys(current($tickets)));?></th>
+                                <th><td>lekker zelf doen</td></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($tickets as $row):array_map('htmlentities',$row);?>
+                            <?php foreach($tickets as $ticket):?>
                             <tr>
-                                <td><?php echo implode('</td><td>',$row);?></td>
+                                <td> <?= htmlentities($ticket ->ticketID,ENT_QUOTES,'UTF-8');?></td>
+                                <td> <?= htmlentities($ticket ->onderwerp,ENT_QUOTES,'UTF-8');?></td>
+                                <td> <?= htmlentities($ticket ->prioriteit,ENT_QUOTES,'UTF-8');?></td>
+                                <td> <?= htmlentities($ticket ->type,ENT_QUOTES,'UTF-8');?></td>
+                                <td> <?= htmlentities($ticket ->campusID,ENT_QUOTES,'UTF-8');?></td>
+                                <td> <?= htmlentities($ticket ->BlokID,ENT_QUOTES,'UTF-8');?></td>
+                                <td> <?= htmlentities($ticket ->lokaalNummer,ENT_QUOTES,'UTF-8');?></td>
+                                <td> <?= htmlentities($ticket ->herstellingDatum,ENT_QUOTES,'UTF-8');?></td>
+                                <td> <?= htmlentities($ticket ->status,ENT_QUOTES,'UTF-8');?></td>
                             </tr>
                             <?php endforeach;?>
                         </tbody>
                     </table>
-                    <?php endif; ?>
+                    <?php/* endif;*/ ?>
             </div>
         </div>
         <div class="row">
