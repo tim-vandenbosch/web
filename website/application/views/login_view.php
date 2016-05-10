@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
-    <?= link_tag('/assets/bootstrap/css/bootstrap.css') ?>
-    <?= link_tag('/assets/bootstrap/css/customStyle.css') ?>
+    <?php echo link_tag('/assets/bootstrap/css/bootstrap.css') ?>
+    <?php echo link_tag('/assets/bootstrap/css/customStyle.css') ?>
 
     <title>Tickets Login</title>
     <meta charset="UTF-8">
