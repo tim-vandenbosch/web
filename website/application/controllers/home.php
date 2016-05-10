@@ -26,6 +26,24 @@ class Home extends CI_Controller
             //$this->load->view('user_view',$data);
             //$email1 = $this->input->post('userID');
             $rol = $this->user->neem_rol('userID');
+
+            /*if ($rol == "Admin")
+            {
+                $nummer = 0;
+            }
+            elseif ($rol == "Dispatcher")
+            {
+                $nummer = 1;
+            }
+            elseif ($rol == "Docent")
+            {
+                $nummer = 2;
+            }
+            elseif ($rol == "Werkman")
+            {
+                $nummer = 3;
+            }
+            */
             //switch werkt niet
             switch ($rol) {
                 //voert enkel eerste uit maar niet meer default 
