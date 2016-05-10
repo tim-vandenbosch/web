@@ -74,11 +74,9 @@ and open the template in the editor.
 }
 .home .left,.right{
     height: 100px;
-    border: 1px black solid;
 }
 .home .center{
     height: 400px;
-    border: 1px black solid;
 }
 .scrollbox{
     overflow: auto;
