@@ -38,7 +38,7 @@ Class User_model extends CI_Model
         // Als de gebruiker gevonden wordt in de db
         if($query -> num_rows() == 1)
         {
-            return $query->result();
+            return $query->row()->rol;
         }
         else
         {

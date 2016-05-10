@@ -27,7 +27,6 @@ class Home extends CI_Controller
             //$this->load->view('user_view',$data);
             //$email1 = $this->input->post('userID');
             $rol = $this->user_model->neem_rol('userID');
-
             /*if ($rol == "Admin")
             {
                 $nummer = 0;
