@@ -48,7 +48,7 @@ class Home extends CI_Controller
             switch ($rol) {
                 //voert enkel eerste uit maar niet meer default 
                 case 0:
-                    $this->load->view('admin_view', $data);
+                    $this->load->view('user_view', $data);
                     break;
                 case 1:
                     $this->load->view('dispatcher_view', $data);
