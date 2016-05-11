@@ -8,8 +8,8 @@
 <html>
 <head>
     <title>User ticket</title>
-    <link href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-    <link href="<?php echo base_url();?>/assets/bootstrap/css/customStyle.css" rel="stylesheet"/>
+    <?= link_tag('/assets/bootstrap/css/bootstrap.css') ?>
+    <?= link_tag('/assets/bootstrap/css/customStyle.css') ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -20,9 +20,9 @@
     <nav class="nav">
         <ul class="nav navbar-nav navbar-style">
             <li class="active"><a href="TemplateHome.html">Overzicht</a></li>
-            <li><a href="#">Nieuw Ticket</a></li>
-            <li><a href="#">Profiel</a></li>
-            <li><a href="#">Afmelden</a></li>
+            <li><a><?php anchor(site_url(array('newTicket_controller','index')),'Nieuw ticket');?></a></li>
+            <li><a><?php anchor(site_url('profiel_controller','index'),'Profiel');?></a></li>
+            <li><a><?php /*exit*/ ?></a></li>
         </ul>
     </nav>
     <div class="col-md-2"></div>
@@ -42,7 +42,38 @@
         </div>
         <div class="row">
             <div class="col-md-12 center">
-                <!--hier moet de table komen-->
+                    <?php if(count($tickets)>0){ ?>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Onderwerp</th>
+                                <th>Prioriteit</th>
+                                <th>Type</th>
+                                <th>Campus</th>
+                                <th>Blok</th>
+                                <th>lokaalNr</th>
+                                <th>Herstellings datum</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($tickets as $ticket):?>
+                                <tr>
+                                    <td> <?= htmlentities($ticket ->ticketID,ENT_QUOTES,'UTF-8');?></td>
+                                    <td> <?= htmlentities($ticket ->onderwerp,ENT_QUOTES,'UTF-8');?></td>
+                                    <td> <?= htmlentities($ticket ->prioriteit,ENT_QUOTES,'UTF-8');?></td>
+                                    <td> <?= htmlentities($ticket ->type,ENT_QUOTES,'UTF-8');?></td>
+                                    <td> <?= htmlentities($ticket ->campusID,ENT_QUOTES,'UTF-8');?></td>
+                                    <td> <?= htmlentities($ticket ->blokID,ENT_QUOTES,'UTF-8');?></td>
+                                    <td> <?= htmlentities($ticket ->lokaalNummer,ENT_QUOTES,'UTF-8');?></td>
+                                    <td> <?= htmlentities($ticket ->herstellingDatum,ENT_QUOTES,'UTF-8');?></td>
+                                    <td> <?= htmlentities($ticket ->status,ENT_QUOTES,'UTF-8');?></td>
+                                </tr>
+                            <?php endforeach;?>
+                        </tbody>
+                    </table>
+                    <?php }?>
             </div>
         </div>
         <div class="row">

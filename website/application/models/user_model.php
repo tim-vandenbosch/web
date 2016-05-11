@@ -3,7 +3,7 @@
  * User: britt & Tim
  * Date: 3/05/2016
  */
-Class User extends CI_Model
+Class User_model extends CI_Model
 {
     function login($email,$password)
     {
@@ -38,7 +38,7 @@ Class User extends CI_Model
         // Als de gebruiker gevonden wordt in de db
         if($query -> num_rows() == 1)
         {
-            return $query->result();
+            return $query->row()->rol;
         }
         else
         {

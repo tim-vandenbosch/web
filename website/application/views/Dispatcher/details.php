@@ -18,14 +18,14 @@
     <div class="form-group">
         <label for="sel1">Selecteer een status</label>
         <select class="form-control" id="satus" name="satus">
-            <?php
-            foreach( $datastat as $stat)
+      <!--      --><?php
+/*            foreach( $datastat as $stat)
             {
 
                 <option>$stat</option>
 
             }
-            ?>
+            */?>
         </select>
     </div>
     <button type="submit" class="btn btn-default">Submit</button>

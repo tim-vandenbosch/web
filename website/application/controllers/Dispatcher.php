@@ -3,10 +3,10 @@
 /**
  * Created by PhpStorm.
  * User: DanielaCarmelina
- * Date: 4/05/2016
- * Time: 14:10
+ * Date: 10/05/2016
+ * Time: 12:32
  */
-class Dispatcher extends CI_Controller
+class Dispatcher  extends CI_Controller
 {
     function __construct() {
         parent::__construct();
@@ -14,8 +14,13 @@ class Dispatcher extends CI_Controller
         $this->load->model('ticket_model');
     }
 
-    function index(){
+    function settings(){
 
+        $this->load->view('Dispatcher/settings');
+
+    }
+    public function index()
+    {
         $query = $this->db->query("SELECT * FROM tickets");
         foreach ($query->result() as $row)
         {
@@ -32,21 +37,13 @@ class Dispatcher extends CI_Controller
 
         echo count($data);
     }
-
-    function changeTicket(){
-
-        $this->load->view('Dispatcher/changeTicket');
-    }
-
-
-
-    function settings(){
-
-        $this->load->view('Dispatcher/settings');
-
-    }
-
-
+    /*    $query = $this->db->query("SELECT * FROM campussen");
+         foreach ($query->result() as $row) {
+             $data[campusID] = $row->campusID;
+             if (campusIDT == campusID) {
+                 $data['naam'] = $row->naam;
+             }
+         }*/
     public function details()
     {
         /*  $query = $this->db->query("SELECT * FROM tickets");
@@ -59,12 +56,17 @@ class Dispatcher extends CI_Controller
               $data['prioriteit']=$row->prioriteit;
               $data['status']=$row->status;
   //            $data[campusID]=$row->campusIDT;
+
+
           }*/
 //        $data['statussen']->get_enum_values(ticket_model, status);* /
 
         /*unset($arrayStatussen);
         $arrayStatussen = array ();
         $arrayStatussen = get_enum_values(ticket_model, status);*/
+
+
+
         $query = $this->db->query(" SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'tickets' AND COLUMN_NAME = 'status' ");
         foreach ($query->result() as $row) {
             echo $row->COLUMN_TYPE;
@@ -81,7 +83,6 @@ class Dispatcher extends CI_Controller
         $this->load->view('footer');
 
     }
-
     //'Geparkeerd','Afgesloten','In behandeling','Geannuleerd'
 
     /*    function get_enum_values( $table, $field )
@@ -102,10 +103,9 @@ class Dispatcher extends CI_Controller
             //$statussenstap3 = preg_replace(" ' ","",$statussenstap1);
             $statussen  = explode(',', $statussenstap2);
 
-            /*    foreach($statussen as &$stat){
+            /*    foreach($statussen as &$stat){ //om te testen
                     echo "<br>";
                     echo "<br>";
-
                     echo  $stat;
             }*/
 
@@ -137,5 +137,3 @@ class Dispatcher extends CI_Controller
     }
 
 }
-
-?>
