@@ -10,10 +10,12 @@ class newTicket_controller extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        $this->load->model('ticket_model', '', TRUE);
+
     }
 
     function index()
     {
-        $this->load->view('newTicket_view');
+        $this->load->view('newTicket_view',$data=array('test'=>5,'ticketId' =>$this-> ticket_model ->getLastTicketId()));
     }
 }

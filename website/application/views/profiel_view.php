@@ -33,7 +33,7 @@
     <div class="col-md-2"></div>
 </header>
 <div class="col-lg-12 main home">
-   profieeeeelll
+   TODO
 </div>
 </body>
 </html>
