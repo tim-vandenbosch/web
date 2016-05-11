@@ -26,19 +26,21 @@ Class User_model extends CI_Model
         }
     }
 
-    function neem_rol($email)
+    function neem_rol($userID)
     {
         $this->db->select('rol');
         $this->db->from('users');
-        $this->db->where('email', $email);
+        $this->db->where('userID', $userID);
         $this->db->limit(1);
 
         $query = $this->db->get();
+        $result = $query->row();
+        return $result->rol;
 
         // Als de gebruiker gevonden wordt in de db
         if($query -> num_rows() == 1)
         {
-            return $query->row()->rol;
+            return $query->row();
         }
         else
         {

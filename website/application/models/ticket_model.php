@@ -47,6 +47,7 @@ class ticket_model
                 /**return $query = $this->db->get('tickets');**/
         }
 
+<<<<<<< HEAD
         /**
          * function get_content(){
          * $this->db->select('omschrijving');
@@ -56,4 +57,24 @@ class ticket_model
          * return $result = $query->result();
          * }
          * **/
+=======
+    function getLastTicketId(){
+        $this -> db -> select('ticketID');
+        /*$this -> db -> where('ticketID'<999999999999);
+        $this -> db ->limit(1);*/
+
+        $query = $this -> db -> get('tickets');
+
+        // Als er ticket gevonden worden in de db
+        if($query -> num_rows() >=1)
+        {
+            return $query->result();
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+>>>>>>> origin/master
 }

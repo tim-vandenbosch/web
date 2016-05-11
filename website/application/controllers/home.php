@@ -2,6 +2,8 @@
 /**
  * User: britt & Tim
  * Date: 3/05/2016
+ * modified 10/05
+ * User: marnix
  */
 // Alleen na login beschikbaar
  //nodig voor de sessie te onthouden (wordt automatisch gestopt na 1 min
@@ -19,6 +21,7 @@ class Home extends CI_Controller
         if($this->session->userdata('logged_in'))
         {
             $session_data = $this->session->userdata('logged_in');
+<<<<<<< HEAD
             $data['email']=$session_data['email'];
             //Hier komt de pagina
             // Deze werkt wel
@@ -30,6 +33,17 @@ class Home extends CI_Controller
             {
                 case "Admin":
                     $this->load->view('admin_view',$data);
+=======
+            $data['userID'] = $session_data['userID'];
+            $userID = $session_data['userID'];
+            $rol = $this->user_model->neem_rol('userID');
+
+            switch ($rol) {
+                case 0:
+                    $data = array('userID' => $session_data['userID'],
+                        'tickets' => $this->ticket_model->getUserTickets($userID), $rol);
+                    $this->load->view('user_view', $data);
+>>>>>>> origin/master
                     break;
                 case "Dispatcher":
                     $this->load->view('dispatcher_view',$data);
@@ -44,6 +58,7 @@ class Home extends CI_Controller
                     $this->load->view('home_view',$data);
                     break;
             }
+<<<<<<< HEAD
             /* code onafgewerkt
             switch (rol) {
                 case 'Admin':
@@ -61,6 +76,10 @@ class Home extends CI_Controller
         }
         else
         {
+=======
+
+        } else {
+>>>>>>> origin/master
             // Als sessie niet bestaat of verlopen is
             redirect('login','refresh');
         }
