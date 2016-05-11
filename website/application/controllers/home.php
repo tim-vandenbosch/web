@@ -23,29 +23,27 @@ class Home extends CI_Controller
             $session_data = $this->session->userdata('logged_in');
             $data['userID'] = $session_data['userID'];
             $userID = $session_data['userID'];
-            $rol = $this->user_model->neem_rol('userID');
+            $rol = $this->user_model->neem_rol($userID);
 
-            switch ($rol) {
-                case 0:
+            switch ($rol){
+                case "Admin":
                     $data = array('userID' => $session_data['userID'],
                         'tickets' => $this->ticket_model->getUserTickets($userID), $rol);
                     $this->load->view('user_view', $data);
                     break;
-                case 1:
+                case "Dispatcher":
                     $this->load->view('dispatcher_view', $data);
                     break;
-                case 2:
-
+                case "Werkman":
                     $this->load->view('user_view', $data);
                     break;
-                case 3:
+                case "Docent":
                     $this->load->view('werkman_view', $data);
                     break;
                 default:
                     $this->load->view('home_view', $data);
                     break;
             }
-
         } else {
             // Als sessie niet bestaat of verlopen is
             redirect('login', 'refresh');
@@ -57,5 +55,11 @@ class Home extends CI_Controller
         $this->session->unset_userdata('logged_in');
         session_destroy();
         redirect('home', 'refresh');
+    }
+
+    function test(){
+        $rol = $this->user_model->neem_rol(2);
+        echo $rol;
+        var_dump($rol);
     }
 }
