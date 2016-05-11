@@ -57,9 +57,4 @@ class Home extends CI_Controller
         redirect('home', 'refresh');
     }
 
-    function test(){
-        $rol = $this->user_model->neem_rol(2);
-        echo $rol;
-        var_dump($rol);
-    }
 }
