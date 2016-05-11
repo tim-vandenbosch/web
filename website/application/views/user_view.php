@@ -19,10 +19,10 @@
     <img class="col-md-2" src="<?php echo base_url();?>assets/Pictures/Logo_PXL.png" alt="PXL logo"/>
     <nav class="nav">
         <ul class="nav navbar-nav navbar-style">
-            <li class="active"><a href="TemplateHome.html">Overzicht</a></li>
-            <li><a><?php anchor(site_url(array('newTicket_controller','index')),'Nieuw ticket');?></a></li>
-            <li><a><?php anchor(site_url('profiel_controller','index'),'Profiel');?></a></li>
-            <li><a><?php /*exit*/ ?></a></li>
+            <li class="active"><?php echo anchor(array('home','index'),'Overzicht'); ?></li>
+            <li><?php echo anchor(site_url(array('newTicket_controller','index')),'Nieuw ticket');?></li>
+            <li><?php echo anchor(site_url(array('profiel_controller','index')),'Profiel');?></li>
+            <li><?php echo anchor(site_url(array('home','logout')),'Afmelden'); ?></li>
         </ul>
     </nav>
     <div class="col-md-2"></div>
@@ -79,7 +79,7 @@
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <button class="btn-default">
-                    Nieuw Ticket
+                   <?php anchor(site_url(array('newTicket_controller','index')),'Nieuw ticket');?>
                 </button>
             </div>
         </div>
