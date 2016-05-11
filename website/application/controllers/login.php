@@ -16,6 +16,6 @@ class Login extends CI_Controller
         $this->load->helper(array('form'));
 =======
 >>>>>>> origin/master
-        $this->load->view('login_view');*/
+        $this->load->view('login_view');*/  
     }
 }
