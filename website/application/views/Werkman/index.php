@@ -3,24 +3,26 @@
         <h1>Overzicht tickets</h1>
     </div>
 </div>
-<div class="col-md-8 col-md-offset-2 main home ">
 
+<div class="col-md-8 col-md-offset-2 main home ">
+    <?php if(count($tickets)>0){?>
     <table class="table table-condensed">
         <thead>
         <tr>
             <th>Type</th>
             <th>Onderwerp</th>
-            <th>Aanmaak datum</th>
+            <th>Status</th>
         </tr>
         </thead>
         <tbody>
-
+        <?php foreach($tickets as $ticket):?>
         <tr>
-            <td><?php echo $type;?></td>
-            <td><?php echo $onderwerp;?></td>
-            <td><?php echo $aanmaakDatum;?></td>
+            <td> <?= htmlentities($ticket ->type,ENT_QUOTES,'UTF-8');?></td>
+            <td> <?= htmlentities($ticket ->onderwerp,ENT_QUOTES,'UTF-8');?></td>
+            <td> <?= htmlentities($ticket ->status,ENT_QUOTES,'UTF-8');?></td>
         </tr>
-
+        <?php endforeach;?>
         </tbody>
     </table>
+    <?php }?>
 </div>

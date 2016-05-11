@@ -12,9 +12,7 @@ Class Ticket_model extends CI_Model{
         $this -> db -> select('ticketID,onderwerp,prioriteit,type,campusID,blokID,lokaalNummer,herstellingDatum,status');
         $this -> db -> from('tickets');
         $this -> db -> where('aanmaker',$userID);
-
         $query = $this -> db -> get();
-
         // Als er geen tickets gevonden worden in de db
         if($query -> num_rows() == 1)
         {
