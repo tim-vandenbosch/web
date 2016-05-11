@@ -38,7 +38,7 @@
             <h2>Tickets</h2>
         </div>
         <div class="col-md-8 right">
-            <div>LALALALALA tekst</div>
+            <!-- hier kan nog eventuele uitleg over overzicht-->
         </div>
         <div class="row">
             <div class="col-md-12 center">
