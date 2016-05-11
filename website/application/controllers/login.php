@@ -12,10 +12,9 @@ class Login extends CI_Controller
 
     function index()
     {
-<<<<<<< HEAD
+
         $this->load->helper(array('form'));
-=======
->>>>>>> origin/master
+
         $this->load->view('login_view');
     }
 }
