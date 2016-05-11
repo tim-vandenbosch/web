@@ -8,29 +8,6 @@
  */
 class ticket_model
 {
-        var $ticketID = "";
-        var $aanmaker = "";
-        var $onderwerp = "";
-        var $prioriteit = "";
-        var $type = "";
-        var $campusID = "";
-        var $blokID = "";
-        var $lokaalNummer = "";
-        var $datum = "";
-        var $omschrijving = "";
-        var $bijlage = "";
-        var $herstellingDatum;
-        var $deadline = "";
-        var $hersteller = "";
-        var $status = "";
-
-        /*
-        function __construct()
-        {
-            parent::__construct();
-        }
-    */
-
 
         function getAll()
         {
@@ -48,15 +25,25 @@ class ticket_model
         }
 
 
-        /**
-         * function get_content(){
-         * $this->db->select('omschrijving');
-         * $this->db->from('tickets');
-         * $query = $this->db->get();
-         *
-         * return $result = $query->result();
-         * }
-         * **/
+
+    function getTicketArray($userID){
+
+        $this -> db -> select('*');
+        $this -> db -> from('tickets');
+        $this -> db -> where('aanmaker',$userID);
+
+        $query = $this -> db -> get();
+
+        // Als er geen tickets gevonden worden in de db
+        if($query -> num_rows() == 1)
+        {
+            return $query->result();
+        }
+        else
+        {
+            return false;
+        }
+    }
 
     function getLastTicketId(){
         $this -> db -> select_max('ticketID');
