@@ -11,10 +11,16 @@ class ticket_model
 
         function getAll()
         {
-                $query = $this->db->get('tickets');
+            $query = $this->db->get('tickets');
+
+            if($query -> num_rows() >= 1)
+            {
                 return $query->result();
-                return $query->result();
-                return $query->result();
+            }
+            else
+            {
+                return false;
+            }
         }
 
         function getList()
@@ -24,7 +30,23 @@ class ticket_model
                 /**return $query = $this->db->get('tickets');**/
         }
 
+        function getUserTickets($userID){
+        $this -> db -> select('ticketID,onderwerp,prioriteit,type,campusID,blokID,lokaalNummer,herstellingsDatum,status');
+        $this -> db -> from('tickets');
+        $this -> db -> where('aanmaker',$userID);
 
+        $query = $this -> db -> get();
+
+            // Als er geen tickets gevonden worden in de db
+           if($query -> num_rows() == 1)
+            {
+                return $query->result();
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     function getTicketArray($userID){
 
