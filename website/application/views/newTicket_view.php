@@ -32,7 +32,6 @@
         <fieldset>
             <div class="from-group">
                 <label>ID</label>
-                <label id="ticketId" type="number" name="ticketId"><?php echo (string)$ticketId[1]; ?></label>
             </div>
             <div class="from-group">
                 <label for="onderwerp">Onderwerp</label>

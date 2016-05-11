@@ -59,14 +59,12 @@ class ticket_model
          * **/
 =======
     function getLastTicketId(){
-        $this -> db -> select('ticketID');
-        /*$this -> db -> where('ticketID'<999999999999);
-        $this -> db ->limit(1);*/
-
+        $this -> db -> select_max('ticketID');
+        $this -> db -> limit(1);
         $query = $this -> db -> get('tickets');
 
         // Als er ticket gevonden worden in de db
-        if($query -> num_rows() >=1)
+        if($query -> num_rows() ==1)
         {
             return $query->result();
         }

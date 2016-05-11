@@ -16,6 +16,6 @@ class newTicket_controller extends CI_Controller
 
     function index()
     {
-        $this->load->view('newTicket_view',$data=array('test'=>5,'ticketId' =>$this-> ticket_model ->getLastTicketId()));
+        $this->load->view('newTicket_view',$data = array('test'=>5,
     }
 }
