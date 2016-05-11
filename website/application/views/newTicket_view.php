@@ -32,6 +32,7 @@
         <fieldset>
             <div class="from-group">
                 <label>ID</label>
+                <label id="ticketId" name="ticketId"><?php echo $ticket[0]->ticketID+1; ?></label>
             </div>
             <div class="from-group">
                 <label for="onderwerp">Onderwerp</label>
