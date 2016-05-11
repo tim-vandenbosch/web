@@ -1,20 +1,15 @@
 <?php
 /**
  * Gebruiker: Marnix
- * Datum: 11/05/2016
+ * Datum: 26/04/2016
  * Bron: /
  */
-
 ?>
 <html>
 <head>
-    <title>TODO supply a title</title>
+    <title>User ticket</title>
     <?= link_tag('/assets/bootstrap/css/bootstrap.css') ?>
     <?= link_tag('/assets/bootstrap/css/customStyle.css') ?>
-
-    <!--   <link rel="stylesheet" href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.css" type="text/css"/>
-        <link rel="stylesheet" href="<?php echo base_url();?>assets/bootstrap/css/customStyle.css" type="text/css"/>
--->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -25,15 +20,41 @@
     <nav class="nav">
         <ul class="nav navbar-nav navbar-style">
             <li><?php echo anchor(array('home','index'),'Overzicht'); ?></li>
-            <li><?php echo anchor(site_url(array('newTicket_controller','index')),'Nieuw ticket');?></li>
+            <li"><?php echo anchor(site_url(array('newTicket_controller','index')),'Nieuw ticket');?></li>
             <li class="active"><?php echo anchor(site_url(array('profiel_controller','index')),'Profiel');?></li>
             <li><?php echo anchor(site_url(array('home','logout')),'Afmelden'); ?></li>
         </ul>
     </nav>
     <div class="col-md-2"></div>
 </header>
-<div class="col-lg-12 main home">
-   TODO
+<div class="row">
+    <div class="col-md-8 col-md-offset-2 titel">
+        <h1>Nieuw Ticket</h1>
+    </div>
 </div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2 main home ">
+        <div class="col-md-4 left">
+            <h2><!--lefttitle--></h2>
+        </div>
+        <div class="col-md-8 right">
+            <!-- hier kan nog eventuele uitleg over overzicht-->
+        </div>
+        <div class="row">
+            <div class="col-md-12 center">
+                <!--hier invullen-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <button class="btn-default">
+                    <?php echo anchor(site_url(array('newTicket_controller','index')),'Nieuw ticket');?>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 </body>
 </html>
