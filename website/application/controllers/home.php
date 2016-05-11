@@ -30,10 +30,10 @@ class Home extends CI_Controller
                     $this->load->view('admin_view',$data);
                     break;
                 case "Dispatcher":
-                    $this->load->view('dispatcher_view', $data);
+                    $this->load->view('/Dispatcher/index', $data);
                     break;
                 case "Werkman":
-                    $this->load->view('werkman_view', $data);
+                    $this->load->view('/Werkman/index', $data);
                     break;
                 case "Docent":
                     $data = array('userID' => $session_data['userID'],
