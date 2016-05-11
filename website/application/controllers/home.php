@@ -2,6 +2,8 @@
 /**
  * User: britt & Tim
  * Date: 3/05/2016
+ * modified 10/05
+ * User: marnix
  */
 // Alleen na login beschikbaar
  //nodig voor de sessie te onthouden (wordt automatisch gestopt na 1 min
