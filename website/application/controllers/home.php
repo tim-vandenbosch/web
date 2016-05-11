@@ -27,18 +27,18 @@ class Home extends CI_Controller
 
             switch ($rol){
                 case "Admin":
-                    $data = array('userID' => $session_data['userID'],
-                        'tickets' => $this->ticket_model->getUserTickets($userID), $rol);
-                    $this->load->view('user_view', $data);
+                    $this->load->view('admin_view',$data);
                     break;
                 case "Dispatcher":
                     $this->load->view('dispatcher_view', $data);
                     break;
                 case "Werkman":
-                    $this->load->view('user_view', $data);
+                    $this->load->view('werkman_view', $data);
                     break;
                 case "Docent":
-                    $this->load->view('werkman_view', $data);
+                    $data = array('userID' => $session_data['userID'],
+                        'tickets' => $this->ticket_model->getUserTickets($userID), $rol);
+                    $this->load->view('user_view', $data);
                     break;
                 default:
                     $this->load->view('home_view', $data);
