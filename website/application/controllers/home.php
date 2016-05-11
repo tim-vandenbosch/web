@@ -21,32 +21,9 @@ class Home extends CI_Controller
             $session_data = $this->session->userdata('logged_in');
             $data['userID'] = $session_data['userID'];
             $userID = $session_data['userID'];
-
-            //Hier komt de pagina
-            // Deze werkt wel
-            //$this->load->view('user_view',$data);
-            //$email1 = $this->input->post('userID');
             $rol = $this->user_model->neem_rol('userID');
-            /*if ($rol == "Admin")
-            {
-                $nummer = 0;
-            }
-            elseif ($rol == "Dispatcher")
-            {
-                $nummer = 1;
-            }
-            elseif ($rol == "Docent")
-            {
-                $nummer = 2;
-            }
-            elseif ($rol == "Werkman")
-            {
-                $nummer = 3;
-            }
-            */
-            //switch werkt niet
+
             switch ($rol) {
-                //voert enkel eerste uit maar niet meer default 
                 case 0:
                     $data = array('userID' => $session_data['userID'],
                         'tickets' => $this->ticket_model->getUserTickets($userID));
@@ -66,20 +43,7 @@ class Home extends CI_Controller
                     $this->load->view('home_view', $data);
                     break;
             }
-            /* code onafgewerkt
-            switch (rol) {
-                case 'Admin':
-                    $this->load->view('admin_view');
-                    break;
-                case 'Werkman':
-                    break;
-                case 'Dispatcher':
-                    break;
-                case'Docent':
-                    break;
-                default:
-                    break;
-            } */
+
         } else {
             // Als sessie niet bestaat of verlopen is
             redirect('login', 'refresh');
