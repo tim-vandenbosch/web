@@ -32,6 +32,7 @@ class Dispatcher  extends CI_Controller
 //            $data[campusID]=$row->campusIDT;
         }
         $this->load->view('header');
+        $this->load->view('navigation');
         $this->load->view('Dispatcher/index', $data);
         $this->load->view('footer');
 
