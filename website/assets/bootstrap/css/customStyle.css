@@ -22,6 +22,7 @@ and open the template in the editor.
 .hoofding{
     margin-top: 36px; 
     margin-bottom: 12px;
+
 }
 .hoofding h1{
     color: white;
@@ -30,7 +31,8 @@ and open the template in the editor.
 }
 .navbar-style{
     text-transform: uppercase;
-    margin-top: 25px;
+    /*margin-top: 25px;*/
+    padding-top:30px;
     padding-left:350px; 
     font-family: arial;
     font-weight: bold;
@@ -46,6 +48,7 @@ and open the template in the editor.
     height: 50px;
     background-color: black;
     opacity: 0.5;
+    position: absolute;
 }
 .titel h1{
     opacity: 1;
@@ -59,7 +62,6 @@ and open the template in the editor.
 }
 .main{
     background-color: white;
-    border-bottom: solid green 5px;
 }
 .login{
     min-width: 800px;
@@ -69,15 +71,21 @@ and open the template in the editor.
     padding-top: 5%; 
 }
 .home{
-    height: 800px;
+    height: auto;
     padding: 0;
 }
 .home .left,.right{
     height: 100px;
 }
 .home .center{
-    height: 400px;
+    height: auto;
 }
 .scrollbox{
     overflow: auto;
+}
+.footer{
+    background-color: green;
+    position:absolute;
+    bottom:0;
+    height: 15px;
 }

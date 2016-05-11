@@ -1,12 +1,12 @@
-<div class="row">
-    <div class="col-md-8 col-md-offset-2 titel">
+
+    <div class="col-md-7 col-md-offset-2 titel">
         <h1>Overzicht tickets</h1>
-    </div>
+
 </div>
 
-<div class="col-md-8 col-md-offset-2 main home ">
+<div class="col-md-7 col-md-offset-2 main home ">
     <?php if(count($tickets)>0){?>
-    <table class="table table-condensed">
+    <table class="table table-condensed table-responsive"">
         <thead>
         <tr>
             <th>Type</th>
@@ -26,3 +26,4 @@
     </table>
     <?php }?>
 </div>
+
