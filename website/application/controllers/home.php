@@ -32,6 +32,7 @@ class Home extends CI_Controller
                 case "Dispatcher":
                     $data =  array('userID' => $session_data['userID'],
                         'tickets' => $this->ticket_model->getAllTickets());
+//                    $data['campussen'] = $this-> campus_model ->getAllCampussen();
                     $this->load->view('header');
                     $this->load->view('navigation');
                     $this->load->view('/Dispatcher/index', $data);

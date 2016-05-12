@@ -15,4 +15,19 @@ class campus_model
     {
         parent::__construct();
     }
+
+/*    function getAllCampussen(){
+
+        $query = $this -> db -> get('campussen');
+
+        // Als er tickets gevonden worden in de db
+        if($query -> num_rows() >= 1)
+        {
+            return $query->result();
+        }
+        else
+        {
+            return false;
+        }
+    }*/
 }
