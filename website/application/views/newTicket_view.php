@@ -41,28 +41,28 @@
             <!-- hier kan nog eventuele uitleg over overzicht-->
         </div>
         <div class="row">
-            <div class="col-md-12 center">
-                <form class="form-inline" role="form">
+            <div class="col-md-8 col-md-offset-2 center ">
+                <form class="" role="form">
                     <fieldset>
-                        <div class="from-group">
-                            <label>ID</label>
-                            <label id="ticketId" name="ticketId"><?php echo $ticket+1; ?></label>
+                        <div class="from-group row">
+                            <label class="">ID</label>
+                            <label class="" id="ticketId" name="ticketId"><?php echo $ticket+1; ?></label>
                         </div>
-                        <div class="from-group">
-                            <label for="onderwerp">Onderwerp</label>
-                            <input class="form-control" type="text" name="onderwerp" id="onderwerp"/>
+                        <div class="from-group row">
+                            <label class="" for="onderwerp">Onderwerp</label>
+                            <input class="form-control " type="text" name="onderwerp" id="onderwerp"/>
                         </div>
-                        <div class="form-group">
-                            <label for="type">Type</label>
-                            <select name="type" id="type">
+                        <div class="form-group row">
+                            <label class="" for="type">Type</label>
+                            <select class="" name="type" id="type">
                                 <option>IT</option>
                                 <option>Elektronica</option>
                                 <option>Faciliteiten</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="prior">prioriteit</label>
-                            <select name="prior" id="prior">
+                        <div class="form-group row">
+                            <label class="" for="prior">prioriteit</label>
+                            <select class="" name="prior" id="prior">
                                 <option value="1">Kritiek(1uur)</option>
                                 <option value="2">Dringend(4uur)</option>
                                 <option value="3">Hoog(2dagen)</option>
@@ -70,43 +70,37 @@
                                 <option value="5">Laag(3 maanden)</option>
                             </select>
                         </div>
-                        <div class="from-group">
-                            <label for="campus">Locatie</label>
-                            <select name="campusId" id="campusId">
+                        <div class="from-group row">
+                            <label class="" for="campus">Locatie</label>
+                            <select class="" name="campusId" id="campusId">
                                 <option value="1">Elfde Linie</option>
                                 <option value="2">Diepenbeek</option>
                                 <option value="3">VilderStraat</option>
                             </select>
-                            <select name="blokId" id="blokId">
+                            <select class="" name="blokId" id="blokId">
                                 <option value="1">A</option>
                                 <option value="2">B</option>
                                 <option value="3">C</option>
                                 <option value="4">D</option>
                             </select>
                         </div>
-                        <div class="from-group">
-                            <label for="lokaal">Lokaal</label>
-                            <input class="form-control" name="lokaal" id="lokaal" type="text"/>
+                        <div class="from-group row">
+                            <label class="" for="lokaal">Lokaal</label>
+                            <input class="form-control " name="lokaal" id="lokaal" type="text"/>
                         </div>
-                        <div class="form-group">
-                            <label for="omschrijving">Omschrijving</label>
-                            <textarea name="omschrijving" id="omschrijving"></textarea>
+                        <div class="form-group row">
+                            <label class="" for="omschrijving">Omschrijving</label>
+                            <textarea class="form-control" rows="3" name="omschrijving" id="omschrijving"></textarea>
                         </div>
-                        <div class="from-group">
-                            <label for="foto">Optioneel:foto</label>
-                            <input class="form-control" id="foto" name="foto" type="file"/>
+                        <div class="from-group row">
+                            <label class="" for="foto">Optioneel:foto</label>
+                            <input class="form-controlZ" id="foto" name="foto" type="file"/>
                         </div>
                         <button class="btn btn-default" type="submit" name="submit" id="submit">Inzenden</button>
                     </fieldset>
                 </form>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <button class="btn-default">
-                    <?php echo anchor(site_url(array('newTicket_controller','index')),'Nieuw ticket');?>
-                </button>
-            </div>
         </div>
     </div>
 </div>
