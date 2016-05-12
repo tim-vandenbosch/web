@@ -7,21 +7,23 @@
  */?>
 <div class="row">
     <div class="col-md-8 col-md-offset-2 titel">
-        <h1>Nieuw Ticket</h1>
+        <h1>Details van de ticket</h1>
     </div>
 </div>
 <div class="row">
     <div class="col-md-8 col-md-offset-2 main home ">
-        <div class="col-md-4 left">
-            <h2><!--titel--></h2>
+        <div class="col-md-6 left">
+            <h2><?php echo $onderwerp;?></h2>
         </div>
-        <div class="col-md-8 right">
-            <!-- hier kan nog eventuele uitleg over overzicht-->
+        <div class="col-md-6 right">
+            <p>Hier ziet u alle informatie over de gekozen ticket.
+            U kunt de prioriteit en status instellen als gewenst.
+            Selecteer een werkman om deze herstelling te doen.</p>
         </div>
+        <div class="col-md-12 center">
 <!--<div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">-->
-            <h1>Details van de ticket</h1>
             <form role="form">
                 <div class="form-group">
                     <label for="text">Onderwerp</label>
