@@ -12,11 +12,19 @@ class newTicket_controller extends CI_Controller
         parent::__construct();
         $this->load->model('ticket_model', '', TRUE);
 
+
     }
 
     function index()
     {
         $ticketId = $this-> ticket_model ->getLastTicketId()[0]->ticketID;
+        $this -> load -> library('form_validation');
+
+
+        $this ->form_validation -> set_rules('onderwerp','onderwerp','required');
+        $this ->form_validation -> set_rules('lokaal','lokaal','required');
         $this->load->view('newTicket_view',$data = array('ticket' => $ticketId));
+
+
     }
 }

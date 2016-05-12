@@ -19,7 +19,7 @@
     <img class="col-md-2" src="<?php echo base_url();?>assets/Pictures/Logo_PXL.png" alt="PXL logo"/>
     <nav class="nav">
         <ul class="nav navbar-nav navbar-style">
-            <li><?php echo anchor(array('home','index'),'Overzicht'); ?></li>
+            <li><?php echo anchor(site_url(array('home','index')),'Overzicht'); ?></li>
             <li class="active"><?php echo anchor(site_url(array('newTicket_controller','index')),'Nieuw ticket');?></li>
             <li><?php echo anchor(site_url(array('profiel_controller','index')),'Profiel');?></li>
             <li><?php echo anchor(site_url(array('home','logout')),'Afmelden'); ?></li>
@@ -42,7 +42,12 @@
         </div>
         <div class="row">
             <div class="col-md-8 col-md-offset-2 center ">
-                <form class="" role="form">
+                <?php
+                echo validation_errors();
+                echo form_open((site_url('newTicket_controller','index')),'newTicket_view');
+
+                ?>
+                <form class="" action="<?php ?>" role="form">
                     <fieldset>
                         <legend>
                             <label class="col-md-1">ID</label>
