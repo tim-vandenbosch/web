@@ -1,4 +1,4 @@
-﻿-- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 4.5.1
 -- http://www.phpmyadmin.net
 --
@@ -110,10 +110,10 @@ CREATE TABLE IF NOT EXISTS `tickets` (
   `hersteller` int(11) NOT NULL,
   `status` enum('Geparkeerd','Afgesloten','In behandeling','Geannuleerd') NOT NULL,
   PRIMARY KEY (`ticketID`),
-  KEY `userID` (`aanmaker`),
-  KEY `lokaalID` (`lokaalNummer`),
-  KEY `campusID` (`campusID`),
-  KEY `blokID` (`blokID`),
+  UNIQUE KEY `userID` (`aanmaker`),
+  UNIQUE KEY `lokaalID` (`lokaalNummer`),
+  UNIQUE KEY `campusID` (`campusID`),
+  UNIQUE KEY `blokID` (`blokID`),
   KEY `aanmaker` (`aanmaker`),
   KEY `hersteller` (`hersteller`),
   KEY `lokaal` (`lokaalNummer`),
