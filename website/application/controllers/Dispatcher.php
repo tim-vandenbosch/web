@@ -47,40 +47,25 @@ class Dispatcher  extends CI_Controller
          }*/
     public function details()
     {
-        /*  $query = $this->db->query("SELECT * FROM tickets");
+        $query = $this->db->query("SELECT * FROM tickets");
 
-          foreach ($query->result() as $row)
-          {
-              $data['onderwerp']= $row->onderwerp;
-              // $data['aanmaakDatum']=$row->datum;
-              $data['type']=$row->type;
-              $data['prioriteit']=$row->prioriteit;
-              $data['status']=$row->status;
-  //            $data[campusID]=$row->campusIDT;
+        foreach ($query->result() as $row)
+        {
+            $data['onderwerp']= $row->onderwerp;
+            // $data['aanmaakDatum']=$row->datum;
+            $data['type']=$row->type;
+            $data['prioriteit']=$row->prioriteit;
+            $data['status']=$row->status;
+            $data['datum']=$row->datum;
+            $data['omschrijving']=$row->omschrijving;
+            $data['Hdatum']=$row->herstellingDatum;
+            $data['deadline']=$row->deadline;
 
-
-          }*/
-//        $data['statussen']->get_enum_values(ticket_model, status);* /
-
-        /*unset($arrayStatussen);
-        $arrayStatussen = array ();
-        $arrayStatussen = get_enum_values(ticket_model, status);*/
-
-
-
-        $query = $this->db->query(" SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'tickets' AND COLUMN_NAME = 'status' ");
-        foreach ($query->result() as $row) {
-            echo $row->COLUMN_TYPE;
-
-            $statussenstap1 = substr($row->COLUMN_TYPE, 5);
-            $statussenstap2 = substr($statussenstap1, 0, -1);
-            //$statussenstap3 = preg_replace(" ' ","",$statussenstap1);
-            $statussen = explode(',', $statussenstap2);
         }
 
-        $datastat =  $statussen;
+        $data['stat'] =  $this->enumStatus();
         $this->load->view('header');
-        $this->load->view('Dispatcher/details', $datastat);
+        $this->load->view('Dispatcher/details',  $data);
         $this->load->view('footer');
 
     }
