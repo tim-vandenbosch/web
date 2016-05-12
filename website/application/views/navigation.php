@@ -8,10 +8,10 @@
     <nav class="navbar">
 
         <ul class="nav navbar-nav navbar-style">
-            <li class="active"><a href="#">Overzicht</a></li>
-            <li><a href="#">Zelf ingevoerde tickets</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profiel</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Uitloggen</a></li>
+            <li class="active"><?php echo anchor(array('home','index'),'Overzicht'); ?></li>
+            <li><?php echo anchor(site_url(array('newTicket_controller','index')),'Nieuw ticket');?></li>
+            <li><?php echo anchor(site_url(array('profiel_controller','index')),'Profiel');?></li>
+            <li><?php echo anchor(site_url(array('home','logout')),'Afmelden'); ?></li>
         </ul>
     </nav>
     <div class="col-md-2"></div>
