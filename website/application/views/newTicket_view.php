@@ -44,17 +44,17 @@
             <div class="col-md-8 col-md-offset-2 center ">
                 <form class="" role="form">
                     <fieldset>
-                        <div class="from-group row">
-                            <label class="">ID</label>
+                        <legend>
+                            <label class="col-md-1">ID</label>
                             <label class="" id="ticketId" name="ticketId"><?php echo $ticket+1; ?></label>
-                        </div>
+                        </legend>
                         <div class="from-group row">
                             <label class="" for="onderwerp">Onderwerp</label>
                             <input class="form-control " type="text" name="onderwerp" id="onderwerp"/>
                         </div>
                         <div class="form-group row">
                             <label class="" for="type">Type</label>
-                            <select class="" name="type" id="type">
+                            <select class="form-control" name="type" id="type">
                                 <option>IT</option>
                                 <option>Elektronica</option>
                                 <option>Faciliteiten</option>
@@ -62,7 +62,7 @@
                         </div>
                         <div class="form-group row">
                             <label class="" for="prior">prioriteit</label>
-                            <select class="" name="prior" id="prior">
+                            <select class="form-control" name="prior" id="prior">
                                 <option value="1">Kritiek(1uur)</option>
                                 <option value="2">Dringend(4uur)</option>
                                 <option value="3">Hoog(2dagen)</option>
@@ -72,12 +72,12 @@
                         </div>
                         <div class="from-group row">
                             <label class="" for="campus">Locatie</label>
-                            <select class="" name="campusId" id="campusId">
+                            <select class="form-control" name="campusId" id="campusId">
                                 <option value="1">Elfde Linie</option>
                                 <option value="2">Diepenbeek</option>
                                 <option value="3">VilderStraat</option>
                             </select>
-                            <select class="" name="blokId" id="blokId">
+                            <select class="form-control" name="blokId" id="blokId">
                                 <option value="1">A</option>
                                 <option value="2">B</option>
                                 <option value="3">C</option>
@@ -94,9 +94,11 @@
                         </div>
                         <div class="from-group row">
                             <label class="" for="foto">Optioneel:foto</label>
-                            <input class="form-controlZ" id="foto" name="foto" type="file"/>
+                            <input class="form-control" id="foto" name="foto" type="file"/>
                         </div>
-                        <button class="row btn btn-default" type="submit" name="submit" id="submit">Inzenden</button>
+                        <div class="form-group row">
+                            <button class="btn btn-default" type="submit" name="submit" id="submit">Inzenden</button>
+                        </div>
                     </fieldset>
                 </form>
             </div>
