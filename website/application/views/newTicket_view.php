@@ -96,7 +96,7 @@
                             <label class="" for="foto">Optioneel:foto</label>
                             <input class="form-controlZ" id="foto" name="foto" type="file"/>
                         </div>
-                        <button class="btn btn-default" type="submit" name="submit" id="submit">Inzenden</button>
+                        <button class="row btn btn-default" type="submit" name="submit" id="submit">Inzenden</button>
                     </fieldset>
                 </form>
             </div>
