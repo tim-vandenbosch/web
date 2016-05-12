@@ -62,7 +62,7 @@ class Dispatcher  extends CI_Controller
             $data['omschrijving']=$row->omschrijving;
             $data['Hdatum']=$row->herstellingDatum;
             $data['deadline']=$row->deadline;
-
+            $data['hersteller']=$row->hersteller;
         }
 
         $data['stat'] = $this-> ticket_model ->getEnums("'status'");
@@ -72,7 +72,7 @@ class Dispatcher  extends CI_Controller
         $this->load->view('header');
         $this->load->view('navigation');
         $this->load->view('Dispatcher/details',  $data);
-        $this->load->view('footer');
+        //$this->load->view('footer');
 
     }
 

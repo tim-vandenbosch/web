@@ -51,6 +51,10 @@
                     <textarea disabled class="form-control" rows="5" id="Omschrijving"> <?php echo $omschrijving ;?></textarea>
                 </div>
                 <div class="form-group">
+                    <label for="text">Type:</label>
+                    <input disabled type="text" class="form-control"  value=<?php echo $hersteller;?> id="type">
+                </div>
+                <div class="form-group">
                     <label for="text">Herstellingdatum:</label>
                     <input type="date" class="form-control"  value=<?php echo $Hdatum ;?> id="Hdate">
                 </div>
