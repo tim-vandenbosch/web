@@ -36,7 +36,8 @@ class Home extends CI_Controller
                     $this->load->view('footer');
                     break;
                 case "Werkman":
-                    $data =  array('tickets' => $this->ticket_model->getAllTickets());
+                    $data =  array('userID' => $session_data['userID'],
+                        'tickets' => $this->ticket_model->getAllTickets());
                     $this->load->view('header');
                     $this->load->view('navigation');
                     $this->load->view('/Werkman/index', $data);
