@@ -33,6 +33,8 @@ class Dispatcher  extends CI_Controller
         }
         $this->load->view('Dispatcher/index', $data);
         echo count($data);*/
+        $data['campussen'] = $this-> campus_model ->getAllCampussen();
+
         //Deze code in commentaar is eigenlijk niet nodig.....ma whatever ik laat het eventjes staan
         //je weet maar nooit :p
         $this->load->view('header');
