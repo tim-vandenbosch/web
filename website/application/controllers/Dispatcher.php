@@ -82,7 +82,7 @@ class Dispatcher  extends CI_Controller
         $query = $this->db->query(" SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'tickets' AND COLUMN_NAME = 'status' ");
         foreach ($query->result() as $row)
         {
-            echo $row->COLUMN_TYPE;
+//            echo $row->COLUMN_TYPE;
 
             $statussenstap1=  substr($row->COLUMN_TYPE,5);
             $statussenstap2  =  substr($statussenstap1, 0, -1);
