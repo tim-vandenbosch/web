@@ -14,7 +14,7 @@ Class Ticket_model extends CI_Model{
         $this -> db -> where('aanmaker',$userID);
         $query = $this -> db -> get();
         // Als er geen tickets gevonden worden in de db
-        if($query -> num_rows() == 1)
+        if($query -> num_rows() >= 1)
         {
             return $query->result();
         }

@@ -45,7 +45,7 @@ class Home extends CI_Controller
                     break;
                 case "Docent":
                     $data = array('userID' => $session_data['userID'],
-                        'tickets' => $this->ticket_model->getUserTickets($userID), $rol);
+                        'tickets' => $this->ticket_model->getUserTickets($userID));
                     $this->load->view('user_view', $data);
 
                     break;
