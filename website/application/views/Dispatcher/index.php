@@ -6,6 +6,7 @@
  * Time: 13:19
  */
 ?>
+<!--<script src="'/assets/bootstrap/js/sorttable.js'"></script>-->
 <div class="row">
     <div class="col-md-8 col-md-offset-2 titel">
         <h1>Overzicht alle tickets</h1>
@@ -22,7 +23,7 @@
             </p>
         </div>
         <div class="col-md-12 center">
-            <table class="table table-striped">
+            <table class="table table-striped "> <!-- class="sortable" -->
                 <thead>
                 <tr>
                     <th>ID</th>
