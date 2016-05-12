@@ -8,16 +8,18 @@
 ?>
 <div class="row">
     <div class="col-md-8 col-md-offset-2 titel">
-        <h1>Nieuw Ticket</h1>
+        <h1>Overzicht alle tickets</h1>
     </div>
 </div>
 <div class="row">
     <div class="col-md-8 col-md-offset-2 main home ">
         <div class="col-md-4 left">
-            <h2><!--titel--></h2>
+            <h2>Tickets</h2>
         </div>
         <div class="col-md-8 right">
-            <!-- hier kan nog eventuele uitleg over overzicht-->
+            <p>Als dispatcher heb je het recht alle ticets te beheren.
+            Dit houd in dat je de prioriteteiten en statussen kunt aanpassen en tickets toekennen aan werkmannen.
+            </p>
         </div>
         <div class="col-md-12 center">
             <table class="table table-striped">
@@ -32,7 +34,8 @@
                     <th>lokaalNr</th>
                     <th>Herstellings datum</th>
                     <th>Status</th>
-                    <!--            <th>Locatie </th>-->
+                    <th>Beheren</th>
+                    <!--  <th>Locatie </th>-->
 
                 </tr>
                 </thead>
