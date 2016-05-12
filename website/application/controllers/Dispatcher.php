@@ -65,6 +65,7 @@ class Dispatcher  extends CI_Controller
 
         $data['stat'] =  $this->enumStatus();
         $this->load->view('header');
+        $this->load->view('navigation');
         $this->load->view('Dispatcher/details',  $data);
         $this->load->view('footer');
 
