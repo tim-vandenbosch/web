@@ -50,7 +50,7 @@ class Home extends CI_Controller
 
                     break;
                 default:
-                    $this->load->view('home_view', $data);
+                    $this->load->view('login_view');
                     break;
             }
         } else {
