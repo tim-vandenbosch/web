@@ -82,5 +82,27 @@ Class Ticket_model extends CI_Model{
         }
     }
 
+    //functie om te enums uit de database te halen en in een string array te zetten
+    //geef een string mee tss " " en de naam van de kolom tussen ' '
+    //vb voor statussen : getEnums("'status'") of prioriteiten : getEnums("'prioriteit'")
+     function getEnums($kolom){
+        $query = $this->db->query(" SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'tickets' AND COLUMN_NAME = $kolom ");
+        foreach ($query->result() as $row)
+        {
+            //echo $row->COLUMN_TYPE;
 
+            $tussenstap1=  substr($row->COLUMN_TYPE,5);
+            $tussenstap2  =  substr($tussenstap1, 0, -1);
+            $tussenstap3 = str_replace("'", "", $tussenstap2);
+            $stringarrayenums  = explode(',', $tussenstap3);
+
+            /*    foreach($statussen as &$stat){ //om te testen
+                    echo "<br>";
+                    echo "<br>";
+                    echo  $stat;
+            }*/ //was om te testen 
+
+        }
+        return $stringarrayenums;
+    }
 }
