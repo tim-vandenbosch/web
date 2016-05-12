@@ -48,7 +48,7 @@ and open the template in the editor.
     height: 50px;
     background-color: black;
     opacity: 0.5;
-    position: absolute;
+    position: relative;
 }
 .titel h1{
     opacity: 1;
@@ -62,6 +62,7 @@ and open the template in the editor.
 }
 .main{
     background-color: white;
+    border-bottom: solid green 5px;
 }
 .login{
     min-width: 800px;
@@ -71,14 +72,14 @@ and open the template in the editor.
     padding-top: 5%; 
 }
 .home{
-    height: auto;
+    height: 800px;
     padding: 0;
 }
 .home .left,.right{
     height: 100px;
 }
 .home .center{
-    height: auto;
+    height: 400px;
 }
 .scrollbox{
     overflow: auto;
