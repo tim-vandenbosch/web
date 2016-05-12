@@ -21,7 +21,7 @@ class Dispatcher  extends CI_Controller
     }
     public function index()
     {
-        $query = $this->db->query("SELECT * FROM tickets");
+/*        $query = $this->db->query("SELECT * FROM tickets");
         foreach ($query->result() as $row)
         {
             $data['onderwerp']= $row->onderwerp;
@@ -31,12 +31,14 @@ class Dispatcher  extends CI_Controller
             $data['status']=$row->status;
 //            $data[campusID]=$row->campusIDT;
         }
+        $this->load->view('Dispatcher/index', $data);
+        echo count($data);*/
+        //Deze code in commentaar is eigenlijk niet nodig.....ma whatever ik laat het eventjes staan
+        //je weet maar nooit :p
         $this->load->view('header');
         $this->load->view('navigation');
-        $this->load->view('Dispatcher/index', $data);
         $this->load->view('footer');
 
-        echo count($data);
     }
     /*    $query = $this->db->query("SELECT * FROM campussen");
          foreach ($query->result() as $row) {
@@ -63,32 +65,27 @@ class Dispatcher  extends CI_Controller
 
         }
 
-        $data['stat'] =  $this->enumStatus();
+        $data['stat'] = $this-> ticket_model ->getEnums("'status'");
+        $data['prio'] = $this-> ticket_model ->getEnums("'prioriteit'");
+
+//        $data['stat'] =  $this->enumStatus();
         $this->load->view('header');
         $this->load->view('navigation');
         $this->load->view('Dispatcher/details',  $data);
         $this->load->view('footer');
 
     }
-    //'Geparkeerd','Afgesloten','In behandeling','Geannuleerd'
 
-    /*    function get_enum_values( $table, $field )
-        {
-            $type = $this->db->query( "SHOW COLUMNS FROM {$table} WHERE Field = '{$field}'" )->row( 0 )->Type;
-            preg_match("/^enum\(\'(.*)\'\)$/", $type, $matches);
-            $enum = explode("','", $matches[1]);
-            return $enum;
-        }*/
-    public function enumStatus(){
+/*    public function enumStatus(){
         $query = $this->db->query(" SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'tickets' AND COLUMN_NAME = 'status' ");
         foreach ($query->result() as $row)
         {
-//            echo $row->COLUMN_TYPE;
+            //echo $row->COLUMN_TYPE;
 
             $statussenstap1=  substr($row->COLUMN_TYPE,5);
             $statussenstap2  =  substr($statussenstap1, 0, -1);
-            //$statussenstap3 = preg_replace(" ' ","",$statussenstap1);
-            $statussen  = explode(',', $statussenstap2);
+            $statussenstap3 = str_replace("'", "", $statussenstap2);
+            $statussen  = explode(',', $statussenstap3);
 
             /*    foreach($statussen as &$stat){ //om te testen
                     echo "<br>";
@@ -96,18 +93,18 @@ class Dispatcher  extends CI_Controller
                     echo  $stat;
             }*/
 
-        }
+    /*    }
         return $statussen;
-    }
+    }*/
 
-    public function proberen()
+/*    public function proberen()
     {
         $data = $this->getAllTickets();
         $this->load->view('header');
         $this->load->view('Dispatcher/index', $data);
         $this->load->view('footer');
-    }
-    public function getAllTickets(){
+    }*/
+/*    public function getAllTickets(){
         $query = $this->db->query("SELECT * FROM tickets");
         $data = array();
         foreach ($query->result() as $row)
@@ -121,6 +118,8 @@ class Dispatcher  extends CI_Controller
         }
 
         return $data;
-    }
+    }*/
+    //Ingeval dat het nodig zou zijn....laat ik het nog in comment staan  xD
+
 
 }

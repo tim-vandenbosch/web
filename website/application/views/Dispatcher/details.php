@@ -31,7 +31,12 @@
                 </div>
                 <div class="form-group">
                     <label for="text">Prioriteit:</label>
-                    <input type="text" class="form-control" value=<?php echo $prioriteit ;?> id="prio">
+                    <select class="form-control" id="satus" name="satus">
+                        <option hidden > <?php echo $prioriteit ;?></option>
+                        <?php foreach ($prio as $item):?>
+                            <option ><?php echo $item;?></option>
+                        <?php endforeach;?>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="text">Type:</label>
