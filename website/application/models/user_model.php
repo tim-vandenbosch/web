@@ -57,4 +57,28 @@ Class User_model extends CI_Model
 
         return $query->result();
     }
+    
+    function get_user_by_rol($rol)
+    {
+        $this->db->select('userID, email, rol, active');
+        $this->db->from('users');
+        $this->db->where('rol', $rol);
+        
+        $query = this->db->get();
+        $result = $query->row();
+        
+        return $result;
+    }
+    
+    function get_user_by_active($active)
+    {
+        $this->db->select('userID, email, rol, active');
+        $this->db->from('users');
+        $this->db->where('active', $active);
+        
+        $query = this->db->get();
+        $result = $query->row();
+        
+        return $result;
+    }
 }
