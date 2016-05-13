@@ -13,5 +13,5 @@ class newTicket_controller extends CI_Controller
         $this->load->model('newTicketSucces_view', '', TRUE);
 
 
-
     }
+}
