@@ -52,12 +52,17 @@ Class User_model extends CI_Model
     {
         $this->db->select('userID , email, rol, active');
         $this->db->from('users');
+        // Deze lijn zou er voor moeten zorgen dat er geordend word op id
+        $this->db->orderby('userID');
 
         $query = $this->db->get();
 
         return $query->result();
     }
     
+    /*
+    * Deze functie haalt alle users op met een bepaalde rol.
+    */
     function get_user_by_rol($rol)
     {
         $this->db->select('userID, email, rol, active');
@@ -70,6 +75,9 @@ Class User_model extends CI_Model
         return $result;
     }
     
+    /*
+    * Deze functie haalt alle users op die actief zijn of niet.
+    */
     function get_user_by_active($active)
     {
         $this->db->select('userID, email, rol, active');
@@ -80,5 +88,31 @@ Class User_model extends CI_Model
         $result = $query->row();
         
         return $result;
+    }
+    
+    /*
+    * Deze functie is gekopieerd en aangepast van Daniela, voor users.
+    */
+    function sorttable($tablename)
+    {
+        $sql = $this->db->get('users');
+        
+        if ($tablename == 'userID')
+        {
+            $sql .= " ORDER BY userID";
+        }
+        elseif ($tablename == 'eamil')
+        {
+            $sql .= " ORDER BY email";
+        }
+        elseif ($tablename == 'rol')
+        {
+            $sql .= " ORDER BY rol";
+        }
+        elsif ($tablename == 'active')
+        {
+            $sql .= " ORDER BY active";
+        }
+        return $sql->result();
     }
 }
