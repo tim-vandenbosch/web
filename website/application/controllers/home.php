@@ -27,14 +27,14 @@ class Home extends CI_Controller
 
             switch ($rol){
                 case "Admin":
+                    $data = array('userID' => $session_data['userID'], 'users' => $this->user_model->get_users());
                     $this->load->view('header');
                     $this->load->view('navigation');
                     $this->load->view('admin_view',$data);
                     $this->load->view('footer');
                     break;
                 case "Dispatcher":
-                    $data =  array('userID' => $session_data['userID'],
-                        'tickets' => $this->ticket_model->getAllTickets());
+                    $data =  array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getAllTickets());
 //                    $data['campussen'] = $this-> campus_model ->getAllCampussen();
                     $this->load->view('header');
                     $this->load->view('navigation');
@@ -42,16 +42,14 @@ class Home extends CI_Controller
                     $this->load->view('footer');
                     break;
                 case "Werkman":
-                    $data =  array('userID' => $session_data['userID'],
-                        'tickets' => $this->ticket_model->getAllTickets());
+                    $data =  array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getAllTickets());
                     $this->load->view('header');
                     $this->load->view('navigation');
                     $this->load->view('/Werkman/index', $data);
                     $this->load->view('footer');
                     break;
                 case "Docent":
-                    $data = array('userID' => $session_data['userID'],
-                        'tickets' => $this->ticket_model->getUserTickets($userID));
+                    $data = array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getUserTickets($userID));
                     $this->load->view('user_view', $data);
 
                     break;
