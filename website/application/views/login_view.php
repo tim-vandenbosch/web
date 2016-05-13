@@ -38,7 +38,7 @@
         <div class="col-md-2"></div>
     </header>
     <div class="container main login">
-        <h2 class="col-md-12">Ticketingsysteem</h2>
+        <h2 class="col-md-12 ">Ticketingsysteem</h2>
         <!--<form class="col-md-12" action="" id="myForm" method="post"> -->
         <?php echo validation_errors(); ?>
         <?php echo form_open('verifylogin'); ?>
