@@ -78,6 +78,12 @@ class Dispatcher  extends CI_Controller
 
     }
 
+    function sort(){
+        $data = $this-> ticket_model ->sorttable();
+        $this->load->view('/Dispatcher/index', $data);
+
+       // return $data;
+    }
 /*    public function enumStatus(){
         $query = $this->db->query(" SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'tickets' AND COLUMN_NAME = 'status' ");
         foreach ($query->result() as $row)

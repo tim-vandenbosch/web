@@ -105,4 +105,30 @@ Class Ticket_model extends CI_Model{
         }
         return $stringarrayenums;
     }
+
+
+    function sorttable(){
+                //$sql = "SELECT * FROM MyTable";
+        $sql = $this->db->get('tickets');
+
+
+        if ($_GET['sort'] == 'id')
+        {
+            $sql .= " ORDER BY ticketID";
+        }
+        elseif ($_GET['sort'] == 'onderwerp')
+        {
+            $sql .= " ORDER BY onderwerp";
+        }
+        elseif ($_GET['sort'] == 'prioriteit')
+        {
+            $sql .= " ORDER BY prioriteit";
+        }
+        elseif($_GET['sort'] == 'type')
+        {
+            $sql .= " ORDER BY type";
+        }
+
+        return $sql->result();;
+    }
 }
