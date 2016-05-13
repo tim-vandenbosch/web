@@ -13,19 +13,17 @@ class newTicket_controller extends CI_Controller
         $this->load->model('ticket_model', '', TRUE);
         $this -> load -> library('form_validation');
 
-
-
     }
 
     function index()
     {
+
         $ticketId = $this-> ticket_model ->getLastTicketId()[0]->ticketID;
         $this->form_check();
-        $this->load->view('newTicket_view',$data = array('ticket' => $ticketId));
 
         if ($this->form_validation->run() == FALSE)
         {
-            $this->load->view('newTicket_view');
+            $this->load->view('newTicket_view',$data = array('ticket' => $ticketId));
         }
         else
         {
@@ -36,8 +34,7 @@ class newTicket_controller extends CI_Controller
     }
     function form_check(){
 
-        $this ->form_validation -> set_rules('onderwerp','onderwerp','required');
-        $this ->form_validation -> set_rules('lokaal','lokaal','required');
-
+        $this ->form_validation -> set_rules('onderwerp','onderwerp','required|max_length[20]');
+        $this ->form_validation -> set_rules('lokaal','lokaal','required|max_length[20]');
     }
 }

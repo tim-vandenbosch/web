@@ -43,11 +43,10 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 center ">
                 <?php
-                echo validation_errors();
+                echo validation_errors();?>
+                <?php
                 echo form_open((site_url('newTicket_controller','index')),'newTicket_view');
-
                 ?>
-                <form class="" action="<?php ?>" role="form">
                     <fieldset>
                         <legend>
                             <label class="col-md-1">ID</label>
@@ -102,10 +101,9 @@
                             <input class="form-control" id="foto" name="foto" type="file"/>
                         </div>
                         <div class="form-group row">
-                            <button class="btn btn-default" type="submit" name="submit" id="submit">Inzenden</button>
+                            <input class="btn btn-default" type="submit" value="inzenden" name="submit" id="submit"/>
                         </div>
                     </fieldset>
-                </form>
             </div>
         </div>
         </div>
