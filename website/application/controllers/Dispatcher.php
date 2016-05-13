@@ -78,8 +78,8 @@ class Dispatcher  extends CI_Controller
 
     }
 
-    function sort(){
-        $data = $this-> ticket_model ->sorttable();
+    function sort($tablename){
+        $data = $this-> ticket_model ->sorttable($tablename);
         $this->load->view('/Dispatcher/index', $data);
 
        // return $data;

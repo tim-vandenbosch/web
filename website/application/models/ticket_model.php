@@ -107,24 +107,24 @@ Class Ticket_model extends CI_Model{
     }
 
 
-    function sorttable(){
+    function sorttable($tablename){
                 //$sql = "SELECT * FROM MyTable";
         $sql = $this->db->get('tickets');
 
 
-        if ($_GET['sort'] == 'id')
+        if (($tablename == 'id')
         {
             $sql .= " ORDER BY ticketID";
         }
-        elseif ($_GET['sort'] == 'onderwerp')
+        elseif (($tablename  == 'onderwerp')
         {
             $sql .= " ORDER BY onderwerp";
         }
-        elseif ($_GET['sort'] == 'prioriteit')
+        elseif (($tablename == 'prioriteit')
         {
             $sql .= " ORDER BY prioriteit";
         }
-        elseif($_GET['sort'] == 'type')
+        elseif(($tablename == 'type')
         {
             $sql .= " ORDER BY type";
         }
