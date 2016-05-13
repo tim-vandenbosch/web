@@ -18,7 +18,11 @@
             <th>Actief</th>
         </tr>
         <?php
-            foreach (_user FROM )
+            $users = 
+            foreach (_user as $users)
+            {
+
+            }
         ?>
     </table>
 </div>
