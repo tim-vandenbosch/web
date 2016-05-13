@@ -45,11 +45,11 @@
             <div class="form-group">
                 <label for="email">Gebruiker:</label>
                 <!-- <input class="form-control" name="user" id="user" type="text" value="<?php echo set_value('email'); ?>"/> -->
-                <input type="text" size="40" id="email" name="email"/>
+                <input type="text" class="form-control" size="40" id="email" name="email"/>
                 <div class="form-group">
                     <label for="password">Wachtwoord:</label>
                    <!-- <input class="form-control" name="password" id="password" type="password" value="<?php echo set_value('password'); ?>"/> -->
-                    <input type="password" size="40" id="password" name="password" />
+                    <input type="password" class="form-control" size="40" id="password" name="password" />
                     <br/>
                 </div>
                 <a href="">wachtwoord vergeten?</a><br>
