@@ -27,7 +27,10 @@ class Home extends CI_Controller
 
             switch ($rol){
                 case "Admin":
+                    $this->load->view('header');
+                    $this->load->view('navigation');
                     $this->load->view('admin_view',$data);
+                    $this->load->view('footer');
                     break;
                 case "Dispatcher":
                     $data =  array('userID' => $session_data['userID'],
