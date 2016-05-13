@@ -23,6 +23,14 @@ class newTicket_controller extends CI_Controller
         $this->form_check();
         $this->load->view('newTicket_view',$data = array('ticket' => $ticketId));
 
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->load->view('newTicket_view');
+        }
+        else
+        {
+            $this->load->view('newTicketSucces_view');
+        }
 
 
     }
