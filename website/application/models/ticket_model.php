@@ -112,23 +112,23 @@ Class Ticket_model extends CI_Model{
         $sql = $this->db->get('tickets');
 
 
-        if (($tablename == 'id')
+        if ($tablename == 'id')
         {
             $sql .= " ORDER BY ticketID";
         }
-        elseif (($tablename  == 'onderwerp')
+        elseif ($tablename  == 'onderwerp')
         {
             $sql .= " ORDER BY onderwerp";
         }
-        elseif (($tablename == 'prioriteit')
+        elseif ($tablename == 'prioriteit')
         {
             $sql .= " ORDER BY prioriteit";
         }
-        elseif(($tablename == 'type')
+        elseif ($tablename == 'type')
         {
             $sql .= " ORDER BY type";
         }
 
-        return $sql->result();;
+        return $sql->result();
     }
 }
