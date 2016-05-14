@@ -118,14 +118,14 @@ Class Ticket_model extends CI_Model{
         return $stringarrayenums;
     }
 
-// @author =  Daniela
+/*// @author =  Daniela
 //@reviewer = Tim?
     function sorttable($tablename){
                 //$sql = "SELECT * FROM MyTable";
         $sql = $this->db->get('tickets');
+$tablename = 'ticketId';
 
-
-        if ($tablename == 'id')
+        if ($tablename == 'ticketId')
         {
             $sql .= " ORDER BY ticketID";
         }
@@ -143,5 +143,7 @@ Class Ticket_model extends CI_Model{
         }
 
         return $sql->result();
-    }
+    }*/
+
+    //Bron : http://stackoverflow.com/questions/3489783/how-to-sort-rows-of-html-table-that-are-called-from-mysql 
 }

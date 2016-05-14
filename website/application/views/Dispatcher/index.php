@@ -26,16 +26,16 @@
             <table class="table table-striped "> <!-- class="sortable" -->
                 <thead>
                 <tr>
-                    <th><a href="Dispatcher.php?sort=id">ID:</a></th>
-                    <th><a href="Dispatcher.php?sort=onderwerp">Onderwerp</th>
-                    <th><a href="Dispatcher.php?sort=prioriteit">Prioriteit</th>
-                    <th><a href="Dispatcher.php?sort=type">Type</th>
-                    <th><a href="Dispatcher.php?sort=campusID">Campus</th>
-                    <th><a href="Dispatcher.php?sort=blokID">Blok</th>
-                    <th><a href="Dispatcher.php?sort=lokaalNummer">lokaalNr</th>
+                    <th>ID:</th>
+                    <th>Onderwerp</th>
+                    <th>Prioriteit</th>
+                    <th>Type</th>
+                    <th>Campus</th>
+                    <th>Blok</th>
+                    <th>lokaalNr</th>
 <!--                    <th>Herstellings datum</th>-->
-                    <th><a href="Dispatcher.php?sort=id">Status</th>
-                    <th><a href="Dispatcher.php?sort=id">Beheren</th>
+                    <th>Status</th>
+                    <th>Beheren</th>
                     <!--  <th>Locatie </th>-->
                 </tr>
                 </thead>

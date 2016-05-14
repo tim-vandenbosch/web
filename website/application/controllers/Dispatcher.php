@@ -8,17 +8,23 @@
  */
 class Dispatcher  extends CI_Controller
 {
+    // @author =  Nida
+//@reviewer = Daniela
     function __construct() {
         parent::__construct();
         $this->load->database();
         $this->load->model('ticket_model');
     }
 
+    // @author =  Daniela
+//@reviewer =
     function settings(){
 
         $this->load->view('Dispatcher/settings');
 
     }
+    // @author =  Daniela
+//@reviewer =
     public function index()
     {
 /*        $query = $this->db->query("SELECT * FROM tickets");
@@ -49,6 +55,9 @@ class Dispatcher  extends CI_Controller
                  $data['naam'] = $row->naam;
              }
          }*/
+
+    // @author =  Daniela
+//@reviewer =
     public function details()
     {
         $query = $this->db->query("SELECT * FROM tickets");
@@ -78,6 +87,8 @@ class Dispatcher  extends CI_Controller
 
     }
 
+    // @author =  Daniela
+//@reviewer =
     function sort($tablename){
         $data = $this-> ticket_model ->sorttable($tablename);
         $this->load->view('/Dispatcher/index', $data);
