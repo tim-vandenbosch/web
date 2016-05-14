@@ -69,7 +69,7 @@ Class User_model extends CI_Model
         $this->db->from('users');
         $this->db->where('rol', $rol);
         
-        $query = this->db->get();
+        $query = $this->db->get();
         $result = $query->row();
         
         return $result;
@@ -84,7 +84,7 @@ Class User_model extends CI_Model
         $this->db->from('users');
         $this->db->where('active', $active);
         
-        $query = this->db->get();
+        $query = $this->db->get();
         $result = $query->row();
         
         return $result;
@@ -93,7 +93,7 @@ Class User_model extends CI_Model
     /*
     * Deze functie is gekopieerd en aangepast van Daniela, voor users.
     */
-    function sorttable($tablename)
+/*    function sorttable($tablename)
     {
         $sql = $this->db->get('users');
         
@@ -114,5 +114,5 @@ Class User_model extends CI_Model
             $sql .= " ORDER BY active";
         }
         return $sql->result();
-    }
+    }*/
 }
