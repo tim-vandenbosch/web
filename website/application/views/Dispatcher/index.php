@@ -6,7 +6,18 @@
  * Time: 13:19
  */
 ?>
-<script src="'/assets/bootstrap/js/sorttable.js'"></script>
+<head>
+<!--<script  type="text/javascript" src="/assets/bootstrap/js/sorttable.js"></script>µ-->
+ <!--   <script type="text/javascript" src="/assets/bootstrap/js/jquery.tablesorter.js">
+    $(document).ready(function(){
+    $(function(){
+    $("#mytable").tablesorter();
+    });
+    });
+    </script>-->
+<!--   bronnen : http://www.kryogenix.org/code/browser/sorttable/
+http://tutsme-webdesign.info/bootstrap-3-sortable-table/ -->
+</head>
 <div class="row">
     <div class="col-md-8 col-md-offset-2 titel">
         <h1>Overzicht alle tickets</h1>
@@ -23,7 +34,8 @@
             </p>
         </div>
         <div class="col-md-12 center">
-            <table class="table table-striped "> <!-- class="sortable" -->
+<!--            id="myTable" class="table tablesorter"-->
+            <table class="table table-striped"   > <!-- class="table table-striped"  class="sortable" -->
                 <thead>
                 <tr>
                     <th>ID:</th>
