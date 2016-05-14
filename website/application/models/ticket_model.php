@@ -7,6 +7,8 @@
      */
 Class Ticket_model extends CI_Model{
 
+    // @author =  Marnix?
+//@reviewer =
     function getUserTickets($userID){
 
         $this -> db -> select('ticketID,onderwerp,prioriteit,type,campusID,blokID,lokaalNummer,herstellingDatum,status');
@@ -23,6 +25,9 @@ Class Ticket_model extends CI_Model{
             return false;
         }
     }
+
+    // @author =  Marnix?
+//@reviewer = Daniela & Nida
     function getAllTickets(){
 
         $query = $this -> db -> get('tickets');
@@ -38,7 +43,8 @@ Class Ticket_model extends CI_Model{
         }
     }
 
-
+// @author =  Marnix?
+//@reviewer =
     function getList()
     {
         $query = $this->db->get('tickets');
@@ -46,7 +52,8 @@ Class Ticket_model extends CI_Model{
         /**return $query = $this->db->get('tickets');**/
     }
 
-
+// @author =  Marnix?
+//@reviewer =
     function getTicketArray($userID){
 
         $this -> db -> select('*');
@@ -66,6 +73,8 @@ Class Ticket_model extends CI_Model{
         }
     }
 
+    // @author = Marnix?
+//@reviewer =
     function getLastTicketId(){
         $this -> db -> select_max('ticketID');
         $this -> db -> limit(1);
@@ -82,6 +91,9 @@ Class Ticket_model extends CI_Model{
         }
     }
 
+
+// @author =  Daniela
+//@reviewer =
     //functie om te enums uit de database te halen en in een string array te zetten
     //geef een string mee tss " " en de naam van de kolom tussen ' '
     //vb voor statussen : getEnums("'status'") of prioriteiten : getEnums("'prioriteit'")
@@ -106,7 +118,8 @@ Class Ticket_model extends CI_Model{
         return $stringarrayenums;
     }
 
-
+// @author =  Daniela
+//@reviewer = Tim?
     function sorttable($tablename){
                 //$sql = "SELECT * FROM MyTable";
         $sql = $this->db->get('tickets');
