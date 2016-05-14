@@ -23,11 +23,17 @@ class newTicket_controller extends CI_Controller
 
         if ($this->form_validation->run() == FALSE)
         {
+            $this->load->view('header');
+            $this->load->view('navigation');
             $this->load->view('newTicket_view',$data = array('ticket' => $ticketId));
+            $this->load->view('footer');
         }
         else
         {
+            $this->load->view('header');
+            $this->load->view('navigation');
             $this->load->view('newTicketSucces_view');
+            $this->load->view('footer');
         }
 
 
