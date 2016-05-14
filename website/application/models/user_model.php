@@ -5,6 +5,8 @@
  */
 Class User_model extends CI_Model
 {
+    // @author =  Britt & Tim
+//@reviewer = Tim?
     function login($email,$password)
     {
         $this->db->select('userID, email, pws');
@@ -26,6 +28,8 @@ Class User_model extends CI_Model
         }
     }
 
+// @author =  Britt?
+//@reviewer =
     function neem_rol($userID)
     {
         $this->db->select('rol');
@@ -48,6 +52,8 @@ Class User_model extends CI_Model
         }
     }
 
+    // @author =  Britt
+//@reviewer =
     function get_users()
     {
         $this->db->select('userID , email, rol, active');
@@ -59,7 +65,9 @@ Class User_model extends CI_Model
 
         return $query->result();
     }
-    
+
+    // @author =
+//@reviewer =
     /*
     * Deze functie haalt alle users op met een bepaalde rol.
     */
@@ -74,7 +82,9 @@ Class User_model extends CI_Model
         
         return $result;
     }
-    
+
+    // @author =
+//@reviewer =
     /*
     * Deze functie haalt alle users op die actief zijn of niet.
     */
@@ -93,6 +103,8 @@ Class User_model extends CI_Model
     /*
     * Deze functie is gekopieerd en aangepast van Daniela, voor users.
     */
+    // @author =  Tim
+//@reviewer =
 /*    function sorttable($tablename)
     {
         $sql = $this->db->get('users');
