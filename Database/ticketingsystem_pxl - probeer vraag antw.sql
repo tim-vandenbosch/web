@@ -164,16 +164,17 @@ INSERT INTO `users` (`userID`, `email`, `pws`, `rol`, `active`, `salt`) VALUES
 DROP TABLE IF EXISTS `vragen`;
 CREATE TABLE IF NOT EXISTS `vragen` (
   `vragenID` int(5) NOT NULL AUTO_INCREMENT,
-  `vraag_text` VAR(255) NOT NULL,
-  PRIMARY KEY (`vragenID`)
+  `vraag_text` varchar(255) NOT NULL,
+`antw1_text` varchar(255) NOT NULL,
+PRIMARY KEY (`vragenID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `vragenlijsten`
+-- Gegevens worden geëxporteerd voor tabel `Vragen`
 --
 
-INSERT INTO `vragen` (`vragenID`,`vraag_text`) VALUES
-(1,'Was alles duidelijk bij het ingeven van een probleem'),(2,'Wat vind u van de interface'),(3,'Geef je mening wat beter kan');
+INSERT INTO `vragen` (`vragenID`,`vraag_text`,`antw1_text`,`antw2_text`,`antw3_text`,`antw4_text`) VALUES
+(1,'Was alles duidelijk bij het ingeven van een probleem', 'Ja','Soms','Nee',NULL),(2,'Wat vind u van de interface','Geweldig','Duidelijk','Neutraal','Kan beter','Verschrikkelijk'),(3,'Geef je mening wat beter kan','Het is perfect',NULL,NULL,NULL);
 
 -- --------------------------------------------------------
 
@@ -184,17 +185,12 @@ INSERT INTO `vragen` (`vragenID`,`vraag_text`) VALUES
 DROP TABLE IF EXISTS `antwoorden`;
 CREATE TABLE IF NOT EXISTS `antwoorden` (
   `antwoordID` int(5) NOT NULL AUTO_INCREMENT,
-  `antwoord_text` VAR(255) NOT NULL,
+`vraagID` int(5) NOT NULL,
+  `antwoord_text` varchar(255) NOT NULL,
   PRIMARY KEY (`antwoordID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
---
--- Gegevens worden geëxporteerd voor tabel `antwoorden`
---
-
-INSERT INTO `antwoorden` (`antwoordID`,`antwoord_text`) VALUES
-(1,'Ja'),(2,'Sommige dingen niet'),(3,'Helemaal niet'),(4,'Geweldig'),(5,'Duidelijk'),(6,'Neutraal'),(7,'Kan beter'),(8,'Slecht');
-
+-- -------------------------------------------------------
 --
 -- Gegevens worden geëxporteerd voor tabel `vraagEnAntw`
 --
@@ -226,10 +222,10 @@ ALTER TABLE `tickets`
   ADD CONSTRAINT `ticket_lokaal_fk` FOREIGN KEY (`lokaalNummer`) REFERENCES `lokalen` (`lokaalNummer`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Beperkingen voor tabel `vragenlijsten`
+-- Beperkingen voor tabel `antwoorden`
 --
-ALTER TABLE `vragenlijsten`
-  ADD CONSTRAINT `vragenlijst_user_fk` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+-- ALTER TABLE `antwoorden`
+--   ADD CONSTRAINT `vraag_fk` FOREIGN KEY (`vraagID`) -- REFERENCES `vragen` (`vraagID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
