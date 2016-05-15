@@ -21,8 +21,17 @@ class enquete_controller extends CI_Controller
 
         $this->load->view('header');
         $this->load->view('navigation');
-        $this->load->view('user_enquete_view',$data);
+        $this->load->view('user_enquete_view', $data);
         $this->load->view('footer');
     }
-    
+/*
+    function test()
+    {
+        $test = $this->enquete_model->get_antwoorden();
+        foreach ($test as $te)
+        {
+            var_dump($te);
+        }
+    }
+    */
 }
