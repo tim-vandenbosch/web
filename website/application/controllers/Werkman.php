@@ -9,15 +9,13 @@ class Werkman extends CI_Controller
 {
     function __construct() {
         parent::__construct();
-
         $this->load->database();
         $this->load->model('ticket_model');
         $this->load->model('user_model');
-
     }
 
 
-
+/* Omdat dit niet mag
     public function getAllTickets(){
         $query = $this->db->query("SELECT * FROM tickets");
         $data = array();
@@ -30,6 +28,10 @@ class Werkman extends CI_Controller
 
         return $data;
     }
+    */
+
+
+    /*Dani is hiermee bezig
     public function enumRols(){
         $rolArray = array();
         $query = $this->db->query(" SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'users' AND COLUMN_NAME = 'rol' ");
@@ -49,15 +51,7 @@ class Werkman extends CI_Controller
 
 
     }
-    public function prob(){
-
-        $data = array(
-        );
-        $data[effe] = 'bla';
-
-        $this->load->view('Werkman/edit_ticket',$data);
-    }
-
+    */
 
 
 }

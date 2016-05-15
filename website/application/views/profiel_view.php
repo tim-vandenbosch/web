@@ -7,7 +7,7 @@
 
     <div class="col-md-7 col-md-offset-2 main home ">
         <div class="col-md-4 left">
-            <h2><!--lefttitle--></h2>
+            <h2>Wekom DJ</h2>
         </div>
         <div class="col-md-8 right">
             <!-- hier kan nog eventuele uitleg over overzicht-->

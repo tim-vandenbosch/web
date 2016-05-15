@@ -4,6 +4,7 @@
  * User: Marnix_laptop
  * Date: 10/05/2016
  * Time: 15:14
+ * @author= marnix
  */
 class newTicket_controller extends CI_Controller
 {
@@ -20,7 +21,7 @@ class newTicket_controller extends CI_Controller
 
         $ticketId = $this-> ticket_model ->getLastTicketId()[0]->ticketID;
         $this->form_check();
-
+        $this -> sendForm();
         if ($this->form_validation->run() == FALSE)
         {
             $this->load->view('header');
@@ -58,7 +59,7 @@ class newTicket_controller extends CI_Controller
             'campusId' => $this -> input -> post('campusId'),
             'blokId' => $this -> input -> post('blokId'),
             'lokaalNummer' => $this -> input -> post('lokaalNummer'),
-            'datum' => date(yyyy/mm/dd),
+            'datum' => date("Y/m/d"),
             'omschrijving' => $this -> input -> post('omschrijving'),
             'bijlage' => $this -> input -> post('bijlage'),
             'herstellingDatum' => null,
