@@ -71,7 +71,8 @@ class Home extends CI_Controller
 
         if($rol == "Docent")
         {
-            $this->load->view('user_enquete_view');
+            // $this->load->view('user_enquete_view');
+            redirect('enquete_controller','refresh');
         }
         else
         {
