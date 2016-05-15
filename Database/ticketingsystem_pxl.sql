@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 15 mei 2016 om 16:52
+-- Gegenereerd op: 15 mei 2016 om 18:12
 -- Serverversie: 10.1.10-MariaDB
 -- PHP-versie: 7.0.3
 
@@ -19,6 +19,94 @@ SET time_zone = "+00:00";
 --
 -- Database: `ticketingsystem@pxl`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `antwoorden`
+--
+
+CREATE TABLE `antwoorden` (
+  `antwoordID` int(5) NOT NULL,
+  `vraagID` int(5) NOT NULL,
+  `antwoord_text` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `blokken`
+--
+
+CREATE TABLE `blokken` (
+  `blokID` int(5) NOT NULL,
+  `campusID` int(5) NOT NULL,
+  `blokLetter` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `blokken`
+--
+
+INSERT INTO `blokken` (`blokID`, `campusID`, `blokLetter`) VALUES
+(1, 1, 'B'),
+(2, 1, 'A'),
+(3, 1, 'C'),
+(4, 1, 'D'),
+(5, 1, 'E'),
+(6, 1, 'F'),
+(7, 1, 'G');
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `campussen`
+--
+
+CREATE TABLE `campussen` (
+  `campusID` int(5) NOT NULL,
+  `naam` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `campussen`
+--
+
+INSERT INTO `campussen` (`campusID`, `naam`) VALUES
+(1, 'Elfde Linie'),
+(2, 'Guffenslaan'),
+(3, 'Vildersstraat'),
+(4, 'Quartier Canal'),
+(5, 'Diepenbeek');
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `lokalen`
+--
+
+CREATE TABLE `lokalen` (
+  `lokaalNummer` int(5) NOT NULL,
+  `blokID` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `lokalen`
+--
+
+INSERT INTO `lokalen` (`lokaalNummer`, `blokID`) VALUES
+(41, 1),
+(42, 1),
+(43, 1),
+(44, 1),
+(45, 1),
+(46, 1),
+(141, 1),
+(142, 1),
+(143, 1),
+(145, 1),
+(144, 2),
+(146, 3);
 
 -- --------------------------------------------------------
 
@@ -58,9 +146,87 @@ INSERT INTO `tickets` (`ticketID`, `aanmaker`, `onderwerp`, `prioriteit`, `type`
 (7, 1, 'Verwarming gaat niet aan. ', 'Dringend (4 uur)', 'Elektriciteit', 4, 4, 146, '2016-01-05', 'De klaslokaal is erg koud. De verwarmingen doen het niet.', '', '2016-01-06', '2016-01-07', 1, 'Geparkeerd'),
 (8, 3, 'Macscherm werkt niet.', 'Gemiddeld (1 week)', 'IT', 3, 4, 146, '2016-05-08', 'Een mac scherm op de 2de rij links werkt niet meer. ', '', '2016-05-13', '2016-05-18', 2, 'Bevroren');
 
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `users`
+--
+
+CREATE TABLE `users` (
+  `userID` int(3) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `pws` varchar(50) NOT NULL,
+  `rol` enum('Admin','Dispatcher','Werkman','Medewerker','Docent','Schoonmaak medewerker') NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  `salt` varchar(1024) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `users`
+--
+
+INSERT INTO `users` (`userID`, `email`, `pws`, `rol`, `active`, `salt`) VALUES
+(1, 'admin@pxl.be', '21232f297a57a5a743894a0e4a801fc3', 'Admin', 1, ''),
+(2, 'dis@pxl.be', 'ab642ce62f55b2ca05b4697f3bd7b53a', 'Dispatcher', 1, ''),
+(3, 'wm1@pxl.be', 'ab642ce62f55b2ca05b4697f3bd7b53a', 'Werkman', 1, ''),
+(4, 'docent1@pxl.be', 'ab642ce62f55b2ca05b4697f3bd7b53a', 'Docent', 1, ''),
+(5, 'wm2@pxl.be', 'pxl', 'Werkman', 1, ''),
+(6, 'wm3@pxl.be', 'pxl', 'Werkman', 1, '');
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `vragen`
+--
+
+CREATE TABLE `vragen` (
+  `vragenID` int(5) NOT NULL,
+  `vraag_text` varchar(255) NOT NULL,
+  `antw1_text` varchar(255) NOT NULL,
+  `antw2_text` varchar(255) NOT NULL,
+  `antw3_text` varchar(255) NOT NULL,
+  `antw4_text` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `vragen`
+--
+
+INSERT INTO `vragen` (`vragenID`, `vraag_text`, `antw1_text`, `antw2_text`, `antw3_text`, `antw4_text`) VALUES
+(1, 'Was alles duidelijk bij het ingeven van een probleem', 'Ja', 'Soms', 'Nee', ''),
+(2, 'Wat vind u van de interface', 'Geweldig', 'Duidelijk', 'Neutraal', 'Kan beter'),
+(3, 'Geef je mening wat beter kan', 'NULL', '', '', '');
+
 --
 -- Indexen voor geëxporteerde tabellen
 --
+
+--
+-- Indexen voor tabel `antwoorden`
+--
+ALTER TABLE `antwoorden`
+  ADD PRIMARY KEY (`antwoordID`);
+
+--
+-- Indexen voor tabel `blokken`
+--
+ALTER TABLE `blokken`
+  ADD PRIMARY KEY (`blokID`),
+  ADD KEY `campusID` (`campusID`),
+  ADD KEY `campus` (`campusID`);
+
+--
+-- Indexen voor tabel `campussen`
+--
+ALTER TABLE `campussen`
+  ADD PRIMARY KEY (`campusID`);
+
+--
+-- Indexen voor tabel `lokalen`
+--
+ALTER TABLE `lokalen`
+  ADD PRIMARY KEY (`lokaalNummer`),
+  ADD KEY `blok` (`blokID`);
 
 --
 -- Indexen voor tabel `tickets`
@@ -78,17 +244,51 @@ ALTER TABLE `tickets`
   ADD KEY `blok` (`blokID`);
 
 --
+-- Indexen voor tabel `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`userID`);
+
+--
+-- Indexen voor tabel `vragen`
+--
+ALTER TABLE `vragen`
+  ADD PRIMARY KEY (`vragenID`);
+
+--
 -- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
+--
+-- AUTO_INCREMENT voor een tabel `antwoorden`
+--
+ALTER TABLE `antwoorden`
+  MODIFY `antwoordID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT voor een tabel `tickets`
 --
 ALTER TABLE `tickets`
   MODIFY `ticketID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
+-- AUTO_INCREMENT voor een tabel `vragen`
+--
+ALTER TABLE `vragen`
+  MODIFY `vragenID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- Beperkingen voor geëxporteerde tabellen
 --
+
+--
+-- Beperkingen voor tabel `blokken`
+--
+ALTER TABLE `blokken`
+  ADD CONSTRAINT `blok_campus_fk` FOREIGN KEY (`campusID`) REFERENCES `campussen` (`campusID`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Beperkingen voor tabel `lokalen`
+--
+ALTER TABLE `lokalen`
+  ADD CONSTRAINT `lokaal_blok_fk` FOREIGN KEY (`blokID`) REFERENCES `blokken` (`blokID`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Beperkingen voor tabel `tickets`
