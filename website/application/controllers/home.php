@@ -69,9 +69,10 @@ class Home extends CI_Controller
         $userID = $session_data['userID'];
         $rol = $this->user_model->neem_rol($userID);
 
+        // @Author: Britt
         if($rol == "Docent")
         {
-            // $this->load->view('user_enquete_view');
+            // verwijst naar de enquete_controller
             redirect('enquete_controller','refresh');
         }
         else
