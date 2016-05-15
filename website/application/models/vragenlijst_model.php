@@ -6,7 +6,7 @@
  * Date: 28/04/2016
  * Time: 12:18
  */
-class vragenlijst_model
+class vragenlijst_model extends CI_Model
 {
     var $vragenlijstID="";
     var $userID="";
