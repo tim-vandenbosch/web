@@ -21,9 +21,10 @@ class newTicket_controller extends CI_Controller
 
         $ticketId = $this-> ticket_model ->getLastTicketId()[0]->ticketID;
         $this->form_check();
-        $this -> sendForm();
         if ($this->form_validation->run() == FALSE)
         {
+            $this -> sendForm();
+
             $this->load->view('header');
             $this->load->view('navigation');
             $this->load->view('newTicket_view',$data = array('ticket' => $ticketId));
@@ -31,6 +32,7 @@ class newTicket_controller extends CI_Controller
         }
         else
         {
+            $this -> sendForm();
             $this->load->view('header');
             $this->load->view('navigation');
             $this->load->view('newTicketSucces_view');
