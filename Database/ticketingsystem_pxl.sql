@@ -158,26 +158,45 @@ INSERT INTO `users` (`userID`, `email`, `pws`, `rol`, `active`, `salt`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `vragenlijsten`
+-- Tabelstructuur voor tabel `vragen`
 --
 
-DROP TABLE IF EXISTS `vragenlijsten`;
-CREATE TABLE IF NOT EXISTS `vragenlijsten` (
-  `vragenlijstID` int(5) NOT NULL AUTO_INCREMENT,
-  `vraag1` int(5) NOT NULL,
-  `vraag2` int(5) NOT NULL,
-  `vraag3` varchar(1024) NOT NULL,
-  `userID` int(3) NOT NULL,
-  PRIMARY KEY (`vragenlijstID`),
-  KEY `user` (`userID`)
+DROP TABLE IF EXISTS `vragen`;
+CREATE TABLE IF NOT EXISTS `vragen` (
+  `vragenID` int(5) NOT NULL AUTO_INCREMENT,
+  `vraag_text` varchar(255) NOT NULL,
+`antw1_text` varchar(255) NOT NULL,
+`antw2_text` varchar(255) NOT NULL,
+`antw3_text` varchar(255) NOT NULL,
+`antw4_text` varchar(255) NOT NULL,
+PRIMARY KEY (`vragenID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `vragenlijsten`
+-- Gegevens worden geëxporteerd voor tabel `Vragen`
 --
 
-INSERT INTO `vragenlijsten` (`vragenlijstID`, `vraag1`, `vraag2`, `vraag3`, `userID`) VALUES
-(1, 0, 1, 'Heel snel gewerkt. Zeer tevreden.', 4);
+INSERT INTO `vragen` (`vragenID`,`vraag_text`,`antw1_text`,`antw2_text`,`antw3_text`,`antw4_text`) VALUES
+(1,'Was alles duidelijk bij het ingeven van een probleem', 'Ja','Soms','Nee',NULL),(2,'Wat vind u van de interface','Geweldig','Duidelijk','Neutraal','Kan beter'),(3,'Geef je mening wat beter kan','NULL',NULL,NULL,NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `antwoorden`
+--
+
+DROP TABLE IF EXISTS `antwoorden`;
+CREATE TABLE IF NOT EXISTS `antwoorden` (
+  `antwoordID` int(5) NOT NULL AUTO_INCREMENT,
+`vraagID` int(5) NOT NULL,
+  `antwoord_text` varchar(255) NOT NULL,
+  PRIMARY KEY (`antwoordID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+-- -------------------------------------------------------
+--
+-- Gegevens worden geëxporteerd voor tabel `vraagEnAntw`
+--
 
 --
 -- Beperkingen voor geëxporteerde tabellen
@@ -196,6 +215,12 @@ ALTER TABLE `lokalen`
   ADD CONSTRAINT `lokaal_blok_fk` FOREIGN KEY (`blokID`) REFERENCES `blokken` (`blokID`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
+-- Beperkingen voor tabel `antwoorden`
+--
+-- ALTER TABLE `antwoorden`
+--   ADD CONSTRAINT `vraag_fk` FOREIGN KEY (`vraagID`) -- REFERENCES `vragen` (`vraagID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Beperkingen voor tabel `tickets`
 --
 ALTER TABLE `tickets`
@@ -204,12 +229,6 @@ ALTER TABLE `tickets`
   ADD CONSTRAINT `ticket_campus_fk` FOREIGN KEY (`campusID`) REFERENCES `campussen` (`campusID`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `ticket_hersteller_fk` FOREIGN KEY (`hersteller`) REFERENCES `users` (`userID`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `ticket_lokaal_fk` FOREIGN KEY (`lokaalNummer`) REFERENCES `lokalen` (`lokaalNummer`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Beperkingen voor tabel `vragenlijsten`
---
-ALTER TABLE `vragenlijsten`
-  ADD CONSTRAINT `vragenlijst_user_fk` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
