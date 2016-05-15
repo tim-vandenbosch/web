@@ -62,10 +62,10 @@ http://tutsme-webdesign.info/bootstrap-3-sortable-table/ -->
                         <td> <?= htmlentities($ticket ->type,ENT_QUOTES,'UTF-8');?></td>
                   <!--  <?php /*foreach($campussen as $camp):*/?> //poging tot campusnaam te laten verschijnen
                         --><?php /*if($ticket ->campusID == $campussen ->campusID) : */?>
-                            <td> <?= htmlentities($ticket ->campusID,ENT_QUOTES,'UTF-8');?></td>
+                            <td> <?= htmlentities($ticket ->naam,ENT_QUOTES,'UTF-8');?></td>
                        <!-- <?php /*endif; */?>
                         --><?php /*endforeach;*/?>
-                        <td> <?= htmlentities($ticket ->blokID,ENT_QUOTES,'UTF-8');?></td>
+                        <td> <?= htmlentities($ticket ->blokLetter,ENT_QUOTES,'UTF-8');?></td>
                         <td> <?= htmlentities($ticket ->lokaalNummer,ENT_QUOTES,'UTF-8');?></td>
                         <!--<td> <?/*//= htmlentities($ticket ->herstellingDatum,ENT_QUOTES,'UTF-8');*/?></td>-->
                    <td> <?= htmlentities($ticket ->status,ENT_QUOTES,'UTF-8');?></td>
