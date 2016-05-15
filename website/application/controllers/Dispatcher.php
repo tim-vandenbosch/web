@@ -59,12 +59,12 @@ class Dispatcher  extends CI_Controller
 //@reviewer =
     public function details()
     {
-        $query = $this->db->query("SELECT * FROM tickets");
+       // $query = $this->db->query("SELECT * FROM tickets");
+        $data['query'] = $this-> ticket_model ->getdetailsTicket();
 
-        foreach ($query->result() as $row)
+/*        foreach ($query->result() as $row)
         {
             $data['onderwerp']= $row->onderwerp;
-            // $data['aanmaakDatum']=$row->datum;
             $data['type']=$row->type;
             $data['prioriteit']=$row->prioriteit;
             $data['status']=$row->status;
@@ -73,11 +73,12 @@ class Dispatcher  extends CI_Controller
             $data['Hdatum']=$row->herstellingDatum;
             $data['deadline']=$row->deadline;
             $data['hersteller']=$row->hersteller;
-        }
+        }*/
 
         $data['stat'] = $this-> ticket_model ->getEnums("'status'");
         $data['prio'] = $this-> ticket_model ->getEnums("'prioriteit'");
 
+        //$data['werkmannen'] = $this-> ticket_model ->getWerkmannen();
 //        $data['stat'] =  $this->enumStatus();
         $this->load->view('header');
         $this->load->view('navigation');

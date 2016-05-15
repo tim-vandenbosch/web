@@ -48,6 +48,50 @@ Class Ticket_model extends CI_Model{
         }
     }
 
+    function  getdetailsTicket(){
+
+
+        $this -> db -> select('t.ticketID,t.aanmaker,t.onderwerp,t.prioriteit,t.type,c.naam,b.blokLetter,t.lokaalNummer,t.datum,t.omschrijving,t.herstellingDatum,t.deadline, t.hersteller,t.status');
+        $this -> db -> from('tickets as t');
+        $this -> db -> join('campussen as c','t.campusID=c.campusID');
+        $this -> db -> join('blokken as b','t.blokID=b.blokID');
+        $this -> db -> where('t.ticketID',1);
+        $query = $this -> db -> get();
+
+        // Als er geen tickets gevonden worden in de db
+        if($query -> num_rows() >= 1)
+        {
+            return $query->result();
+        }
+        else
+        {
+            return false;
+        }
+        //$query = $this->db->query("SELECT * FROM tickets WHERE ticketID = $id");
+
+        //return $query;
+
+    }
+
+    function  getWerkmanne(){
+
+        $this -> db -> select('rol,email');
+        $this -> db -> from('users');
+
+        $query = $this -> db -> get();
+
+        // Als er tickets gevonden worden in de db
+        if($query -> num_rows() >= 1)
+        {
+            return $query->result();
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
 // @author =  Marnix
     function getList()
     {

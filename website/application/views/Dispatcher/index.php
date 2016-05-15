@@ -38,17 +38,15 @@ http://tutsme-webdesign.info/bootstrap-3-sortable-table/ -->
             <table class="table table-striped"   > <!-- class="table table-striped"  class="sortable" -->
                 <thead>
                 <tr>
-                    <th>ID:</th>
+                    <th>TicketId</th>
                     <th>Onderwerp</th>
                     <th>Prioriteit</th>
                     <th>Type</th>
                     <th>Campus</th>
                     <th>Blok</th>
-                    <th>lokaalNr</th>
-<!--                    <th>Herstellings datum</th>-->
+                    <th>Lokaal</th>
                     <th>Status</th>
                     <th>Beheren</th>
-                    <!--  <th>Locatie </th>-->
                 </tr>
                 </thead>
             
