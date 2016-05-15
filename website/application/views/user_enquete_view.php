@@ -13,10 +13,15 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2 main home ">
         <div class="col-md-8 col-md-offset-2 center ">
-           <form>
+            <?php
+            echo form_open();
+            ?>
                <div class="form-group row">
-                    <p><?= htmlentities($vragen[0] -> vraag_text, ENT_QUOTES, 'UTF-8'); ?></p>
+                   <p> <?= htmlentities($vragen[0] -> vraag_text, ENT_QUOTES, 'UTF-8'); ?></p>
+                   <input type="radio" name="vraag1"
+                          value="<?php echo htmlentities($vragen[0] -> antw1_text, ENT_QUOTES, 'UTF-8') ;?>">
                </div>
+
                <div class="form-group row">
                     <p><?= htmlentities($vragen[1] -> vraag_text, ENT_QUOTES, 'UTF-8'); ?></p>
                </div>
