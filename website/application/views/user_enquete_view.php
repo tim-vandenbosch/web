@@ -15,15 +15,7 @@
        <form>
            <?php foreach ($vragen as $vraag):?>
                 <p><?= htmlentities($vraag -> vraag_text, ENT_QUOTES, 'UTF-8'); ?></p>
-                <?php
-               for ($i = 0; $i <4; $i++)
-               {
-                   if($antwoorden[$i] != NULL)
-                   {
-                       echo "<input type='radio' name='antw1' value='$antwoorden[$i]'>";
-                   }
-               }
-               ?>
+                
            <?php endforeach; ?>
            <input class="btn btn-default" type="submit" value="inzenden" name="submit" id="submit"/>
        </form>

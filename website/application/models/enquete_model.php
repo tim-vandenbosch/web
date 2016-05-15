@@ -24,21 +24,22 @@ class enquete_model extends CI_Model
 
     function get_vragen()
     {
-        $this->db->select('vragenID,vraag_text');
+        $this->db->select('vragenID, vraag_text, antw1_text, antw2_text, antw3_text, antw4_text');
         $this->db->from('vragen');
 
         $query = $this->db->get();
         return $query->result();
     }
 
-    function get_antwoorden()
+    /*function get_antwoorden($vraagID)
     {
         $this->db->select('antw1_text,antw2_text,antw3_text,antw4_text');
         $this->db->from('vragen');
+        $this->db->where('vragenID',$vraagID);
 
         $query = $this->db->get();
-        return $query->result();
-    }
+        return $query->row();
+    } */
 
     function voeg_antwoord($vraagID, $antwoord)
     {
