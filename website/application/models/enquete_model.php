@@ -24,16 +24,30 @@ class enquete_model extends CI_Model
 
     function get_vragen()
     {
+        $this->db->select('vraagID,vraag_text');
+        $this->db->from('vragen');
 
+        $query = $this->db->get();
+        return $query->result();
     }
 
     function get_antwoorden()
     {
+        $this->db->select('antw1_text,antw2_text,antw3_text,antw4_text');
+        $this->db->from('vragen');
 
+        $query = $this->db->get();
+        return $query->result();
     }
 
-    function ingevuld_antwoord()
+    function voeg_antwoord($vraagID, $antwoord)
     {
+        $data = array
+        (
+           'vraagID' => $vraagID,
+            'antwoord_text' => $antwoord
+        );
 
+        $this->db->insert('antwoorden',$data);
     }
 }
