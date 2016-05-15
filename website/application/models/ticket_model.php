@@ -30,7 +30,12 @@ Class Ticket_model extends CI_Model{
     // @author =  Marnix
     function getAllTickets(){
 
-        $query = $this -> db -> get('tickets');
+        $this -> db -> select('t.ticketID,t.onderwerp,t.prioriteit,t.type,c.naam,b.blokLetter,t.lokaalNummer,t.herstellingDatum,t.status');
+        $this -> db -> from('tickets as t');
+        $this -> db -> join('campussen as c','t.campusID=c.campusID');
+        $this -> db -> join('blokken as b','t.blokID=b.blokID');
+
+        $query = $this -> db -> get();
 
         // Als er tickets gevonden worden in de db
         if($query -> num_rows() >= 1)
