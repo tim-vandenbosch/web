@@ -15,71 +15,10 @@ INTO
   `blokID`)
 VALUES('042', '1'),('043', '1'),('044', '1'),('045', '1'),('046', '1'),('141', '1'),('142', '1'),('143', '1'),('144', '2'),('145', '1'),('146', '3');
 
-INSERT
-INTO
-  `tickets`(
-    `ticketID`,
-    `onderwerp`,
-    `prioriteit`,
-    `type`,
-    `campusID`,
-    `blokID`,
-    `lokaalNummer`,
-    `datum`,
-    `omschrijving`,
-    `bijlage`,
-    `herstellingDatum`,
-    `deadline`,
-    `hersteller`,
-    `status`,
-    `aanmaker`
-  )
-VALUES(
-  2,
-  'Stoel kapot',
-  'Gemiddeld (1 week)',
-  'Faciliteiten',
-  2,
-  2,
-  45,
-  '2016-05-02',
-  'Een stoelpoot is afgebroken.',
-  '',
-  '2016-05-06',
-  '2016-05-09',
-  2,
-  'In behandeling',
-  NULL
-),(
-  3,
-  'Licht flikkert',
-  'Hoog (2 dagen)',
-  'Elektriciteit',
-  4,
-  3,
-  44,
-  '2016-05-13',
-  'Een lamp moet dringend vervangen worden. Deze flikkerde tijdens de avondles.',
-  '',
-  '2016-05-16',
-  '2016-05-17',
-  3,
-  'Geparkeerd',
-  NULL
-),(
-  4,
-  'Raam gebarsten',
-  'Dringend (4 uur)',
-  'Faciliteiten',
-  3,
-  4,
-  146,
-  '2016-04-18',
-  'Door een ongeluk is een raam gebarsten. ',
-  '',
-  '2016-04-19',
-  '2016-04-19',
-  1,
-  'Geparkeerd',
-  NULL
-);
+INSERT INTO `tickets` (`ticketID`, `onderwerp`, `prioriteit`, `type`, `campusID`, `blokID`, `lokaalNummer`, `datum`, `omschrijving`, `bijlage`, `herstellingDatum`, `deadline`, `hersteller`, `status`, `aanmaker`) VALUES
+(1, 'Beamer kapot', 'Kritiek (1 uur)', 'Elektriciteit', 1, 2, 41, '2016-04-28', 'Beamer gaat niet meer aan.', '', '2016-04-29', '2016-05-02', 3, 'In behandeling', 1),
+(2, 'Stoel kapot', 'Gemiddeld (1 week)', 'Faciliteiten', 2, 2, 41, '2016-05-02', 'Een stoelpoot is afgebroken.', '', '2016-05-06', '2016-05-09', 2, 'In behandeling', 2),
+(3, 'Licht flikkert', 'Hoog (2 dagen)', 'Elektriciteit', 2, 4, 145, '2016-05-13', 'Een lamp moet dringend vervangen worden. Deze flikkerde tijdens de avondles.', '', '2016-05-16', '2016-05-17', 3, 'Geparkeerd', 3),
+(4, 'Raam gebarsten', 'Dringend (4 uur)', 'Faciliteiten', 3, 3, 145, '2016-04-18', 'Door een ongeluk is een raam gebarsten. ', '', '2016-04-19', '2016-04-19', 1, 'Geparkeerd', 2),
+(5, 'Verwarming gaat niet aan. ', 'Dringend (4 uur)', 'Elektriciteit', 4, 4, 146, '2016-01-05', 'De klaslokaal is erg koud. De verwarmingen doen het niet.', '', '2016-01-06', '2016-01-07', 1, 'Geparkeerd', 1),
+(6, 'Macscherm werkt niet.', 'Gemiddeld (1 week)', 'IT', 3, 4, 146, '2016-05-08', 'Een mac scherm op de 2de rij links werkt niet meer. ', '', '2016-05-13', '2016-05-18', 2, 'Bevroren', 3);

@@ -1,11 +1,11 @@
-﻿-- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 29 apr 2016 om 14:07
+-- Gegenereerd op: 15 mei 2016 om 16:52
 -- Serverversie: 10.1.10-MariaDB
--- PHP-versie: 7.0.4
+-- PHP-versie: 7.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,72 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `ticketingsystem@pxl`
 --
-CREATE DATABASE IF NOT EXISTS `ticketingsystem@pxl` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `ticketingsystem@pxl`;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `blokken`
---
-
-DROP TABLE IF EXISTS `blokken`;
-CREATE TABLE IF NOT EXISTS `blokken` (
-  `blokID` int(5) NOT NULL,
-  `campusID` int(5) NOT NULL,
-  `blokLetter` varchar(255) NOT NULL,
-  PRIMARY KEY (`blokID`),
-  KEY `campusID` (`campusID`),
-  KEY `campus` (`campusID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Gegevens worden geëxporteerd voor tabel `blokken`
---
-
-INSERT INTO `blokken` (`blokID`, `campusID`, `blokLetter`) VALUES
-(1, 1, 'B');
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `campussen`
---
-
-DROP TABLE IF EXISTS `campussen`;
-CREATE TABLE IF NOT EXISTS `campussen` (
-  `campusID` int(5) NOT NULL,
-  `naam` varchar(255) NOT NULL,
-  PRIMARY KEY (`campusID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Gegevens worden geëxporteerd voor tabel `campussen`
---
-
-INSERT INTO `campussen` (`campusID`, `naam`) VALUES
-(1, 'Elfde Linie');
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `lokalen`
---
-
-DROP TABLE IF EXISTS `lokalen`;
-CREATE TABLE IF NOT EXISTS `lokalen` (
-  `lokaalNummer` int(5) NOT NULL,
-  `blokID` int(5) NOT NULL,
-  PRIMARY KEY (`lokaalNummer`),
-  KEY `blok` (`blokID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Gegevens worden geëxporteerd voor tabel `lokalen`
---
-
-INSERT INTO `lokalen` (`lokaalNummer`, `blokID`) VALUES
-(41, 1);
 
 -- --------------------------------------------------------
 
@@ -92,9 +26,8 @@ INSERT INTO `lokalen` (`lokaalNummer`, `blokID`) VALUES
 -- Tabelstructuur voor tabel `tickets`
 --
 
-DROP TABLE IF EXISTS `tickets`;
-CREATE TABLE IF NOT EXISTS `tickets` (
-  `ticketID` int(5) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tickets` (
+  `ticketID` int(5) NOT NULL,
   `aanmaker` int(3) NOT NULL,
   `onderwerp` varchar(500) NOT NULL,
   `prioriteit` enum('Kritiek (1 uur)','Dringend (4 uur)','Hoog (2 dagen)','Gemiddeld (1 week)','Laag (3 maanden)') NOT NULL,
@@ -108,117 +41,54 @@ CREATE TABLE IF NOT EXISTS `tickets` (
   `herstellingDatum` date NOT NULL,
   `deadline` date NOT NULL,
   `hersteller` int(11) NOT NULL,
-  `status` enum('Geparkeerd','Afgesloten','In behandeling','Geannuleerd') NOT NULL,
-  PRIMARY KEY (`ticketID`),
-  KEY `userID` (`aanmaker`),
-  KEY `lokaalID` (`lokaalNummer`),
-  KEY `campusID` (`campusID`),
-  KEY `blokID` (`blokID`),
-  KEY `aanmaker` (`aanmaker`),
-  KEY `hersteller` (`hersteller`),
-  KEY `lokaal` (`lokaalNummer`),
-  KEY `campus` (`campusID`),
-  KEY `blok` (`blokID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `status` enum('Geparkeerd','Afgesloten','In behandeling','Geannuleerd','Bevroren','Voltooid') NOT NULL DEFAULT 'Geparkeerd'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `tickets`
 --
 
 INSERT INTO `tickets` (`ticketID`, `aanmaker`, `onderwerp`, `prioriteit`, `type`, `campusID`, `blokID`, `lokaalNummer`, `datum`, `omschrijving`, `bijlage`, `herstellingDatum`, `deadline`, `hersteller`, `status`) VALUES
-(1, 4, 'Beamer kapot', 'Kritiek (1 uur)', 'Elektriciteit', 1, 1, 41, '2016-04-28', 'Beamer gaat niet meer aan.', '', '2016-04-29', '2016-05-02', 3, 'In behandeling');
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `users`
---
-
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `userID` int(3) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `pws` varchar(50) NOT NULL,
-  `rol` enum('Admin','Dispatcher','Werkman','Medewerker','Docent','Schoonmaak medewerker') NOT NULL,
-  `active` tinyint(1) NOT NULL,
-  `salt` varchar(1024) NOT NULL,
-  PRIMARY KEY (`userID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+(1, 4, 'Beamer kapot', 'Kritiek (1 uur)', 'Elektriciteit', 1, 1, 41, '2016-04-28', 'Beamer gaat niet meer aan.', '', '2016-04-29', '2016-05-02', 3, 'In behandeling'),
+(2, 4, 'Stoel kapot', 'Hoog (2 dagen)', 'Elektriciteit', 1, 1, 41, '2016-05-08', 'Stoelpoot kapot', '', '2016-05-11', '2016-05-14', 3, 'Afgesloten'),
+(3, 1, 'Beamer kapot', 'Kritiek (1 uur)', 'Elektriciteit', 1, 2, 41, '2016-04-28', 'Beamer gaat niet meer aan.', '', '2016-04-29', '2016-05-02', 3, 'In behandeling'),
+(4, 2, 'Stoel kapot', 'Gemiddeld (1 week)', 'Faciliteiten', 2, 2, 41, '2016-05-02', 'Een stoelpoot is afgebroken.', '', '2016-05-06', '2016-05-09', 2, 'In behandeling'),
+(5, 3, 'Licht flikkert', 'Hoog (2 dagen)', 'Elektriciteit', 2, 4, 145, '2016-05-13', 'Een lamp moet dringend vervangen worden. Deze flikkerde tijdens de avondles.', '', '2016-05-16', '2016-05-17', 3, 'Geparkeerd'),
+(6, 2, 'Raam gebarsten', 'Dringend (4 uur)', 'Faciliteiten', 3, 3, 145, '2016-04-18', 'Door een ongeluk is een raam gebarsten. ', '', '2016-04-19', '2016-04-19', 1, 'Geparkeerd'),
+(7, 1, 'Verwarming gaat niet aan. ', 'Dringend (4 uur)', 'Elektriciteit', 4, 4, 146, '2016-01-05', 'De klaslokaal is erg koud. De verwarmingen doen het niet.', '', '2016-01-06', '2016-01-07', 1, 'Geparkeerd'),
+(8, 3, 'Macscherm werkt niet.', 'Gemiddeld (1 week)', 'IT', 3, 4, 146, '2016-05-08', 'Een mac scherm op de 2de rij links werkt niet meer. ', '', '2016-05-13', '2016-05-18', 2, 'Bevroren');
 
 --
--- Gegevens worden geëxporteerd voor tabel `users`
---
--- ww zijn: 1=admin, 2=pxl, 3=pxl, 4=pxl
-INSERT INTO `users` (`userID`, `email`, `pws`, `rol`, `active`, `salt`) VALUES
-(1, 'admin@pxl.be', '21232f297a57a5a743894a0e4a801fc3', 'Admin', 1, ''),
-(2, 'dis@pxl.be', 'ab642ce62f55b2ca05b4697f3bd7b53a', 'Dispatcher', 1, ''),
-(3, 'wm1@pxl.be', 'ab642ce62f55b2ca05b4697f3bd7b53a', 'Werkman', 1, ''),
-(4, 'docent1@pxl.be', 'ab642ce62f55b2ca05b4697f3bd7b53a', 'Docent', 1, '');
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `vragen`
+-- Indexen voor geëxporteerde tabellen
 --
 
-DROP TABLE IF EXISTS `vragen`;
-CREATE TABLE IF NOT EXISTS `vragen` (
-  `vragenID` int(5) NOT NULL AUTO_INCREMENT,
-  `vraag_text` varchar(255) NOT NULL,
-`antw1_text` varchar(255) NOT NULL,
-`antw2_text` varchar(255) NOT NULL,
-`antw3_text` varchar(255) NOT NULL,
-`antw4_text` varchar(255) NOT NULL,
-PRIMARY KEY (`vragenID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+--
+-- Indexen voor tabel `tickets`
+--
+ALTER TABLE `tickets`
+  ADD PRIMARY KEY (`ticketID`),
+  ADD KEY `userID` (`aanmaker`),
+  ADD KEY `lokaalID` (`lokaalNummer`),
+  ADD KEY `campusID` (`campusID`),
+  ADD KEY `blokID` (`blokID`),
+  ADD KEY `aanmaker` (`aanmaker`),
+  ADD KEY `hersteller` (`hersteller`),
+  ADD KEY `lokaal` (`lokaalNummer`),
+  ADD KEY `campus` (`campusID`),
+  ADD KEY `blok` (`blokID`);
 
 --
--- Gegevens worden geëxporteerd voor tabel `Vragen`
+-- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
-INSERT INTO `vragen` (`vragenID`,`vraag_text`,`antw1_text`,`antw2_text`,`antw3_text`,`antw4_text`) VALUES
-(1,'Was alles duidelijk bij het ingeven van een probleem', 'Ja','Soms','Nee',NULL),(2,'Wat vind u van de interface','Geweldig','Duidelijk','Neutraal','Kan beter'),(3,'Geef je mening wat beter kan','NULL',NULL,NULL,NULL);
-
--- --------------------------------------------------------
-
 --
--- Tabelstructuur voor tabel `antwoorden`
+-- AUTO_INCREMENT voor een tabel `tickets`
 --
-
-DROP TABLE IF EXISTS `antwoorden`;
-CREATE TABLE IF NOT EXISTS `antwoorden` (
-  `antwoordID` int(5) NOT NULL AUTO_INCREMENT,
-`vraagID` int(5) NOT NULL,
-  `antwoord_text` varchar(255) NOT NULL,
-  PRIMARY KEY (`antwoordID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
--- -------------------------------------------------------
---
--- Gegevens worden geëxporteerd voor tabel `vraagEnAntw`
---
-
+ALTER TABLE `tickets`
+  MODIFY `ticketID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- Beperkingen voor geëxporteerde tabellen
 --
-
---
--- Beperkingen voor tabel `blokken`
---
-ALTER TABLE `blokken`
-  ADD CONSTRAINT `blok_campus_fk` FOREIGN KEY (`campusID`) REFERENCES `campussen` (`campusID`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Beperkingen voor tabel `lokalen`
---
-ALTER TABLE `lokalen`
-  ADD CONSTRAINT `lokaal_blok_fk` FOREIGN KEY (`blokID`) REFERENCES `blokken` (`blokID`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Beperkingen voor tabel `antwoorden`
---
--- ALTER TABLE `antwoorden`
---   ADD CONSTRAINT `vraag_fk` FOREIGN KEY (`vraagID`) -- REFERENCES `vragen` (`vraagID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Beperkingen voor tabel `tickets`
