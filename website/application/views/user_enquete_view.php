@@ -13,7 +13,7 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2 main home ">
        <form>
-           <!-- <?php foreach ($antwoorden as $antwoord):?>
+           <!-- <?php foreach ($vragen as $vraag):?>
                <?php $antwoord1=htmlentities($antwoord ->userID, ENT_QUOTES, 'UTF-8'); ?>
                 <input type="radio" name="vraag1" value="">
 
