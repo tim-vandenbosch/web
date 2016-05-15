@@ -2,39 +2,18 @@
 <head>
     <?php echo link_tag('/assets/bootstrap/css/bootstrap.css') ?>
     <?php echo link_tag('/assets/bootstrap/css/customStyle.css') ?>
+    <?= link_tag('/assets/bootstrap/js/customJavaScript.js') ?>
 
     <title>Tickets Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<script type="text/javascript">
-        /*
-         * Gebruiker: Britt
-         * Datum: 28/04/2016
-         * Bron: /
-         */
-        window.addEventListener('load', function () {
-            var form = document.getElementById("myForm");
-            form.addEventListener('submit',validateEmail);
-        });
-
-        function validateEmail() {
-            var x = document.getElementById("user").value;
-            var atpos = x.indexOf("@");
-            var dotpos = x.lastIndexOf(".");
-            if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
-                alert("Geen geldig email, log in met je pxl email");
-                event.preventDefault();
-            } /*else
-             alert("valid en sent");*/
-        }
-</script>
 
     <body id="background">
     <header class="container hoofding">
         <div id="pxlLine"></div>
         <img class="col-md-2" src="<?php echo base_url();?>assets/Pictures/Logo_PXL.png" alt="PXL logo"/>
-        <h1 class="col-md-8">HOGESCHOOL PXL</h1>
+        <h1 class="col-md-7">HOGESCHOOL PXL</h1>
         <div class="col-md-2"></div>
     </header>
     <div class="container main login">
@@ -54,7 +33,7 @@
                 </div>
                 <a href="">wachtwoord vergeten?</a><br>
                 <input type="submit" value="login" />
-        </form>
+        </div>
     </div>
     </body>
 </html>

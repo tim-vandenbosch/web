@@ -50,7 +50,10 @@ class Home extends CI_Controller
                     break;
                 case "Docent":
                     $data = array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getUserTickets($userID));
+                    $this->load->view('header');
+                    $this->load->view('navigation');
                     $this->load->view('user_view', $data);
+                    $this->load->view('footer');
                     break;
                 default:
                     $this->load->view('login_view');

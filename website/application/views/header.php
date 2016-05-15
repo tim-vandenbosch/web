@@ -9,5 +9,6 @@
 
     <?= link_tag('/assets/bootstrap/css/bootstrap.css') ?>
     <?= link_tag('/assets/bootstrap/css/customStyle.css') ?>
-    
+
+    <?= link_tag('/assets/bootstrap/js/customJavaScript.js') ?>
 </head>
