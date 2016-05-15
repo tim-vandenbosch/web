@@ -13,11 +13,11 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2 main home ">
        <form>
-           <?php foreach ($antwoorden as $antwoord):?>
+           <!-- <?php foreach ($antwoorden as $antwoord):?>
                <?php $antwoord1=htmlentities($antwoord ->userID, ENT_QUOTES, 'UTF-8'); ?>
                 <input type="radio" name="vraag1" value="">
 
-           <?php endforeach; ?>
+           <?php endforeach; ?> -->
            <input class="btn btn-default" type="submit" value="inzenden" name="submit" id="submit"/>
        </form>
     </div>
