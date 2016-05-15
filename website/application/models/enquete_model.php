@@ -24,7 +24,7 @@ class enquete_model extends CI_Model
 
     function get_vragen()
     {
-        $this->db->select('vraagID,vraag_text');
+        $this->db->select('vragenID,vraag_text');
         $this->db->from('vragen');
 
         $query = $this->db->get();
