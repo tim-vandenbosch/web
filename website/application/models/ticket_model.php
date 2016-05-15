@@ -7,13 +7,15 @@
      */
 Class Ticket_model extends CI_Model{
 
-    // @author =  Marnix?
+    // @author =  Marnix
 //@reviewer =
     function getUserTickets($userID){
 
-        $this -> db -> select('ticketID,onderwerp,prioriteit,type,campusID,blokID,lokaalNummer,herstellingDatum,status');
-        $this -> db -> from('tickets');
-        $this -> db -> where('aanmaker',$userID);
+        $this -> db -> select('t.ticketID,t.onderwerp,t.prioriteit,t.type,c.naam,b.blokLetter,t.lokaalNummer,t.herstellingDatum,t.status');
+        $this -> db -> from('tickets as t');
+        $this -> db -> join('campussen as c','t.campusID=c.campusID');
+        $this -> db -> join('blokken as b','t.blokID=b.blokID');
+        $this -> db -> where('t.aanmaker',$userID);
         $query = $this -> db -> get();
         // Als er geen tickets gevonden worden in de db
         if($query -> num_rows() >= 1)
@@ -26,7 +28,7 @@ Class Ticket_model extends CI_Model{
         }
     }
 
-    // @author =  Marnix?
+    // @author =  Marnix
 //@reviewer = Daniela & Nida
     function getAllTickets(){
 
@@ -43,7 +45,7 @@ Class Ticket_model extends CI_Model{
         }
     }
 
-// @author =  Marnix?
+// @author =  Marnix
 //@reviewer =
     function getList()
     {
@@ -52,7 +54,7 @@ Class Ticket_model extends CI_Model{
         /**return $query = $this->db->get('tickets');**/
     }
 
-// @author =  Marnix?
+// @author =  Marnix
 //@reviewer =
     function getTicketArray($userID){
 
@@ -73,7 +75,7 @@ Class Ticket_model extends CI_Model{
         }
     }
 
-    // @author = Marnix?
+    // @author = Marnix
 //@reviewer =
     function getLastTicketId(){
         $this -> db -> select_max('ticketID');

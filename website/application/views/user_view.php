@@ -64,8 +64,8 @@
                                     <td> <?= htmlentities($ticket ->onderwerp,ENT_QUOTES,'UTF-8');?></td>
                                     <td> <?= htmlentities($ticket ->prioriteit,ENT_QUOTES,'UTF-8');?></td>
                                     <td> <?= htmlentities($ticket ->type,ENT_QUOTES,'UTF-8');?></td>
-                                    <td> <?= htmlentities($ticket ->campusID,ENT_QUOTES,'UTF-8');?></td>
-                                    <td> <?= htmlentities($ticket ->blokID,ENT_QUOTES,'UTF-8');?></td>
+                                    <td> <?= htmlentities($ticket ->naam,ENT_QUOTES,'UTF-8');?></td>
+                                    <td> <?= htmlentities($ticket ->blokLetter,ENT_QUOTES,'UTF-8');?></td>
                                     <td> <?= htmlentities($ticket ->lokaalNummer,ENT_QUOTES,'UTF-8');?></td>
                                     <td> <?= htmlentities($ticket ->herstellingDatum,ENT_QUOTES,'UTF-8');?></td>
                                     <td> <?= htmlentities($ticket ->status,ENT_QUOTES,'UTF-8');?></td>
