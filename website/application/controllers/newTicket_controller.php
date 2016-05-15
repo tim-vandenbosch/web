@@ -43,4 +43,30 @@ class newTicket_controller extends CI_Controller
         $this ->form_validation -> set_rules('onderwerp','onderwerp','required|max_length[20]');
         $this ->form_validation -> set_rules('lokaal','lokaal','required|max_length[20]');
     }
+
+    function sendForm(){
+        $session_data = $this->session->userdata('logged_in');
+        $aanmaker = $this -> session -> userdata('userId');
+
+
+        $data = array(
+            'ticketId'=>$this -> input -> post('ticketID'),
+            'aanmaker' => $aanmaker,
+            'onderwerp' =>$this -> input -> post('onderwerp'),
+            'prioriteit' => $this -> input -> post('prioriteit'),
+            'type' => $this -> input -> post('type'),
+            'campusId' => $this -> input -> post('campusId'),
+            'blokId' => $this -> input -> post('blokId'),
+            'lokaalNummer' => $this -> input -> post('lokaalNummer'),
+            'datum' => date(yyyy/mm/dd),
+            'omschrijving' => $this -> input -> post('omschrijving'),
+            'bijlage' => $this -> input -> post('bijlage'),
+            'herstellingDatum' => null,
+            'deadline' => null,
+            'hersteller' =>null,
+            "status" => "In behandeling"
+            );
+
+        $this -> ticket_model -> insertTicket($data);
+    }
 }

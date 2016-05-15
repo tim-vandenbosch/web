@@ -114,6 +114,18 @@ Class Ticket_model extends CI_Model{
         return $stringarrayenums;
     }
 
+    //@author = marnix
+    function insertTicket($ticket){
+
+        $this -> db -> insert('tickets',$ticket);
+    }
+
+    //@author = marnix
+    function updateTicket($ticket){
+        $this -> db -> where('ticketID',$ticket['ticketId']);
+        $this -> db -> update('tickets',$ticket);
+    }
+
 /*// @author =  Daniela
     function sorttable($tablename){
                 //$sql = "SELECT * FROM MyTable";

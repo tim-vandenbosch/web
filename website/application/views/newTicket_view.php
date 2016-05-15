@@ -17,7 +17,7 @@
                 <?php
                 echo validation_errors();?>
                 <?php
-                echo form_open((site_url('newTicket_controller','index')),'newTicket_view');
+                echo form_open((site_url('newTicket_controller','sendForm')),'newTicket_view');
                 ?>
                     <fieldset>
                         <legend>
@@ -76,6 +76,7 @@
                             <input class="btn btn-default" type="submit" value="inzenden" name="submit" id="submit"/>
                         </div>
                     </fieldset>
+                <?php form_close(); ?>
             </div>
         </div>
         </div>
