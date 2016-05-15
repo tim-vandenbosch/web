@@ -25,6 +25,7 @@ class Home extends CI_Controller
             $userID = $session_data['userID'];
             $rol = $this->user_model->neem_rol($userID);
 
+            // Op basis van de rol de juiste view meegeven
             switch ($rol){
                 case "Admin":
                     $data = array('userID' => $session_data['userID'], 'users' => $this->user_model->get_users());
@@ -64,8 +65,20 @@ class Home extends CI_Controller
 
     function logout()
     {
-        $this->session->unset_userdata('logged_in');
-        session_destroy();
-        redirect('home', 'refresh');
+        $session_data = $this->session->userdata('logged_in');
+        $userID = $session_data['userID'];
+        $rol = $this->user_model->neem_rol($userID);
+
+        if($rol == "Docent")
+        {
+            $this->load->view('user_enquete_view');
+        }
+        else
+        {
+            $this->session->unset_userdata('logged_in');
+            session_destroy();
+            redirect('login', 'refresh');
+        }
+
     }
 }
