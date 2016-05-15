@@ -6,22 +6,15 @@
     <img class="col-md-2 " src="<?php echo base_url();?>assets/Pictures/Logo_PXL.png" alt="PXL logo"/>
 
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Animated Burger, Bootstrap</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <nav class="navbar">
+
+        <ul class="nav navbar-nav navbar-style">
+            <li class="active"><?php echo anchor(array('home','index'),'Overzicht'); ?></li>
+            <li><?php echo anchor(site_url(array('newTicket_controller','index')),'Nieuw ticket');?></li>
+            <li><?php echo anchor(site_url(array('profiel_controller','index')),'Profiel');?></li>
+            <li><?php echo anchor(site_url(array('home','logout')),'Afmelden'); ?></li>
+        </ul>
+    </nav>
 
     <div class="col-md-2"></div>
 

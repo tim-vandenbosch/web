@@ -7,9 +7,9 @@
 
     <div class="col-md-7 col-md-offset-2 main home ">
         <div class="col-md-4 left">
-            <h2>Wekom DJ</h2>
+           <h2><?php echo $email;?></h2>
         </div>
-        <div class="col-md-8 right">
+        <div class="col-md-7 right">
             <!-- hier kan nog eventuele uitleg over overzicht-->
         </div>
         <div class="row">
