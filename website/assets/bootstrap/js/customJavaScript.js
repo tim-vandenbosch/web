@@ -18,3 +18,8 @@ function validateEmail() {
     } /*else
      alert("valid en sent");*/
 }
+ $(document).ready(function () {
+     $(".navbar-toggle").on("click", function () {
+         $(this).toggleClass("active");
+     });
+ });
