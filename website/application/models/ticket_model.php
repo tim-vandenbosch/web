@@ -51,10 +51,11 @@ Class Ticket_model extends CI_Model{
     function  getdetailsTicket($ticketID){
 
 
-        $this -> db -> select('t.ticketID,t.aanmaker,t.onderwerp,t.prioriteit,t.type,c.naam,b.blokLetter,t.lokaalNummer,t.datum,t.omschrijving,t.herstellingDatum,t.deadline, t.hersteller,t.status');
+        $this -> db -> select('t.ticketID,t.aanmaker,u.email,t.onderwerp,t.prioriteit,t.type,c.naam,b.blokLetter,t.lokaalNummer,t.datum,t.omschrijving,t.herstellingDatum,t.deadline, t.hersteller,t.status');
         $this -> db -> from('tickets as t');
         $this -> db -> join('campussen as c','t.campusID=c.campusID');
         $this -> db -> join('blokken as b','t.blokID=b.blokID');
+        $this -> db -> join('users as u','t.aanmaker=u.userID');
         $this -> db -> where('t.ticketID',$ticketID);
         $query = $this -> db -> get();
 
