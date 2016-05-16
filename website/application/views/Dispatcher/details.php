@@ -7,13 +7,14 @@
  */?>
 <div class="row">
     <div class="col-md-8 col-md-offset-2 titel">
-        <h1>Details van de ticket</h1>
+        <?php foreach($query as $quer):?>
+        <h1>Details van ticket <?= htmlentities($quer ->ticketID,ENT_QUOTES,'UTF-8');?></h1>
     </div>
 </div>
 <div class="row">
     <div class="col-md-8 col-md-offset-2 main home ">
         <div class="col-md-6 left">
-            <?php foreach($query as $quer):?>
+
             <h2><?= htmlentities($quer ->onderwerp,ENT_QUOTES,'UTF-8');?></h2>
         </div>
         <div class="col-md-6 right">
@@ -28,11 +29,21 @@
             <form role="form">
                 <div class="form-group">
                     <label for="text">Onderwerp</label>
-                    <input disabled type="text" class="form-control" id="ont" value=<?= htmlentities($quer ->onderwerp,ENT_QUOTES,'UTF-8');?>>
+                    <p disabled type="text" class="form-control" id="ont"><?= htmlentities($quer ->onderwerp,ENT_QUOTES);?></p>
                 </div>
                 <div class="form-group">
                     <label for="text">Aanmaker</label>
                     <input disabled type="email" class="form-control" id="ont" value=<?= htmlentities($quer ->email,ENT_QUOTES,'UTF-8');?>>
+                </div>
+                <div class="form-group">
+                    <label for="text">Campus</label>
+                    <p disabled type="txt" class="form-control" id="ont">
+                        <?=htmlentities($quer ->naam,ENT_QUOTES,'UTF-8');?></p>
+                </div>
+                <div class="form-group">
+                    <label for="text">Blok en lokaal</label>
+                    <p disabled type="txt" class="form-control" id="ont">
+                        <?=htmlentities($quer ->blokLetter,ENT_QUOTES,'UTF-8'), htmlentities($quer ->lokaalNummer,ENT_QUOTES,'UTF-8');?></p>
                 </div>
                 <div class="form-group">
                     <label for="text">Prioriteit:</label>
@@ -48,7 +59,7 @@
                     <input disabled type="text" class="form-control"  value=<?= htmlentities($quer ->type,ENT_QUOTES,'UTF-8');?> id="type">
                 </div>
                 <div class="form-group">
-                    <label for="text">Datum:</label>
+                    <label for="text">Meldingdatum:</label>
                     <input disabled type="date" class="form-control"  value=<?= htmlentities($quer ->datum,ENT_QUOTES,'UTF-8');?> id="datum">
                 </div>
                 <div class="form-group">
@@ -84,3 +95,6 @@
             </form>
         </div>
     </div>
+
+
+<!--    Bronnen: http://www.w3schools.com/bootstrap/bootstrap_forms.asp-->
