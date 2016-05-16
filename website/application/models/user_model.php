@@ -140,4 +140,25 @@ Class User_model extends CI_Model
         $result = $query->row();
         return $result;
            }
+//@author = Daniela
+    function  getEmailWerkmannen(){
+
+        $this -> db -> select('email');
+        $this -> db -> from('users');
+        $this -> db -> where('rol','Werkman');
+
+
+        $query = $this -> db -> get();
+
+        // Als er tickets gevonden worden in de db
+        if($query -> num_rows() >= 1)
+        {
+            return $query->result();
+        }
+        else
+        {
+            return false;
+        }
+
+    }
 }
