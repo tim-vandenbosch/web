@@ -10,10 +10,13 @@ class Dispatcher  extends CI_Controller
 {
     // @author =  Nida
 //@reviewer = Daniela
+
     function __construct() {
         parent::__construct();
         $this->load->database();
         $this->load->model('ticket_model');
+        $data['Dispatcher'] = $this;
+
     }
 
     // @author =  Daniela
@@ -27,6 +30,12 @@ class Dispatcher  extends CI_Controller
 //@reviewer =
     public function index()
     {
+//        'userID' => $session_data['userID'],
+        $data =  array( 'tickets' => $this->ticket_model->getAllTickets(), 'Dispatcher' => $this);
+        $this->load->view('header');
+        $this->load->view('navigation');
+        $this->load->view('/Dispatcher/index', $data);
+        $this->load->view('footer');
 /*        $query = $this->db->query("SELECT * FROM tickets");
         foreach ($query->result() as $row)
         {
@@ -42,9 +51,9 @@ class Dispatcher  extends CI_Controller
 
         //Deze code in commentaar is eigenlijk niet nodig.....ma whatever ik laat het eventjes staan
         //je weet maar nooit :p
-        $this->load->view('header');
+      /*  $this->load->view('header');
         $this->load->view('navigation');
-        $this->load->view('footer');
+        $this->load->view('footer');*/
 
     }
     /*    $query = $this->db->query("SELECT * FROM campussen");
@@ -57,11 +66,11 @@ class Dispatcher  extends CI_Controller
 
     // @author =  Daniela
 //@reviewer =
-    public function details()
+    public function details($ticketID)
     {
        // $query = $this->db->query("SELECT * FROM tickets");
-        $data['query'] = $this-> ticket_model ->getdetailsTicket();
-
+        $data['query'] = $this-> ticket_model ->getdetailsTicket($ticketID);
+       // $this -> db ->join('campus'sen,'tickets.campusID=campussen.campusName');
 /*        foreach ($query->result() as $row)
         {
             $data['onderwerp']= $row->onderwerp;

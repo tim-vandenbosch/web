@@ -35,11 +35,9 @@ class Home extends CI_Controller
                     $this->load->view('footer');
                     break;
                 case "Dispatcher":
-                    $data =  array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getAllTickets());
-                    $this->load->view('header');
-                    $this->load->view('navigation');
-                    $this->load->view('/Dispatcher/index', $data);
-                    $this->load->view('footer');
+                  
+                    redirect('Dispatcher','refresh');
+
                     break;
                 case "Werkman":
                     $data =  array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getAllTickets());

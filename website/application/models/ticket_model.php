@@ -48,14 +48,14 @@ Class Ticket_model extends CI_Model{
         }
     }
 
-    function  getdetailsTicket(){
+    function  getdetailsTicket($ticketID){
 
 
         $this -> db -> select('t.ticketID,t.aanmaker,t.onderwerp,t.prioriteit,t.type,c.naam,b.blokLetter,t.lokaalNummer,t.datum,t.omschrijving,t.herstellingDatum,t.deadline, t.hersteller,t.status');
         $this -> db -> from('tickets as t');
         $this -> db -> join('campussen as c','t.campusID=c.campusID');
         $this -> db -> join('blokken as b','t.blokID=b.blokID');
-        $this -> db -> where('t.ticketID',1);
+        $this -> db -> where('t.ticketID',$ticketID);
         $query = $this -> db -> get();
 
         // Als er geen tickets gevonden worden in de db
@@ -68,7 +68,6 @@ Class Ticket_model extends CI_Model{
             return false;
         }
         //$query = $this->db->query("SELECT * FROM tickets WHERE ticketID = $id");
-
         //return $query;
 
     }

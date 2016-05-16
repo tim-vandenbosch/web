@@ -54,7 +54,7 @@ http://tutsme-webdesign.info/bootstrap-3-sortable-table/ -->
                 <tbody>
                 <?php foreach($tickets as $ticket):?>
                     <tr>
-                        <td> <?= htmlentities($ticket ->ticketID,ENT_QUOTES,'UTF-8');?></td>
+                        <td> <?= $ticketid =  htmlentities($ticket ->ticketID,ENT_QUOTES,'UTF-8');?></td>
                         <td> <?= htmlentities($ticket ->onderwerp,ENT_QUOTES,'UTF-8');?></td>
                         <td> <?= htmlentities($ticket ->prioriteit,ENT_QUOTES,'UTF-8');?></td>
                         <td> <?= htmlentities($ticket ->type,ENT_QUOTES,'UTF-8');?></td>
@@ -67,10 +67,15 @@ http://tutsme-webdesign.info/bootstrap-3-sortable-table/ -->
                         <td> <?= htmlentities($ticket ->lokaalNummer,ENT_QUOTES,'UTF-8');?></td>
                         <!--<td> <?/*//= htmlentities($ticket ->herstellingDatum,ENT_QUOTES,'UTF-8');*/?></td>-->
                    <td> <?= htmlentities($ticket ->status,ENT_QUOTES,'UTF-8');?></td>
-                        <td> <button type="button" class="btn btn-link" onclick=><?php echo anchor(site_url(array('Dispatcher','details')),'Details');?></button></td>
+<!--                       <td> <button type="button" class="btn btn-link" onclick="--><?php //$Dispatcher->details($ticketid); ?><!--"  >Details</button></td>-->
+                        <td> <a href="<?php echo site_url('Dispatcher/details')?>">Details </a></td>
+                        <!--  <?php //echo site_url("post/edit/$ticketID->id"); ?>
+<!--                        --><?php //echo anchor(site_url(array('Dispatcher','details')),'Details');?>
                     </tr>
                 <?php endforeach;?>
                 </tbody>
             </table>
         </div>
 </div>
+
+<!--    Bron : http://stackoverflow.com/questions/2997288/calling-controller-methods-from-inside-view-in-codeigniter-->
