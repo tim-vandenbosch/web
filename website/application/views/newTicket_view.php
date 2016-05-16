@@ -15,8 +15,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 center ">
                 <?php
-                echo validation_errors();?>
-                <?php
+                echo validation_errors();
                 echo form_open((site_url('newTicket_controller','sendForm')),'newTicket_view');
                 ?>
                     <fieldset>
