@@ -53,7 +53,14 @@ $config['index_page'] = 'index.php';
 | WARNING: If you set this to 'PATH_INFO', URIs will always be URL-decoded!
 */
 $config['uri_protocol']	= 'REQUEST_URI';
-
+/*
+$config['mailpath']            = "/usr/bin/sendmail"; // or "/usr/sbin/sendmail"
+$config['protocol']            = "mail";
+$config['smtp_host']           = "localhost";
+$config['smtp_user']           = "";
+$config['smtp_pass']           = "";
+$config['smtp_port']           = "25";
+*/
 /*
 |--------------------------------------------------------------------------
 | URL suffix

@@ -49,7 +49,7 @@ class Home extends CI_Controller
                     $this->load->view('footer');
                     break;
                 case "Docent":
-                    $data = array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getUserTickets($userID));
+                    $data = array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getAllTickets());
                     $this->load->view('header');
                     $this->load->view('navigation');
                     $this->load->view('user_view', $data);
