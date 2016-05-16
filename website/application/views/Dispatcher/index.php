@@ -35,7 +35,7 @@ http://tutsme-webdesign.info/bootstrap-3-sortable-table/ -->
         </div>
         <div class="col-md-12 center">
 <!--            id="myTable" class="table tablesorter"-->
-            <table class="table table-striped"   > <!-- class="table table-striped"  class="sortable" -->
+            <table class="table table-striped"> <!-- class="table table-striped"  class="sortable" -->
                 <thead>
                 <tr>
                     <th>TicketId</th>
@@ -65,10 +65,9 @@ http://tutsme-webdesign.info/bootstrap-3-sortable-table/ -->
                         --><?php /*endforeach;*/?>
                         <td> <?= htmlentities($ticket ->blokLetter,ENT_QUOTES,'UTF-8');?></td>
                         <td> <?= htmlentities($ticket ->lokaalNummer,ENT_QUOTES,'UTF-8');?></td>
-                        <!--<td> <?/*//= htmlentities($ticket ->herstellingDatum,ENT_QUOTES,'UTF-8');*/?></td>-->
                    <td> <?= htmlentities($ticket ->status,ENT_QUOTES,'UTF-8');?></td>
-<!--                       <td> <button type="button" class="btn btn-link" onclick="--><?php //$Dispatcher->details($ticketid); ?><!--"  >Details</button></td>-->
-                        <td> <a href="<?php echo site_url('Dispatcher/details')?>">Details </a></td>
+             <td> <button type="button" class="btn btn-link" onclick=" <?php $Dispatcher->details($ticketid); ?>>Details</button></td>
+//                        <td> <a href="<?php //echo site_url('Dispatcher/details')?><!--">Details </a></td>-->
                         <!--  <?php //echo site_url("post/edit/$ticketID->id"); ?>
 <!--                        --><?php //echo anchor(site_url(array('Dispatcher','details')),'Details');?>
                     </tr>
