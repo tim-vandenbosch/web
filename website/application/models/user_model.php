@@ -132,14 +132,12 @@ Class User_model extends CI_Model
     // @author =  Nida
     function get_user_by_id($userID)
     {
-
-        $this->db->select('*');
+        $this->db->select('userID, email, rol, active');
         $this->db->from('users');
         $this->db->where('userID', $userID);
 
         $query = $this->db->get();
         $result = $query->row();
-       // return $result;
-        echo print_r($result);
-    }
+        return $result;
+           }
 }

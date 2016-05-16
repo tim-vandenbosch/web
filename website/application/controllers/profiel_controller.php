@@ -18,30 +18,29 @@ class profiel_controller extends CI_Controller
 
             $session_data = $this->session->userdata('logged_in');
             $data['userID'] = $session_data['userID'];
-            //$userID = $session_data['userID'];
-            echo print_r($data);
-        /*
-        $data = array();
-        //$data[userID] = $userID;
-        $data[email]= $this-> user_model->get_user_by_id(3);
-        echo $data[email];
-*/
+
 
         // Specfieke methode oproepen vanuit een model
 
         $this->load->model('user_model');
-        $user = (array) $this->user_model->get_user_by_id($data);
-        echo print_r($user);
-
-
-        /*
-        $email = array_column($data, 'email');
-        print_r($email);
-        */
+        $user = (array) $this->user_model->get_user_by_id($data['userID']);
 
         $this->load->view('header');
         $this->load->view('navigation');
-       // $this->load->view('profiel_view',$user);
+        $this->load->view('profiel_view',$user);
         $this->load->view('footer');
+    }
+    function aanvraagNewPw(){
+        $this->load->library('email');
+
+        $this->email->from('your@example.com', 'Your Name');
+        $this->email->to('nida.ilyas@student.pxl.be');
+
+        $this->email->subject('Email Test');
+        $this->email->message('Testing the email class.');
+
+        $this->email->send();
+
+        echo $this->email->print_debugger();
     }
 }
