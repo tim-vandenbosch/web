@@ -28,7 +28,11 @@
             <form role="form">
                 <div class="form-group">
                     <label for="text">Onderwerp</label>
-                    <input disabled type="email" class="form-control" id="ont" value=<?= htmlentities($quer ->onderwerp,ENT_QUOTES,'UTF-8');?>>
+                    <input disabled type="text" class="form-control" id="ont" value=<?= htmlentities($quer ->onderwerp,ENT_QUOTES,'UTF-8');?>>
+                </div>
+                <div class="form-group">
+                    <label for="text">Aanmaker</label>
+                    <input disabled type="email" class="form-control" id="ont" value=<?= htmlentities($quer ->email,ENT_QUOTES,'UTF-8');?>>
                 </div>
                 <div class="form-group">
                     <label for="text">Prioriteit:</label>

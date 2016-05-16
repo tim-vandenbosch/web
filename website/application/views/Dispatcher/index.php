@@ -66,10 +66,8 @@ http://tutsme-webdesign.info/bootstrap-3-sortable-table/ -->
                         <td> <?= htmlentities($ticket ->blokLetter,ENT_QUOTES,'UTF-8');?></td>
                         <td> <?= htmlentities($ticket ->lokaalNummer,ENT_QUOTES,'UTF-8');?></td>
                    <td> <?= htmlentities($ticket ->status,ENT_QUOTES,'UTF-8');?></td>
-             <td> <button type="button" class="btn btn-link" onclick=" <?php $Dispatcher->details($ticketid); ?>>Details</button></td>
-//                        <td> <a href="<?php //echo site_url('Dispatcher/details')?><!--">Details </a></td>-->
-                        <!--  <?php //echo site_url("post/edit/$ticketID->id"); ?>
-<!--                        --><?php //echo anchor(site_url(array('Dispatcher','details')),'Details');?>
+                        <td><?php echo anchor(site_url(array('Dispatcher','details', $ticketid)),'Details');?></td>
+
                     </tr>
                 <?php endforeach;?>
                 </tbody>
