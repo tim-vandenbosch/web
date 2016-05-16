@@ -71,24 +71,6 @@ Class Ticket_model extends CI_Model{
 
     }
 
-    function  getWerkmanne(){
-
-        $this -> db -> select('rol,email');
-        $this -> db -> from('users');
-
-        $query = $this -> db -> get();
-
-        // Als er tickets gevonden worden in de db
-        if($query -> num_rows() >= 1)
-        {
-            return $query->result();
-        }
-        else
-        {
-            return false;
-        }
-
-    }
 
 // @author =  Marnix
     function getList()
