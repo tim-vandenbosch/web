@@ -68,8 +68,6 @@ Class Ticket_model extends CI_Model{
         {
             return false;
         }
-        //$query = $this->db->query("SELECT * FROM tickets WHERE ticketID = $id");
-        //return $query;
 
     }
 
