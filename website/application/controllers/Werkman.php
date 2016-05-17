@@ -14,45 +14,52 @@ class Werkman extends CI_Controller
         $this->load->model('user_model');
     }
 
+    function showTicketsToDo(){
+        $session_data = $this->session->userdata('logged_in');
+        $data['userID'] = $session_data['userID'];
+        $userID = $session_data['userID'];
+        $rol = $this->user_model->neem_rol($userID);
 
-/* Omdat dit niet mag
-    public function getAllTickets(){
-        $query = $this->db->query("SELECT * FROM tickets");
-        $data = array();
-        foreach ($query->result() as $row)
-        {
-            $data['onderwerp']= $row->onderwerp;
-            $data['aanmaakDatum']=$row->datum;
-            $data['type']=$row->type;
+        $data =  array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getTicketsByWm($session_data['userID']));
+        $this->load->view('Layout/header');
+        $this->load->view('Layout/navigation');
+        $this->load->view('/Werkman/index');
+        $this->load->view('/Werkman/lijst_ticketsToDo', $data);
+        $this->load->view('Layout/footer');
+    }
+    function updateTicketStatus($ticketID,$k){
+        $data['message'] = "";
+        // $this -> db ->join('campus'sen,'tickets.campusID=campussen.campusName');
+        $data['query'] = $this-> ticket_model ->getdetailsTicket($ticketID);
+
+
+        $data['stat'] = $this-> ticket_model ->getEnums("'status'");
+
+        if($k == "update"){
+            $data['message'] = "Ticket update is geslaagd";
         }
 
-        return $data;
+        $data['query'] = $this-> ticket_model ->getdetailsTicket($ticketID);
+        $this->load->view('Layout/header');
+        $this->load->view('Layout/navigation');
+        $this->load->view('/Tickets/edit_ticket', $data);
+        $this->load->view('Layout/footer');
     }
-    */
+    function update($ticketID){
+        $data = array(
+            // 'ticketId'=>$this -> input -> post('ticketID'),
+            'ticketId'=> $ticketID,
+            'status' => $this -> input -> post('dstatus')
+        );
 
+        $this -> ticket_model -> updateTicket($data);
 
-    /*Dani is hiermee bezig
-    public function enumRols(){
-        $rolArray = array();
-        $query = $this->db->query(" SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'users' AND COLUMN_NAME = 'rol' ");
-        foreach ($query->result() as $row)
-        {
-            // $enumList = explode(",", str_replace("'", "", substr($row['COLUMN_TYPE'], 5, (strlen($row['COLUMN_TYPE'])-6))));
-            //echo $enumList;
-            // echo $row->COLUMN_TYPE;
-//string substr ( string $string , int $start [, int $length ] )
+        $this->details($ticketID,"update");
 
-            $rolArray = substr($row->COLUMN_TYPE , 6 , 5  );
-
-        }
-
-        //$this->load->view('Werkman/edit_ticket', $rolArray);
-        echo $rolArray;
-
-
+        $this->load->view('Layout/header');
+        $this->load->view('Layout/navigation');
+        $this->load->view('/Werkman/updateStatus_ticket', $data);
+        $this->load->view('Layout/footer');
     }
-    */
-
-
 }
 ?>

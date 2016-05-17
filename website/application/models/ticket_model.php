@@ -26,6 +26,24 @@ Class Ticket_model extends CI_Model{
             return false;
         }
     }
+    function getTicketsByWm($userID){
+
+        $this -> db -> select('*');
+        $this -> db -> from('tickets as t');
+        $this -> db -> join('campussen as c','t.campusID=c.campusID');
+        $this -> db -> join('blokken as b','t.blokID=b.blokID');
+        $this -> db -> where('t.hersteller',$userID);
+        $query = $this -> db -> get();
+        // Als er geen tickets gevonden worden in de db
+        if($query -> num_rows() >= 1)
+        {
+            return $query->result();
+        }
+        else
+        {
+            return false;
+        }
+    }
 
     // @author =  Marnix
     function getAllTickets(){
