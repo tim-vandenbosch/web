@@ -72,14 +72,14 @@ and open the template in the editor.
     padding-top: 5%; 
 }
 .home{
-    height: 800px;
+    height: auto;
     padding: 0;
 }
 .home .left,.right{
     height: 100px;
 }
 .home .center{
-    height: 400px;
+    height: auto;
 }
 .scrollbox{
     overflow: auto;
