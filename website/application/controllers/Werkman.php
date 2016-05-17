@@ -32,7 +32,6 @@ class Werkman extends CI_Controller
         // $this -> db ->join('campus'sen,'tickets.campusID=campussen.campusName');
         $data['query'] = $this-> ticket_model ->getdetailsTicket($ticketID);
 
-
         $data['stat'] = $this-> ticket_model ->getEnums("'status'");
 
         if($k == "update"){

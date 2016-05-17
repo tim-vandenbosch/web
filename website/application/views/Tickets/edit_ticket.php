@@ -14,6 +14,10 @@
 </div>
 
 <div class="col-md-7 col-md-offset-2 main home ">
+    </br>
+    <div class="row">
+        <h4 class="col-md-1"> <span class="label label-success"> <a style="color: white" href="<?php echo site_url('profiel_controller/index')?>">Terug naar mijn tickets overzicht</a> </span></h4>
+    </div>
     <div class="col-md-6 left">
 
         <h2><?= htmlentities($quer ->onderwerp,ENT_QUOTES,'UTF-8');?></h2>
@@ -21,6 +25,7 @@
     <div class="col-md-6 right"></div>
 
     <div class="col-md-12">
+
         <!--<div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">-->

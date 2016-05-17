@@ -14,6 +14,10 @@
 </div>
 
 <div class="col-md-7 col-md-offset-2 main home ">
+    </br>
+    <div class="row">
+        <h4 class="col-md-1"> <span class="label label-success"> <a style="color: white" href="<?php echo site_url('Werkman/showTicketsToDo')?>">Terug naar tickets To-Do</a> </span></h4>
+    </div>
     <div class="col-md-6 left">
 
         <h2><?= htmlentities($quer ->onderwerp,ENT_QUOTES,'UTF-8');?></h2>

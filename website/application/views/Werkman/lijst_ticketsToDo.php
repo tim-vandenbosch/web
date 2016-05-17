@@ -9,7 +9,7 @@
 <div class="col-md-7 col-md-offset-2 main home ">
     </br>
     <div class="row">
-        <a href="<?php echo site_url('home/index')?>">Overzicht tickets</a>
+        <h4 class="col-md-1"> <span class="label label-success"> <a style="color: white" href="<?php echo site_url('home/index')?>">Overzicht tickets</a>
     </div>
     <?php if(count($tickets)>0){?>
     <table class="table table-striped"   > <!-- class="table table-striped"  class="sortable" -->
