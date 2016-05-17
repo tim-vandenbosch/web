@@ -145,7 +145,7 @@ Class Ticket_model extends CI_Model{
     }
     function  getWerkman($ticketID){
 
-        $this -> db -> select('u.email,t.hersteller');
+        $this -> db -> select('u.email');
         $this -> db -> from('tickets as t');
         $this -> db -> join('users as u','t.hersteller=u.userID');
         $this -> db -> where('t.ticketID',$ticketID);
@@ -154,7 +154,11 @@ Class Ticket_model extends CI_Model{
         // Als er geen tickets gevonden worden in de db
         if($query -> num_rows() >= 1)
         {
-            return $query->result();
+           // return $query->result();
+            foreach ($query->result() as $row)
+            {
+                return $row;
+            }
         }
         else
         {
