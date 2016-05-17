@@ -16,12 +16,12 @@
             <div class="col-md-8 col-md-offset-2 center ">
                 <?php
                 echo validation_errors();
-                echo form_open((site_url('newTicket_controller','sendForm')),'newTicket_view');
+                echo form_open('newTicket_controller');
                 ?>
                     <fieldset>
                         <legend>
                             <label class="col-md-1">ID</label>
-                            <label class="" id="ticketId" name="ticketId"><?php echo $ticket+1; ?></label>
+                            <label class="" id="ticketId" name="ticketId"><?php echo $ticket; ?></label>
                         </legend>
                         <div class="from-group row">
                             <label class="" for="onderwerp">Onderwerp</label>
@@ -46,7 +46,7 @@
                             </select>
                         </div>
                         <div class="from-group row">
-                            <label class="" for="campus">Locatie</label>
+                            <label class="" for="campusId">Locatie</label>
                             <select class="form-control" name="campusId" id="campusId">
                                 <option value="1">Elfde Linie</option>
                                 <option value="2">Diepenbeek</option>
