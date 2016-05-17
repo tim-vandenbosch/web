@@ -52,21 +52,23 @@ class Dispatcher  extends CI_Controller
     public function details($ticketID)
     {
         // $this -> db ->join('campus'sen,'tickets.campusID=campussen.campusName');
-        $data['query'] = $this-> ticket_model ->getdetailsTicket($ticketID);
-/*        //oude code
-       // $query = $this->db->query("SELECT * FROM tickets");
-        foreach ($query->result() as $row)
-        {
-            $data['onderwerp']= $row->onderwerp;
-            $data['type']=$row->type;
-            $data['prioriteit']=$row->prioriteit;
-            $data['status']=$row->status;
-            $data['datum']=$row->datum;
-            $data['omschrijving']=$row->omschrijving;
-            $data['Hdatum']=$row->herstellingDatum;
-            $data['deadline']=$row->deadline;
-            $data['hersteller']=$row->hersteller;
-        }*/ //oude code
+      //  $data['query'] = $this-> ticket_model ->getdetailsTicket($ticketID);
+        $data =   $this->ticket_model->getdetailsTicket($ticketID);
+
+        /*        //oude code
+               // $query = $this->db->query("SELECT * FROM tickets");
+                foreach ($query->result() as $row)
+                {
+                    $data['onderwerp']= $row->onderwerp;
+                    $data['type']=$row->type;
+                    $data['prioriteit']=$row->prioriteit;
+                    $data['status']=$row->status;
+                    $data['datum']=$row->datum;
+                    $data['omschrijving']=$row->omschrijving;
+                    $data['Hdatum']=$row->herstellingDatum;
+                    $data['deadline']=$row->deadline;
+                    $data['hersteller']=$row->hersteller;
+                }*/ //oude code
         $data['werkmannen'] = $this -> user_model -> getEmailWerkmannen();
         $data['werkmanEmail'] = $this ->  ticket_model -> getWerkman($ticketID);
         
