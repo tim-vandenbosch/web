@@ -18,6 +18,7 @@ function validateEmail() {
     } /*else
      alert("valid en sent");*/
 }
+ /* Author: Nida Ilyas **/
  $(document).ready(function () {
      $(".navbar-toggle").on("click", function () {
          $(this).toggleClass("active");
