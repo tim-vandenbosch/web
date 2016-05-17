@@ -71,9 +71,12 @@
                 </div>
                 <div class="form-group">
                     <label for="text">Werkman:</label>
-                   <!-- <?php /*if(htmlentities($query ->hersteller,ENT_QUOTES,'UTF-8') ) : */?>
-                    --><?php /*endif; */?>
-                    <input type="text" class="form-control" value= <?= htmlentities($quer ->hersteller,ENT_QUOTES,'UTF-8');?> id="type">
+                    <select class="form-control" id="satus" name="satus">
+                        <option hidden ><?= htmlentities($werkmanEmail -> email,ENT_QUOTES,'UTF-8');?></option>
+                        <?php foreach ($werkmannen as $werkman):?>
+                            <option ><?= htmlentities($werkman -> email,ENT_QUOTES,'UTF-8');?></option>
+                        <?php endforeach;?>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="text">Herstellingdatum:</label>

@@ -72,6 +72,7 @@ Class Ticket_model extends CI_Model{
     }
 
 
+
 // @author =  Marnix
     function getList()
     {
@@ -142,7 +143,25 @@ Class Ticket_model extends CI_Model{
         }
         return $stringarrayenums;
     }
+    function  getWerkman($ticketID){
 
+        $this -> db -> select('u.email,t.hersteller');
+        $this -> db -> from('tickets as t');
+        $this -> db -> join('users as u','t.hersteller=u.userID');
+        $this -> db -> where('t.ticketID',$ticketID);
+        $query = $this -> db -> get();
+
+        // Als er geen tickets gevonden worden in de db
+        if($query -> num_rows() >= 1)
+        {
+            return $query->result();
+        }
+        else
+        {
+            return false;
+        }
+
+    }
     //@author = marnix
     function insertTicket($ticket){
 

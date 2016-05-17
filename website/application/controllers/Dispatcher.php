@@ -15,6 +15,8 @@ class Dispatcher  extends CI_Controller
         parent::__construct();
         $this->load->database();
         $this->load->model('ticket_model');
+        $this->load->model('user_model');
+
     }
 
     // @author =  Daniela
@@ -50,7 +52,6 @@ class Dispatcher  extends CI_Controller
     public function details($ticketID)
     {
         // $this -> db ->join('campus'sen,'tickets.campusID=campussen.campusName');
-
         $data['query'] = $this-> ticket_model ->getdetailsTicket($ticketID);
 /*        //oude code
        // $query = $this->db->query("SELECT * FROM tickets");
@@ -66,7 +67,9 @@ class Dispatcher  extends CI_Controller
             $data['deadline']=$row->deadline;
             $data['hersteller']=$row->hersteller;
         }*/ //oude code
-
+        $data['werkmannen'] = $this -> user_model -> getEmailWerkmannen();
+        $data['werkmanEmail'] = $this ->  ticket_model -> getWerkman($ticketID);
+        
         $data['stat'] = $this-> ticket_model ->getEnums("'status'");
         $data['prio'] = $this-> ticket_model ->getEnums("'prioriteit'");
 
