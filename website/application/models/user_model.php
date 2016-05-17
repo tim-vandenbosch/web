@@ -141,9 +141,9 @@ Class User_model extends CI_Model
         return $result;
            }
 //@author = Daniela
-    function  getEmailWerkmannen(){
+    function  getWerkmannen(){
 
-        $this -> db -> select('email');
+        $this -> db -> select('userID,email');
         $this -> db -> from('users');
         $this -> db -> where('rol','Werkman');
 
