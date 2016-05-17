@@ -19,16 +19,16 @@
 http://tutsme-webdesign.info/bootstrap-3-sortable-table/ -->
 </head>
 <div class="row">
-    <div class="col-md-8 col-md-offset-2 titel">
+    <div class="col-md-7 col-md-offset-2 titel">
         <h1>Overzicht alle tickets</h1>
     </div>
 </div>
 <div class="row">
-    <div class="col-md-8 col-md-offset-2 main home ">
+    <div class="col-md-7 col-md-offset-2 main home ">
         <div class="col-md-4 left">
             <h2>Welkom dispatcher</h2>
         </div>
-        <div class="col-md-8 right">
+        <div class="col-md-7 right">
             <p>Als dispatcher heb je het recht alle ticets te beheren.
             Dit houd in dat je de prioriteteiten en statussen kunt aanpassen en tickets kan toekennen aan werkmannen.
             </p>

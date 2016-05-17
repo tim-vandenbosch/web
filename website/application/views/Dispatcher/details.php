@@ -6,13 +6,13 @@
  * Time: 15:15
  */?>
 <div class="row">
-    <div class="col-md-8 col-md-offset-2 titel">
+    <div class="col-md-7 col-md-offset-2 titel">
         <?php foreach($query as $quer):?>
         <h1>Details van ticket <?= htmlentities($quer ->ticketID,ENT_QUOTES,'UTF-8');?></h1>
     </div>
 </div>
 <div class="row">
-    <div class="col-md-8 col-md-offset-2 main home ">
+    <div class="col-md-7 col-md-offset-2 main home ">
         <div class="col-md-6 left">
 
             <h2><?= htmlentities($quer ->onderwerp,ENT_QUOTES,'UTF-8');?></h2>
@@ -96,10 +96,13 @@
                     </select>
                 </div>
                 <?php endforeach;?>
+                <div class="form-group">
                 <button type="submit" class="btn btn-default">Opslaan</button>
+                </div>
             </form>
         </div>
     </div>
 
 
-<!--    Bronnen: http://www.w3schools.com/bootstrap/bootstrap_forms.asp-->
+
+    <!--    Bronnen: http://www.w3schools.com/bootstrap/bootstrap_forms.asp-->
