@@ -29,32 +29,32 @@ class Home extends CI_Controller
             switch ($rol){
                 case "Admin":
                     $data = array('userID' => $session_data['userID'], 'users' => $this->user_model->get_users());
-                    $this->load->view('header');
-                    $this->load->view('navigation');
+                    $this->load->view('Layout/header');
+                    $this->load->view('Layout/navigation');
                     $this->load->view('/Admin/admin_view',$data);
-                    $this->load->view('footer');
+                    $this->load->view('Layout/footer');
                     break;
                 case "Dispatcher":
                     $data =  array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getAllTickets());
-                    $this->load->view('header');
-                    $this->load->view('navigation');
+                    $this->load->view('Layout/header');
+                    $this->load->view('Layout/navigation');
                     $this->load->view('/Dispatcher/index', $data);
-                    $this->load->view('footer');
+                    $this->load->view('Layout/footer');
 
                     break;
                 case "Werkman":
                     $data =  array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getAllTickets());
-                    $this->load->view('header');
-                    $this->load->view('navigation');
+                    $this->load->view('Layout/header');
+                    $this->load->view('Layout/navigation');
                     $this->load->view('/Werkman/index', $data);
-                    $this->load->view('footer');
+                    $this->load->view('Layout/footer');
                     break;
                 case "Docent":
                     $data = array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getAllTickets());
-                    $this->load->view('header');
-                    $this->load->view('navigation');
+                    $this->load->view('Layout/header');
+                    $this->load->view('Layout/navigation');
                     $this->load->view('user_view', $data);
-                    $this->load->view('footer');
+                    $this->load->view('Layout/footer');
                     break;
                 default:
                     $this->load->view('login_view');

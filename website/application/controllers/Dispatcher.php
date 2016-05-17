@@ -75,10 +75,10 @@ class Dispatcher  extends CI_Controller
 
         //$data['werkmannen'] = $this-> ticket_model ->getWerkmannen();
 //        $data['stat'] =  $this->enumStatus();
-        $this->load->view('header');
-        $this->load->view('navigation');
+        $this->load->view('Layout/header');
+        $this->load->view('Layout/navigation');
         $this->load->view('Dispatcher/details',  $data);
-        //$this->load->view('footer');
+        $this->load->view('Layout/footer');
 
     }
 
