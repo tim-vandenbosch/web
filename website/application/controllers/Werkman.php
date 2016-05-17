@@ -42,7 +42,7 @@ class Werkman extends CI_Controller
         $data['query'] = $this-> ticket_model ->getdetailsTicket($ticketID);
         $this->load->view('Layout/header');
         $this->load->view('Layout/navigation');
-        $this->load->view('/Tickets/edit_ticket', $data);
+        $this->load->view('/Werkman/updateStatus_ticket', $data);
         $this->load->view('Layout/footer');
     }
     function update($ticketID){

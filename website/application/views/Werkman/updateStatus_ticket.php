@@ -26,7 +26,11 @@
         <!--<div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">-->
-
+        <p hidden><?= $ticketid =  $quer ->ticketID;?></p>
+        <form  role="form" method="post" action="<?php echo  site_url(array('Dispatcher','update', $ticketid))?>">
+            <?php if($message != "") : ?>
+                <h1><b><?php echo $message;?></b></h1>
+            <?php endif; ?>
         <h4>Informatie ticket</h4>
         <div class="row">
             <div class="col-md-5">
@@ -40,8 +44,15 @@
         </div>
         <div class="row">
             <div class="col-md-3">
-                <label for="text">Status</label>
-                <p disabled type="text" class="form-control" id="ont"><?= htmlentities($quer ->status,ENT_QUOTES);?></p>
+                <div class="form-group">
+                    <label class="label label-danger" for="sel1">Selecteer een status</label>
+                    <select class="form-control" id="satus" name="dstatus">
+                        <option hidden > <?= htmlentities($quer ->status,ENT_QUOTES,'UTF-8');?></option>
+                        <?php foreach ($stat as $item):?>
+                            <option ><?php echo $item;?></option>
+                        <?php endforeach;?>
+                    </select>
+                </div>
             </div>
         </div>
 
@@ -110,6 +121,11 @@
         </div>
         </br>
         <?php endforeach;?>
+        <div class="form-group">
+            <button type="submit" name="opslaan" class="btn btn-success">Opslaan</button>
+        </div>
+        </form>
+
     </div>
 
     <div class="row">
