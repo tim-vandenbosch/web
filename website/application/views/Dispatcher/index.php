@@ -66,7 +66,7 @@ http://tutsme-webdesign.info/bootstrap-3-sortable-table/ -->
                         <td> <?= htmlentities($ticket ->blokLetter,ENT_QUOTES,'UTF-8');?></td>
                         <td> <?= htmlentities($ticket ->lokaalNummer,ENT_QUOTES,'UTF-8');?></td>
                    <td> <?= htmlentities($ticket ->status,ENT_QUOTES,'UTF-8');?></td>
-                        <td><?php echo anchor(site_url(array('Dispatcher','details', $ticketid)),'Details');?></td>
+                        <td><?php echo anchor(site_url(array('Dispatcher','details', $ticketid,"noupdate")),'Details');?></td>
 
                     </tr>
                 <?php endforeach;?>
