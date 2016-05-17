@@ -19,9 +19,9 @@ class enquete_controller extends CI_Controller
         $userID = $session_data['userID'];
         $data = array('userID' => $session_data['userID'], 'vragen' => $this->enquete_model->get_vragen());
 
-        $this->load->view('header');
-        $this->load->view('navigation');
+        $this->load->view('Layout/header');
+        $this->load->view('Layout/navigation');
         $this->load->view('user_enquete_view', $data);
-        $this->load->view('footer');
+        $this->load->view('Layout/footer');
     }
 }

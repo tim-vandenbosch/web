@@ -30,10 +30,10 @@ class profiel_controller extends CI_Controller
         $tic =  array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getUserTickets($id['userID']));
 
         $data = $tic + $user;
-        $this->load->view('header');
-        $this->load->view('navigation');
+        $this->load->view('Layout/header');
+        $this->load->view('Layout/navigation');
         $this->load->view('profiel_view',$data ); // merge 2 arrays
-        $this->load->view('footer');
+        $this->load->view('Layout/footer');
 
     }
     function aanvraagNewPw(){

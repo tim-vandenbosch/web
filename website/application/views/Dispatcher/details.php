@@ -6,18 +6,18 @@
  * Time: 15:15
  */?>
 <div class="row">
-    <div class="col-md-8 col-md-offset-2 titel">
+    <div class="col-md-7 col-md-offset-2 titel">
         <?php foreach($query as $quer):?>
         <h1>Details van ticket <?= htmlentities($quer ->ticketID,ENT_QUOTES,'UTF-8');?></h1>
     </div>
 </div>
 <div class="row">
-    <div class="col-md-8 col-md-offset-2 main home ">
-        <div class="col-md-6 left">
+    <div class="col-md-7 col-md-offset-2 main home ">
+        <div class="col-md-4 left">
 
-            <h2><?= htmlentities($quer ->onderwerp,ENT_QUOTES,'UTF-8');?></h2>
+            <h3><?= htmlentities($quer ->onderwerp,ENT_QUOTES,'UTF-8');?></h3>
         </div>
-        <div class="col-md-6 right">
+        <div class="col-md-8 right">
             <p>Hier ziet u alle informatie over de gekozen ticket.
             U kunt de prioriteit en status instellen als gewenst.
             Selecteer een werkman om deze herstelling te doen.</p>
@@ -72,7 +72,9 @@
                 <div class="form-group">
                     <label for="text">Werkman:</label>
                     <select class="form-control" id="satus" name="satus">
-                        <option hidden ><?= htmlentities($werkmanEmail -> email,ENT_QUOTES,'UTF-8');?></option>
+                        <?php foreach ($werkmanEmail as $email):?>
+                            <option hidden ><?php echo $email;?></option>
+                        <?php endforeach;?>
                         <?php foreach ($werkmannen as $werkman):?>
                             <option ><?= htmlentities($werkman -> email,ENT_QUOTES,'UTF-8');?></option>
                         <?php endforeach;?>
@@ -96,10 +98,13 @@
                     </select>
                 </div>
                 <?php endforeach;?>
+                <div class="form-group">
                 <button type="submit" class="btn btn-default">Opslaan</button>
+                </div>
             </form>
         </div>
     </div>
 
 
-<!--    Bronnen: http://www.w3schools.com/bootstrap/bootstrap_forms.asp-->
+
+    <!--    Bronnen: http://www.w3schools.com/bootstrap/bootstrap_forms.asp-->
