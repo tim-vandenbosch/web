@@ -74,7 +74,7 @@ Class Ticket_model extends CI_Model{
 
 
 
-    // @author =  ?
+    // @author =  Nida
     function getList()
     {
         $query = $this->db->get('tickets');

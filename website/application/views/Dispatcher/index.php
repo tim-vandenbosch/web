@@ -73,6 +73,15 @@ http://tutsme-webdesign.info/bootstrap-3-sortable-table/ -->
                 </tbody>
             </table>
         </div>
+
+        <div class="row">
+            <div class="pull-right col-md-1">
+                <a href="#top" class="well well-sm" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+                    <i class="glyphicon glyphicon-chevron-up"> </i>
+                </a>
+            </div>
+        </div>
+        <br>
 </div>
 
 <!--    Bron : http://stackoverflow.com/questions/2997288/calling-controller-methods-from-inside-view-in-codeigniter-->

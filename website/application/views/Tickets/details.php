@@ -51,14 +51,14 @@
                     <textarea disabled class="form-control" rows="5" id="Omschrijving"> <?= htmlentities($quer ->omschrijving,ENT_QUOTES,'UTF-8');?></textarea>
 </div>
                 </div>
-            </br>
-            <hr style="border-top: 1px dotted gray"/>
+            <!--</br>-->
+            <hr style="border-top: 1.5px dotted green"/>
 <div class="row">
-    <a href="#demo" class="btn btn-success" data-toggle="collapse">Meer</a>
+    <a href="#moreDetails" class="btn btn-success" data-toggle="collapse">Meer</a>
 </div>
 
 
-                <div id="demo" class="collapse">
+                <div id="moreDetails" class="collapse">
 
             <h4>Locatie</h4>
             <div class="row">
@@ -111,4 +111,13 @@
             </br>
                 <?php endforeach;?>
         </div>
+
+        <div class="row">
+            <div class="pull-right col-md-1">
+                <a href="#top" class="well well-sm" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+                    <i class="glyphicon glyphicon-chevron-up"> </i>
+                </a>
+            </div>
+        </div>
+        <br>
     </div>

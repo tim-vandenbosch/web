@@ -23,7 +23,6 @@
 
             <tbody>
             <?php foreach($tickets as $ticket):?>
-
                 <tr>
                     <p hidden><?= $ticketid =  $ticket ->ticketID;?></p>
                     <td> <?= htmlentities($ticket ->onderwerp,ENT_QUOTES,'UTF-8');?></td>
@@ -40,5 +39,15 @@
             </tbody>
         </table>
     <?php }?>
+
+    <div class="row">
+        <div class="pull-right col-md-1">
+            <a href="#top" class="well well-sm" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+                <i class="glyphicon glyphicon-chevron-up"> </i>
+            </a>
+        </div>
+    </div>
+    <br>
+
 </div>
 
