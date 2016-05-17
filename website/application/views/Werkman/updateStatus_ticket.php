@@ -6,12 +6,12 @@
  * Time: 14:28
  */
 ?>
-<div class="row">
+
     <div class="col-md-7 col-md-offset-2 titel">
         <?php foreach($query as $quer):?>
         <h1>Details van ticket <?= htmlentities($quer ->ticketID,ENT_QUOTES,'UTF-8');?></h1>
     </div>
-</div>
+
 
 <div class="col-md-7 col-md-offset-2 main home ">
     </br>
