@@ -34,6 +34,7 @@
                 <a href="">wachtwoord vergeten?</a><br>
                 <input type="submit" value="login" />
         </div>
+        </form>
     </div>
     </body>
 </html>

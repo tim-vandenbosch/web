@@ -11,16 +11,19 @@ class newTicket_controller extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('ticket_model', '', TRUE);
         $this -> load -> library('form_validation');
+        $this->load->model('ticket_model', '', TRUE);
 
     }
 
     function index()
     {
         $this->formRules();
-        $ticketId = $this-> ticket_model ->getLastTicketId()[0]->ticketID;
 
+        $ticketId = $this-> ticket_model ->getLastTicketId()[0]->ticketID +1;
+        $data= array(
+
+        );
         if ($this->form_validation->run() == FALSE)
         {
             $this->load->view('Layout/header');
@@ -30,7 +33,8 @@ class newTicket_controller extends CI_Controller
         }
         else
         {
-            $this -> sendForm();
+
+            $this -> sendForm($ticketId);
             $this->load->view('Layout/header');
             $this->load->view('Layout/navigation');
             $this->load->view('newTicketSucces_view');
@@ -40,26 +44,29 @@ class newTicket_controller extends CI_Controller
 
     }
     function formRules(){
-
         $this ->form_validation -> set_rules('onderwerp','onderwerp','required|max_length[20]');
+        $this ->form_validation -> set_rules('type','type','required');
+        $this ->form_validation -> set_rules('prior','prioriteit','required');
+        $this ->form_validation -> set_rules('blokId','blokId','required');
         $this ->form_validation -> set_rules('lokaal','lokaal','required|max_length[20]');
-        $this ->form_validation -> set_message('required','field required');
+        $this ->form_validation -> set_rules('omschrijving','omschrijving','required');
+        $this ->form_validation -> set_rules('foto','foto');
+
     }
 
-    function sendForm(){
+    function sendForm($ticketId){
         $session_data = $this->session->userdata('logged_in');
-        $aanmaker = $this -> session -> userdata('userId');
-
+        $aanmaker = $session_data['userID'];
 
         $data = array(
-            'ticketId'=>$this -> input -> post('ticketID'),
+            'ticketId'=>$ticketId,
             'aanmaker' => $aanmaker,
             'onderwerp' =>$this -> input -> post('onderwerp'),
-            'prioriteit' => $this -> input -> post('prioriteit'),
+            'prioriteit' => $this -> input -> post('prior'),
             'type' => $this -> input -> post('type'),
             'campusId' => $this -> input -> post('campusId'),
             'blokId' => $this -> input -> post('blokId'),
-            'lokaalNummer' => $this -> input -> post('lokaalNummer'),
+            'lokaalNummer' => $this -> input -> post('lokaal'),
             'datum' => date("Y/m/d"),
             'omschrijving' => $this -> input -> post('omschrijving'),
             'bijlage' => $this -> input -> post('bijlage'),
