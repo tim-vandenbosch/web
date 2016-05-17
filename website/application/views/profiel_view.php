@@ -56,6 +56,7 @@
                         <td class="hidden-sm hidden-xs"> <?= htmlentities($ticket ->blokLetter,ENT_QUOTES,'UTF-8');?></td>
                         <td class="hidden-sm hidden-xs"> <?= htmlentities($ticket ->lokaalNummer,ENT_QUOTES,'UTF-8');?></td>
                         <td > <?= htmlentities($ticket ->status,ENT_QUOTES,'UTF-8');?></td>
+                        <td> <button type="button" class="btn btn-link" onclick=><?php echo anchor(site_url(array('ticket_controller','edit')),'Details');?></button></td>
                     </tr>
                 <?php endforeach;?>
                 </tbody>
