@@ -88,7 +88,7 @@ and open the template in the editor.
     background-color: green;
     position:absolute;
     bottom:0;
-    height: 15px;
+    height: 20px;
 }
 textarea{
     resize: none;
