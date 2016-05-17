@@ -48,6 +48,7 @@ Class Ticket_model extends CI_Model{
         }
     }
 
+    //@author = marnix
     function  getdetailsTicket($ticketID){
 
 
@@ -73,7 +74,7 @@ Class Ticket_model extends CI_Model{
 
 
 
-// @author =  Marnix
+    // @author =  ?
     function getList()
     {
         $query = $this->db->get('tickets');
@@ -81,7 +82,7 @@ Class Ticket_model extends CI_Model{
         /**return $query = $this->db->get('tickets');**/
     }
 
-// @author =  Marnix
+    // @author =  Marnix
     function getTicketArray($userID){
 
         $this -> db -> select('*');
@@ -143,6 +144,7 @@ Class Ticket_model extends CI_Model{
         }
         return $stringarrayenums;
     }
+    //@author= nida
     function  getWerkman($ticketID){
 
         $this -> db -> select('u.email,t.hersteller');
