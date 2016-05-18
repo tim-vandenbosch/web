@@ -18,9 +18,9 @@ class newTicket_controller extends CI_Controller
 
     function index()
     {
-        if ($this->session->userdata('logged_in')) {
+        $this->checkSession();
 
-            $this->formRules();
+        $this->formRules();
 
         $ticketId = $this-> ticket_model ->getLastTicketId()[0]->ticketID +1;
         $data= array(
@@ -42,16 +42,11 @@ class newTicket_controller extends CI_Controller
             $this->load->view('newTicketSucces_view');
             $this->load->view('Layout/footer');
         }
-        } else {
-            // Als sessie niet bestaat of verlopen is
-            redirect('login', 'refresh');
-        }
-
 
     }
     function formRules(){
         $this ->form_validation -> set_rules('onderwerp','onderwerp','required|max_length[20]');
-        $this ->form_validation -> set_rules('type','type','required');
+        $this ->form_validation -> set_rules('type','type','required|callback_checkSession');
         $this ->form_validation -> set_rules('prior','prioriteit','required');
         $this ->form_validation -> set_rules('blokId','blokId','required');
         $this ->form_validation -> set_rules('lokaal','lokaal','required|max_length[20]');
@@ -72,7 +67,7 @@ class newTicket_controller extends CI_Controller
             'type' => $this -> input -> post('type'),
             'campusId' => $this -> input -> post('campusId'),
             'blokId' => $this -> input -> post('blokId'),
-            'lokaalNummer' => $this -> input -> post('lokaal'),
+            'lokaalNummer' => $this -> input -> post('lokaal|callback_checkLokaal'),
             'datum' => date("Y/m/d"),
             'omschrijving' => $this -> input -> post('omschrijving'),
             'bijlage' => $this -> input -> post('bijlage'),
@@ -83,5 +78,13 @@ class newTicket_controller extends CI_Controller
             );
 
         $this -> ticket_model -> insertTicket($data);
+    }
+
+    //@author=marnix
+    // check of user nog in gelogd is, zoniet opnieuw inloggen
+
+
+    function checkLokaal(){
+
     }
 }

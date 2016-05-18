@@ -19,7 +19,7 @@ class Home extends CI_Controller
 
     function index()
     {
-        if ($this->session->userdata('logged_in')) {
+            $this ->checkSession();
             $session_data = $this->session->userdata('logged_in');
             $data['userID'] = $session_data['userID'];
             $userID = $session_data['userID'];
@@ -61,10 +61,7 @@ class Home extends CI_Controller
                     $this->load->view('login_view');
                     break;
             }
-        } else {
-            // Als sessie niet bestaat of verlopen is
-            redirect('login', 'refresh');
-        }
+
     }
 
     function logout()
@@ -86,5 +83,12 @@ class Home extends CI_Controller
             redirect('login', 'refresh');
         }
 
+    }
+    function checkSession(){
+        if (!$this->session->userdata('logged_in')) {
+            echo "<script>alert('U sessie is verlopen!');</script>";
+            redirect('login', 'refresh');
+
+        }
     }
 }
