@@ -82,8 +82,15 @@ class newTicket_controller extends CI_Controller
 
     //@author=marnix
     // check of user nog in gelogd is, zoniet opnieuw inloggen
+    function checkSession(){
+        if (!$this->session->userdata('logged_in')) {
+            echo "<script>alert('U sessie is verlopen!');</script>";
+            redirect('login', 'refresh');
 
-
+        }
+    }
+    //@author=marnix
+    //todo
     function checkLokaal(){
 
     }
