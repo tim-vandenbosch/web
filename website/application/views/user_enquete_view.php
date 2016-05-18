@@ -11,7 +11,7 @@
     </div>
     <div class="col-md-7 col-md-offset-2 main home ">
         <div class="col-md-7 col-md-offset-2 center ">
-            <form>
+            <form method="post" action="enquete_controller">
                <div class="form-group row">
                    <label> <?= htmlentities($vragen[0] -> vraag_text, ENT_QUOTES, 'UTF-8'); ?></label></br>
                    <?php
