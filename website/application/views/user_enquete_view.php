@@ -11,9 +11,7 @@
     </div>
     <div class="col-md-7 col-md-offset-2 main home ">
         <div class="col-md-7 col-md-offset-2 center ">
-            <?php
-                echo form_open();
-            ?>
+            <form>
                <div class="form-group row">
                    <label> <?= htmlentities($vragen[0] -> vraag_text, ENT_QUOTES, 'UTF-8'); ?></label></br>
                    <?php
@@ -53,7 +51,6 @@
                 <div class="form-group row">
                    <input class="btn btn-default" type="submit" value="inzenden" name="submit" id="submit"/>
                </div>
-
            </form>
         </div>
     </div>
