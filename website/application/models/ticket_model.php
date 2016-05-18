@@ -26,6 +26,8 @@ Class Ticket_model extends CI_Model{
             return false;
         }
     }
+
+    //@author = nida
     function getTicketsByWm($userID){
 
         $this -> db -> select('*');
