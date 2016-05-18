@@ -18,7 +18,9 @@ class newTicket_controller extends CI_Controller
 
     function index()
     {
-        $this->formRules();
+        if ($this->session->userdata('logged_in')) {
+
+            $this->formRules();
 
         $ticketId = $this-> ticket_model ->getLastTicketId()[0]->ticketID +1;
         $data= array(
@@ -39,6 +41,10 @@ class newTicket_controller extends CI_Controller
             $this->load->view('Layout/navigation');
             $this->load->view('newTicketSucces_view');
             $this->load->view('Layout/footer');
+        }
+        } else {
+            // Als sessie niet bestaat of verlopen is
+            redirect('login', 'refresh');
         }
 
 
