@@ -43,23 +43,14 @@
                         for($i = 0;$i<4;$i++)
                         {
                    ?>
-                   <label class="radio-inline"> <input type="radio" name="vraag1" value="<?= $vraag1[$i]; ?>"><?php echo $vraag1[$i]; ?></label>
+                   <label class="radio-inline"> <input type="radio" name="vraag2" value="<?= $vraag2[$i]; ?>"><?php echo $vraag2[$i]; ?></label>
                    <?php } ?>
-
-                   <input type="radio" name="vraag2"
-                          value="<?php echo htmlentities($vragen[1] -> antw1_text, ENT_QUOTES, 'UTF-8') ;?>">
-                   <input type="radio" name="vraag2"
-                          value="<?php echo htmlentities($vragen[1] -> antw2_text, ENT_QUOTES, 'UTF-8') ;?>">
-                   <input type="radio" name="vraag2"
-                          value="<?php echo htmlentities($vragen[1] -> antw3_text, ENT_QUOTES, 'UTF-8') ;?>">
-                   <input type="radio" name="vraag2"
-                          value="<?php echo htmlentities($vragen[1] -> antw4_text, ENT_QUOTES, 'UTF-8') ;?>">
                </div>
                <div class="form-group row">
-                   <p><?= htmlentities($vragen[2] -> vraag_text, ENT_QUOTES, 'UTF-8'); ?></p>
+                   <label><?= htmlentities($vragen[2] -> vraag_text, ENT_QUOTES, 'UTF-8'); ?></label>
                    <textarea class="form-control" rows="3" name="feedback" id="feedback"></textarea>
-                   <!-- Moet met css nog even tegoei maar tijdelijke oplossing -->
-                   <p></p>
+               </div>
+                <div class="form-group row">
                    <input class="btn btn-default" type="submit" value="inzenden" name="submit" id="submit"/>
                </div>
 
