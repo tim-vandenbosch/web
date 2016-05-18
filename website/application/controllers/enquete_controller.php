@@ -24,4 +24,14 @@ class enquete_controller extends CI_Controller
         $this->load->view('user_enquete_view', $data);
         $this->load->view('Layout/footer');
     }
+
+    // Gebruiker: Britt
+    // Datum: 18/05/2016
+    // Het afmelden van de docent voltooien en de gegevens verzenden
+    function afmelden_verzenden()
+    {
+        $this->session->unset_userdata('logged_in');
+        session_destroy();
+        redirect('login', 'refresh');
+    }
 }
