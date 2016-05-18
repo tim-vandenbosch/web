@@ -73,6 +73,7 @@ and open the template in the editor.
 }
 .home{
     height: auto;
+    minimum-height: 800px;
     padding: 0;
 }
 .home .left,.right{
