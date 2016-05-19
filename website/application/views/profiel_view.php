@@ -29,7 +29,7 @@
             <h1>Overzicht toegevoegde tickets</h1>
         </div>
         <?php if(count($tickets)>0){?>
-            <table class="table table-striped"   > <!-- class="table table-striped"  class="sortable" -->
+            <table class="table table-striped" id="table"  > <!-- class="table table-striped"  class="sortable" -->
                 <thead>
                 <tr>
                     <!-- <th>TicketId</th> -->
