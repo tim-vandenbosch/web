@@ -35,7 +35,7 @@ http://tutsme-webdesign.info/bootstrap-3-sortable-table/ -->
         </div>
         <div class="col-md-12 center">
 <!--            id="myTable" class="table tablesorter"-->
-            <table class="table table-striped"> <!-- class="table table-striped"  class="sortable" -->
+            <table class="table table-striped" id="table"> <!-- class="table table-striped"  class="sortable" -->
                 <thead>
                 <tr>
                     <th>TicketId</th>

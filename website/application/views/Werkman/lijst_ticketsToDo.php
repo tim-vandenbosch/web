@@ -12,7 +12,7 @@
         <h4 class="col-md-1"> <span class="label label-success"> <a style="color: white" href="<?php echo site_url('home/index')?>">Overzicht tickets</a>
     </div>
     <?php if(count($tickets)>0){?>
-    <table class="table table-striped"   > <!-- class="table table-striped"  class="sortable" -->
+    <table class="table table-striped" id="table" > <!-- class="table table-striped"  class="sortable" -->
         <thead>
         <tr>
             <!-- <th>TicketId</th> -->

@@ -10,7 +10,7 @@
 </div>
 
 <div class="col-md-7 col-md-offset-2 main home ">
-    <table class="table table-striped">
+    <table class="table table-striped" id="table">
         <thead>
             <!-- Ik wil van deze headers sorters maken waarbij de data gesorteerd word (eventuele functies heb ik al ingebouwd in user_model) -->
             <th>UserID</th>

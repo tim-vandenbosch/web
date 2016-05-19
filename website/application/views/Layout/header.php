@@ -27,7 +27,7 @@
 
     <script>
         $(document).ready( function () {
-            $('#userTable').bdt();
+            $('#table').bdt();
         });
     </script>
 </head>
