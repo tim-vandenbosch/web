@@ -13,6 +13,7 @@ class newTicket_controller extends CI_Controller
         parent::__construct();
         $this -> load -> library('form_validation');
         $this->load->model('ticket_model', '', TRUE);
+        $this->load->model('lokaal_model', '', TRUE);
 
     }
 
@@ -49,9 +50,8 @@ class newTicket_controller extends CI_Controller
         $this ->form_validation -> set_rules('type','type','required|callback_checkSession');
         $this ->form_validation -> set_rules('prior','prioriteit','required');
         $this ->form_validation -> set_rules('blokId','blokId','required');
-        $this ->form_validation -> set_rules('lokaal','lokaal','required|max_length[20]');
+        $this ->form_validation -> set_rules('lokaal','lokaal','required|max_length[3]|callback_checkLokaal');
         $this ->form_validation -> set_rules('omschrijving','omschrijving','required');
-        $this ->form_validation -> set_rules('foto','foto');
 
     }
 
@@ -67,7 +67,7 @@ class newTicket_controller extends CI_Controller
             'type' => $this -> input -> post('type'),
             'campusId' => $this -> input -> post('campusId'),
             'blokId' => $this -> input -> post('blokId'),
-            'lokaalNummer' => $this -> input -> post('lokaal|callback_checkLokaal'),
+            'lokaalNummer' => $this -> input -> post('lokaal'),
             'datum' => date("Y/m/d"),
             'omschrijving' => $this -> input -> post('omschrijving'),
             'bijlage' => $this -> input -> post('bijlage'),
@@ -86,12 +86,28 @@ class newTicket_controller extends CI_Controller
         if (!$this->session->userdata('logged_in')) {
             echo "<script>alert('U sessie is verlopen!');</script>";
             redirect('login', 'refresh');
-
         }
     }
     //@author=marnix
-    //todo
-    function checkLokaal(){
+    //date 19/05
+    //deze functie check of het lokaal bestaat in deze blok
+    function checkLokaal($lokaal){
+
+        $blokId = $this -> lokaal_model ->checkLokaalExists($lokaal);
+        //dit doe ik omdat blokId null kan zijn er dan errors geeft(0 is geen geldig blok id bij ons)
+        if($blokId==null){
+            $blokId=0;
+        }else{
+            $blokId = $blokId[0]->blokID;
+        }
+
+        $newticketBlokId = $this -> input ->post('blokId');
+        if($blokId==$newticketBlokId){
+            return true;
+        }else{
+            $this->form_validation->set_message('checkLokaal', 'Dit lokaal bestaat niet in deze blok,indien wel gelieve dit te melden aan de IT beheerder');
+            return false;
+        }
 
     }
 }

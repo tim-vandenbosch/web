@@ -200,31 +200,34 @@ Class Ticket_model extends CI_Model{
         $this -> db -> update('tickets',$ticket);
     }
 
-/*// @author =  Daniela
-    function sorttable($tablename){
-                //$sql = "SELECT * FROM MyTable";
-        $sql = $this->db->get('tickets');
-$tablename = 'ticketId';
 
-        if ($tablename == 'ticketId')
-        {
-            $sql .= " ORDER BY ticketID";
-        }
-        elseif ($tablename  == 'onderwerp')
-        {
-            $sql .= " ORDER BY onderwerp";
-        }
-        elseif ($tablename == 'prioriteit')
-        {
-            $sql .= " ORDER BY prioriteit";
-        }
-        elseif ($tablename == 'type')
-        {
-            $sql .= " ORDER BY type";
-        }
 
-        return $sql->result();
-    }*/
+
+    /*// @author =  Daniela
+        function sorttable($tablename){
+                    //$sql = "SELECT * FROM MyTable";
+            $sql = $this->db->get('tickets');
+    $tablename = 'ticketId';
+
+            if ($tablename == 'ticketId')
+            {
+                $sql .= " ORDER BY ticketID";
+            }
+            elseif ($tablename  == 'onderwerp')
+            {
+                $sql .= " ORDER BY onderwerp";
+            }
+            elseif ($tablename == 'prioriteit')
+            {
+                $sql .= " ORDER BY prioriteit";
+            }
+            elseif ($tablename == 'type')
+            {
+                $sql .= " ORDER BY type";
+            }
+
+            return $sql->result();
+        }*/
 
     //Bron : http://stackoverflow.com/questions/3489783/how-to-sort-rows-of-html-table-that-are-called-from-mysql 
 }
