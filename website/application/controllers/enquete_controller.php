@@ -30,6 +30,7 @@ class enquete_controller extends CI_Controller
     // Het afmelden van de docent voltooien en de gegevens verzenden
     function afmelden_verzenden()
     {
+        $this->enquete_model->voeg_antwoorden("test");
         $this->session->unset_userdata('logged_in');
         session_destroy();
         redirect('login', 'refresh');

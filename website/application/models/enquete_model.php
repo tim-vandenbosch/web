@@ -7,21 +7,6 @@
  */
 class enquete_model extends CI_Model
 {
-    /*
-     * nida ilyas
-     var $vragenlijstID="";
-    var $userID="";
-    var $vraag1="";
-    var $vraag2="";
-    var $vraag3="";
-
-
-    function __construct()
-    {
-        parent::__construct();
-    }
-    */
-
     function get_vragen()
     {
         $this->db->select('vragenID, vraag_text, antw1_text, antw2_text, antw3_text, antw4_text');
@@ -41,14 +26,14 @@ class enquete_model extends CI_Model
         return $query->row();
     } */
 
-    function voeg_antwoord($vraagID, $antwoord)
+    function voeg_antwoord($antwoord)
     {
+        $id = $this->db->insert_id();
         $data = array
         (
-           'vraagID' => $vraagID,
+            'vraagID' => $id,
             'antwoord_text' => $antwoord
         );
-
         $this->db->insert('antwoorden',$data);
     }
 }
