@@ -26,14 +26,15 @@ class enquete_model extends CI_Model
         return $query->row();
     } */
 
-    function voeg_antwoord($antwoord)
+    function voeg_antwoord($vraagID, $antwoord)
     {
         $id = $this->db->insert_id();
         $data = array
         (
-            'vraagID' => $id,
+           'vraagID' => $vraagID,
             'antwoord_text' => $antwoord
         );
+
         $this->db->insert('antwoorden',$data);
     }
 }
