@@ -41,17 +41,19 @@ class enquete_controller extends CI_Controller
     // Het afmelden van de docent voltooien en de gegevens verzenden
     function verzenden()
     {
-        //form geeft null (why?)
-            $ingevulde_antwoorden = array
+                $antw1 = $this->input->post('vraag1');
+                $antw2 = $this->input->post('vraag2');
+                $antw3 = $this->input->post('feedback');
+
+            $ingevuld = array
             (
-                "antw1" => $this->input->post('vraag1'),
-                "antw2" => $this->input->post('vraag2'),
-                "antw3" => $this->input->post('vraag3')
+                "1" => $antw1,
+                "2" => $antw2,
+                "3" => $antw3
             );
-            
+
             for ($i = 1; $i < 4; $i++) {
-                echo var_dump($ingevulde_antwoorden[$i-1]);
-                   // $this->enquete_model->voeg_antwoord($i, $ingevulde_antwoorden[$i - 1]);
+                $this->enquete_model->voeg_antwoord($i, $ingevuld[$i]);
 
             }
     }
