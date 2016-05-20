@@ -72,7 +72,7 @@
                 <div class="form-group row">
                    <input class="btn btn-default" type="submit" value="inzenden" name="submit" id="submit"/>
                </div>
-           </form>
+           <?php echo form_close() ?>
         </div>
     </div>
 
