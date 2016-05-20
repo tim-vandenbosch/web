@@ -25,19 +25,6 @@ class enquete_controller extends CI_Controller
         $this->load->view('Layout/navigation');
         $this->load->view('user_enquete_view', $data);
         $this->load->view('Layout/footer');
-
-        /*
-        $this->form_validation->set_rules('vraag1', 'required');
-
-        if ($this->form_validation->run() == FALSE)
-        {
-            $this->form_validation->set_message('Gelieve alles in te vullen');
-        }
-        else
-        {
-            $this->afmelden_verzenden();
-        }*/
-
     }
     // Gebruiker: Britt
     // Datum: 20/05/2016

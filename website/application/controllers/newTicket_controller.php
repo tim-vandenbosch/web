@@ -36,7 +36,6 @@ class newTicket_controller extends CI_Controller
         }
         else
         {
-
             $this -> sendForm($ticketId);
             $this->load->view('Layout/header');
             $this->load->view('Layout/navigation');
@@ -52,7 +51,6 @@ class newTicket_controller extends CI_Controller
         $this ->form_validation -> set_rules('blokId','blokId','required');
         $this ->form_validation -> set_rules('lokaal','lokaal','required|max_length[3]|callback_checkLokaal');
         $this ->form_validation -> set_rules('omschrijving','omschrijving','required');
-
     }
 
     function sendForm($ticketId){
@@ -84,7 +82,7 @@ class newTicket_controller extends CI_Controller
     // check of user nog in gelogd is, zoniet opnieuw inloggen
     function checkSession(){
         if (!$this->session->userdata('logged_in')) {
-            echo "<script>alert('U sessie is verlopen!');</script>";
+            //echo "<script>alert('U sessie is verlopen!');</script>";
             redirect('login', 'refresh');
         }
     }
