@@ -45,7 +45,7 @@ class enquete_controller extends CI_Controller
         //form geeft null (why?)
             $ingevulde_antwoorden = array
             (
-                "antw1" => $this->input->get('vraag1'),
+                "antw1" => $this->input->post('vraag1'),
                 "antw2" => $this->input->post('vraag2'),
                 "antw3" => $this->input->post('vraag3')
             );
