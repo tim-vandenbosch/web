@@ -6,21 +6,21 @@
 Class User_model extends CI_Model
 {
     // @author =  Britt & Tim
-//@reviewer = Tim?
+    //@reviewer = Tim
     function login($email,$password)
     {
-        $this->db->select('userID, email, pws');
-        $this->db->from('users');
-        $this->db->where('email',$email);
-        $this->db->where('pws',MD5($password));
-        $this->db->limit(1);
+        $this -> db -> select('userID, email, pws');
+        $this -> db -> from('users');
+        $this -> db -> where('email',$email);
+        $this -> db -> where('pws',MD5($password));
+        $this -> db -> limit(1);
 
-        $query = $this->db->get();
+        $query = $this -> db -> get();
 
         // Als de gebruiker gevonden wordt in de db
         if($query -> num_rows() == 1)
         {
-            return $query->result();
+            return $query -> result();
         }
         else
         {
@@ -29,22 +29,22 @@ Class User_model extends CI_Model
     }
 
 // @author =  Britt?
-//@reviewer =
+//@reviewer = Tim
     function neem_rol($userID)
     {
-        $this->db->select('rol');
-        $this->db->from('users');
-        $this->db->where('userID', $userID);
-        $this->db->limit(1);
+        $this -> db -> select('rol');
+        $this -> db -> from('users');
+        $this -> db -> where('userID', $userID);
+        $this -> db -> limit(1);
 
-        $query = $this->db->get();
-        $result = $query->row();
-        return $result->rol;
+        $query = $this -> db -> get();
+        $result = $query -> row();
+        return $result -> rol;
 
         // Als de gebruiker gevonden wordt in de db
         if($query -> num_rows() == 1)
         {
-            return $query->row();
+            return $query -> row();
         }
         else
         {
@@ -53,49 +53,49 @@ Class User_model extends CI_Model
     }
 
     // @author =  Britt
-//@reviewer =
+    //@reviewer = Tim
     function get_users()
     {
-        $this->db->select('userID , email, rol, active');
-        $this->db->from('users');
+        $this -> db -> select('userID , email, rol, active');
+        $this -> db -> from('users');
         // Deze lijn zou er voor moeten zorgen dat er geordend word op id
-        $this->db->orderby('userID');
+        // $this -> db -> orderby('userID');
 
-        $query = $this->db->get();
+        $query = $this -> db -> get();
 
-        return $query->result();
+        return $query -> result();
     }
 
-    // @author =
-//@reviewer =
+    // @author = Tim
+    //@reviewer = Britt
     /*
     * Deze functie haalt alle users op met een bepaalde rol.
     */
     function get_user_by_rol($rol)
     {
-        $this->db->select('userID, email, rol, active');
-        $this->db->from('users');
-        $this->db->where('rol', $rol);
+        $this -> db -> select('userID, email, rol, active');
+        $this -> db -> from('users');
+        $this -> db -> where('rol', $rol);
         
-        $query = $this->db->get();
-        $result = $query->row();
+        $query = $this -> db -> get();
+        $result = $query -> row();
         
         return $result;
     }
 
-    // @author =
-//@reviewer =
+    // @author = Tim
+    //@reviewer = Tim
     /*
     * Deze functie haalt alle users op die actief zijn of niet.
     */
     function get_user_by_active($active)
     {
-        $this->db->select('userID, email, rol, active');
-        $this->db->from('users');
-        $this->db->where('active', $active);
+        $this -> db -> select('userID, email, rol, active');
+        $this -> db -> from('users');
+        $this -> db -> where('active', $active);
         
-        $query = $this->db->get();
-        $result = $query->row();
+        $query = $this -> db -> get();
+        $result = $query -> row();
         
         return $result;
     }
@@ -104,7 +104,7 @@ Class User_model extends CI_Model
     * Deze functie is gekopieerd en aangepast van Daniela, voor users.
     */
     // @author =  Tim
-//@reviewer =
+    //@reviewer =
 /*    function sorttable($tablename)
     {
         $sql = $this->db->get('users');
@@ -132,14 +132,15 @@ Class User_model extends CI_Model
     // @author =  Nida
     function get_user_by_id($userID)
     {
-        $this->db->select('userID, email, rol, active');
-        $this->db->from('users');
-        $this->db->where('userID', $userID);
+        $this -> db -> select('userID, email, rol, active');
+        $this -> db -> from('users');
+        $this -> db -> where('userID', $userID);
 
-        $query = $this->db->get();
-        $result = $query->row();
+        $query = $this -> db -> get();
+        $result = $query -> row();
         return $result;
-           }
+    }
+    
 //@author = Daniela
     function  getWerkmannen(){
 

@@ -10,7 +10,6 @@ class enquete_controller extends CI_Controller
     {
         parent::__construct();
         $this->load->model('enquete_model', '', TRUE);
-        $this->load->library('form_validation');
     }
 
     function index()
@@ -24,19 +23,6 @@ class enquete_controller extends CI_Controller
         $this->load->view('Layout/navigation');
         $this->load->view('user_enquete_view', $data);
         $this->load->view('Layout/footer');
-
-        /*
-        $this->form_validation->set_rules('vraag1', 'required');
-
-        if ($this->form_validation->run() == FALSE)
-        {
-            $this->form_validation->set_message('Gelieve alles in te vullen');
-        }
-        else
-        {
-            $this->afmelden_verzenden();
-        }*/
-
     }
 
     // Gebruiker: Britt
