@@ -46,14 +46,19 @@ class enquete_controller extends CI_Controller
     {
         $ingevulde_antwoorden = array
         (
-            "vraag1" => $this -> input -> post(''),
-            "vraag2" => $this -> input -> post(''),
-            "vraag3" => $this -> input -> post('')
+            "antw1" => $this -> input -> get('vraag1'),
+            "antw2" => $this -> input -> post('vraag2'),
+            "antw3" => $this -> input -> post('vraag3')
         );
-        //voeg_antwoord moet nog een vraagid krijgen en antwoord van die vraag
-        $this->enquete_model->voeg_antwoord();
+
+
+        for($i = 1; $i < 4;$i++)
+        {
+            $this->enquete_model->voeg_antwoord($i,$ingevulde_antwoorden[$i-1]);
+        }
+        /*
         $this->session->unset_userdata('logged_in');
         session_destroy();
-        redirect('login', 'refresh');
+        redirect('login', 'refresh');*/
     }
 }
