@@ -51,11 +51,11 @@ class enquete_controller extends CI_Controller
             );
             
             for ($i = 1; $i < 4; $i++) {
-                $this->enquete_model->voeg_antwoord($i, $ingevulde_antwoorden[$i - 1]);
+               $this->enquete_model->voeg_antwoord($i, $ingevulde_antwoorden[$i - 1]);
             }
-            /*
+
             $this->session->unset_userdata('logged_in');
-            session_destroy(); */
+            session_destroy();
             redirect('login', 'refresh');
     }
 }
