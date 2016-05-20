@@ -13,7 +13,7 @@ class Verifylogin extends CI_Controller
     
     function index()
     {
-        $this->load->library('form_validation');
+       // $this->load->library('form_validation');
         $this->form_validation->set_rules('email','Email','required|valid_email');
         $this->form_validation->set_rules('password','Password','trim|required|callback_check_database');
 
