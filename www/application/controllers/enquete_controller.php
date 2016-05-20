@@ -54,13 +54,22 @@ class enquete_controller extends CI_Controller
 
             for ($i = 1; $i < 4; $i++) {
                 $this->enquete_model->voeg_antwoord($i, $ingevuld[$i]);
-
             }
     }
 
+    function enquete_ingevuld()
+    {
+        $bool = 1;
+        $session_data = $this->session->userdata('logged_in');
+        $data['userID'] = $session_data['userID'];
+        $userID = $session_data['userID'];
+        $this -> enquete_model ->  enquete_ingevuld($userID, $bool);
+    }
+    
     function afmelden()
     {
         $this->verzenden();
+        $this ->enquete_ingevuld();
         $this->session->unset_userdata('logged_in');
         session_destroy();
         redirect('login', 'refresh');

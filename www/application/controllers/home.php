@@ -69,9 +69,10 @@ class Home extends CI_Controller
         $session_data = $this->session->userdata('logged_in');
         $userID = $session_data['userID'];
         $rol = $this->user_model->neem_rol($userID);
+        $enquete = $this -> user_model -> check_enquete($userID);
 
         // @Author: Britt
-        if($rol == "Docent")
+        if($rol == "Docent" && $enquete == 0)
         {
             // verwijst naar de enquete_controller
             redirect('enquete_controller','refresh');

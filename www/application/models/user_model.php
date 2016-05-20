@@ -28,7 +28,7 @@ Class User_model extends CI_Model
         }
     }
 
-// @author =  Britt?
+// @author =  Britt
 //@reviewer = Tim
     function neem_rol($userID)
     {
@@ -42,14 +42,14 @@ Class User_model extends CI_Model
         return $result -> rol;
 
         // Als de gebruiker gevonden wordt in de db
-        if($query -> num_rows() == 1)
+       /* if($query -> num_rows() == 1)
         {
             return $query -> row();
         }
         else
         {
             return false;
-        }
+        }*/
     }
 
     // @author =  Britt
@@ -160,6 +160,23 @@ Class User_model extends CI_Model
         {
             return false;
         }
+
+    }
+
+    // @author: Britt
+    // Datum 20/05/2016
+    // neemt de waarde van docent uit db
+    function check_enquete($userID)
+    {
+        $this -> db -> select('enqueteBool');
+        $this -> db -> from('users');
+        $this -> db -> where('userID', $userID);
+        $this -> db -> limit(1);
+
+        $query = $this -> db -> get();
+        $result = $query -> row();
+        return $result -> enqueteBool;
+
 
     }
 }

@@ -37,4 +37,12 @@ class enquete_model extends CI_Model
 
         $this->db->insert('antwoorden',$data);
     }
+
+    function enquete_ingevuld($userID, $bool)
+    {
+        $this -> db -> set('enqueteBool', $bool);
+        $this -> db -> where('userID',$userID);
+        $this -> db -> update('users');
+
+    }
 }
