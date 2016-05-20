@@ -11,7 +11,7 @@ class newTicket_controller extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this -> load -> library('form_validation');
+        // $this -> load -> library('form_validation');
         $this->load->model('ticket_model', '', TRUE);
         $this->load->model('lokaal_model', '', TRUE);
 

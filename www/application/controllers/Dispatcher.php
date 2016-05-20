@@ -16,7 +16,7 @@ class Dispatcher  extends CI_Controller
         $this->load->database();
         $this->load->model('ticket_model');
         $this->load->model('user_model');
-        $this -> load -> library('form_validation');
+        // $this -> load -> library('form_validation');
     }
 
     // @author =  Daniela
