@@ -11,7 +11,7 @@
     </div>
     <div class="col-md-7 col-md-offset-2 main home ">
         <div class="col-md-7 col-md-offset-2 center ">
-            <form method="post" action="enquete_controller/afmelden_verzenden/">
+               <?php echo form_open('enquete_controller');?>
                <div class="form-group row">
                    <label> <?= htmlentities($vragen[0] -> vraag_text, ENT_QUOTES, 'UTF-8'); ?></label></br>
                    <?php
@@ -52,28 +52,25 @@
                         for($i = 0;$i<4;$i++)
                         {
                             // <label class="radio-inline"> <input type="radio" name="vraag2" value="<?= $vraag2[$i]; "><?php echo $vraag2[$i]; </label>
-                   ?>
-                       <div class="radio-inline">
-                           <?php
-                                echo form_radio(array(
-                                    'name' => 'vraag2',
-                                    'id' => 'vraag2',
-                                    'value' => $vraag2[$i],
-                                    'checked' => set_radio('vraag2',$vraag2[$i])
-                                ));
-                                echo form_label($vraag2[$i],'vraag2');
-                           ?>
+                            ?>
+                           <div class="radio-inline">
+                              <?php echo form_radio(array(
+                               'name' => 'vraag2',
+                               'id' => 'vraag2',
+                               'value' => $vraag2[$i],
+                               'checked' => set_radio('vraag2',$vraag2[$i])
+                              ));
+                                   echo form_label($vraag2[$i],'vraag2');
+                              ?>
                        </div>
-                   <?php
-                        }
-                   ?>
+                        <?php } ?>
                </div>
                <div class="form-group row">
                    <label><?= htmlentities($vragen[2] -> vraag_text, ENT_QUOTES, 'UTF-8'); ?></label>
                    <textarea class="form-control" rows="3" name="feedback" id="feedback"></textarea>
                </div>
                 <div class="form-group row">
-                   <input class="btn btn-default" type="submit" value="Inzenden" name="submit" id="submit"/>
+                   <input class="btn btn-default" type="submit" value="inzenden" name="submit" id="submit"/>
                </div>
            </form>
         </div>
