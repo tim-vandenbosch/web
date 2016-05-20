@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2016 at 04:38 PM
--- Server version: 10.1.10-MariaDB
--- PHP Version: 5.6.15
+-- Gegenereerd op: 20 mei 2016 om 13:30
+-- Serverversie: 10.1.10-MariaDB
+-- PHP-versie: 7.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `antwoorden`
+-- Tabelstructuur voor tabel `antwoorden`
 --
 
 CREATE TABLE `antwoorden` (
@@ -35,7 +35,7 @@ CREATE TABLE `antwoorden` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `blokken`
+-- Tabelstructuur voor tabel `blokken`
 --
 
 CREATE TABLE `blokken` (
@@ -45,7 +45,7 @@ CREATE TABLE `blokken` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `blokken`
+-- Gegevens worden geëxporteerd voor tabel `blokken`
 --
 
 INSERT INTO `blokken` (`blokID`, `campusID`, `blokLetter`) VALUES
@@ -60,7 +60,7 @@ INSERT INTO `blokken` (`blokID`, `campusID`, `blokLetter`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `campussen`
+-- Tabelstructuur voor tabel `campussen`
 --
 
 CREATE TABLE `campussen` (
@@ -69,7 +69,7 @@ CREATE TABLE `campussen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `campussen`
+-- Gegevens worden geëxporteerd voor tabel `campussen`
 --
 
 INSERT INTO `campussen` (`campusID`, `naam`) VALUES
@@ -82,7 +82,7 @@ INSERT INTO `campussen` (`campusID`, `naam`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `lokalen`
+-- Tabelstructuur voor tabel `lokalen`
 --
 
 CREATE TABLE `lokalen` (
@@ -91,7 +91,7 @@ CREATE TABLE `lokalen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `lokalen`
+-- Gegevens worden geëxporteerd voor tabel `lokalen`
 --
 
 INSERT INTO `lokalen` (`lokaalNummer`, `blokID`) VALUES
@@ -111,7 +111,7 @@ INSERT INTO `lokalen` (`lokaalNummer`, `blokID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tickets`
+-- Tabelstructuur voor tabel `tickets`
 --
 
 CREATE TABLE `tickets` (
@@ -133,18 +133,23 @@ CREATE TABLE `tickets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tickets`
+-- Gegevens worden geëxporteerd voor tabel `tickets`
 --
 
 INSERT INTO `tickets` (`ticketID`, `aanmaker`, `onderwerp`, `prioriteit`, `type`, `campusID`, `blokID`, `lokaalNummer`, `datum`, `omschrijving`, `bijlage`, `herstellingDatum`, `deadline`, `hersteller`, `status`) VALUES
-(1, 4, 'Beamer kapot', 'Kritiek (1 uur)', 'Elektriciteit', 1, 1, 41, '2016-04-28', 'Beamer gaat niet meer aan.', '', '2016-04-29', '2016-05-02', 3, 'In behandeling'),
-(2, 4, 'kapoet', 'Dringend (4 uur)', 'IT', 1, 1, 41, '2016-05-15', 'kapotte nl', '', '2016-05-16', '2016-05-17', 2, 'In behandeling'),
-(3, 4, 'test', 'Kritiek (1 uur)', 'IT', 1, 1, 41, '2016-05-17', 'dit is een test', NULL, NULL, NULL, NULL, 'In behandeling');
+(1, 4, 'Beamer kapot', 'Gemiddeld (1 week)', 'Elektriciteit', 1, 1, 41, '2016-04-28', 'Beamer gaat niet meer aan.', '', '2016-04-30', '2016-05-10', 5, 'Geparkeerd'),
+(2, 4, 'Stoel kapot', 'Hoog (2 dagen)', 'Elektriciteit', 1, 1, 41, '2016-05-08', 'Stoelpoot kapot', '', '2016-05-11', '2016-05-14', 5, 'Afgesloten'),
+(3, 1, 'Beamer kapot', 'Kritiek (1 uur)', 'Elektriciteit', 1, 2, 41, '2016-04-28', 'Beamer gaat niet meer aan.', '', '2016-04-29', '2016-05-02', 3, 'In behandeling'),
+(4, 2, 'Stoel kapot', 'Hoog (2 dagen)', 'Faciliteiten', 2, 2, 41, '2016-05-02', 'Een stoelpoot is afgebroken.', '', '2016-05-06', '2016-05-09', 3, 'In behandeling'),
+(5, 3, 'Licht flikkert', 'Gemiddeld (1 week)', 'Elektriciteit', 2, 4, 145, '2016-05-13', 'Een lamp moet dringend vervangen worden. Deze flikkerde tijdens de avondles.', '', '2016-05-16', '2016-05-17', 6, ''),
+(6, 2, 'Raam gebarsten', 'Dringend (4 uur)', 'Faciliteiten', 3, 3, 145, '2016-04-18', 'Door een ongeluk is een raam gebarsten. ', '', '2016-04-19', '2016-04-19', 3, 'Geparkeerd'),
+(7, 1, 'Verwarming gaat niet aan. ', 'Hoog (2 dagen)', 'Elektriciteit', 4, 4, 146, '2016-01-05', 'De klaslokaal is erg koud. De verwarmingen doen het niet.', '', '2016-01-06', '2016-01-07', 3, 'Afgesloten'),
+(8, 3, 'Macscherm werkt niet.', 'Gemiddeld (1 week)', 'IT', 3, 4, 146, '2016-05-08', 'Een mac scherm op de 2de rij links werkt niet meer. ', '', '2016-05-13', '2016-05-18', 3, '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Tabelstructuur voor tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -157,19 +162,23 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `users`
+-- Gegevens worden geëxporteerd voor tabel `users`
 --
 
 INSERT INTO `users` (`userID`, `email`, `pws`, `rol`, `active`, `salt`) VALUES
 (1, 'admin@pxl.be', '21232f297a57a5a743894a0e4a801fc3', 'Admin', 1, ''),
 (2, 'dis@pxl.be', 'ab642ce62f55b2ca05b4697f3bd7b53a', 'Dispatcher', 1, ''),
 (3, 'wm1@pxl.be', 'ab642ce62f55b2ca05b4697f3bd7b53a', 'Werkman', 1, ''),
-(4, 'docent1@pxl.be', 'ab642ce62f55b2ca05b4697f3bd7b53a', 'Docent', 1, '');
+(4, 'docent1@pxl.be', 'ab642ce62f55b2ca05b4697f3bd7b53a', 'Docent', 1, ''),
+(5, 'wm2@pxl.be', 'ab642ce62f55b2ca05b4697f3bd7b53a', 'Werkman', 1, ''),
+(6, 'wm3@pxl.be', 'ab642ce62f55b2ca05b4697f3bd7b53a', 'Werkman', 1, ''),
+(7, 'docent2@pxl.be', 'ab642ce62f55b2ca05b4697f3bd7b53a', 'Docent', 1, ''),
+(8, 'docent2@pxl.be', 'ab642ce62f55b2ca05b4697f3bd7b53a', 'Docent', 1, '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `vragen`
+-- Tabelstructuur voor tabel `vragen`
 --
 
 CREATE TABLE `vragen` (
@@ -182,7 +191,7 @@ CREATE TABLE `vragen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `vragen`
+-- Gegevens worden geëxporteerd voor tabel `vragen`
 --
 
 INSERT INTO `vragen` (`vragenID`, `vraag_text`, `antw1_text`, `antw2_text`, `antw3_text`, `antw4_text`) VALUES
@@ -191,17 +200,17 @@ INSERT INTO `vragen` (`vragenID`, `vraag_text`, `antw1_text`, `antw2_text`, `ant
 (3, 'Geef je mening wat beter kan', 'NULL', '', '', '');
 
 --
--- Indexes for dumped tables
+-- Indexen voor geëxporteerde tabellen
 --
 
 --
--- Indexes for table `antwoorden`
+-- Indexen voor tabel `antwoorden`
 --
 ALTER TABLE `antwoorden`
   ADD PRIMARY KEY (`antwoordID`);
 
 --
--- Indexes for table `blokken`
+-- Indexen voor tabel `blokken`
 --
 ALTER TABLE `blokken`
   ADD PRIMARY KEY (`blokID`),
@@ -209,20 +218,20 @@ ALTER TABLE `blokken`
   ADD KEY `campus` (`campusID`);
 
 --
--- Indexes for table `campussen`
+-- Indexen voor tabel `campussen`
 --
 ALTER TABLE `campussen`
   ADD PRIMARY KEY (`campusID`);
 
 --
--- Indexes for table `lokalen`
+-- Indexen voor tabel `lokalen`
 --
 ALTER TABLE `lokalen`
   ADD PRIMARY KEY (`lokaalNummer`),
   ADD KEY `blok` (`blokID`);
 
 --
--- Indexes for table `tickets`
+-- Indexen voor tabel `tickets`
 --
 ALTER TABLE `tickets`
   ADD PRIMARY KEY (`ticketID`),
@@ -237,54 +246,54 @@ ALTER TABLE `tickets`
   ADD KEY `blok` (`blokID`);
 
 --
--- Indexes for table `users`
+-- Indexen voor tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`userID`);
 
 --
--- Indexes for table `vragen`
+-- Indexen voor tabel `vragen`
 --
 ALTER TABLE `vragen`
   ADD PRIMARY KEY (`vragenID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
 --
--- AUTO_INCREMENT for table `antwoorden`
+-- AUTO_INCREMENT voor een tabel `antwoorden`
 --
 ALTER TABLE `antwoorden`
   MODIFY `antwoordID` int(5) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `tickets`
+-- AUTO_INCREMENT voor een tabel `tickets`
 --
 ALTER TABLE `tickets`
-  MODIFY `ticketID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ticketID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
--- AUTO_INCREMENT for table `vragen`
+-- AUTO_INCREMENT voor een tabel `vragen`
 --
 ALTER TABLE `vragen`
   MODIFY `vragenID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- Constraints for dumped tables
+-- Beperkingen voor geëxporteerde tabellen
 --
 
 --
--- Constraints for table `blokken`
+-- Beperkingen voor tabel `blokken`
 --
 ALTER TABLE `blokken`
   ADD CONSTRAINT `blok_campus_fk` FOREIGN KEY (`campusID`) REFERENCES `campussen` (`campusID`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `lokalen`
+-- Beperkingen voor tabel `lokalen`
 --
 ALTER TABLE `lokalen`
   ADD CONSTRAINT `lokaal_blok_fk` FOREIGN KEY (`blokID`) REFERENCES `blokken` (`blokID`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `tickets`
+-- Beperkingen voor tabel `tickets`
 --
 ALTER TABLE `tickets`
   ADD CONSTRAINT `ticket_aanmaker_fk` FOREIGN KEY (`aanmaker`) REFERENCES `users` (`userID`) ON DELETE NO ACTION ON UPDATE CASCADE,
