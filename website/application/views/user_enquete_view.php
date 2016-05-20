@@ -73,7 +73,7 @@
                    <textarea class="form-control" rows="3" name="feedback" id="feedback"></textarea>
                </div>
                 <div class="form-group row">
-                   <input class="btn btn-default" type="submit" value="inzenden" name="submit" id="submit"/>
+                   <input class="btn btn-default" type="submit" value="Inzenden" name="submit" id="submit"/>
                </div>
            </form>
         </div>
