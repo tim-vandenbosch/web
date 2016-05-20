@@ -22,8 +22,19 @@
                             2 => htmlentities($vragen[0] -> antw3_text, ENT_QUOTES, 'UTF-8')
                         );
                    for ($i = 0; $i < 3; $i++)
-                   { ?>
-                        <label class="radio-inline"> <input type="radio" name="vraag1" value="<?= $vraag1[$i]; ?>"><?php echo $vraag1[$i]; ?></label>
+                   {
+                        // <label class="radio-inline"> <input type="radio" name="vraag1" value="<?= $vraag1[$i]; "><?php echo $vraag1[$i]; </label>
+                   ?>
+                       <div class="radio-inline">
+                           <?php echo form_radio(array(
+                               'name' => 'vraag1',
+                               'id' => 'vraag1',
+                               'value' => $vraag1[$i],
+                               'checked' => set_radio('vraag1',$vraag1[$i])
+                           ));
+                           echo form_label($vraag1[$i],'vraag1');
+                           ?>
+                       </div>
                   <?php }
                    ?>
                </div>
@@ -40,9 +51,19 @@
                        );
                         for($i = 0;$i<4;$i++)
                         {
-                   ?>
-                   <label class="radio-inline"> <input type="radio" name="vraag2" value="<?= $vraag2[$i]; ?>"><?php echo $vraag2[$i]; ?></label>
-                   <?php } ?>
+                            // <label class="radio-inline"> <input type="radio" name="vraag2" value="<?= $vraag2[$i]; "><?php echo $vraag2[$i]; </label>
+                            ?>
+                           <div class="radio-inline">
+                              <?php echo form_radio(array(
+                               'name' => 'vraag2',
+                               'id' => 'vraag2',
+                               'value' => $vraag2[$i],
+                               'checked' => set_radio('vraag2',$vraag2[$i])
+                              ));
+                                   echo form_label($vraag2[$i],'vraag2');
+                              ?>
+                       </div>
+                        <?php } ?>
                </div>
                <div class="form-group row">
                    <label><?= htmlentities($vragen[2] -> vraag_text, ENT_QUOTES, 'UTF-8'); ?></label>
