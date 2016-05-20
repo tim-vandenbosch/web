@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 20 mei 2016 om 13:30
--- Serverversie: 10.1.10-MariaDB
--- PHP-versie: 7.0.3
+-- Generation Time: May 20, 2016 at 01:40 PM
+-- Server version: 10.1.10-MariaDB
+-- PHP Version: 7.0.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,13 +19,16 @@ SET time_zone = "+00:00";
 --
 -- Database: `ticketingsystem@pxl`
 --
+CREATE DATABASE IF NOT EXISTS `ticketingsystem@pxl` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `ticketingsystem@pxl`;
 
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `antwoorden`
+-- Table structure for table `antwoorden`
 --
 
+DROP TABLE IF EXISTS `antwoorden`;
 CREATE TABLE `antwoorden` (
   `antwoordID` int(5) NOT NULL,
   `vraagID` int(5) NOT NULL,
@@ -35,9 +38,10 @@ CREATE TABLE `antwoorden` (
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `blokken`
+-- Table structure for table `blokken`
 --
 
+DROP TABLE IF EXISTS `blokken`;
 CREATE TABLE `blokken` (
   `blokID` int(5) NOT NULL,
   `campusID` int(5) NOT NULL,
@@ -45,7 +49,7 @@ CREATE TABLE `blokken` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `blokken`
+-- Dumping data for table `blokken`
 --
 
 INSERT INTO `blokken` (`blokID`, `campusID`, `blokLetter`) VALUES
@@ -60,16 +64,17 @@ INSERT INTO `blokken` (`blokID`, `campusID`, `blokLetter`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `campussen`
+-- Table structure for table `campussen`
 --
 
+DROP TABLE IF EXISTS `campussen`;
 CREATE TABLE `campussen` (
   `campusID` int(5) NOT NULL,
   `naam` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `campussen`
+-- Dumping data for table `campussen`
 --
 
 INSERT INTO `campussen` (`campusID`, `naam`) VALUES
@@ -82,16 +87,17 @@ INSERT INTO `campussen` (`campusID`, `naam`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `lokalen`
+-- Table structure for table `lokalen`
 --
 
+DROP TABLE IF EXISTS `lokalen`;
 CREATE TABLE `lokalen` (
   `lokaalNummer` int(5) NOT NULL,
   `blokID` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `lokalen`
+-- Dumping data for table `lokalen`
 --
 
 INSERT INTO `lokalen` (`lokaalNummer`, `blokID`) VALUES
@@ -111,9 +117,10 @@ INSERT INTO `lokalen` (`lokaalNummer`, `blokID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `tickets`
+-- Table structure for table `tickets`
 --
 
+DROP TABLE IF EXISTS `tickets`;
 CREATE TABLE `tickets` (
   `ticketID` int(5) NOT NULL,
   `aanmaker` int(3) NOT NULL,
@@ -133,7 +140,7 @@ CREATE TABLE `tickets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `tickets`
+-- Dumping data for table `tickets`
 --
 
 INSERT INTO `tickets` (`ticketID`, `aanmaker`, `onderwerp`, `prioriteit`, `type`, `campusID`, `blokID`, `lokaalNummer`, `datum`, `omschrijving`, `bijlage`, `herstellingDatum`, `deadline`, `hersteller`, `status`) VALUES
@@ -149,9 +156,10 @@ INSERT INTO `tickets` (`ticketID`, `aanmaker`, `onderwerp`, `prioriteit`, `type`
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `users`
+-- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `userID` int(3) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -162,7 +170,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`userID`, `email`, `pws`, `rol`, `active`, `salt`) VALUES
@@ -178,9 +186,10 @@ INSERT INTO `users` (`userID`, `email`, `pws`, `rol`, `active`, `salt`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `vragen`
+-- Table structure for table `vragen`
 --
 
+DROP TABLE IF EXISTS `vragen`;
 CREATE TABLE `vragen` (
   `vragenID` int(5) NOT NULL,
   `vraag_text` varchar(255) NOT NULL,
@@ -191,7 +200,7 @@ CREATE TABLE `vragen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `vragen`
+-- Dumping data for table `vragen`
 --
 
 INSERT INTO `vragen` (`vragenID`, `vraag_text`, `antw1_text`, `antw2_text`, `antw3_text`, `antw4_text`) VALUES
@@ -200,17 +209,17 @@ INSERT INTO `vragen` (`vragenID`, `vraag_text`, `antw1_text`, `antw2_text`, `ant
 (3, 'Geef je mening wat beter kan', 'NULL', '', '', '');
 
 --
--- Indexen voor geëxporteerde tabellen
+-- Indexes for dumped tables
 --
 
 --
--- Indexen voor tabel `antwoorden`
+-- Indexes for table `antwoorden`
 --
 ALTER TABLE `antwoorden`
   ADD PRIMARY KEY (`antwoordID`);
 
 --
--- Indexen voor tabel `blokken`
+-- Indexes for table `blokken`
 --
 ALTER TABLE `blokken`
   ADD PRIMARY KEY (`blokID`),
@@ -218,20 +227,20 @@ ALTER TABLE `blokken`
   ADD KEY `campus` (`campusID`);
 
 --
--- Indexen voor tabel `campussen`
+-- Indexes for table `campussen`
 --
 ALTER TABLE `campussen`
   ADD PRIMARY KEY (`campusID`);
 
 --
--- Indexen voor tabel `lokalen`
+-- Indexes for table `lokalen`
 --
 ALTER TABLE `lokalen`
   ADD PRIMARY KEY (`lokaalNummer`),
   ADD KEY `blok` (`blokID`);
 
 --
--- Indexen voor tabel `tickets`
+-- Indexes for table `tickets`
 --
 ALTER TABLE `tickets`
   ADD PRIMARY KEY (`ticketID`),
@@ -246,54 +255,54 @@ ALTER TABLE `tickets`
   ADD KEY `blok` (`blokID`);
 
 --
--- Indexen voor tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`userID`);
 
 --
--- Indexen voor tabel `vragen`
+-- Indexes for table `vragen`
 --
 ALTER TABLE `vragen`
   ADD PRIMARY KEY (`vragenID`);
 
 --
--- AUTO_INCREMENT voor geëxporteerde tabellen
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT voor een tabel `antwoorden`
+-- AUTO_INCREMENT for table `antwoorden`
 --
 ALTER TABLE `antwoorden`
   MODIFY `antwoordID` int(5) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT voor een tabel `tickets`
+-- AUTO_INCREMENT for table `tickets`
 --
 ALTER TABLE `tickets`
   MODIFY `ticketID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
--- AUTO_INCREMENT voor een tabel `vragen`
+-- AUTO_INCREMENT for table `vragen`
 --
 ALTER TABLE `vragen`
   MODIFY `vragenID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- Beperkingen voor geëxporteerde tabellen
+-- Constraints for dumped tables
 --
 
 --
--- Beperkingen voor tabel `blokken`
+-- Constraints for table `blokken`
 --
 ALTER TABLE `blokken`
   ADD CONSTRAINT `blok_campus_fk` FOREIGN KEY (`campusID`) REFERENCES `campussen` (`campusID`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Beperkingen voor tabel `lokalen`
+-- Constraints for table `lokalen`
 --
 ALTER TABLE `lokalen`
   ADD CONSTRAINT `lokaal_blok_fk` FOREIGN KEY (`blokID`) REFERENCES `blokken` (`blokID`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Beperkingen voor tabel `tickets`
+-- Constraints for table `tickets`
 --
 ALTER TABLE `tickets`
   ADD CONSTRAINT `ticket_aanmaker_fk` FOREIGN KEY (`aanmaker`) REFERENCES `users` (`userID`) ON DELETE NO ACTION ON UPDATE CASCADE,
