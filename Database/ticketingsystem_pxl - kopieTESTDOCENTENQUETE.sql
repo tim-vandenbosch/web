@@ -205,9 +205,9 @@ CREATE TABLE `vragen` (
 --
 
 INSERT INTO `vragen` (`vragenID`, `vraag_text`, `antw1_text`, `antw2_text`, `antw3_text`, `antw4_text`) VALUES
-(1, 'Was alles duidelijk bij het ingeven van een probleem', 'Ja', 'Soms', 'Nee', ''),
-(2, 'Wat vind u van de interface', 'Geweldig', 'Duidelijk', 'Neutraal', 'Kan beter'),
-(3, 'Geef je mening wat beter kan', 'NULL', '', '', '');
+(1, 'Was alles duidelijk bij het ingeven van een probleem?', 'Ja', 'Soms', 'Nee', ''),
+(2, 'Wat vindt u van de interface?', 'Geweldig', 'Duidelijk', 'Neutraal', 'Kan beter'),
+(3, 'Heeft u nog andere opmerkingen?', 'NULL', '', '', '');
 
 --
 -- Indexes for dumped tables
