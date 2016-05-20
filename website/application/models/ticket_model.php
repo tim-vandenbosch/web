@@ -8,6 +8,7 @@
 Class Ticket_model extends CI_Model{
 
     // @author =  Marnix
+    // @reviewer = Tim
     function getUserTickets($userID){
 
         $this -> db -> select('t.ticketID,t.onderwerp,t.prioriteit,t.type,c.naam,b.blokLetter,t.lokaalNummer,t.herstellingDatum,t.status');
