@@ -10,8 +10,7 @@ class enquete_controller extends CI_Controller
     {
         parent::__construct();
         $this->load->model('enquete_model', '', TRUE);
-        $this->load->library('form_validation');
-        $this->load->helper('form');
+        // $this->load->library('form_validation');
     }
 
     function index()
@@ -40,7 +39,7 @@ class enquete_controller extends CI_Controller
     // Gebruiker: Britt
     // Datum: 18/05/2016
     // Het afmelden van de docent voltooien en de gegevens verzenden
-    function afmelden_verzenden()
+    function verzenden()
     {
         //form geeft null (why?)
             $ingevulde_antwoorden = array
@@ -51,11 +50,17 @@ class enquete_controller extends CI_Controller
             );
             
             for ($i = 1; $i < 4; $i++) {
-               $this->enquete_model->voeg_antwoord($i, $ingevulde_antwoorden[$i - 1]);
-            }
+                echo var_dump($ingevulde_antwoorden[$i-1]);
+                   // $this->enquete_model->voeg_antwoord($i, $ingevulde_antwoorden[$i - 1]);
 
-            $this->session->unset_userdata('logged_in');
-            session_destroy();
-            redirect('login', 'refresh');
+            }
+    }
+
+    function afmelden()
+    {
+        $this->verzenden();
+        $this->session->unset_userdata('logged_in');
+        session_destroy();
+        redirect('login', 'refresh');
     }
 }

@@ -11,7 +11,7 @@
     </div>
     <div class="col-md-7 col-md-offset-2 main home ">
         <div class="col-md-7 col-md-offset-2 center ">
-            <?php echo form_open('enquete_controller');?>
+            <?php echo form_open('enquete_controller/verzenden');?>
                <div class="form-group row">
                    <label> <?= htmlentities($vragen[0] -> vraag_text, ENT_QUOTES, 'UTF-8'); ?></label></br>
                    <?php
@@ -28,7 +28,6 @@
                        <div class="radio-inline">
                            <?php echo form_radio(array(
                                'name' => 'vraag1',
-                               'id' => 'vraag1',
                                'value' => $vraag1[$i],
                                'checked' => set_radio('vraag1',$vraag1[$i])
                            ));
