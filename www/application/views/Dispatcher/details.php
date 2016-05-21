@@ -27,7 +27,9 @@
         <div class="col-md-12 center">
                 <form  role="form" method="post" action="<?php echo  site_url(array('Dispatcher','update', $ticketid))?>">
                     <?php if($message != "") : ?>
-                        <h1><b><?php echo $message;?></b></h1>
+                    <div style="background-color:lightyellow;" class="span12 pagination-centered">
+                      <font color="#006400">  <h1><b><?php echo $message;?></b></h1></font>
+                        </div>
                     <?php endif; ?>
                 <h4>Informatie ticket</h4>
                 <div class="form-group">
@@ -61,7 +63,7 @@
                     <textarea disabled class="form-control" rows="5" id="Omschrijving"> <?= htmlentities($quer ->omschrijving,ENT_QUOTES,'UTF-8');?></textarea>
                 </div>
 <!--********************************************************************************-->
-                <h4>In te stellen </h4>
+                <h2>In te stellen </h2>
                 <div class="form-group">
                     <label for="text">Prioriteit:</label>
                     <select class="form-control" id="satus" name="dprioriteit">
@@ -72,14 +74,14 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="text">Werkman:</label>
+
+                   <label for="text">Werkman:</label>
                     <select class="form-control" id="satus" name="dwerkman">
                         <?php foreach ($werkmanEmail as $email):?>
-                            <option hidden ><?php echo $email;?></option>
+                            <option hidden value=<?= htmlentities($quer ->hersteller,ENT_QUOTES);?> ><?php echo $email;?></option>
                         <?php endforeach;?>
                         <?php foreach ($werkmannen as $werkman):?>
-                            <option ><?= htmlentities($werkman -> userID,ENT_QUOTES,'UTF-8');?></option>
-                            <option disabled ><?= htmlentities($werkman -> email,ENT_QUOTES,'UTF-8');?></option>
+                            <option value=<?= htmlentities($werkman -> userID,ENT_QUOTES,'UTF-8');?> ><?= htmlentities($werkman -> email,ENT_QUOTES,'UTF-8');?></option>
                         <?php endforeach;?>
                     </select>
                 </div>
@@ -103,6 +105,8 @@
                 <?php endforeach;?>
                 <div class="form-group">
                 <button type="submit" name="opslaan" class="btn btn-default">Opslaan</button>
+                    <?php echo anchor('home/index', 'Annuleren', 'class="btn btn-default"') ?>
+
                 </div>
             </form>
         </div>

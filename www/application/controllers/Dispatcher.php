@@ -30,20 +30,6 @@ class Dispatcher  extends CI_Controller
 //@reviewer =
     public function index()
     {
-/*        $query = $this->db->query("SELECT * FROM tickets");
-        foreach ($query->result() as $row)
-        {
-            $data['onderwerp']= $row->onderwerp;
-            // $data['aanmaakDatum']=$row->datum;
-            $data['type']=$row->type;
-            $data['prioriteit']=$row->prioriteit;
-            $data['status']=$row->status;
-//            $data[campusID]=$row->campusIDT;
-        }
-        $this->load->view('Dispatcher/index', $data);
-        echo count($data);*/
-        //Deze code in commentaar is eigenlijk niet nodig.....ma whatever ik laat het eventjes staan
-        //je weet maar nooit :p
 
     }
 
@@ -87,6 +73,10 @@ class Dispatcher  extends CI_Controller
         $this -> ticket_model -> updateTicket($data);
 
         $this->details($ticketID,"update");
+    }
+    
+    function getIdWerkman($email){
+        
     }
 
     //bronnen : https://www.formget.com/update-data-in-database-using-codeigniter/
