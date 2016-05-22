@@ -2,7 +2,6 @@
 Class User_model extends CI_Model
 {
     /* @author =  Britt & Tim
-     * @reviewer = Tim
      * Date = 3/05/2016
      * Bron: http://www.iluv2code.com/login-with-codeigniter-php.html
      * Er wordt uit de db het paswoord en user (als deze overeenkomen) gehaald, indien niet kan de user niet inloggen
@@ -29,7 +28,6 @@ Class User_model extends CI_Model
     }
 
     /* @author = Britt
-     * @reviewer = Tim
      * De rol van een user (de ingelogde user) wordt genomen uit db
      */
     function neem_rol($userID)
@@ -55,7 +53,6 @@ Class User_model extends CI_Model
     }
 
     /* @author =  Marnix
-     * @reviewer = Tim
      * Date = 
      * Neemt alle users en hun informatie voor in de sessie
      */
@@ -72,7 +69,6 @@ Class User_model extends CI_Model
     }
 
     /* @author = Tim
-     * @reviewer = Britt
      * Deze functie haalt alle users op met een bepaalde rol.
     */
     function get_user_by_rol($rol)
@@ -87,7 +83,7 @@ Class User_model extends CI_Model
         return $result;
     }
 
-    /* @reviewer = Tim
+    /* WIE HEEFT DEZE GEMAAKT?
      * Deze functie haalt alle users op die actief zijn of niet.
     */
     function get_user_by_active($active)
@@ -131,7 +127,7 @@ Class User_model extends CI_Model
     }*/
 
 
-    /* @author =  Nida
+    /* @author =  Nida Ilyas
      * Date =
      */
     function get_user_by_id($userID)
