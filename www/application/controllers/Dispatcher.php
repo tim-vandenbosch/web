@@ -44,7 +44,7 @@ class Dispatcher  extends CI_Controller
     /* @author = Daniela
      * Date = datum
      * Bron = https://www.formget.com/update-data-in-database-using-codeigniter/
-     * Update de ticket op basis van de ticketID. De dispatcher stelt de status, prioriteit en datums in en kies een werkman
+     * Update de ticket op basis van de ticketID. De dispatcher stelt de status, prioriteit en datums in en kies een werkman.
      * De veranderingen worden doorgestuurd naar de database.
      */
     function update($ticketID){
