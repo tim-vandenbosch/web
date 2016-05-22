@@ -3,8 +3,10 @@
  * @Author britt & Tim
  * Date: 3/05/2016
  * modified 10/05
- * User: marnix
+ * @Author: marnix
  */
+
+//Deze controller zorgt voor de sessies en na de login het algemene gedeelte
 
 class Home extends CI_Controller
 {
