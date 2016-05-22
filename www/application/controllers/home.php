@@ -1,9 +1,8 @@
 <?php if( ! defined('BASEPATH')) exit('No direct script access allowed');
-/**
- * @Author britt & Tim
- * Date: 3/05/2016
- * modified 10/05
- * @Author: marnix
+/* @Author  = britt & Tim
+ * Date = 3/05/2016
+ * modified date = 10/05
+ * @Author = marnix
  */
 
 //Deze controller zorgt voor de sessies en na de login het algemene gedeelte
@@ -67,10 +66,9 @@ class Home extends CI_Controller
         }
     }
 
-    /*
-     * @Author: Britt & Tim
-     * Date: 03/05/2016
-     * Bron: http://www.iluv2code.com/login-with-codeigniter-php.html
+    /* @Author = Britt & Tim
+     * Date = 03/05/2016
+     * Bron = http://www.iluv2code.com/login-with-codeigniter-php.html
      * zorgt dat de sessie vernietigd wordt & de login pagina terug gezien wordt (user is afgemeld).
      */
     function logout()
@@ -80,9 +78,10 @@ class Home extends CI_Controller
         $rol = $this -> user_model -> neem_rol($userID);
         $enquete = $this -> user_model -> check_enquete($userID);
 
-        // @Author: Britt
-        // Date: 28/05/2016
-        // Deze if zorgt ervoor dat de docent een enquete krijgt als deze nog niet ingevuld is.
+        /* @author = Britt
+         * Date = 28/05/2016
+         * Deze if zorgt ervoor dat de docent een enquete krijgt als deze nog niet ingevuld is.
+         */
         if($rol == "Docent" && $enquete == 0)
         {
             // verwijst naar de enquete_controller
@@ -96,9 +95,8 @@ class Home extends CI_Controller
         }
     }
 
-    /*
-     * @Author: Marnix
-     * Date: 18/05/2016
+    /* @Author = Marnix
+     * Date = 18/05/2016
      * Controleerd of de sessie gedaan is, indien het gedaan is komt er een alert
      */
     function checkSession()
