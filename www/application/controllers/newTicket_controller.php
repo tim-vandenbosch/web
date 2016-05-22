@@ -44,7 +44,8 @@ class newTicket_controller extends CI_Controller
      * Check of user nog in gelogd is, zoniet opnieuw inloggen
      * Al de formrules instellen
      */
-    function formRules(){
+    function formRules()
+    {
         $this -> form_validation -> set_rules('onderwerp','onderwerp','required|max_length[20]');
         $this -> form_validation -> set_rules('type','type','required|callback_checkSession');
         $this -> form_validation -> set_rules('prior','prioriteit','required');
@@ -56,7 +57,8 @@ class newTicket_controller extends CI_Controller
     /* @author=marnix
      * Updaten van de database met het niewe ticket
      */
-    function sendForm($ticketId){
+    function sendForm($ticketId)
+    {
         $session_data = $this -> session -> userdata('logged_in');
         $aanmaker = $session_data['userID'];
 
@@ -80,33 +82,42 @@ class newTicket_controller extends CI_Controller
         $this -> ticket_model -> insertTicket($data);
     }
 
-    //@author=marnix
-    // check of user nog in gelogd is, zoniet opnieuw inloggen
-    function checkSession(){
-        if (!$this->session->userdata('logged_in')) {
+    /* @author = Marnix
+     * Check of user nog in gelogd is, zoniet opnieuw inloggen
+     */
+    function checkSession()
+    {
+        if (!$this -> session -> userdata('logged_in'))
+        {
             redirect('login', 'refresh');
         }
     }
-    //@author=marnix
-    //date 19/05
-    //deze functie check of het lokaal bestaat in deze blok
-    function checkLokaal($lokaal){
 
-        $blokId = $this -> lokaal_model ->checkLokaalExists($lokaal);
+    /* @author = Marnix
+     * Date = 19/05/2016
+     * Check of het lokaal bestaat in deze blok
+     */
+    function checkLokaal($lokaal)
+    {
+        $blokId = $this -> lokaal_model -> checkLokaalExists($lokaal);
         //dit doe ik omdat blokId null kan zijn er dan errors geeft(0 is geen geldig blok id bij ons)
-        if($blokId==null){
-            $blokId=0;
-        }else{
-            $blokId = $blokId[0]->blokID;
+        if($blokId == null)
+        {
+            $blokId = 0;
         }
-
+        else
+        {
+            $blokId = $blokId[0] -> blokID;
+        }
         $newticketBlokId = $this -> input ->post('blokId');
-        if($blokId==$newticketBlokId){
+        if($blokId == $newticketBlokId)
+        {
             return true;
-        }else{
-            $this->form_validation->set_message('checkLokaal', 'U gekozen blok/lokaal bestaat niet in deze combinatie, indien wel gelieve dit te melden aan de IT beheerder');
+        }
+        else
+        {
+            $this -> form_validation -> set_message('checkLokaal', 'U gekozen blok/lokaal bestaat niet in deze combinatie, indien wel gelieve dit te melden aan de IT beheerder');
             return false;
         }
-
     }
 }
