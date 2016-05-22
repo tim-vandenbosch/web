@@ -47,16 +47,17 @@ class Dispatcher  extends CI_Controller
 
     /* @author = Daniela
      * Date = datum
-     * Bron = https://www.formget.com/update-data-in-database-using-codeigniter/
+     * Bronnen = https://www.formget.com/update-data-in-database-using-codeigniter/
+     * https://ellislab.com/codeigniter/user-guide/libraries/form_validation.html
      * Update de ticket op basis van de ticketID. De dispatcher stelt de status, prioriteit en datums in en kies een werkman.
      * De veranderingen worden doorgestuurd naar de database.
      */
     function update($ticketID){
         $this -> formRules();
 
-        if ($this -> form_validation -> run() == FALSE)
+        if ($this -> form_validation -> run() == false)
         {
-            $this->details($ticketID,"fout");
+            $this -> details($ticketID,"fout");
 
         }
         else
@@ -72,14 +73,14 @@ class Dispatcher  extends CI_Controller
             );
 
             $this -> ticket_model -> updateTicket($data);
-            $this->details($ticketID,"update");
+            $this -> details($ticketID,"update");
         }
 
     }
 
     /* @author = Daniela
      * Date = 22/05/2016
-     * Bron = http://stackoverflow.com/questions/10601836/callback-validation-with-parameter-using-codeigniter-and-setting-rules-using-an
+     * Bron = https://ellislab.com/codeigniter/user-guide/libraries/form_validation.html
      * Deze functie zet de regel voor herstellingsdatum. Deze mag niet kleiner zijn dan de deadline
      */
     function formRules()
@@ -97,14 +98,14 @@ class Dispatcher  extends CI_Controller
     public function date_compare($date2)
     {
 
-        if ($date2 > $this->input->post("ddeadline"))
+        if ($date2 > $this->input -> post("ddeadline"))
         {
-            $this->form_validation->set_message('date_compare', 'Herstellingsdatum kan niet later dan de deadline zijn');
-            return FALSE;
+            $this-> form_validation -> set_message('date_compare', 'Herstellingsdatum kan niet later dan de deadline zijn');
+            return false;
         }
         else
         {
-            return TRUE;
+            return true;
         }
 
     }
@@ -114,7 +115,7 @@ class Dispatcher  extends CI_Controller
      */
     function checkSession()
     {
-        if (!$this->session->userdata('logged_in')) {
+        if (!$this -> session->userdata('logged_in')) {
             redirect('login', 'refresh');
         }
     }
