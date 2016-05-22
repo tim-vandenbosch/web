@@ -1,8 +1,6 @@
 <?php
-/**
- * Gebruiker: Britt & Tim
- * Date: 13/05/2016
- * Bron: /
+/* @author = Britt & Tim
+ * Date = 13/05/2016
  */
 ?>
 <div class="col-md-7 col-md-offset-2 titel">
