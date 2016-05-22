@@ -48,7 +48,6 @@ class profiel_controller extends CI_Controller
 
     }
 
-
     /* @author = Marnix
      * Check of user nog in gelogd is, zoniet opnieuw inloggen
      */
