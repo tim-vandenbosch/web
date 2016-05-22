@@ -27,10 +27,10 @@
                 <?php if($message != "") : ?>
                     <div style="background-color:lightyellow;" class="span12 pagination-centered">
                         <font color="#006400">
-                            <h1>   <i class="glyphicon glyphicon-thumbs-up"> </i>
+                            <h2>   <i class="glyphicon glyphicon-thumbs-up"> </i>
                               <b><?php echo $message;?></b>
                               <i class="glyphicon glyphicon-thumbs-up"> </i>
-                          </h1></font>
+                          </h2></font>
                     </div>
                 <?php endif; ?>
                 <h4>Informatie ticket</h4>
