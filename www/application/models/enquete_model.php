@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Gebruiker: nida ilyas & Britt
+ * Gebruiker: Britt
  * Datum: 28/04/2016
  * Bron: /
  */

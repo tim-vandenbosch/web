@@ -61,9 +61,13 @@ class Home extends CI_Controller
                     $this -> load -> view('login_view');
                     break;
             }
-
     }
-
+/*
+ * @Author: Britt & Tim
+ * Date: 03/05/2016
+ * Bron: http://www.iluv2code.com/login-with-codeigniter-php.html
+ * zorgt dat de sessie vernietigd wordt & de login pagina terug gezien wordt (user is afgemeld).
+ */
     function logout()
     {
         $session_data = $this -> session -> userdata('logged_in');
@@ -72,6 +76,8 @@ class Home extends CI_Controller
         $enquete = $this -> user_model -> check_enquete($userID);
 
         // @Author: Britt
+        // Date: 28/05/2016
+        // Deze if zorgt ervoor dat de docent een enquete krijgt als deze nog niet ingevuld is.
         if($rol == "Docent" && $enquete == 0)
         {
             // verwijst naar de enquete_controller
@@ -85,6 +91,12 @@ class Home extends CI_Controller
         }
 
     }
+
+    /*
+     * @Author: Marnix
+     * Date: 18/05/2016
+     * Controleerd of de sessie gedaan is, indien het gedaan is komt er een alert
+     */
     function checkSession()
     {
         if (!$this -> session -> userdata('logged_in')) {
