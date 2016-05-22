@@ -42,7 +42,7 @@ class newTicket_controller extends CI_Controller
             $this -> sendForm($ticketId);
             $this->load->view('Layout/header');
             $this->load->view('Layout/navigation');
-            $this->load->view('newTicketSucces_view');
+            $this->load->view('User/newTicketSucces_view');
             $this->load->view('Layout/footer');
         }
 
