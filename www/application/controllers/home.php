@@ -29,7 +29,7 @@ class Home extends CI_Controller
         $data['userID'] = $session_data['userID'];
         $userID = $session_data['userID'];
         $rol = $this -> user_model -> neem_rol($userID);
-        
+
         switch ($rol)
         {
             case "Admin":
@@ -67,12 +67,12 @@ class Home extends CI_Controller
         }
     }
 
-/*
- * @Author: Britt & Tim
- * Date: 03/05/2016
- * Bron: http://www.iluv2code.com/login-with-codeigniter-php.html
- * zorgt dat de sessie vernietigd wordt & de login pagina terug gezien wordt (user is afgemeld).
- */
+    /*
+     * @Author: Britt & Tim
+     * Date: 03/05/2016
+     * Bron: http://www.iluv2code.com/login-with-codeigniter-php.html
+     * zorgt dat de sessie vernietigd wordt & de login pagina terug gezien wordt (user is afgemeld).
+     */
     function logout()
     {
         $session_data = $this -> session -> userdata('logged_in');
