@@ -19,49 +19,50 @@ class Home extends CI_Controller
 
     function index()
     {
-            $this -> checkSession();
-            $session_data = $this -> session ->  userdata('logged_in');
-            $data['userID'] = $session_data['userID'];
-            $userID = $session_data['userID'];
-            $rol = $this -> user_model -> neem_rol($userID);
+        $this -> checkSession();
+        $session_data = $this -> session ->  userdata('logged_in');
+        $data['userID'] = $session_data['userID'];
+        $userID = $session_data['userID'];
+        $rol = $this -> user_model -> neem_rol($userID);
             
-            // Op basis van de rol de juiste view meegeven
-            switch ($rol){
-                case "Admin":
-                    $data = array('userID' => $session_data['userID'], 'users' => $this->user_model->get_users());
-                    $this -> load -> view('Layout/header');
-                    $this -> load -> view('Layout/navigation');
-                    $this -> load -> view('/Admin/admin_view',$data);
-                    $this -> load -> view('Layout/footer');
-                    break;
-                case "Dispatcher":
-                    $data =  array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getAllTickets());
-                    $this -> load -> view('Layout/header');
-                    $this -> load -> view('Layout/navigation');
-                    $this -> load -> view('/Dispatcher/index', $data);
-                    $this -> load -> view('Layout/footer');
-
-                    break;
-                case "Werkman":
-                    $data =  array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getAllTickets());
-                    $this -> load -> view('Layout/header');
-                    $this -> load -> view('Layout/navigation');
-                    $this -> load -> view('/Werkman/index');
-                    $this -> load -> view('/Tickets/lijst_tickets', $data);
-                    $this -> load -> view('Layout/footer');
-                    break;
-                case "Docent":
-                    $data = array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getAllTickets());
-                    $this -> load -> view('Layout/header');
-                    $this -> load -> view('Layout/navigation');
-                    $this -> load -> view('user_view', $data);
-                    $this -> load -> view('Layout/footer');
-                    break;
-                default:
-                    $this -> load -> view('login_view');
-                    break;
-            }
+        // Op basis van de rol de juiste view meegeven
+        switch ($rol)
+        {
+            case "Admin":
+                $data = array('userID' => $session_data['userID'], 'users' => $this->user_model->get_users());
+                $this -> load -> view('Layout/header');
+                $this -> load -> view('Layout/navigation');
+                $this -> load -> view('/Admin/admin_view',$data);
+                $this -> load -> view('Layout/footer');
+                break;
+            case "Dispatcher":
+                $data =  array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getAllTickets());
+                $this -> load -> view('Layout/header');
+                $this -> load -> view('Layout/navigation');
+                $this -> load -> view('/Dispatcher/index', $data);
+                $this -> load -> view('Layout/footer');
+                break;
+            case "Werkman":
+                $data =  array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getAllTickets());
+                $this -> load -> view('Layout/header');
+                $this -> load -> view('Layout/navigation');
+                $this -> load -> view('/Werkman/index');
+                $this -> load -> view('/Tickets/lijst_tickets', $data);
+                $this -> load -> view('Layout/footer');
+                break;
+            case "Docent":
+                $data = array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getAllTickets());
+                $this -> load -> view('Layout/header');
+                $this -> load -> view('Layout/navigation');
+                $this -> load -> view('user_view', $data);
+                $this -> load -> view('Layout/footer');
+                break;
+            default:
+                $this -> load -> view('login_view');
+                break;
+        }
     }
+
 /*
  * @Author: Britt & Tim
  * Date: 03/05/2016
@@ -89,7 +90,6 @@ class Home extends CI_Controller
             session_destroy();
             redirect('login', 'refresh');
         }
-
     }
 
     /*
@@ -102,7 +102,6 @@ class Home extends CI_Controller
         if (!$this -> session -> userdata('logged_in')) {
             echo "<script>alert('U sessie is verlopen!');</script>";
             redirect('login', 'refresh');
-
         }
     }
 }
