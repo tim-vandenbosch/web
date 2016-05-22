@@ -19,7 +19,7 @@
 
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
-                <button class="btn btn-default">Nieuw wachtword aanvragen</button>
+                <button class="btn btn-default">Nieuw wachtwoord aanvragen</button>
             </div>
         </div>
 </br>
