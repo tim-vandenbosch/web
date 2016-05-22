@@ -15,12 +15,7 @@ class Dispatcher  extends CI_Controller
         $this -> load -> model('ticket_model');
         $this -> load -> model('user_model');
     }
-
-    /* @author =  Daniela
-     */
-    function settings(){
-        $this -> load -> view('Dispatcher/settings');
-    }
+    
     /* @author =  Daniela
      */
     public function index()
