@@ -34,7 +34,7 @@ class Home extends CI_Controller
             case "Admin":
                 $data = array('userID' => $session_data['userID'], 'users' => $this->user_model->get_users());
                 $this -> load -> view('Layout/header');
-                $this -> load -> view('Layout/navigation');
+                $this -> load -> view('Layout/navigationNoTicket');
                 $this -> load -> view('/Admin/admin_view',$data);
                 $this -> load -> view('Layout/footer');
                 break;
