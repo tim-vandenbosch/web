@@ -1,10 +1,6 @@
 <?php
-
-/**
- * Created by PhpStorm.
- * User: nida ilyas
- * Date: 28/04/2016
- * Time: 12:08
+/* @author = Nida Ilyas
+ * Date = 28/04/2016
  */
 class blok_model
 {

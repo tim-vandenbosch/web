@@ -1,14 +1,9 @@
 <?php
-    /**
-     * Created by PhpStorm.
-     * User: Marnix_laptop
-     * Date: 09/05/2016
-     * Time: 09:48
-     */
 Class Ticket_model extends CI_Model{
-
-    // @author =  Marnix
-    // ophalen van alles tickets voor de user adhv userID
+    /* @author = Marnix
+     * Date = 09/05/2016
+     * Ophalen van alles tickets voor de user adhv userID
+     */
     function getUserTickets($userID){
 
         $this -> db -> select('t.ticketID,t.onderwerp,t.prioriteit,t.type,c.naam,b.blokLetter,t.lokaalNummer,t.herstellingDatum,t.status');
@@ -17,6 +12,7 @@ Class Ticket_model extends CI_Model{
         $this -> db -> join('blokken as b','t.blokID=b.blokID');
         $this -> db -> where('t.aanmaker',$userID);
         $query = $this -> db -> get();
+
         // Als er geen tickets gevonden worden in de db
         if($query -> num_rows() >= 1)
         {
@@ -28,8 +24,9 @@ Class Ticket_model extends CI_Model{
         }
     }
 
-    //@author = nida
-    //ophalen van tickets voor een werkman adhv zijn userID
+    /* @author = Nida Ilyas
+     * Ophalen van tickets voor een werkman adhv zijn userID
+     */
     function getTicketsByWm($userID){
 
         $this -> db -> select('*');
@@ -38,6 +35,7 @@ Class Ticket_model extends CI_Model{
         $this -> db -> join('blokken as b','t.blokID=b.blokID');
         $this -> db -> where('t.hersteller',$userID);
         $query = $this -> db -> get();
+
         // Als er geen tickets gevonden worden in de db
         if($query -> num_rows() >= 1)
         {
@@ -49,8 +47,9 @@ Class Ticket_model extends CI_Model{
         }
     }
 
-    // @author =  Marnix
-    //ophalen alle tickets los van Id
+    /* @author = Marnix
+     * Ophalen alle tickets los van Id
+     */
     function getAllTickets(){
 
         $this -> db -> select('t.ticketID,t.onderwerp,t.prioriteit,t.type,c.naam,b.blokLetter,t.lokaalNummer,t.herstellingDatum,t.status');
@@ -71,7 +70,8 @@ Class Ticket_model extends CI_Model{
         }
     }
 
-    //@author = marnix
+    /* @author = Marnix
+     */
     function  getdetailsTicket($ticketID){
 
 
@@ -86,26 +86,25 @@ Class Ticket_model extends CI_Model{
         // Als er geen tickets gevonden worden in de db
         if($query -> num_rows() >= 1)
         {
-            return $query->result();
+            return $query -> result();
         }
         else
         {
             return false;
         }
-
     }
 
-
-
-    // @author =  Nida
+    /* @author = Nida Ilyas
+     */
     function getList()
     {
-        $query = $this->db->get('tickets');
-        return $query->result_array();
+        $query = $this -> db -> get('tickets');
+        return $query -> result_array();
         /**return $query = $this->db->get('tickets');**/
     }
 
-    // @author =  Marnix
+    /* @author = Marnix
+     */
     function getTicketArray($userID){
 
         $this -> db -> select('*');
@@ -125,7 +124,8 @@ Class Ticket_model extends CI_Model{
         }
     }
 
-    // @author = Marnix
+    /* @author = Marnix
+     */
     function getLastTicketId(){
         $this -> db -> select_max('ticketID');
         $this -> db -> limit(1);
@@ -134,7 +134,7 @@ Class Ticket_model extends CI_Model{
         // Als er ticket gevonden worden in de db
         if($query -> num_rows() ==1)
         {
-            return $query->result();
+            return $query -> result();
         }
         else
         {
@@ -142,14 +142,14 @@ Class Ticket_model extends CI_Model{
         }
     }
 
-
-// @author =  Daniela
-    //functie om te enums uit de database te halen en in een string array te zetten
-    //geef een string mee tss " " en de naam van de kolom tussen ' '
-    //vb voor statussen : getEnums("'status'") of prioriteiten : getEnums("'prioriteit'")
+    /* @author = Daniela
+     * Functie om te enums uit de database te halen en in een string array te zetten
+     * geef een string mee tss " " en de naam van de kolom tussen ' '
+     * vb voor statussen : getEnums("'status'") of prioriteiten : getEnums("'prioriteit'")
+     */
      function getEnums($kolom){
-        $query = $this->db->query(" SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'tickets' AND COLUMN_NAME = $kolom ");
-        foreach ($query->result() as $row)
+        $query = $this -> db -> query(" SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'tickets' AND COLUMN_NAME = $kolom ");
+        foreach ($query -> result() as $row)
         {
             //echo $row->COLUMN_TYPE;
 
@@ -162,12 +162,13 @@ Class Ticket_model extends CI_Model{
                     echo "<br>";
                     echo "<br>";
                     echo  $stat;
-            }*/ //was om te testen 
-
+            }*/ //was om te testen
         }
         return $stringarrayenums;
     }
-    //@author= nida
+
+    /* @author= Nida Ilyas
+     */
     function  getWerkman($ticketID){
 
         $this -> db -> select('u.email');
@@ -180,7 +181,7 @@ Class Ticket_model extends CI_Model{
         if($query -> num_rows() >= 1)
         {
            // return $query->result();
-            foreach ($query->result() as $row)
+            foreach ($query -> result() as $row)
             {
                 return $row;
             }
@@ -189,18 +190,19 @@ Class Ticket_model extends CI_Model{
         {
             return false;
         }
-
     }
-    //@author = marnix
+
+    /* @author = Marnix
+     */
     function insertTicket($ticket){
 
         $this -> db -> insert('tickets',$ticket);
     }
 
-    //@author = marnix
+    /* @author = Marnix
+     */
     function updateTicket($ticket){
         $this -> db -> where('ticketID',$ticket['ticketId']);
         $this -> db -> update('tickets',$ticket);
     }
-
 }
