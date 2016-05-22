@@ -8,7 +8,7 @@
 Class Ticket_model extends CI_Model{
 
     // @author =  Marnix
-    // @reviewer = Tim
+    // ophalen van alles tickets voor de user adhv userID
     function getUserTickets($userID){
 
         $this -> db -> select('t.ticketID,t.onderwerp,t.prioriteit,t.type,c.naam,b.blokLetter,t.lokaalNummer,t.herstellingDatum,t.status');
@@ -29,6 +29,7 @@ Class Ticket_model extends CI_Model{
     }
 
     //@author = nida
+    //ophalen van tickets voor een werkman adhv zijn userID
     function getTicketsByWm($userID){
 
         $this -> db -> select('*');
@@ -49,6 +50,7 @@ Class Ticket_model extends CI_Model{
     }
 
     // @author =  Marnix
+    //ophalen alle tickets los van Id
     function getAllTickets(){
 
         $this -> db -> select('t.ticketID,t.onderwerp,t.prioriteit,t.type,c.naam,b.blokLetter,t.lokaalNummer,t.herstellingDatum,t.status');
