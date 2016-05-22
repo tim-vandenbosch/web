@@ -24,7 +24,7 @@ class Home extends CI_Controller
             $data['userID'] = $session_data['userID'];
             $userID = $session_data['userID'];
             $rol = $this->user_model->neem_rol($userID);
-
+            
             // Op basis van de rol de juiste view meegeven
             switch ($rol){
                 case "Admin":

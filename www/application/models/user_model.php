@@ -176,7 +176,5 @@ Class User_model extends CI_Model
         $query = $this -> db -> get();
         $result = $query -> row();
         return $result -> enqueteBool;
-
-
     }
 }
