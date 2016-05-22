@@ -23,7 +23,7 @@ class enquete_controller extends CI_Controller
 
         $this->load->view('Layout/header');
         $this->load->view('Layout/navigation');
-        $this->load->view('user_enquete_view', $data);
+        $this->load->view('User/user_enquete_view', $data);
         $this->load->view('Layout/footer');
     }
     // Gebruiker: Britt

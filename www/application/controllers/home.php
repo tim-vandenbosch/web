@@ -57,7 +57,7 @@ class Home extends CI_Controller
                 $data = array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getAllTickets());
                 $this -> load -> view('Layout/header');
                 $this -> load -> view('Layout/navigation');
-                $this -> load -> view('user_view', $data);
+                $this -> load -> view('User/user_view', $data);
                 $this -> load -> view('Layout/footer');
                 break;
             default:
