@@ -35,7 +35,7 @@ class Dispatcher  extends CI_Controller
             $data['message'] = "Ticket update is geslaagd";
         }elseif($k =="fout"){
 
-            $data['message'] = "Er ging iets mis";
+            $data['message'] = "Er ging iets mis, controleer je datums";
         }
         $this -> load -> view('Layout/header');
         $this -> load -> view('Layout/navigation');
@@ -113,7 +113,7 @@ class Dispatcher  extends CI_Controller
                 $maxdag = date('Y-m-d', strtotime($maxdag. ' + 14 days'));
                 break;
         }
-        if ($ddeadline < $this->input -> post("dmeldingsdatum"))
+        if ($ddeadline < $this->input -> post("dmeldingsdatum") || $ddeadline > $maxdag)
         {
             $this-> form_validation -> set_message('date_compare', 'Fout bij datums');
             return false;
@@ -136,7 +136,7 @@ class Dispatcher  extends CI_Controller
      */
     public function date_compare($dherstellingsdatum)
     {
-        if ($dherstellingsdatum >= $this->input -> post("ddeadline"))
+        if ($dherstellingsdatum > $this->input -> post("ddeadline"))
         {
             $this-> form_validation -> set_message('date_compare', 'Fout bij datums');
             return false;
