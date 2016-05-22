@@ -1,75 +1,69 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Marnix_laptop
- * Date: 10/05/2016
- * Time: 15:14
- * @author= marnix
+/* @author = marnix
+ * Date = 10/05/2016
  */
 class newTicket_controller extends CI_Controller
 {
     function __construct()
     {
         parent::__construct();
-        // $this -> load -> library('form_validation');
-        $this->load->model('ticket_model', '', TRUE);
-        $this->load->model('lokaal_model', '', TRUE);
-
+        $this -> load -> model('ticket_model', '', TRUE);
+        $this -> load -> model('lokaal_model', '', TRUE);
     }
 
-    //@author=marnix
-    // check of user nog in gelogd is, zoniet opnieuw inloggen
-    // inladen van de view, met controle op de form validation hier in verwerkt. Ticket Id wordt autmatisch ingevuld
+    /* @author= marnix
+     * Check of user nog in gelogd is, zoniet opnieuw inloggen
+     * Inladen van de view, met controle op de form validation hier in verwerkt. Ticket Id wordt autmatisch ingevuld
+     */
     function index()
     {
-        $this->checkSession();
+        $this -> checkSession();
 
-        $this->formRules();
+        $this -> formRules();
 
-        $ticketId = $this-> ticket_model ->getLastTicketId()[0]->ticketID +1;
-        $data= array(
-
-        );
-        if ($this->form_validation->run() == FALSE)
+        $ticketId = $this -> ticket_model -> getLastTicketId()[0]->ticketID +1;
+        $data= array();
+        if ($this -> form_validation -> run() == FALSE)
         {
-            $this->load->view('Layout/header');
-            $this->load->view('Layout/navigation');
-            $this->load->view('User/newTicket_view',$data = array('ticket' => $ticketId));
-            $this->load->view('Layout/footer');
+            $this -> load -> view('Layout/header');
+            $this -> load -> view('Layout/navigation');
+            $this -> load -> view('User/newTicket_view',$data = array('ticket' => $ticketId));
+            $this -> load -> view('Layout/footer');
         }
         else
         {
             $this -> sendForm($ticketId);
-            $this->load->view('Layout/header');
-            $this->load->view('Layout/navigation');
-            $this->load->view('User/newTicketSucces_view');
-            $this->load->view('Layout/footer');
+            $this -> load -> view('Layout/header');
+            $this -> load -> view('Layout/navigation');
+            $this -> load -> view('User/newTicketSucces_view');
+            $this -> load -> view('Layout/footer');
         }
-
     }
 
-    //@author=marnix
-    // check of user nog in gelogd is, zoniet opnieuw inloggen
-    // al de formrules instellen
+    /* @author=marnix
+     * Check of user nog in gelogd is, zoniet opnieuw inloggen
+     * Al de formrules instellen
+     */
     function formRules(){
-        $this ->form_validation -> set_rules('onderwerp','onderwerp','required|max_length[20]');
-        $this ->form_validation -> set_rules('type','type','required|callback_checkSession');
-        $this ->form_validation -> set_rules('prior','prioriteit','required');
-        $this ->form_validation -> set_rules('blokId','blokId','required');
-        $this ->form_validation -> set_rules('lokaal','lokaal','required|max_length[3]|callback_checkLokaal');
-        $this ->form_validation -> set_rules('omschrijving','omschrijving','required');
+        $this -> form_validation -> set_rules('onderwerp','onderwerp','required|max_length[20]');
+        $this -> form_validation -> set_rules('type','type','required|callback_checkSession');
+        $this -> form_validation -> set_rules('prior','prioriteit','required');
+        $this -> form_validation -> set_rules('blokId','blokId','required');
+        $this -> form_validation -> set_rules('lokaal','lokaal','required|max_length[3]|callback_checkLokaal');
+        $this -> form_validation -> set_rules('omschrijving','omschrijving','required');
     }
-    //@author=marnix
-    // check of user nog in gelogd is, zoniet opnieuw inloggen
-    // updaten van de database met het niewe ticket
+
+    /* @author=marnix
+     * Updaten van de database met het niewe ticket
+     */
     function sendForm($ticketId){
-        $session_data = $this->session->userdata('logged_in');
+        $session_data = $this -> session -> userdata('logged_in');
         $aanmaker = $session_data['userID'];
 
         $data = array(
-            'ticketId'=>$ticketId,
+            'ticketId' => $ticketId,
             'aanmaker' => $aanmaker,
-            'onderwerp' =>$this -> input -> post('onderwerp'),
+            'onderwerp' => $this -> input -> post('onderwerp'),
             'prioriteit' => $this -> input -> post('prior'),
             'type' => $this -> input -> post('type'),
             'campusId' => $this -> input -> post('campusId'),
@@ -80,10 +74,9 @@ class newTicket_controller extends CI_Controller
             'bijlage' => $this -> input -> post('bijlage'),
             'herstellingDatum' => null,
             'deadline' => null,
-            'hersteller' =>null,
+            'hersteller' => null,
             "status" => "In behandeling"
             );
-
         $this -> ticket_model -> insertTicket($data);
     }
 
