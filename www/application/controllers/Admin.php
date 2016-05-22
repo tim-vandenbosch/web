@@ -1,7 +1,7 @@
 <?php if( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * User: britt & Tim
- * Date: 13/05/2016
+ * @author = Britt & Tim
+ * Date = 13/05/2016
  */
 class Login extends CI_Controller
 {
@@ -12,13 +12,18 @@ class Login extends CI_Controller
         $this -> load -> model('user_model', '', TRUE);
     }
 
+    /*
+     * Het tonen van de admin view
+     */
     function admin_view()
     {
         $this -> checkSession();
         $this->load->view('Admin/admin_view');
     }
     
-    // de geselecteerde user bewerken
+    /*
+     * De geselecteerde user bewerken
+     */
     function bewerkenView($userid, $k)
     {
         $this['query'] = $this -> user_model -> get_user_by_id($userid);
@@ -35,11 +40,12 @@ class Login extends CI_Controller
     
     function toevoegenView()
     {
-        $this -> load -> view('Admin/adming_add');
+        $this -> load -> view('Admin/admin_add');
     }
 
-    //@author=marnix
-    // check of user nog in gelogd is, zoniet opnieuw inloggen
+    /* @author = Marnix
+     * Check of user nog in gelogd is, zoniet opnieuw inloggen
+     */
     function checkSession(){
         if (!$this->session->userdata('logged_in')) {
             redirect('login', 'refresh');
