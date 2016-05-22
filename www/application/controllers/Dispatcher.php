@@ -13,6 +13,7 @@ class Dispatcher  extends CI_Controller
 
     function __construct() {
         parent::__construct();
+        $this -> checkSession();
         $this->load->database();
         $this->load->model('ticket_model');
         $this->load->model('user_model');
@@ -89,5 +90,11 @@ class Dispatcher  extends CI_Controller
        // return $data;
     }
 
-
+    //@author=marnix
+    // check of user nog in gelogd is, zoniet opnieuw inloggen
+    function checkSession(){
+        if (!$this->session->userdata('logged_in')) {
+            redirect('login', 'refresh');
+        }
+    }
 }

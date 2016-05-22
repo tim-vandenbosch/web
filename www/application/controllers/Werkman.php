@@ -15,6 +15,7 @@ class Werkman extends CI_Controller
     }
 
     function showTicketsToDo(){
+        $this -> checkSession();
         $session_data = $this->session->userdata('logged_in');
         $data['userID'] = $session_data['userID'];
         $userID = $session_data['userID'];
@@ -59,6 +60,13 @@ class Werkman extends CI_Controller
         $this->load->view('Layout/navigation');
         $this->load->view('/Werkman/updateStatus_ticket', $data);
         $this->load->view('Layout/footer');
+    }
+    //@author=marnix
+    // check of user nog in gelogd is, zoniet opnieuw inloggen
+    function checkSession(){
+        if (!$this->session->userdata('logged_in')) {
+            redirect('login', 'refresh');
+        }
     }
 }
 ?>

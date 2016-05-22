@@ -37,13 +37,11 @@ class Login extends CI_Controller
     {
         $this -> load -> view('Admin/adming_add');
     }
-    
+
     //@author=marnix
     // check of user nog in gelogd is, zoniet opnieuw inloggen
     function checkSession(){
-        
-        if (!$this -> session -> userdata('logged_in')) {
-            echo "<script>alert('U sessie is verlopen!');</script>";
+        if (!$this->session->userdata('logged_in')) {
             redirect('login', 'refresh');
         }
     }

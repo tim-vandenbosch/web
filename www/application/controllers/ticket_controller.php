@@ -69,4 +69,5 @@ class ticket_controller  extends CI_Controller
 
         $this->details($ticketID,"update");
     }
+
 }

@@ -16,9 +16,9 @@ class profiel_controller extends CI_Controller
 // @author =  Nida
     function index()
     {
-
-            $session_data = $this->session->userdata('logged_in');
-            $id['userID'] = $session_data['userID'];
+        $this -> checkSession();
+        $session_data = $this->session->userdata('logged_in');
+        $id['userID'] = $session_data['userID'];
 
 
         // Specfieke methode oproepen vanuit een model
@@ -38,5 +38,12 @@ class profiel_controller extends CI_Controller
     }
     function aanvraagNewPw(){
 
+    }
+    //@author=marnix
+    // check of user nog in gelogd is, zoniet opnieuw inloggen
+    function checkSession(){
+        if (!$this->session->userdata('logged_in')) {
+            redirect('login', 'refresh');
+        }
     }
 }

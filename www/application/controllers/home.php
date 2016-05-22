@@ -87,7 +87,6 @@ class Home extends CI_Controller
     }
     function checkSession(){
         if (!$this->session->userdata('logged_in')) {
-            echo "<script>alert('U sessie is verlopen!');</script>";
             redirect('login', 'refresh');
 
         }
