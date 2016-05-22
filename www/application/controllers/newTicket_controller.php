@@ -17,6 +17,9 @@ class newTicket_controller extends CI_Controller
 
     }
 
+    //@author=marnix
+    // check of user nog in gelogd is, zoniet opnieuw inloggen
+    // inladen van de view, met controle op de form validation hier in verwerkt. Ticket Id wordt autmatisch ingevuld
     function index()
     {
         $this->checkSession();
@@ -44,6 +47,10 @@ class newTicket_controller extends CI_Controller
         }
 
     }
+
+    //@author=marnix
+    // check of user nog in gelogd is, zoniet opnieuw inloggen
+    // al de formrules instellen
     function formRules(){
         $this ->form_validation -> set_rules('onderwerp','onderwerp','required|max_length[20]');
         $this ->form_validation -> set_rules('type','type','required|callback_checkSession');
@@ -52,7 +59,9 @@ class newTicket_controller extends CI_Controller
         $this ->form_validation -> set_rules('lokaal','lokaal','required|max_length[3]|callback_checkLokaal');
         $this ->form_validation -> set_rules('omschrijving','omschrijving','required');
     }
-
+    //@author=marnix
+    // check of user nog in gelogd is, zoniet opnieuw inloggen
+    // updaten van de database met het niewe ticket
     function sendForm($ticketId){
         $session_data = $this->session->userdata('logged_in');
         $aanmaker = $session_data['userID'];
