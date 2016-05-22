@@ -65,7 +65,7 @@ class Dispatcher  extends CI_Controller
             'hersteller' => $this -> input -> post('dwerkman'),
             'status' => $this -> input -> post('dstatus')
         );
-        
+
         $this -> ticket_model -> updateTicket($data);
         $this->details($ticketID,"update");
     }
@@ -88,7 +88,8 @@ class Dispatcher  extends CI_Controller
     /* @author = Marnix
      * Check of user nog in gelogd is, zoniet opnieuw inloggen
      */
-    function checkSession(){
+    function checkSession()
+    {
         if (!$this->session->userdata('logged_in')) {
             redirect('login', 'refresh');
         }

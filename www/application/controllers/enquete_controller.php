@@ -88,7 +88,8 @@ class enquete_controller extends CI_Controller
     /* @author = Marnix
      * Check of user nog in gelogd is, zoniet opnieuw inloggen
      */
-    function checkSession(){
+    function checkSession()
+    {
         if (!$this -> session -> userdata('logged_in')) {
             redirect('login', 'refresh');
         }
