@@ -32,7 +32,11 @@
                 <form  role="form" method="post" action="<?php echo  site_url(array('Dispatcher','update', $ticketid))?>">
                     <?php if($message != "") : ?>
                     <div style="background-color:lightyellow;" class="span12 pagination-centered">
-                      <font color="#006400">  <h1><b><?php echo $message;?></b></h1></font>
+                      <font color="#006400">
+                          <h1>   <i class="glyphicon glyphicon-thumbs-up"> </i>
+                              <b><?php echo $message;?></b>
+                              <i class="glyphicon glyphicon-thumbs-up"> </i>
+                          </h1></font>
                         </div>
                     <?php endif; ?>
                     <h4>Informatie ticket</h4>
@@ -43,13 +47,14 @@
                         <p disabled type="text" class="form-control" id="ont"><?= htmlentities($quer ->onderwerp,ENT_QUOTES);?></p>
                     </div>
                 <div class="form-group col-md-6">
-                    <label for="text">Type:</label>
+                    <label for="text"><i class="glyphicon glyphicon-tags"> </i> Type:</label>
                     <input disabled type="text" class="form-control"  value=<?= htmlentities($quer ->type,ENT_QUOTES,'UTF-8');?> id="type">
                 </div> </div>
 
                     <div class="row">
                     <div class="form-group col-md-6">
-                    <label for="text">Campus</label>
+                    <label for="text"><i class=" glyphicon glyphicon-map-marker"> </i> Campus</label>
+
                     <p disabled type="txt" class="form-control" id="ont">
                         <?=htmlentities($quer ->naam,ENT_QUOTES,'UTF-8');?></p>
                 </div>
@@ -61,7 +66,7 @@
 
                     <div class="row">
                     <div class="form-group col-md-6">
-                        <label for="text">Aanmaker</label>
+                        <label for="text"><i class="glyphicon glyphicon-user"> </i> Aanmaker</label>
                         <input disabled type="email" class="form-control" id="ont" value=<?= htmlentities($quer ->email,ENT_QUOTES,'UTF-8');?>>
                     </div>
                 <div class="form-group col-md-6">
@@ -111,7 +116,8 @@
 
                         <div class="form-group">
 
-                   <label for="text">Werkman:</label>
+                   <label for="text"> <i class="glyphicon glyphicon-wrench"> </i>
+                       Werkman:</label>
                     <select class="form-control" id="satus" name="dwerkman">
                         <?php foreach ($werkmanEmail as $email):?>
                             <option hidden value=<?= htmlentities($quer ->hersteller,ENT_QUOTES);?> ><?php echo $email;?></option>
@@ -123,11 +129,11 @@
                 </div>
                         <div class="row">
                 <div class="form-group col-md-6">
-                    <label for="text">Herstellingdatum:</label>
+                    <label for="text"> <i class="glyphicon glyphicon-calendar"> </i> Herstellingdatum:</label>
                     <input type="date" name="dherstellingsdatum" class="form-control"  value=<?= htmlentities($quer ->herstellingDatum,ENT_QUOTES,'UTF-8');?> id="Hdate">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="text">Deadline:</label>
+                    <label for="text"> <i class="glyphicon glyphicon-bell"> </i> Deadline:</label>
                     <input name="ddeadline" type="date" class="form-control"  value=<?= htmlentities($quer ->deadline,ENT_QUOTES,'UTF-8');?> id="deadline">
                 </div>
                         </div>
