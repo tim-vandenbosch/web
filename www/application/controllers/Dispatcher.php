@@ -15,13 +15,7 @@ class Dispatcher  extends CI_Controller
         $this -> load -> model('ticket_model');
         $this -> load -> model('user_model');
     }
-    
-    /* @author =  Daniela
-     */
-    public function index()
-    {
 
-    }
 
     /* @author =  Daniela
      */
@@ -47,8 +41,11 @@ class Dispatcher  extends CI_Controller
         $this -> load -> view('Layout/footer');
     }
 
-    /* @author = ?
-     *
+    /* @author = Daniela
+     * Date = datum
+     * Bron = https://www.formget.com/update-data-in-database-using-codeigniter/
+     * Update de ticket op basis van de ticketID. De dispatcher stelt de status, prioriteit en datums in en kies een werkman
+     * De veranderingen worden doorgestuurd naar de database.
      */
     function update($ticketID){
         $data = array(
@@ -63,21 +60,6 @@ class Dispatcher  extends CI_Controller
 
         $this -> ticket_model -> updateTicket($data);
         $this->details($ticketID,"update");
-    }
-
-    /* @author = ?
-     */
-    function getIdWerkman($email){
-        
-    }
-
-    /* @author =  Daniela
-     * Bron = https://www.formget.com/update-data-in-database-using-codeigniter/
-     */
-    function sort($tablename){
-        $data = $this -> ticket_model -> sorttable($tablename);
-        $this -> load -> view('/Dispatcher/index', $data);
-       // return $data;
     }
 
     /* @author = Marnix
