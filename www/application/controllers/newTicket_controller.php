@@ -102,7 +102,7 @@ class newTicket_controller extends CI_Controller
         if($blokId==$newticketBlokId){
             return true;
         }else{
-            $this->form_validation->set_message('checkLokaal', 'Dit lokaal bestaat niet in deze blok,indien wel gelieve dit te melden aan de IT beheerder');
+            $this->form_validation->set_message('checkLokaal', 'U gekozen blok/lokaal bestaat niet in deze combinatie, indien wel gelieve dit te melden aan de IT beheerder');
             return false;
         }
 
