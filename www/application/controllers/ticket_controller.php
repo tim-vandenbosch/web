@@ -10,7 +10,7 @@ class ticket_controller  extends CI_Controller
         parent::__construct();
         $this -> load -> database();
         $this -> load -> model('ticket_model');
-        $this -> load - >model('user_model');
+        $this -> load ->model('user_model');
     }
 
     function details($ticketID)
