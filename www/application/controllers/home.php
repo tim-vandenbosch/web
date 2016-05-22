@@ -10,6 +10,7 @@
 
 class Home extends CI_Controller
 {
+    //Contructor van de klasse Home
     function __construct()
     {
         parent::__construct();
@@ -17,6 +18,10 @@ class Home extends CI_Controller
         $this -> load -> model('ticket_model', '', TRUE);
     }
 
+    /*
+     * Kijkt wie er ingelogd is, adhv die info wordt de juiste view getoond.
+     * Ook wordt de sessie aangemaakt
+     */
     function index()
     {
         $this -> checkSession();
@@ -24,8 +29,7 @@ class Home extends CI_Controller
         $data['userID'] = $session_data['userID'];
         $userID = $session_data['userID'];
         $rol = $this -> user_model -> neem_rol($userID);
-            
-        // Op basis van de rol de juiste view meegeven
+        
         switch ($rol)
         {
             case "Admin":
