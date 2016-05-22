@@ -77,7 +77,7 @@ class newTicket_controller extends CI_Controller
             'herstellingDatum' => null,
             'deadline' => null,
             'hersteller' => null,
-            "status" => "In behandeling"
+            "status" => "Geparkeerd"
             );
         $this -> ticket_model -> insertTicket($data);
     }
