@@ -6,7 +6,8 @@ class ticket_controller  extends CI_Controller
 {
     /* @author =  Nida
      */
-    function __construct() {
+    function __construct()
+    {
         parent::__construct();
         $this -> load -> database();
         $this -> load -> model('ticket_model');
