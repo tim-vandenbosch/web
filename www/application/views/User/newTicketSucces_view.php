@@ -1,4 +1,8 @@
-<!--aanmaker=marnix -->
+<?php
+    /* @author = Marnix
+     * Date =
+     */
+?>
 <div class="col-md-7 col-md-offset-2 titel">
     <h1>Nieuw ticket</h1>
 </div>
@@ -17,5 +21,3 @@
         </div>
     </div>
 </div>
-
-
