@@ -1,15 +1,19 @@
+<?php
+    /* @author = Britt & Tim
+     * Date = 03/05/2016
+     * Bron = http://www.iluv2code.com/login-with-codeigniter-php.html
+     */
+?>
 <!DOCTYPE html>
 <head>
     <?php echo link_tag('/assets/bootstrap/css/bootstrap.css') ?>
     <?php echo link_tag('/assets/bootstrap/css/customStyle.css') ?>
     <?= link_tag('/assets/bootstrap/js/customJavaScript.js') ?>
-
     <title>Tickets Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
-    <body id="background">
+<body id="background">
     <header class="container hoofding">
         <div id="pxlLine"></div>
         <img class="col-md-2" src="<?php echo base_url();?>assets/Pictures/Logo_PXL.png" alt="PXL logo"/>
@@ -36,9 +40,8 @@
         </div>
         </form>
     </div>
-    </body>
+</body>
 </html>
-
 <!-- 
     BRONVERMELDING:
         Deze volledige login is gebaseerd op de login van:
