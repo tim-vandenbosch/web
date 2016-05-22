@@ -1,13 +1,11 @@
 <?php if( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * User: britt & Tim
+ * @Author britt & Tim
  * Date: 3/05/2016
  * modified 10/05
  * User: marnix
  */
-// Alleen na login beschikbaar
- //nodig voor de sessie te onthouden (wordt automatisch gestopt na 1 min
-// session_start();
+
 class Home extends CI_Controller
 {
     function __construct()
@@ -19,11 +17,11 @@ class Home extends CI_Controller
 
     function index()
     {
-            $this ->checkSession();
-            $session_data = $this->session->userdata('logged_in');
+            $this -> checkSession();
+            $session_data = $this -> session ->  userdata('logged_in');
             $data['userID'] = $session_data['userID'];
             $userID = $session_data['userID'];
-            $rol = $this->user_model->neem_rol($userID);
+            $rol = $this -> user_model -> neem_rol($userID);
             
             // Op basis van de rol de juiste view meegeven
             switch ($rol){
