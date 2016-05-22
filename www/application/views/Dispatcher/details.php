@@ -64,7 +64,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="text"><i class="glyphicon glyphicon-calendar"> </i> Meldingdatum:</label>
-                        <input disabled type="date" class="form-control"  value=<?= htmlentities($quer ->datum,ENT_QUOTES,'UTF-8');?> id="datum">
+                        <input disabled type="date" name="dmeldingsdatum" class="form-control"  value=<?= htmlentities( $quer ->datum ,ENT_QUOTES,'UTF-8');?> id="datum">
                     </div>
                 </div>
                 <div class="row">
@@ -118,12 +118,14 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="text"> <i class="glyphicon glyphicon-hourglass"> </i> Herstellingdatum:</label>
-                            <input type="date" name="dherstellingsdatum" class="form-control"  value=<?= htmlentities($quer ->herstellingDatum,ENT_QUOTES,'UTF-8');?> id="Hdate">
+                            <input type="date" name="dherstellingsdatum" class="form-control"  id="Hdate"  value=<?= htmlentities($quer ->herstellingDatum,ENT_QUOTES,'UTF-8');?>>
                         </div>
+
                         <div class="form-group col-md-6">
                             <label for="text"> <i class="glyphicon glyphicon-bell"> </i> Deadline:</label>
                             <input name="ddeadline" type="date" class="form-control"  value=<?= htmlentities($quer ->deadline,ENT_QUOTES,'UTF-8');?> id="deadline">
                         </div>
+                        
                     </div>
                     <?php endforeach;?>
                     <div class="form-group">
