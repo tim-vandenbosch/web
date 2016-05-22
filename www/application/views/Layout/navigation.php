@@ -11,7 +11,7 @@
             <li class="active"><?php echo anchor(array('home','index'),'Overzicht'); ?></li>
             <li><?php echo anchor(site_url(array('newTicket_controller','index')),'Nieuw ticket');?></li>
             <li><?php echo anchor(site_url(array('profiel_controller','index')),'Profiel');?></li>
-            <li><?php echo anchor(site_url(array('enquete_controller','index')),'Enquete');?></li>
+            <!-- <li><?php // echo anchor(site_url(array('enquete_controller','index')),'Enquete');?></li> -->
             <li><?php echo anchor(site_url(array('home','logout')),'Afmelden'); ?></li>
         </ul>
     </nav>
