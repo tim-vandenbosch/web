@@ -1,6 +1,7 @@
 <?php
 /* @author = Daniela Carmelina
  * Date = 10/05/2016
+ * Bron: http://www.w3schools.com/bootstrap/bootstrap_forms.asp
  */
 ?>
 <div class="row">
@@ -134,6 +135,4 @@
     </div>
 </div>
 
-
-
-    <!--    Bronnen: http://www.w3schools.com/bootstrap/bootstrap_forms.asp-->
+<!--    Bronnen: http://www.w3schools.com/bootstrap/bootstrap_forms.asp-->
