@@ -30,7 +30,7 @@ http://tutsme-webdesign.info/bootstrap-3-sortable-table/ -->
         </div>
         <div class="col-md-7 right">
             <br/>
-            <p>Als dispatcher heb je het recht alle ticets te beheren.
+            <p>Als dispatcher heb je het recht alle tickets te beheren.
             Dit houd in dat je de prioriteteiten en statussen kunt aanpassen en tickets kan toekennen aan werkmannen.
             </p>
         </div>
