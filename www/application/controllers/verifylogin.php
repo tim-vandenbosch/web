@@ -9,6 +9,7 @@ class Verifylogin extends CI_Controller
     {
         parent::__construct();
         $this->load->model('user_model','',TRUE);
+        $this->load->library('PasswordHash',array(8, FALSE));
     }
     
     function index()
