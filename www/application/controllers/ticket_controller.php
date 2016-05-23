@@ -64,4 +64,12 @@ class ticket_controller  extends CI_Controller
         $this -> ticket_model -> updateTicket($data);
         $this -> details($ticketID,"update");
     }
+    function showAllTickets(){
+        $data =  array('tickets' => $this->ticket_model->getAllTickets());
+        $this -> load -> view('Layout/header');
+        $this -> load -> view('Layout/navigation');
+        $this -> load -> view('/Werkman/index');
+        $this -> load -> view('/Tickets/lijst_tickets', $data);
+        $this -> load -> view('Layout/footer');
+    }
 }

@@ -22,7 +22,6 @@ class Werkman extends CI_Controller
         $data =  array('userID' => $session_data['userID'], 'tickets' => $this -> ticket_model -> getTicketsByWm($session_data['userID']));
         $this -> load -> view('Layout/header');
         $this -> load -> view('Layout/navigation');
-        $this -> load -> view('/Werkman/index');
         $this -> load -> view('/Werkman/lijst_ticketsToDo', $data);
         $this -> load -> view('Layout/footer');
     }

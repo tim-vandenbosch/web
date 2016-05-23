@@ -3,10 +3,13 @@
  * Date = 17/05/2016
  */
 ?>
+<div class="col-md-7 col-md-offset-2 titel">
+    <h1>Overzicht tickets</h1>
+</div>
 <div class="col-md-7 col-md-offset-2 main home ">
     </br>
     <div class="row">
-       <h4 class="col-md-1"> <span class="label label-success"> <a style="color: white" href="<?php echo site_url('Werkman/showTicketsToDo')?>">Tickets To-Do</a> </span></h4>
+       <h4 class="col-md-1"> <span class="label label-success"> <a style="color: white" href="<?php echo site_url('home/index')?>">Tickets To-Do</a> </span></h4>
     </div>
     <?php if(count($tickets)>0){?>
         <table class="table table-striped"  id="table" > <!-- class="table table-striped"  class="sortable" -->
