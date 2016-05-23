@@ -21,7 +21,7 @@ class Dispatcher  extends CI_Controller
     public function details($ticketID,$k)
     {
         $data['message'] = "";
-        // $this -> db ->join('campus'sen,'tickets.campusID=campussen.campusName');
+
         $data['query'] = $this -> ticket_model -> getdetailsTicket($ticketID);
         $data['werkmannen'] = $this -> user_model -> getWerkmannen();
 
@@ -81,64 +81,85 @@ class Dispatcher  extends CI_Controller
     /* @author = Daniela
      * Date = 22/05/2016
      * Bron = https://ellislab.com/codeigniter/user-guide/libraries/form_validation.html
-     * Deze functie zet de regel voor herstellingsdatum. Deze mag niet kleiner zijn dan de deadline
+     * Deze functie stelt de regels in voor herstellingsdatum & deadline.
      */
     function formRules()
     {
-        $this -> form_validation -> set_rules('dherstellingsdatum','dherstellingsdatum','required|callback_date_compare');
-        $this -> form_validation -> set_rules('ddeadline','ddeadline','required|callback_deadline_check');
+        $this -> form_validation -> set_rules('dherstellingsdatum','Herstellingsdatum','required|callback_herstelling_check');
+      $this -> form_validation -> set_rules('ddeadline','Deadline','required|callback_deadline_check');
 
     }
 
+    /* @author = Daniela
+     * Date = 22/05/2016
+     * Bron = http://stackoverflow.com/questions/3727615/adding-days-to-date-in-php
+     *Deze functie controleert de deadline met de meldingsdatum en prioriteit.
+     * De deadline moet vòòr de prioriteit zijn en na de meldingsdatum zoniet return deze false
+     */
     public function deadline_check($ddeadline)
     {
         $allPrioriteiten = $this -> ticket_model -> getEnums("'prioriteit'");
-        $prioriteit =  $this->input -> post("dprioriteit");
-        $maxdag = $this->input -> post("dmeldingsdatum");
+        $prioriteit =  $this-> input -> post("dprioriteit");
+        $maxdag = $this-> input -> post("dmeldingsdatum");
+
         switch ($prioriteit)
         {
             case $allPrioriteiten[0]:
-                $maxdag = date('Y-m-d', strtotime($maxdag. ' + 1 days'));
+                $maxdag = date('d-m-y', strtotime($maxdag. ' + 1 days'));
                 break;
             case $allPrioriteiten[1]:
-                $maxdag = date('Y-m-d', strtotime($maxdag. ' + 2 days'));
+                $maxdag = date('d-m-y', strtotime($maxdag. ' + 2 days'));
                 break;
             case $allPrioriteiten[2]:
-                $maxdag = date('Y-m-d', strtotime($maxdag. ' + 3 days'));
+                $maxdag = date('d-m-y', strtotime($maxdag. ' + 3 days'));
                 break;
             case $allPrioriteiten[3]:
-                $maxdag = date('Y-m-d', strtotime($maxdag. ' + 7 days'));
+                $maxdag = date('d-m-y', strtotime($maxdag. ' + 7 days'));
                 break;
             case $allPrioriteiten[4]:
-                $maxdag = date('Y-m-d', strtotime($maxdag. ' + 14 days'));
+                $maxdag = date('d-m-y', strtotime($maxdag. ' + 14 days'));
                 break;
         }
-        if ($ddeadline < $this->input -> post("dmeldingsdatum") || $ddeadline > $maxdag)
+        $melddateone = strtotime($this -> input -> post('dmeldingsdatum'));
+        $melddate = date('d-m-y', $melddateone);
+
+        if (date('d-m-y',strtotime($ddeadline)) < $melddate||date('d-m-y',strtotime($ddeadline)) > $maxdag)
         {
-            $this-> form_validation -> set_message('date_compare', 'Fout bij datums');
+            $this-> form_validation -> set_message('deadline_check', 'Foute ingave voor deadline. Deze mag niet eerder dan de meldingdatum en niet later dan de prioriteit zijn.');
             return false;
         }
         else
         {
             return true;
         }
-        echo $maxdag;
-
 
     }
 
     /* @author = Daniela
      * Date = 22/05/2016
-     * Bron = http://stackoverflow.com/questions/10601836/callback-validation-with-parameter-using-codeigniter-and-setting-rules-using-an
+     * Bronnen = http://stackoverflow.com/questions/10601836/callback-validation-with-parameter-using-codeigniter-and-setting-rules-using-an
      * http://stackoverflow.com/questions/3727615/adding-days-to-date-in-php
-     * Deze functie controleert de herstellingsdatums met de deadline datum.
-     * De hestellingsdatum moet voor de deadline zijn zoniet return deze false
+     * http://stackoverflow.com/questions/6238992/converting-string-to-date-and-datetime
+     * Deze functie controleert de herstellingsdatums met de deadline en meldingsdatum.
+     * De hestellingsdatum moet vòòr de deadline zijn en na de meldingsdatum zoniet return deze false
+     *
      */
-    public function date_compare($dherstellingsdatum)
+    public function herstelling_check($date)
     {
-        if ($dherstellingsdatum > $this->input -> post("ddeadline"))
+        //string naar date omzetten
+        $hdateone = strtotime($date);
+        $melddateone = strtotime($this -> input -> post('dmeldingsdatum'));
+        $deadlinedateone = strtotime($this-> input -> post("ddeadline"));
+
+        //juiste formaat meegeven
+        $hdate = date('d-m-y', $hdateone);
+        $melddate = date('d-m-y', $melddateone);
+        $deadlinedate = date('d-m-y', $deadlinedateone);
+
+
+        if ($hdate < $melddate || $hdate > $deadlinedate  )
         {
-            $this-> form_validation -> set_message('date_compare', 'Fout bij datums');
+            $this-> form_validation -> set_message('herstelling_check', 'Foute ingave voor herstellingsdatum. Deze mag niet later dan de deadline of eerder dan de meldingdatum zijn');
             return false;
         }
         else

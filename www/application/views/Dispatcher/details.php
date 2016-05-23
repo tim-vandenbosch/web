@@ -24,15 +24,28 @@
         </div>
         <div class="col-md-9 col-sm-offset-1">
             <form  role="form" method="post" action="<?php echo  site_url(array('Dispatcher','update', $ticketid))?>">
-                <?php if($message != "") : ?>
+                <h4><font color=red> <?php echo form_error('dherstellingsdatum'); ?> </font></h4>
+                <h4><font color=red> <?php echo form_error('ddeadline'); ?> </font></h4>
+                <?php echo form_open('Dispatcher'); ?>
+
+                <?php if($message == "Ticket update is geslaagd") : ?>
                     <div style="background-color:lightyellow;" class="span12 pagination-centered">
                         <font color="#006400">
-                            <h2>   <i class="glyphicon glyphicon-thumbs-up"> </i>
+                            <h3>   <i class="glyphicon glyphicon-thumbs-up"> </i>
                               <b><?php echo $message;?></b>
                               <i class="glyphicon glyphicon-thumbs-up"> </i>
-                          </h2></font>
+                          </h3></font>
                     </div>
+                <?php elseif($message != "") : ?>
+                <div style="background-color:lightyellow;" class="span12 pagination-centered">
+                    <font color="#ff8c00">
+                        <h3>   <i class=" glyphicon glyphicon-thumbs-down"> </i>
+                            <b><?php echo $message;?></b>
+                            <i class=" glyphicon glyphicon-thumbs-down"> </i>
+                        </h3></font>
+                </div>
                 <?php endif; ?>
+
                 <h4>Informatie ticket</h4>
                 <div class="row">
                     <div class="form-group col-md-6">
@@ -117,15 +130,17 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
+                            <font color=red> <?php echo form_error('dherstellingsdatum'); ?> </font>
                             <label for="text"> <i class="glyphicon glyphicon-hourglass"> </i> Herstellingdatum:</label>
                             <input type="date" name="dherstellingsdatum" class="form-control"  id="Hdate"  value=<?= htmlentities($quer ->herstellingDatum,ENT_QUOTES,'UTF-8');?>>
                         </div>
 
                         <div class="form-group col-md-6">
+                            <font color=red> <?php echo form_error('ddeadline'); ?> </font>
                             <label for="text"> <i class="glyphicon glyphicon-bell"> </i> Deadline:</label>
-                            <input name="ddeadline" type="date" class="form-control"  value=<?= htmlentities($quer ->deadline,ENT_QUOTES,'UTF-8');?> id="deadline">
+                            <input name="ddeadline" type="date" class="form-control"  value=<?= htmlentities($quer ->deadline,ENT_QUOTES,'UTF-8') ;?> id="deadline">
                         </div>
-                        
+
                     </div>
                     <?php endforeach;?>
                     <div class="form-group">
