@@ -24,19 +24,32 @@
         </div>
         <div class="col-md-9 col-sm-offset-1">
             <form  role="form" method="post" action="<?php echo  site_url(array('Dispatcher','update', $ticketid))?>">
-                <?php if($message != "") : ?>
+                <h4><font color=red> <?php echo form_error('dherstellingsdatum'); ?> </font></h4>
+                <h4><font color=red> <?php echo form_error('ddeadline'); ?> </font></h4>
+                <?php echo form_open('Dispatcher'); ?>
+
+                <?php if($message == "Ticket update is geslaagd") : ?>
                     <div style="background-color:lightyellow;" class="span12 pagination-centered">
                         <font color="#006400">
-                            <h1>   <i class="glyphicon glyphicon-thumbs-up"> </i>
+                            <h3>   <i class="glyphicon glyphicon-thumbs-up"> </i>
                               <b><?php echo $message;?></b>
                               <i class="glyphicon glyphicon-thumbs-up"> </i>
-                          </h1></font>
+                          </h3></font>
                     </div>
+                <?php elseif($message != "") : ?>
+                <div style="background-color:lightyellow;" class="span12 pagination-centered">
+                    <font color="#ff8c00">
+                        <h3>   <i class=" glyphicon glyphicon-thumbs-down"> </i>
+                            <b><?php echo $message;?></b>
+                            <i class=" glyphicon glyphicon-thumbs-down"> </i>
+                        </h3></font>
+                </div>
                 <?php endif; ?>
+
                 <h4>Informatie ticket</h4>
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label for="text">Onderwerp</label>
+                        <label for="text"><i class="glyphicon glyphicon-asterisk"> </i> Onderwerp</label>
                         <p disabled type="text" class="form-control" id="ont"><?= htmlentities($quer ->onderwerp,ENT_QUOTES);?></p>
                     </div>
                     <div class="form-group col-md-6">
@@ -46,12 +59,13 @@
                 </div>
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label for="text"><i class=" glyphicon glyphicon-map-marker"> </i> Campus</label>
+                        <label for="text"><i class="glyphicon glyphicon-pushpin"> </i> Campus</label>
                         <p disabled type="txt" class="form-control" id="ont">
                             <?=htmlentities($quer ->naam,ENT_QUOTES,'UTF-8');?></p>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="text">Blok en lokaal</label>
+
+                        <label for="text"><i class="glyphicon glyphicon-map-marker"> </i> Blok en lokaal</label>
                         <p disabled type="txt" class="form-control" id="ont">
                             <?=htmlentities($quer ->blokLetter,ENT_QUOTES,'UTF-8'), htmlentities($quer ->lokaalNummer,ENT_QUOTES,'UTF-8');?></p>
                     </div>
@@ -62,27 +76,30 @@
                         <input disabled type="email" class="form-control" id="ont" value=<?= htmlentities($quer ->email,ENT_QUOTES,'UTF-8');?>>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="text">Meldingdatum:</label>
-                        <input disabled type="date" class="form-control"  value=<?= htmlentities($quer ->datum,ENT_QUOTES,'UTF-8');?> id="datum">
+                        <label for="text"><i class="glyphicon glyphicon-calendar"> </i> Meldingdatum:</label>
+                        <input disabled type="date" name="dmeldingsdatum" class="form-control"  value=<?= htmlentities( $quer ->datum ,ENT_QUOTES,'UTF-8');?> id="datum">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-12 ">
-                        <label for="text">Omschrijving:</label>
+                        <label for="text"><i class="glyphicon glyphicon-pencil"> </i> Omschrijving:</label>
                         <textarea disabled class="form-control" rows="5" id="Omschrijving"> <?= htmlentities($quer ->omschrijving,ENT_QUOTES,'UTF-8');?></textarea>
                         <hr style="border-top: 1.5px dotted green"/>
                     </div>
                 </div>
 <!--********************************************************************************-->
                 <div class="row">
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
                         <a href="#moreDetails" class="btn btn-success" data-toggle="collapse">Beheren</a>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <?php echo anchor('home/index', 'Annuleren', 'class="btn btn-default"') ?>
                     </div>
                 </div>
                 <div id="moreDetails" class="collapse">
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="sel1">Selecteer een status</label>
+                            <label for="sel1"><i class="glyphicon glyphicon-flag"> </i> Selecteer een status</label>
                             <select class="form-control" id="satus" name="dstatus">
                                 <option hidden > <?= htmlentities($quer ->status,ENT_QUOTES,'UTF-8');?></option>
                                 <?php foreach ($stat as $item):?>
@@ -91,7 +108,7 @@
                             </select>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="text">Prioriteit:</label>
+                            <label for="text"><i class="glyphicon glyphicon-flash"> </i> Prioriteit:</label>
                             <select class="form-control" id="satus" name="dprioriteit">
                                 <option hidden ><?= htmlentities($quer ->prioriteit,ENT_QUOTES,'UTF-8');?></option>
                                 <?php foreach ($prio as $item):?>
@@ -101,8 +118,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="text"> <i class="glyphicon glyphicon-wrench"> </i>
-                       Werkman:</label>
+                        <label for="text"> <i class="glyphicon glyphicon-wrench"> </i> Werkman:</label>
                         <select class="form-control" id="satus" name="dwerkman">
                         <?php foreach ($werkmanEmail as $email):?>
                             <option hidden value=<?= htmlentities($quer ->hersteller,ENT_QUOTES);?> ><?php echo $email;?></option>
@@ -114,13 +130,17 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="text"> <i class="glyphicon glyphicon-calendar"> </i> Herstellingdatum:</label>
-                            <input type="date" name="dherstellingsdatum" class="form-control"  value=<?= htmlentities($quer ->herstellingDatum,ENT_QUOTES,'UTF-8');?> id="Hdate">
+                            <font color=red> <?php echo form_error('dherstellingsdatum'); ?> </font>
+                            <label for="text"> <i class="glyphicon glyphicon-hourglass"> </i> Herstellingdatum:</label>
+                            <input type="date" name="dherstellingsdatum" class="form-control"  id="Hdate"  value=<?= htmlentities($quer ->herstellingDatum,ENT_QUOTES,'UTF-8');?>>
                         </div>
+
                         <div class="form-group col-md-6">
+                            <font color=red> <?php echo form_error('ddeadline'); ?> </font>
                             <label for="text"> <i class="glyphicon glyphicon-bell"> </i> Deadline:</label>
-                            <input name="ddeadline" type="date" class="form-control"  value=<?= htmlentities($quer ->deadline,ENT_QUOTES,'UTF-8');?> id="deadline">
+                            <input name="ddeadline" type="date" class="form-control"  value=<?= htmlentities($quer ->deadline,ENT_QUOTES,'UTF-8') ;?> id="deadline">
                         </div>
+
                     </div>
                     <?php endforeach;?>
                     <div class="form-group">
@@ -129,10 +149,12 @@
                 </div>
             </form>
         </div>
-        <div class="form-group">
-            <?php echo anchor('home/index', 'Annuleren', 'class="btn btn-default"') ?>
-        </div>
+
     </div>
 </div>
 
-<!--    Bronnen: http://www.w3schools.com/bootstrap/bootstrap_forms.asp-->
+<!--/* @author = Daniela-->
+<!--* Date = datum-->
+<!--* http://www.w3schools.com/bootstrap/bootstrap_forms.asp-->
+<!--* http://getbootstrap.com/components/-->
+<!--*/-->
