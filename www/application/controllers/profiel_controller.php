@@ -31,7 +31,7 @@ class profiel_controller extends CI_Controller
         $this -> load -> view('Layout/header');
         if($rol=='Admin')
         {
-            $this -> load -> view('Layout/navigationNoTicket');
+            $this -> load -> view('Layout/navigationAdmin');
         }
         else
         {
