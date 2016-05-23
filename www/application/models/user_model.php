@@ -97,35 +97,6 @@ Class User_model extends CI_Model
         
         return $result;
     }
-    
-    /*
-    * Deze functie is gekopieerd en aangepast van Daniela, voor users.
-    */
-    // @author =  Tim
-    //@reviewer =
-/*    function sorttable($tablename)
-    {
-        $sql = $this->db->get('users');
-        
-        if ($tablename == 'userID')
-        {
-            $sql .= " ORDER BY userID";
-        }
-        elseif ($tablename == 'eamil')
-        {
-            $sql .= " ORDER BY email";
-        }
-        elseif ($tablename == 'rol')
-        {
-            $sql .= " ORDER BY rol";
-        }
-        elsif ($tablename == 'active')
-        {
-            $sql .= " ORDER BY active";
-        }
-        return $sql->result();
-    }*/
-
 
     /* @author =  Nida Ilyas
      * Date =
@@ -177,5 +148,14 @@ Class User_model extends CI_Model
         $query = $this -> db -> get();
         $result = $query -> row();
         return $result -> enqueteBool;
+    }
+
+    /* @author: Tim
+     * Deze functie is herleid van Marnix's ticket_model/updateTicket
+     */
+    function updateStatus($user)
+    {
+        $this -> db -> where('userID', $user['userID']);
+        $this -> db -> update('users', $user);
     }
 }
