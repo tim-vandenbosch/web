@@ -190,4 +190,28 @@ Class User_model extends CI_Model
     {
         $this -> db -> insert('users', $user);
     }
+
+    function updateAccountPass($pass, $npass, $rpass){
+
+        if($npass!=$rpass){
+            return "false";
+        }else{
+            $this->db->select('*');
+            $this->db->from('users');
+            $this->db->where('email',$this->session->userdata('admin_email'));
+            $this->db->where('password',md5($pass));
+            $query = $this->db->get();
+            if($query->num_rows()==1){
+                $data = array(
+                    'password' => md5($npass)
+                );
+                $this->db->where('email', $this->session->userdata('admin_email'));
+                $this->db->update('users', $data);
+                return "true";
+            }else{
+                return "false";
+            }
+        }
+
+    }
 }
