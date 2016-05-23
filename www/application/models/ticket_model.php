@@ -173,6 +173,7 @@ Class Ticket_model extends CI_Model{
     }
 
     /* @author = Marnix
+     * insert nieuwe ticket
      */
     function insertTicket($ticket){
 
@@ -180,6 +181,7 @@ Class Ticket_model extends CI_Model{
     }
 
     /* @author = Marnix
+     * update ticket adhv zijn ticket ID
      */
     function updateTicket($ticket){
         $this -> db -> where('ticketID',$ticket['ticketId']);
