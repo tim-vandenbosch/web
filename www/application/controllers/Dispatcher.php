@@ -92,7 +92,8 @@ class Dispatcher  extends CI_Controller
 
     /* @author = Daniela
      * Date = 22/05/2016
-     * Bron = http://stackoverflow.com/questions/3727615/adding-days-to-date-in-php
+     * Bronnen = http://stackoverflow.com/questions/3727615/adding-days-to-date-in-php
+     *  http://stackoverflow.com/questions/6238992/converting-string-to-date-and-datetime
      *Deze functie controleert de deadline met de meldingsdatum en prioriteit.
      * De deadline moet vòòr de prioriteit zijn en na de meldingsdatum zoniet return deze false
      */
@@ -138,7 +139,6 @@ class Dispatcher  extends CI_Controller
     /* @author = Daniela
      * Date = 22/05/2016
      * Bronnen = http://stackoverflow.com/questions/10601836/callback-validation-with-parameter-using-codeigniter-and-setting-rules-using-an
-     * http://stackoverflow.com/questions/3727615/adding-days-to-date-in-php
      * http://stackoverflow.com/questions/6238992/converting-string-to-date-and-datetime
      * Deze functie controleert de herstellingsdatums met de deadline en meldingsdatum.
      * De hestellingsdatum moet vòòr de deadline zijn en na de meldingsdatum zoniet return deze false
