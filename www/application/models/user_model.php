@@ -158,4 +158,12 @@ Class User_model extends CI_Model
         $this -> db -> where('userID', $user['userID']);
         $this -> db -> update('users', $user);
     }
+
+    /* @Author: Tim
+     * Deze functie verzorgt de input van een nieuwe gebruiker
+     */
+    function addUser($user)
+    {
+        $this -> db -> insert('users', $user);
+    }
 }
