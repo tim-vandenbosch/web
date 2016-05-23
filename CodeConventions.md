@@ -26,7 +26,7 @@
 
   - Yes: `$a = $b + $c; $this -> load -> view('');`
     
-  - spatie bij parameters: `$a = getFoo($b);`
+  - geen spatie bij parameters: `$a = getFoo($b);`
     
   - geen spatie bij geen paramater: `$c = getBar();`
 
