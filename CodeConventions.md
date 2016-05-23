@@ -1,47 +1,53 @@
 # Code conventions
-
-- MAP: localhost/project
-- SITE: fairytickets.pxl.be
-
 ## Bekendmaking in commentaar
-	/**
-	 * Gebruiker: Naam
-	 * Datum: dd/mm/yyyy
-	 * Bron: none of bron zetten
+	/* @author = Naam
+	 * Date = dd/mm/yyyy
+	 * Bron = link fso
+	 * Uitleg functie
 	*/
-## Edit van code
-	/**
-	 * Edit: 
-	 * Gebruiker: Naam
-	 * Datum: dd/mm/yyyy
-	 * Bron: none of bron zetten
+## Edit van code onder aanmaker zetten
+	/* @edit = Naam
+	 * Date = dd/mm/yyyy
+	 * Bron = bron
+	 * Uitleg functie
 	*/
 
 ## Algemene regels
 
-  - Inspringen
-  - 1 lege lijn na een blok
-  - Keywords (true, false,...) kleine letters
+  - Inspringen met tab
+  - Keywords grote letters (FALSE, TRUE, ...)
   - Variabele declaratie: camelcasing, _, begint met kleine letter
       ditIsEenVoorbeeld1
   - Klasses beginnen met een hoofdletter
   - Methodes beginnen met een kleine letter
 
 ## Spaties
-  - No: `$a=$b+$c;`
+  - No: `$a=$b+$c; $this->load->view('');`
 
-  - Yes: `$a = $b + $c;`
+  - Yes: `$a = $b + $c; $this -> load -> view('');`
     
-  - spatie bij parameters: `$a = getFoo( $b );`
+  - spatie bij parameters: `$a = getFoo($b);`
     
   - geen spatie bij geen paramater: `$c = getBar();`
+
+  - spaties bij commentaar: 
+  	// dit: is een goed voorbeeld
+    	//dit is geen goed voorbeeld (geen spatie bij begin) 
+
+  - functies en lussen:
+  	function test()
+	{
+		hier komt code;
+	}
+
+## Controllers
+  - Geen echo/print
+  - Geen SQL
+
+## Models
+- geen html
+
+## vieuws
+- geen SQL
+
     
-  - Bij iteraties en catch:
-    - Yes
-      `if(isFoo()) { $a = 'foo'; }`
-    - No
-      `if(isFoo()) { $a = 'foo'; }`
-      
-  - Geen spaties bij commentaar: 
-    // dit: is een goed voorbeeld
-    //dit is geen goed voorbeeld (geen spatie bij begin) 
