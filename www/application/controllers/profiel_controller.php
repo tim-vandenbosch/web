@@ -45,7 +45,9 @@ class profiel_controller extends CI_Controller
      */
     function aanvraagNewPw()
     {
-
+        $this -> load -> view('Layout/header');
+        $this -> load -> view('Layout/navigation');
+        $this-> load -> view ('newPass');
     }
 
     /* @author = Marnix
