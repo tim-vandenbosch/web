@@ -8,7 +8,6 @@ class enquete_controller extends CI_Controller
     {
         parent::__construct();
         $this -> load -> model('enquete_model', '', TRUE);
-        // $this->load->library('form_validation');
     }
 
     function index()
