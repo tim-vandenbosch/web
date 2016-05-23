@@ -3,44 +3,52 @@
  * @author = Britt & Tim
  * Date = 13/05/2016
  */
-class Login extends CI_Controller
+class Admin extends CI_Controller
 {
     function __construct()
     {
         parent::__construct();
         // $this -> load -> library('form_validation');
-        $this -> load -> model('user_model', '', TRUE);
+        $this -> load -> model('user_model');
     }
 
-    /*
-     * Het tonen van de admin view
+    /* @Author: Tim
+     * TODO: Het tonen van de admin view.
      */
     function admin_view()
     {
         $this -> checkSession();
-        $this->load->view('Admin/admin_view');
-    }
-    
-    /*
-     * De geselecteerde user bewerken
-     */
-    function bewerkenView($userid, $k)
-    {
-        $this['query'] = $this -> user_model -> get_user_by_id($userid);
-        $this->load->view('Admin/admin_edit');
-        if($k == "update")
-        {
-            $data['message'] = "update user is geslaagd.";
-        }
+        $session_data = $this -> session ->  userdata('logged_in');
+        $data = array('userID' => $session_data['userID'], 'users' => $this->user_model->get_users());
         $this -> load -> view('Layout/header');
-        $this -> load -> view('Layout/navigation');
-        $this -> load -> view('Admin/admin_edit');
+        $this -> load -> view('Layout/navigationAdmin');
+        $this -> load -> view('Admin/admin_view', $data);
         $this -> load -> view('Layout/footer');
     }
     
-    function toevoegenView()
+    /* @Author: Tim
+     * TODO: Het wijzigen van de status. ---------------------------------------->>>> DEZE FUNCTIE IS ONVOLLEDIG
+    */
+    function changeStatus($userID)
     {
-        $this -> load -> view('Admin/admin_add');
+        $user = array(
+            'userID' => $userID,
+            'active' => 1
+        );
+        $this -> user_model -> status($user);
+    }
+
+    /* @Author: Tim
+     * Navigatie naar nieuw venster
+     */
+    function newUser()
+    {
+        $userID = $this -> user_model -> getLastUserID();
+        $userID++;
+        $this -> load -> view('Layout/header');
+        $this -> load -> view('Layout/navigationAdmin');
+        $this -> load -> view('Admin/admin_add', $userID);
+        $this -> load -> view('Layout/footer');
     }
 
     /* @author = Marnix
@@ -48,7 +56,8 @@ class Login extends CI_Controller
      */
     function checkSession()
     {
-        if (!$this->session->userdata('logged_in')) {
+        if (!$this -> session -> userdata('logged_in'))
+        {
             redirect('login', 'refresh');
         }
     }

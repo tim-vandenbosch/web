@@ -40,16 +40,6 @@ Class User_model extends CI_Model
         $query = $this -> db -> get();
         $result = $query -> row();
         return $result -> rol;
-
-        // Als de gebruiker gevonden wordt in de db
-       /* if($query -> num_rows() == 1)
-        {
-            return $query -> row();
-        }
-        else
-        {
-            return false;
-        }*/
     }
 
     /* @author =  Marnix
@@ -157,6 +147,25 @@ Class User_model extends CI_Model
     {
         $this -> db -> where('userID', $user['userID']);
         $this -> db -> update('users', $user);
+    }
+
+    /* @author: Tim
+     * TODO: Deze functie geeft de laatste userID weer
+     */
+    function getLastUserID()
+    {
+        $userID = $this -> db -> select_max('userID');
+        $this -> db -> limit(1);
+        $query = $this -> db -> get('users');
+        // Als er ticket gevonden worden in de db
+        if($query -> num_rows() ==1)
+        {
+            return $query -> result();
+        }
+        else
+        {
+            return false;
+        }
     }
 
     /* @Author: Tim
