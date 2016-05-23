@@ -59,15 +59,15 @@ class Dispatcher  extends CI_Controller
         $data = array(
            // 'ticketId'=>$this -> input -> post('ticketID'),
             'ticketId'=> $ticketID,
-            'prioriteit' => $this -> input -> post('dprioriteit'),
-            'herstellingDatum' => $this -> input -> post('dherstellingsdatum'),
-            'deadline' => $this -> input -> post('ddeadline'),
-            'hersteller' => $this -> input -> post('dwerkman'),
-            'status' => $this -> input -> post('dstatus')
+            'prioriteit' =>         $this -> input -> post('dprioriteit'),
+            'herstellingDatum' =>   $this -> input -> post('dherstellingsdatum'),
+            'deadline' =>           $this -> input -> post('ddeadline'),
+            'hersteller' =>         $this -> input -> post('dwerkman'),
+            'status' =>             $this -> input -> post('dstatus')
         );
 
         $this -> ticket_model -> updateTicket($data);
-        $this->details($ticketID,"update");
+        $this -> details($ticketID,"update");
     }
 
     /* @author = ?
@@ -90,7 +90,7 @@ class Dispatcher  extends CI_Controller
      */
     function checkSession()
     {
-        if (!$this->session->userdata('logged_in')) {
+        if (!$this -> session -> userdata('logged_in')) {
             redirect('login', 'refresh');
         }
     }
