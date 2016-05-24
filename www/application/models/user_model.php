@@ -191,6 +191,17 @@ Class User_model extends CI_Model
         $this -> db -> insert('users', $user);
     }
 
+
+
+
+
+    /* Author: Nida */
+    /* Volgende functions dienen om een nieuwe ww aan te vragen */
+    public function checkOldPass($email,$oldPassword){
+        $this->login($email,$oldPassword);
+    }
+
+
     function updateAccountPass($pass, $npass, $rpass){
 
         if($npass!=$rpass){
@@ -214,4 +225,7 @@ Class User_model extends CI_Model
         }
 
     }
+
+
+
 }
