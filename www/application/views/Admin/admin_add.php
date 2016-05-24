@@ -17,12 +17,11 @@
             <fieldset>
                 <legend>
                     <label class="col-md-1">ID</label>
-                    <label class="" id="userID" name="userID"><?php echo $userID;?></label>
+                    <label class="" id="userID" name="userID"><?php echo $user;?></label>
                 </legend>
                 <div class="from-group row">
                     <label class="" for="email">Email</label>
-                    <input class="form-control " type="text" name="email" id="email"/>
-                    <label class="" for="email">@pxl.be wordt automatisch toegevoegd</label>
+                    <input class="form-control " type="email" name="email" id="email"/>
                 </div>
                 <div class="form-group row">
                     <label class="" for="rol">Rol</label>
@@ -40,13 +39,6 @@
                 </div>
             </fieldset>
             <?php form_close(); ?>
-        </div>
-    </div>
-    <div class="row">
-        <div class="pull-right col-md-1">
-            <a href="#top" class="well well-sm" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
-                <i class="glyphicon glyphicon-chevron-up"> </i>
-            </a>
         </div>
     </div>
 </div>

@@ -154,7 +154,7 @@ Class User_model extends CI_Model
      */
     function getLastUserID()
     {
-        $userID = $this -> db -> select_max('userID');
+        $this -> db -> select_max('userID');
         $this -> db -> limit(1);
         $query = $this -> db -> get('users');
         // Als er ticket gevonden worden in de db
