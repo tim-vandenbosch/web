@@ -140,6 +140,9 @@ Class User_model extends CI_Model
         return $result -> enqueteBool;
     }
 
+    /* @Author: Tim
+     * Het ophalen van de active-status
+     */
     function getStatus($userID)
     {
         $this -> db -> select('active');
@@ -151,6 +154,7 @@ Class User_model extends CI_Model
         $result = $query -> row();
         return $result -> active;
     }
+    
     /* @author: Tim
      * Deze functie is herleid van Marnix's ticket_model/updateTicket
      */

@@ -31,11 +31,25 @@ class Admin extends CI_Controller
     */
     function changeStatus($userID)
     {
-        $user = array(
-            'userID' => $userID,
-            'active' => 1
-        );
-        $this -> user_model -> status($user);
+        $number = $this -> user_model -> getStatus($userID);
+        if($number == 0)
+        {
+            $user = array(
+                'userID' => $userID,
+                'active' => 1
+            );
+            $this -> user_model -> updateStatus($user);
+            $this -> admin_view();
+        }
+        else
+        {
+            $user = array(
+                'userID' => $userID,
+                'active' => 0
+            );
+            $this -> user_model -> updateStatus($user);
+            $this -> admin_view();
+        }
     }
 
     /* @Author: Tim
@@ -86,7 +100,7 @@ class Admin extends CI_Controller
         $data = array(
             'userID' => $userID,
             'email' => $this -> input -> post('email'),
-            'pws' => $randPass,
+            'pws' => MD5($randPass),
             'rol' => $this -> input -> post('rol'),
             'active' => 1,
             'enqueteBool' => 0
