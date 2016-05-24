@@ -140,6 +140,17 @@ Class User_model extends CI_Model
         return $result -> enqueteBool;
     }
 
+    function getStatus($userID)
+    {
+        $this -> db -> select('active');
+        $this -> db -> from('users');
+        $this -> db -> where('userID', $userID);
+        $this -> db -> limit(1);
+
+        $query = $this -> db -> get();
+        $result = $query -> row();
+        return $result -> active;
+    }
     /* @author: Tim
      * Deze functie is herleid van Marnix's ticket_model/updateTicket
      */
