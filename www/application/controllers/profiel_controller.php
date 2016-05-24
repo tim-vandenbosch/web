@@ -9,6 +9,7 @@ class profiel_controller extends CI_Controller
         parent::__construct();
         $this -> load -> model('user_model', '', TRUE);
         $this -> load -> model('ticket_model', '', TRUE);
+        $this->load->library('form_validation');
     }
 
     /* @author =  Nida
@@ -62,7 +63,7 @@ class profiel_controller extends CI_Controller
         $this -> form_validation -> set_rules('email','Email','required|valid_email');
         $this -> form_validation -> set_rules('password','Password','trim|required|callback_check_database');
 
-        $this -> form_validatipn -> set_rules('newpassword', 'Newpassword', 'required');
+        $this -> form_validation -> set_rules('newpassword', 'Newpassword', 'required');
 
         if($this -> form_validation -> run() == FALSE)
         {
@@ -72,11 +73,7 @@ class profiel_controller extends CI_Controller
         else
         {
             echo ("Ok");
-            if(!preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,12}$/', newpassword)) {
-                echo 'the password does not meet the requirements!';
-            }else{
-                echo ("v Ok");
-            }
+            
         }
     }
     function check_database($password)
