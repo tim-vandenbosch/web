@@ -52,7 +52,7 @@ class Werkman extends CI_Controller
             'status' => $this -> input -> post('dstatus')
         );
         $this -> ticket_model -> updateTicket($data);
-        $this -> details($ticketID,"update");
+        $this -> updateTicketStatus ($ticketID,"update");
         $this -> load -> view('Layout/header');
         $this -> load-> view('Layout/navigation');
         $this -> load -> view('/Werkman/updateStatus_ticket', $data);
