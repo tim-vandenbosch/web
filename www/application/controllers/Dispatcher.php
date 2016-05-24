@@ -6,7 +6,10 @@
 class Dispatcher  extends CI_Controller
 {
 
-    /* @author =  Nida
+    /* @author = Nida
+     * Date = datum
+     * Bron =
+     * Uitleg functie
      */
     function __construct() {
         parent::__construct();
@@ -16,7 +19,10 @@ class Dispatcher  extends CI_Controller
     }
 
 
-    /* @author =  Daniela
+    /* @author = Daniela
+     * Date = 12/05/2016
+     * Bron =
+     * Uitleg functie
      */
     public function details($ticketID,$k)
     {
@@ -96,11 +102,14 @@ class Dispatcher  extends CI_Controller
      *Deze functie controleert de deadline met de meldingsdatum en prioriteit.
      * De deadline moet vòòr de prioriteit zijn en na de meldingsdatum zoniet return deze false
      */
-    public function deadline_check($ddeadline)
+    public function deadline_check($ddeadline,$ticketID)
     {
         $allPrioriteiten = $this -> ticket_model -> getEnums("'prioriteit'");
         $prioriteit =  $this-> input -> post("dprioriteit");
-        $maxdag = $this-> input -> post("dmeldingsdatum");
+       $maxdag = $this-> input -> post("dmeldingsdatum");
+//        $maxdag = $this -> ticket_model ->getdatum($ticketID);
+//echo $prioriteit;
+     //  echo $maxdag;
 
         switch ($prioriteit)
         {
@@ -121,6 +130,8 @@ class Dispatcher  extends CI_Controller
                 break;
         }
         $melddateone = strtotime($this -> input -> post('dmeldingsdatum'));
+//        $melddateone  = strtotime($this -> ticket_model ->getdatum($ticketID));
+
         $melddate = date('d-m-y', $melddateone);
 
         if (date('d-m-y',strtotime($ddeadline)) < $melddate||date('d-m-y',strtotime($ddeadline)) > $maxdag)
@@ -148,13 +159,14 @@ class Dispatcher  extends CI_Controller
         //string naar date omzetten
         $hdateone =         strtotime($date);
         $melddateone =      strtotime($this -> input -> post('dmeldingsdatum'));
+//        $melddateone =      strtotime( $this -> ticket_model ->getdatum($ticketID));
         $deadlinedateone =  strtotime($this -> input -> post("ddeadline"));
-
         //juiste formaat meegeven
         $hdate =        date('d-m-y', $hdateone);
         $melddate =     date('d-m-y', $melddateone);
         $deadlinedate = date('d-m-y', $deadlinedateone);
 
+        //echo $melddate;// deze echo is om die datum effe te testen
 
         if ($hdate < $melddate || $hdate > $deadlinedate  )
         {
@@ -169,6 +181,8 @@ class Dispatcher  extends CI_Controller
     }
 
     /* @author = Marnix
+     * Date = datum
+     * Bron =
      * Check of user nog in gelogd is, zoniet opnieuw inloggen
      */
     function checkSession()
