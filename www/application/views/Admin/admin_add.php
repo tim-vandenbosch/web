@@ -12,7 +12,7 @@
         <div class="col-md-8 col-md-offset-2 center ">
             <?php
             echo validation_errors();
-            echo form_open('Admin');
+            echo form_open('Admin/newUser');
             ?>
             <fieldset>
                 <legend>
