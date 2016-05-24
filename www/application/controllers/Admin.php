@@ -88,7 +88,8 @@ class Admin extends CI_Controller
             'email' => $this -> input -> post('email'),
             'pws' => $randPass,
             'rol' => $this -> input -> post('rol'),
-            'active' => 1
+            'active' => 1,
+            'enqueteBool' => 0
         );
         $this -> user_model -> addUser($data);
     }
