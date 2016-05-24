@@ -32,13 +32,19 @@
                         </select>
                     </div>
                     <div class="form-group row">
-                        <label class="" for="prior">prioriteit</label>
-                        <select class="form-control" name="prior" id="prior">
+                        <label class="" for="prior">Prioriteit</label>
+                    <!--    <select class="form-control" name="prior" id="prior">
                             <option value="1">Kritiek(1uur)</option>
                             <option value="2">Dringend(4uur)</option>
                             <option value="3">Hoog(2dagen)</option>
                             <option value="4">Gemiddeld(1week)</option>
                             <option value="5">Laag(3 maanden)</option>
+                        </select> marnixcode-->
+                        <select class="form-control" name="prior" id="prior">
+                            <option hidden >Kies een prioriteit</option>
+                            <?php foreach ($prio as $item):?>
+                                <option ><?php echo $item;?></option>
+                            <?php endforeach;?>
                         </select>
                     </div>
                     <div class="from-group row">
