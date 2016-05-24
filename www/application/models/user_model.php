@@ -197,10 +197,6 @@ Class User_model extends CI_Model
 
     /* Author: Nida */
     /* Volgende functions dienen om een nieuwe ww aan te vragen */
-    public function checkOldPass($email,$oldPassword){
-        $this->login($email,$oldPassword);
-    }
-
 
     function updateAccountPass($pass, $npass, $rpass){
 

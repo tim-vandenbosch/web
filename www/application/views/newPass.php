@@ -17,11 +17,38 @@
             <?php echo validation_errors('<div class="error">', '</div>'); ?>
         </div>
 
-        <div class="row"><p class=" col-md-5 " ><input id="email" type="text" name="email" placeholder="Eamil: " class="form-control" required="required"></p></div>
-        <div class="row"><p class=" col-md-5"><input type="password" id="password" name="password" placeholder="Current Password: " class="form-control" required="required"></p></div>
-        <div class="row"><p class="col-md-5 "><input type="password" id="newpassword" name="newpassword" placeholder="New Password: " class="form-control" required="required"></p></div>
-        <div class="row"><p class="col-md-5 "><input type="password" name="re_password" placeholder="Retype New Password: " class="form-control" required="required"></p></div>
-        <div class="row"><div class="col-md-1">  <input type="submit" value="change password" class="btn btn-success" /> </div></div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div style="margin-bottom: 25px" class="input-group col-md-5">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                    <input value="<?php echo set_value('email'); ?>" id="email" type="text" name="email" placeholder="Eamil: " class="form-control">
+                </div>
+            </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div style="margin-bottom: 25px" class="input-group col-md-5">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input value="<?php echo set_value('password'); ?>" type="password" id="password" name="password" placeholder="Current Password: " class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div style="margin-bottom: 25px" class="input-group col-md-5">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-cog"></i></span>
+        <input type="password" value="<?php echo set_value('newpassword'); ?>" id="newpassword" name="newpassword" placeholder="New Password:"class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div style="margin-bottom: 25px" class="input-group col-md-5">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-repeat"></i></span>
+    <input type="password" value="<?php echo set_value('re_password'); ?>" name="re_password" placeholder="Retype New Password: " class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <input type="submit" value="change password" class="btn btn-success" />
+    </div>
     </form>
 </br>
     </div>

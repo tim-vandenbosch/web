@@ -62,18 +62,24 @@ class profiel_controller extends CI_Controller
 
         $this -> form_validation -> set_rules('email','Email','required|valid_email');
         $this -> form_validation -> set_rules('password','Password','trim|required|callback_check_database');
+        $this -> form_validation -> set_rules('re_password', 'Re_password', 'required|callback_check_re_password');
+        $this -> form_validation -> set_rules('newpassword', 'Newpassword', 'required|callback_checkPassReq');
+        //$this->form_validation->set_message('checkPassReq');
 
-        $this -> form_validation -> set_rules('newpassword', 'Newpassword', 'required');
 
         if($this -> form_validation -> run() == FALSE)
         {
-            echo ("not Ok");
+            //echo ("not Ok");
+            $this -> load -> view ('layout/header');
+            $this -> load -> view ('layout/navigation');
+            $this -> load -> view('newPass');
+            $this -> load -> view('Layout/footer');
 
         }
         else
         {
-            echo ("Ok");
-            
+            //echo ("Ok");
+
         }
     }
     function check_database($password)
@@ -97,6 +103,29 @@ class profiel_controller extends CI_Controller
         }
     }
 
+    function checkPassReq($newpassword){
+
+        if( strlen($newpassword) < 8 ||  strlen($newpassword) > 20 || (!preg_match("#[0-9]+#", $newpassword)) ||
+            ( !preg_match("#[a-z]+#", $newpassword) ) || ( !preg_match("#[A-Z]+#", $newpassword) ) ) {
+            $this->form_validation->set_message('checkPassReq',"Wachtword voldoet niet aan de voorwarden. - Wachtword mag min 8 en max 20 karakters bevatten. - Wachtwordt moet minimum één getal, letter en hoofdletter. ");
+            return false;
+        }
+        else
+        {
+            return TRUE;
+        }
+    }
+
+    function check_re_password($newpassword, $re_password){
+        if($newpassword != $re_password){
+            $this->form_validation->set_message('check_re_password',"Nieuwe wachtword en herlaald veld komt niet overeen.");
+            return false;
+        }
+        else
+        {
+            return TRUE;
+        }
+    }
     function saveChanges(){
         $pass= $this->input->post('old_password');
         $npass=$this->input->post('newpassword');
