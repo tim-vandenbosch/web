@@ -13,7 +13,7 @@
 <div class="col-md-7 col-md-offset-2 main home ">
     </br>
     <?php echo form_open('profiel_controller/check_pass'); ?>
-        <div class="errors">
+    <div class="errors">
             <?php echo validation_errors('<div class="error">', '</div>'); ?>
         </div>
 
@@ -47,7 +47,7 @@
     </div>
     <div class="row">
         <div class="col-md-1"></div>
-        <input type="submit" value="change password" class="btn btn-success" />
+        <input type="submit" value="change password" class="btn btn-success"/>
     </div>
     </form>
 </br>

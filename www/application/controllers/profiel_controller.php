@@ -60,27 +60,24 @@ class profiel_controller extends CI_Controller
     function check_pass()
     {
 
-        $this -> form_validation -> set_rules('email','Email','required|valid_email');
-        $this -> form_validation -> set_rules('password','Password','trim|required|callback_check_database');
-        $this -> form_validation -> set_rules('re_password', 'Re_password', 'required|callback_check_re_password');
-        $this -> form_validation -> set_rules('newpassword', 'Newpassword', 'required|callback_checkPassReq');
-        //$this->form_validation->set_message('checkPassReq');
 
 
-        if($this -> form_validation -> run() == FALSE)
-        {
-            //echo ("not Ok");
-            $this -> load -> view ('layout/header');
-            $this -> load -> view ('layout/navigation');
-            $this -> load -> view('newPass');
-            $this -> load -> view('Layout/footer');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required|callback_check_database');
+        //$this -> form_validation -> set_rules('re_password', 'Re_password', 'required|callback_check_re_password'); Werkt niet :(
+        $this->form_validation->set_rules('newpassword', 'Newpassword', 'required|callback_checkPassReq');
 
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('layout/header');
+            $this->load->view('layout/navigation');
+            $this->load->view('newPass');
+            $this->load->view('Layout/footer');
+
+        } else {
+            $this->saveChanges();
         }
-        else
-        {
-            //echo ("Ok");
 
-        }
     }
     function check_database($password)
     {
@@ -127,11 +124,15 @@ class profiel_controller extends CI_Controller
         }
     }
     function saveChanges(){
-        $pass= $this->input->post('old_password');
+        $email=$this -> input->post('email');
         $npass=$this->input->post('newpassword');
-        $rpass=$this->input->post('re_password');
 
-        $this -> load -> user_model -> updateAccountPass($pass, $npass, $rpass);
+
+        $this -> user_model -> updateAccountPass($email, $npass);
+
+        // $user = (array) $this -> user_model -> get_user_by_id($id['userID']);
+
+        redirect('profiel_controller','index');
     }
 
 

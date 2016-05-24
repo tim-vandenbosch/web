@@ -24,3 +24,12 @@ function validateEmail() {
          $(this).toggleClass("active");
      });
  });
+
+ function validate()
+ {
+     var r=confirm("Do you want to update this?")
+     if (r==true)
+         return true;
+     else
+         return false;
+ }
