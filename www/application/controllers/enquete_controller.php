@@ -26,6 +26,7 @@ class enquete_controller extends CI_Controller
 
     /* @author = Britt
      * Date = 20/05/2016
+     * Bron: https://ellislab.com/codeigniter/user-guide/libraries/form_validation.html
      * validatie functie
      */
     function  validatie()
