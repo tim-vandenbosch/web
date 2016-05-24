@@ -74,7 +74,6 @@ class Admin extends CI_Controller
     {
         $this -> form_validation -> set_rules('email','email','required|max_length[20]');
         $this -> form_validation -> set_rules('rol','rol','required|callback_checkSession');
-        $this -> form_validation -> set_rules('actief','actief','required');
     }
 
     /* @author=marnix
@@ -82,13 +81,14 @@ class Admin extends CI_Controller
      */
     function sendForm($userID)
     {
-        $randPass = $this -> randPass();
+        $randPass = $this -> randomPassword();
+
         $data = array(
             'userID' => $userID,
             'email' => $this -> input -> post('email'),
             'pws' => $randPass,
             'rol' => $this -> input -> post('rol'),
-            'active' => $this -> input -> post('active'),
+            'active' => 1
         );
         $this -> user_model -> addUser($data);
     }
