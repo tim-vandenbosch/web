@@ -25,10 +25,16 @@
                     </div>
                     <div class="form-group row">
                         <label class="" for="type">Type</label>
-                        <select class="form-control" name="type" id="type">
+                      <!--  <select class="form-control" name="type" id="type">
                             <option>IT</option>
                             <option>Elektronica</option>
                             <option>Faciliteiten</option>
+                        </select> marnixcode-->
+                        <select class="form-control" name="type" id="type">
+                            <option hidden >Kies een type</option>
+                            <?php foreach ($type as $typ):?>
+                                <option ><?php echo $typ;?></option>
+                            <?php endforeach;?>
                         </select>
                     </div>
                     <div class="form-group row">

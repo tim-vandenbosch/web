@@ -25,6 +25,8 @@ class newTicket_controller extends CI_Controller
 //        $data= array();//marnixcode
         $data['ticket']=  $ticketId;
         $data['prio'] = $this -> ticket_model -> getEnums("'prioriteit'");
+        $data['type'] = $this -> ticket_model -> getEnums("'type'");
+
 
         if ($this -> form_validation -> run() == FALSE)
         {
