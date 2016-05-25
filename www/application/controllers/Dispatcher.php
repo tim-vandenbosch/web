@@ -107,34 +107,34 @@ class Dispatcher  extends CI_Controller
         $allPrioriteiten = $this -> ticket_model -> getEnums("'prioriteit'");
         $prioriteit =  $this-> input -> post("dprioriteit");
        $maxdag = $this-> input -> post("dmeldingsdatum");
-//        $maxdag = $this -> ticket_model ->getdatum($ticketID);
+//     $maxdag = $this -> ticket_model ->getdatum($ticketID);
 //echo $prioriteit;
-     //  echo $maxdag;
+     echo $maxdag;
 
         switch ($prioriteit)
         {
             case $allPrioriteiten[0]:
-                $maxdag = date('d-m-y', strtotime($maxdag. ' + 1 days'));
+                $maxdag = date('y-m-d', strtotime($maxdag. ' + 1 days'));
                 break;
             case $allPrioriteiten[1]:
-                $maxdag = date('d-m-y', strtotime($maxdag. ' + 2 days'));
+                $maxdag = date('y-m-d', strtotime($maxdag. ' + 2 days'));
                 break;
             case $allPrioriteiten[2]:
-                $maxdag = date('d-m-y', strtotime($maxdag. ' + 3 days'));
+                $maxdag = date('y-m-d', strtotime($maxdag. ' + 3 days'));
                 break;
             case $allPrioriteiten[3]:
-                $maxdag = date('d-m-y', strtotime($maxdag. ' + 7 days'));
+                $maxdag = date('y-m-d', strtotime($maxdag. ' + 7 days'));
                 break;
             case $allPrioriteiten[4]:
-                $maxdag = date('d-m-y', strtotime($maxdag. ' + 14 days'));
+                $maxdag = date('y-m-d', strtotime($maxdag. ' + 14 days'));
                 break;
         }
         $melddateone = strtotime($this -> input -> post('dmeldingsdatum'));
 //        $melddateone  = strtotime($this -> ticket_model ->getdatum($ticketID));
 
-        $melddate = date('d-m-y', $melddateone);
+        $melddate = date('y-m-d', $melddateone);
 
-        if (date('d-m-y',strtotime($ddeadline)) < $melddate||date('d-m-y',strtotime($ddeadline)) > $maxdag)
+        if (date('y-m-d',strtotime($ddeadline)) < $melddate||date('d-m-d',strtotime($ddeadline)) > $maxdag)
         {
             $this-> form_validation -> set_message('deadline_check', 'Foute ingave voor deadline. Deze mag niet eerder dan de meldingdatum en niet later dan de prioriteit zijn.');
             return false;
@@ -162,9 +162,9 @@ class Dispatcher  extends CI_Controller
 //        $melddateone =      strtotime( $this -> ticket_model ->getdatum($ticketID));
         $deadlinedateone =  strtotime($this -> input -> post("ddeadline"));
         //juiste formaat meegeven
-        $hdate =        date('d-m-y', $hdateone);
-        $melddate =     date('d-m-y', $melddateone);
-        $deadlinedate = date('d-m-y', $deadlinedateone);
+        $hdate =        date('y-m-d', $hdateone);
+        $melddate =     date('y-m-d', $melddateone);
+        $deadlinedate = date('y-m-d', $deadlinedateone);
 
         //echo $melddate;// deze echo is om die datum effe te testen
 
