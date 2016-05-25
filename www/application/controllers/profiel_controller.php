@@ -116,7 +116,7 @@ class profiel_controller extends CI_Controller
     {
         if($newpassword != $re_password){
             $this->form_validation->set_message('check_re_password',"Nieuwe wachtword en herlaald veld komt niet overeen.");
-            return false;
+            return FALSE;
         }
         else
         {
