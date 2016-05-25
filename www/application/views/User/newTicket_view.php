@@ -23,7 +23,7 @@
                     <div class="form-group row">
                         <label class="" for="type">Type</label>
                         <select class="form-control" name="type" id="type">
-                            <option hidden >Kies een type</option>
+                            <option hidden value=""  >Kies een type</option>
                             <?php foreach ($type as $typ):?>
                                 <option ><?php echo $typ;?></option>
                             <?php endforeach;?>
@@ -32,7 +32,7 @@
                     <div class="form-group row">
                         <label class="" for="prior">Prioriteit</label>
                         <select class="form-control" name="prior" id="prior">
-                            <option hidden >Kies een prioriteit</option>
+                            <option hidden  value=""  >Kies een prioriteit</option>
                             <?php foreach ($prio as $prior):?>
                                 <option ><?php echo $prior;?></option>
                             <?php endforeach;?>
@@ -41,14 +41,14 @@
                     <div class="from-group row">
                         <label class="" for="campusId">Campus</label>
                         <select class="form-control" name="campusId" id="campusId">
-                            <option hidden >Selecteer een campus</option>
+                            <option hidden  value=""  >Selecteer een campus</option>
                             <?php foreach ($campussen as $camp):?>
-                                <option value=<?= htmlentities($camp -> campusID,ENT_QUOTES,'UTF-8');?>><?= htmlentities($camp ->naam,ENT_QUOTES);?></option>
+                                <option name="campusId" value=<?= htmlentities($camp -> campusID,ENT_QUOTES,'UTF-8');?>><?= htmlentities($camp ->naam,ENT_QUOTES);?></option>
                             <?php endforeach;?>
                         </select>
                         <label class="" for="blokId">Blok</label>
                         <select class="form-control" name="blokId" id="blokId">
-                        <option hidden >Selecteer een blok</option>
+                        <option hidden  value="" >Selecteer een blok</option>
                         <?php foreach ($blokken as $blok):?>
                             <option value=<?= htmlentities($blok -> blokID,ENT_QUOTES,'UTF-8');?>><?= htmlentities($blok ->blokLetter,ENT_QUOTES);?></option>
                         <?php endforeach;?>

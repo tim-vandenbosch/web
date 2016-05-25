@@ -19,6 +19,11 @@ class newTicket_controller extends CI_Controller
      * Check of user nog in gelogd is, zoniet opnieuw inloggen
      * Inladen van de view, met controle op de form validation hier in verwerkt. Ticket Id wordt autmatisch ingevuld
      */
+    /* @edit = Daniela
+     * Date = 25/05/2016
+     * Bron = Geen bron
+     */
+
     function index()
     {
         $this -> checkSession();
@@ -62,6 +67,9 @@ class newTicket_controller extends CI_Controller
         $this -> form_validation -> set_rules('blokId','blokId','required');
         $this -> form_validation -> set_rules('lokaal','lokaal','required|max_length[3]|callback_checkLokaal');
         $this -> form_validation -> set_rules('omschrijving','omschrijving','required');
+        $this -> form_validation -> set_rules('campusId','campusId','required');
+
+
     }
 
     /* @author=marnix
@@ -131,3 +139,4 @@ class newTicket_controller extends CI_Controller
         }
     }
 }
+
