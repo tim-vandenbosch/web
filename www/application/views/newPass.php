@@ -22,7 +22,7 @@
             <div class="col-md-1"></div>
             <div style="margin-bottom: 25px" class="input-group col-md-5">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                <input value="<?php echo set_value('email'); ?>" id="email" type="text" name="email" placeholder="Eamil: " class="form-control">
+                <input value="<?php echo set_value('email'); ?>" id="email" type="text" name="email" placeholder="Email: " class="form-control">
             </div>
             </div>
 
