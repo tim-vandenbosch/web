@@ -27,7 +27,7 @@ class Admin extends CI_Controller
     }
     
     /* @Author: Tim
-     * TODO: Het wijzigen van de status. ---------------------------------------->>>> DEZE FUNCTIE IS ONVOLLEDIG
+     * Het wijzigen van de status.
     */
     function changeStatus($userID)
     {
@@ -86,7 +86,7 @@ class Admin extends CI_Controller
      */
     function formRules()
     {
-        $this -> form_validation -> set_rules('email','email','required|max_length[20]');
+        $this -> form_validation -> set_rules('email','email','required|max_length[255]');
         $this -> form_validation -> set_rules('rol','rol','required|callback_checkSession');
     }
 
@@ -105,6 +105,7 @@ class Admin extends CI_Controller
             'active' => 1,
             'enqueteBool' => 0
         );
+        $this -> sendMail($data, $randPass);
         $this -> user_model -> addUser($data);
     }
 
@@ -131,5 +132,18 @@ class Admin extends CI_Controller
         {
             redirect('login', 'refresh');
         }
+    }
+
+    /* @Author: Tim
+     * Het verzenden van een mail naar de nieuwe aangemaakte gebruiker
+     */
+    function  sendMail($data, $randPass)
+    {
+        $this -> load -> library('email');
+
+        $this -> email -> from('adminTicketingSysteem@pxl.be', 'TicketingSystem');
+        $this -> email -> to('tim_vandenbosch@msn.com');
+        $this -> email -> subject('Aangemaakt account');
+        $this -> email -> message('test');
     }
 }
