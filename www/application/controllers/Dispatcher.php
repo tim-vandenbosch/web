@@ -105,30 +105,30 @@ class Dispatcher  extends CI_Controller
     public function deadline_check($ddeadline)
     {
         //var_dump($_POST); was om te testen wat er met de post meekomt
-        $allPrioriteiten = $this -> ticket_model -> getEnums("'prioriteit'");
-        $prioriteit =  $this-> input -> post("dprioriteit");
-       $maxdag = $this-> input -> post("dmeldingsdatum");
+        $allPrioriteiten = $this -> ticket_model -> getEnums("'prioriteit'"); //alle prioriteiten
+        $prioriteit =  $this-> input -> post("dprioriteit"); //de priorieteit van de geopende ticket
+       $maxdag = $this-> input -> post("dmeldingsdatum"); // de meldingsdatum van de ticket
 
-        switch ($prioriteit)
+        switch ($prioriteit)//check de prioriteit van de ticket
         {
-            case $allPrioriteiten[0]:
+            case $allPrioriteiten[0]: //als dit de eerste prioriteit is word er 1 dag toegevoegd als maxdag voor de deadline
                 $maxdag = date('Y-m-d', strtotime($maxdag. ' + 1 days'));
                 break;
-            case $allPrioriteiten[1]:
+            case $allPrioriteiten[1]: // + 2dagen
                 $maxdag = date('Y-m-d', strtotime($maxdag. ' + 2 days'));
                 break;
-            case $allPrioriteiten[2]:
+            case $allPrioriteiten[2]: //+ 3 dagen
                 $maxdag = date('Y-m-d', strtotime($maxdag. ' + 3 days'));
                 break;
-            case $allPrioriteiten[3]:
+            case $allPrioriteiten[3]: //+ 7dagen
                 $maxdag = date('Y-m-d', strtotime($maxdag. ' + 7 days'));
                 break;
-            case $allPrioriteiten[4]:
+            case $allPrioriteiten[4]: //+14 dagen
                 $maxdag = date('Y-m-d', strtotime($maxdag. ' + 14 days'));
                 break;
         }
-        $melddateone = strtotime($this -> input -> post('dmeldingsdatum'));
-        $melddate = date('Y-m-d', $melddateone);
+        $melddateone = strtotime($this -> input -> post('dmeldingsdatum'));//meldingdatum naar time zetten
+        $melddate = date('Y-m-d', $melddateone); //meldingdatum naar bepaalde dateformaat zetten
 
         if (date('Y-m-d',strtotime($ddeadline)) < $melddate||date('Y-m-d',strtotime($ddeadline)) > $maxdag)
         {
@@ -153,14 +153,14 @@ class Dispatcher  extends CI_Controller
     public function herstelling_check($date)
     {
         //string naar date omzetten
-        $hdateone =         strtotime($date);
-        $melddateone =      strtotime($this -> input -> post('dmeldingsdatum'));
-        $deadlinedateone =  strtotime($this -> input -> post("ddeadline"));
+        $hdateone =         strtotime($date); //herstellingsdatum van formulier naar time
+        $melddateone =      strtotime($this -> input -> post('dmeldingsdatum')); //meldingsdatum naar time
+        $deadlinedateone =  strtotime($this -> input -> post("ddeadline"));//deadline naar time
         //juiste formaat meegeven
         $hdate =        date('Y-m-d', $hdateone);
         $melddate =     date('Y-m-d', $melddateone);
         $deadlinedate = date('Y-m-d', $deadlinedateone);
-        
+
         if ($hdate < $melddate || $hdate > $deadlinedate  )
         {
             $this-> form_validation -> set_message('herstelling_check', 'Foute ingave voor herstellingsdatum. Deze mag niet later dan de deadline of eerder dan de meldingdatum zijn');
