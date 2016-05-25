@@ -1,22 +1,31 @@
-<div class="col-md-7 col-md-offset-2 titel">
+<div class="col-md-7 col-md-offset-2 titel" xmlns="http://www.w3.org/1999/html">
     <h1>Persoonlijk profiel</h1>
 </div>
 <div class="col-md-7 col-md-offset-2 main home ">
-    <div class="col-md-4 left" row>
-        <h2><?php echo $email;?></h2>
-    </div>
-    <div class="col-md-8 center" row>
-        <h4><?php echo $rol;?></h4>
-        <?php if($active == 1){ $status = 'Activated';}else{$status = 'Not activated';} ?>
-        <h2><?php echo $status?></h2>
-    </div>
 
+    <br/>
+<div>
     <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <button class="btn btn-default" onclick="window.location='<?php echo site_url("profiel_controller/aanvraagNewPw");?>'">Wachtwoord wijzigen</button>
+        <div class="col-md-1"></div>
+        <div style="margin-bottom: 25px" class="input-group col-md-5">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            <input value="<?php echo $email; ?>" type="text" class="form-control" disabled="disabled">
         </div>
     </div>
 
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div style="margin-bottom: 25px" class="input-group col-md-5">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input value="<?php echo $rol; ?>" type="text" class="form-control" disabled="disabled">
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+
+        <button class="btn btn-default" onclick="window.location='<?php echo site_url("profiel_controller/aanvraagNewPw");?>'">Wachtwoord wijzigen</button>
+
+</div>
 
     <hr style="border-top: 1px dotted gray"/>
 

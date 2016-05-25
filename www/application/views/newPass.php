@@ -25,6 +25,7 @@
                 <input value="<?php echo set_value('email'); ?>" id="email" type="text" name="email" placeholder="Eamil: " class="form-control">
             </div>
             </div>
+
     <div class="row">
         <div class="col-md-1"></div>
         <div style="margin-bottom: 25px" class="input-group col-md-5">
@@ -32,13 +33,15 @@
                 <input value="<?php echo set_value('password'); ?>" type="password" id="password" name="password" placeholder="Current Password: " class="form-control">
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-1"></div>
         <div style="margin-bottom: 25px" class="input-group col-md-5">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-cog"></i></span>
+            <span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
         <input type="password" value="<?php echo set_value('newpassword'); ?>" id="newpassword" name="newpassword" placeholder="New Password:"class="form-control">
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-1"></div>
         <div style="margin-bottom: 25px" class="input-group col-md-5">
