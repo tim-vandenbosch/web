@@ -16,7 +16,7 @@ class Verifylogin extends CI_Controller
     function index()
     {
         $this -> form_validation -> set_rules('email','Email','required|valid_email');
-        $this -> form_validation -> set_rules('password','Password','trim|required|callback_check_database');
+        $this -> form_validation -> set_rules('password','Password','trim|required|callback_check_database|callback_checkActive');
 
         if($this -> form_validation -> run() == FALSE)
         {
@@ -48,6 +48,21 @@ class Verifylogin extends CI_Controller
         else
         {
             $this -> form_validation -> set_message('check_database', 'Het emailadres en wachtwoord komen niet overeen');
+            return false;
+        }
+    }
+
+    function checkActive($userID)
+    {
+        $email = $this -> input -> post('email');
+        $active = $this -> user_model -> getStatusByEmail($email)[0] -> active;
+        if($active == 1)
+        {
+            return true;
+        }
+        else
+        {
+            $this -> form_validation -> set_message('checkActive', 'Deze gebruiker is geblokkeerd, contacteer de admin');
             return false;
         }
     }

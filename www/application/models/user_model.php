@@ -151,10 +151,39 @@ Class User_model extends CI_Model
         $this -> db -> limit(1);
 
         $query = $this -> db -> get();
-        $result = $query -> row();
-        return $result -> active;
+        // als een status is gevonden
+        if($query -> num_rows() ==1)
+        {
+            return $query -> result();
+        }
+        else
+        {
+            return false;
+        }
     }
-    
+
+    /* @author: Tim & Marnix
+     * voor de login, checken of de gebruiker actief is of niet
+     */
+    function getStatusByEmail($email)
+    {
+        $this -> db -> select('active');
+        $this -> db -> from('users');
+        $this -> db -> where('email', $email);
+        $this -> db -> limit(1);
+
+        $query = $this -> db -> get();
+        // als een status is gevonden
+        if($query -> num_rows() ==1)
+        {
+            return $query -> result();
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     /* @author: Tim
      * Deze functie is herleid van Marnix's ticket_model/updateTicket
      */
@@ -190,24 +219,4 @@ Class User_model extends CI_Model
     {
         $this -> db -> insert('users', $user);
     }
-
-
-
-
-
-    /* Author: Nida */
-    /* Volgende functions dienen om een nieuwe ww aan te vragen */
-
-    function updateAccountPass($email, $npass){
-
-                $data = array(
-                    'pws' => md5($npass)
-                );
-
-        $this->db->update('users', $data);
-        $this->db->where('email', $email);
-    }
-
-
-
 }
