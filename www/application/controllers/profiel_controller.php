@@ -94,7 +94,7 @@ class profiel_controller extends CI_Controller
         else
         {
             $this -> form_validation -> set_message('check_database', 'Het emailadres en wachtwoord komen niet overeen');
-            return false;
+            return FALSE;
         }
     }
 
@@ -104,7 +104,7 @@ class profiel_controller extends CI_Controller
             ( !preg_match("#[a-z]+#", $newpassword) ) || ( !preg_match("#[A-Z]+#", $newpassword) ) )
         {
             $this->form_validation->set_message('checkPassReq',"Wachtword voldoet niet aan de voorwarden. - Wachtword mag min 8 en max 20 karakters bevatten. - Wachtwordt moet minimum één getal, letter en hoofdletter. ");
-            return false;
+            return FALSE;
         }
         else
         {
@@ -135,7 +135,7 @@ class profiel_controller extends CI_Controller
 
         redirect('profiel_controller','index');
     }
-    
+
     /* @author = Marnix
      * Check of user nog in gelogd is, zoniet opnieuw inloggen
      */
