@@ -141,14 +141,20 @@
                         </div>
                     </div>
                     <?php endforeach;?>
-                    <div class="form-group">
-                        <button type="submit" name="opslaan" class="btn btn-default">Opslaan</button>
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <button type="submit" name="opslaan" class="btn btn-default">Opslaan</button>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <button type="button" class="btn btn-danger" onclick=><?php echo anchor(site_url(array('Dispatcher','deleteticket',$ticketid)),'Verwijderen');?></button>
+                        </div>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
 
 <!--/* @author = Daniela-->
 <!--* Date = datum-->

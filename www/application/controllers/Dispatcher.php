@@ -172,6 +172,16 @@ class Dispatcher  extends CI_Controller
         }
 
     }
+    /* @author = Daniela
+     * Date = 26/05/2016
+     * Bron = Code ticket_controller
+     * Verwijdert de geopende ticket
+     */
+    function deleteticket($ticketid){
+
+        $this -> ticket_model -> deleteTicket($ticketid);
+        redirect(home);
+    }
 
     /* @author = Marnix
      * Date = datum

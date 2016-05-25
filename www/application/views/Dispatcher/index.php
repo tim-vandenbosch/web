@@ -5,16 +5,6 @@
  */
 ?>
 <head>
-    <!--<script  type="text/javascript" src="/assets/bootstrap/js/sorttable.js"></script>µ-->
-     <!--   <script type="text/javascript" src="/assets/bootstrap/js/jquery.tablesorter.js">
-        $(document).ready(function(){
-        $(function(){
-        $("#mytable").tablesorter();
-        });
-        });
-        </script>-->
-    <!--   bronnen : http://www.kryogenix.org/code/browser/sorttable/
-    http://tutsme-webdesign.info/bootstrap-3-sortable-table/ -->
 </head>
 <div class="row">
     <div class="col-md-7 col-md-offset-2 titel">
