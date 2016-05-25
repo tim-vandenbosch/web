@@ -206,4 +206,8 @@ Class Ticket_model extends CI_Model{
         $this -> db -> where('ticketID',$ticket['ticketId']);
         $this -> db -> update('tickets',$ticket);
     }
+    function deleteTicket($ticket){
+        $this -> db -> where('ticketID',$ticket);
+        $this -> db -> delete('tickets');
+    }
 }

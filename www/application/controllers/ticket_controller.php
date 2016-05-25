@@ -72,7 +72,8 @@ class ticket_controller  extends CI_Controller
         $this -> load -> view('/Tickets/lijst_tickets', $data);
         $this -> load -> view('Layout/footer');
     }
-    function deleteticket(){
-        
+    function deleteticket($ticketid){
+        $this -> ticket_model -> deleteTicket($ticketid);
+        redirect(profiel_controller);
     }
 }

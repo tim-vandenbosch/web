@@ -19,6 +19,7 @@
     <!-- ------------------------------ -->
     <div class="col-md-6 left">
         <h2><?= htmlentities($quer ->onderwerp,ENT_QUOTES,'UTF-8');?></h2>
+        <p hidden><?= $ticketid =  $quer ->ticketID;?></p>
     </div>
     <div class="col-md-6 right"></div>
     <div class="col-md-12">
@@ -54,7 +55,8 @@
         <div class="row">
             <a href="#moreDetails" class="btn btn-success" data-toggle="collapse">Meer</a>
             <div class="col-md-2">
-                <button type="submit" name="verwijderen" class="btn btn-danger" onclick="window.location='<?php echo site_url("ticket_controller/deleteticket");?>'">Verwijderen</button>
+                <td> <button type="button" class="btn btn-danger" onclick=><?php echo anchor(site_url(array('ticket_controller','deleteticket',$ticketid)),'Verwijderen');?></button></td>
+
             </div>
         </div>
         <div id="moreDetails" class="collapse">
