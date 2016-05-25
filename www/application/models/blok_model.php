@@ -1,15 +1,30 @@
 <?php
-/* @author = Nida Ilyas
- * Date = 28/04/2016
+/* @author = Daniela
+ * Date = 25/05/2016
  */
-class blok_model
+class blok_model extends CI_Model
 {
-    var $blokID = "";
-    var $campusID ="";
-    var $blokLetter ="";
-
-    function __construct()
+    /* @author = Daniela
+     * Date = 25/05/2016
+     * Bron = geen bron gebruikt
+     * functie die alle blokken haalt uit de tabel
+     */
+    function getAllBlokken()
     {
-        parent::__construct();
+        $this->db->select('blokID,campusID,blokLetter');
+        $this->db->from('blokken');
+
+        $query = $this->db->get();
+
+        // Als er tickets gevonden worden in de db
+        if ($query->num_rows() >= 1) {
+
+            return $query->result();
+
+        } else {
+
+            return false;
+        }
     }
+
 }
