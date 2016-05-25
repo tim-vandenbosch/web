@@ -131,23 +131,19 @@ Class Ticket_model extends CI_Model{
         $query = $this -> db -> query(" SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'tickets' AND COLUMN_NAME = $kolom ");
         foreach ($query -> result() as $row)
         {
-            //echo $row->COLUMN_TYPE;
-
             $tussenstap1=  substr($row->COLUMN_TYPE,5);
             $tussenstap2  =  substr($tussenstap1, 0, -1);
             $tussenstap3 = str_replace("'", "", $tussenstap2);
             $stringarrayenums  = explode(',', $tussenstap3);
 
-            /*    foreach($statussen as &$stat){ //om te testen
-                    echo "<br>";
-                    echo "<br>";
-                    echo  $stat;
-            }*/ //was om te testen
         }
         return $stringarrayenums;
     }
 
     /* @author= Nida Ilyas
+     * * Date = datum
+     * Bron =
+     * Uitleg functie
      */
     function  getWerkman($ticketID){
 
@@ -173,6 +169,8 @@ Class Ticket_model extends CI_Model{
     }
 
     /* @author = Marnix
+    * Date = datum
+     *  Bron =
      * insert nieuwe ticket
      */
     function insertTicket($ticket){
@@ -181,12 +179,20 @@ Class Ticket_model extends CI_Model{
     }
 
     /* @author = Marnix
+     * Date = datum
+     *  Bron =
      * update ticket adhv zijn ticket ID
      */
     function updateTicket($ticket){
         $this -> db -> where('ticketID',$ticket['ticketId']);
         $this -> db -> update('tickets',$ticket);
     }
+
+    /* @author = Nida
+     * Date = datum
+     * Bron =
+     * Uitleg functie
+     */
     function deleteTicket($ticket){
         $this -> db -> where('ticketID',$ticket);
         $this -> db -> delete('tickets');
