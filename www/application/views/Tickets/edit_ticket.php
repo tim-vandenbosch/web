@@ -51,10 +51,10 @@
         <!--</br>-->
         <hr style="border-top: 1.5px dotted green"/>
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-1">
                 <a href="#moreDetails" class="btn btn-success" data-toggle="collapse">Meer</a>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-1">
                 <td> <button type="button" class="btn btn-danger" onclick=><?php echo anchor(site_url(array('ticket_controller','deleteticket',$ticketid)),'Verwijderen');?></button></td>
 
             </div>
