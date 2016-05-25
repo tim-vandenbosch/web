@@ -5,9 +5,6 @@
     <div class="col-md-4 left">
         <h2>Tickets</h2>
     </div>
-    <div class="col-md-7 right">
-        <!-- hier kan nog eventuele uitleg over overzicht-->
-    </div>
     <div class="row">
         <div class="col-md-12 center">
             <?php if(count($tickets)>0){ ?>
