@@ -26,7 +26,6 @@
             <form  role="form" method="post" action="<?php echo  site_url(array('Dispatcher','update', $ticketid))?>">
                 <h4><font color=red> <?php echo form_error('dherstellingsdatum'); ?> </font></h4>
                 <h4><font color=red> <?php echo form_error('ddeadline'); ?> </font></h4>
-                <?php echo form_open('Dispatcher'); ?>
 
                 <?php if($message == "Ticket update is geslaagd") : ?>
                     <div style="background-color:lightyellow;" class="span12 pagination-centered">
@@ -77,8 +76,8 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="text"><i class="glyphicon glyphicon-calendar"> </i> Meldingdatum:</label>
-                        <input disabled type="date" name="dmeldingsdatum" class="form-control"  value=<?= htmlentities( $quer ->datum ,ENT_QUOTES,'UTF-8');?> id="datum">
-                    </div>
+                        <input type="date" name="dmeldingsdatum" class="form-control" value="<?= htmlentities( $quer ->datum ,ENT_QUOTES,'UTF-8');?>" id="datum">
+                        </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-12 ">
@@ -140,7 +139,6 @@
                             <label for="text"> <i class="glyphicon glyphicon-bell"> </i> Deadline:</label>
                             <input name="ddeadline" type="date" class="form-control"  value=<?= htmlentities($quer ->deadline,ENT_QUOTES,'UTF-8') ;?> id="deadline">
                         </div>
-
                     </div>
                     <?php endforeach;?>
                     <div class="form-group">
@@ -149,7 +147,6 @@
                 </div>
             </form>
         </div>
-
     </div>
 </div>
 

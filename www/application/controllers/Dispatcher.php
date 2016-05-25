@@ -107,8 +107,9 @@ class Dispatcher  extends CI_Controller
         $allPrioriteiten = $this -> ticket_model -> getEnums("'prioriteit'");
         $prioriteit =  $this-> input -> post("dprioriteit");
        $maxdag = $this-> input -> post("dmeldingsdatum");
+
 //     $maxdag = $this -> ticket_model ->getdatum($ticketID);
-//echo $prioriteit;
+echo $prioriteit;
      echo $maxdag;
 
         switch ($prioriteit)
