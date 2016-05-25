@@ -22,12 +22,19 @@ class newTicket_controller extends CI_Controller
         $this -> formRules();
 
         $ticketId = $this -> ticket_model -> getLastTicketId()[0]->ticketID +1;
-        $data= array();
+//        $data= array();//marnixcode
+        $data['ticket']=  $ticketId;
+        $data['prio'] = $this -> ticket_model -> getEnums("'prioriteit'");
+        $data['type'] = $this -> ticket_model -> getEnums("'type'");
+
+
         if ($this -> form_validation -> run() == FALSE)
         {
             $this -> load -> view('Layout/header');
             $this -> load -> view('Layout/navigation');
-            $this -> load -> view('User/newTicket_view',$data = array('ticket' => $ticketId));
+//            $this -> load -> view('User/newTicket_view',$data = array('ticket' => $ticketId));//marnixcode
+            $this -> load -> view('User/newTicket_view',$data );
+
             $this -> load -> view('Layout/footer');
         }
         else

@@ -13,16 +13,17 @@
 
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            <button class="btn btn-default">Nieuw wachtwoord aanvragen</button>
+            <button class="btn btn-default" onclick="window.location='<?php echo site_url("profiel_controller/aanvraagNewPw");?>'">Wachtwoord wijzigen</button>
         </div>
     </div>
 
-    </br>
+
     <hr style="border-top: 1px dotted gray"/>
 
     <div class="titel row">
         <h1>Overzicht toegevoegde tickets</h1>
     </div>
+    <br/>
     <?php if(count($tickets)>0){?>
         <table class="table table-striped" id="table"  > <!-- class="table table-striped"  class="sortable" -->
             <thead>

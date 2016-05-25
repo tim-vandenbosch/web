@@ -21,7 +21,12 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">-->
         <p hidden><?= $ticketid =  $quer ->ticketID;?></p>
+
+
         <form  role="form" method="post" action="<?php echo  site_url(array('ticket_controller','update', $ticketid))?>">
+
+
+
             <?php if($message != "") : ?>
                 <h1><b><?php echo $message;?></b></h1>
             <?php endif; ?>

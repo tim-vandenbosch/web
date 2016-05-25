@@ -190,4 +190,24 @@ Class User_model extends CI_Model
     {
         $this -> db -> insert('users', $user);
     }
+
+
+
+
+
+    /* Author: Nida */
+    /* Volgende functions dienen om een nieuwe ww aan te vragen */
+
+    function updateAccountPass($email, $npass){
+
+                $data = array(
+                    'pws' => md5($npass)
+                );
+
+        $this->db->update('users', $data);
+        $this->db->where('email', $email);
+    }
+
+
+
 }
