@@ -13,7 +13,7 @@
 
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            <button class="btn btn-default" onclick="window.location='<?php echo site_url("profiel_controller/aanvraagNewPw");?>'">Nieuw wachtwoord aanvragen</button>
+            <button class="btn btn-default" onclick="window.location='<?php echo site_url("profiel_controller/aanvraagNewPw");?>'">Wachtwoord wijzigen</button>
         </div>
     </div>
 
