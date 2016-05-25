@@ -28,41 +28,48 @@ class Home extends CI_Controller
         $data['userID'] = $session_data['userID'];
         $userID = $session_data['userID'];
         $rol = $this -> user_model -> neem_rol($userID);
+        $actief = $this -> user_model -> ;
 
-        switch ($rol)
+        if($actief == 1)
         {
-            case "Admin":
-                $data = array('userID' => $session_data['userID'], 'users' => $this->user_model->get_users());
-                $this -> load -> view('Layout/header');
-                $this -> load -> view('Layout/navigationAdmin');
-                $this -> load -> view('/Admin/admin_view',$data);
-                $this -> load -> view('Layout/footer');
-                break;
-            case "Dispatcher":
-                $data =  array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getAllTickets());
-                $this -> load -> view('Layout/header');
-                $this -> load -> view('Layout/navigation');
-                $this -> load -> view('/Dispatcher/index', $data);
-                $this -> load -> view('Layout/footer');
-                break;
-            case "Werkman":
-                $data =  array('userID' => $session_data['userID'], 'tickets' => $this -> ticket_model -> getTicketsByWm($session_data['userID']));
-                $this -> load -> view('Layout/header');
-                $this -> load -> view('Layout/navigation');
-                $this -> load -> view('/Werkman/lijst_ticketsToDo', $data);
-                $this -> load -> view('Layout/footer');
-
-                break;
-            case "Docent":
-                $data = array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getUserTickets($session_data['userID']));
-                $this -> load -> view('Layout/header');
-                $this -> load -> view('Layout/navigation');
-                $this -> load -> view('User/user_view', $data);
-                $this -> load -> view('Layout/footer');
-                break;
-            default:
-                $this -> load -> view('login_view');
-                break;
+            switch ($rol)
+            {
+                case "Admin":
+                    $data = array('userID' => $session_data['userID'], 'users' => $this->user_model->get_users());
+                    $this->load->view('Layout/header');
+                    $this->load->view('Layout/navigationAdmin');
+                    $this->load->view('/Admin/admin_view', $data);
+                    $this->load->view('Layout/footer');
+                    break;
+                case "Dispatcher":
+                    $data = array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getAllTickets());
+                    $this->load->view('Layout/header');
+                    $this->load->view('Layout/navigation');
+                    $this->load->view('/Dispatcher/index', $data);
+                    $this->load->view('Layout/footer');
+                    break;
+                case "Werkman":
+                    $data = array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getTicketsByWm($session_data['userID']));
+                    $this->load->view('Layout/header');
+                    $this->load->view('Layout/navigation');
+                    $this->load->view('/Werkman/lijst_ticketsToDo', $data);
+                    $this->load->view('Layout/footer');
+                    break;
+                case "Docent":
+                    $data = array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getUserTickets($session_data['userID']));
+                    $this->load->view('Layout/header');
+                    $this->load->view('Layout/navigation');
+                    $this->load->view('User/user_view', $data);
+                    $this->load->view('Layout/footer');
+                    break;
+                default:
+                    $this->load->view('login_view');
+                    break;
+            }
+        }
+        else
+        {
+            $this -> load -> view('login_view');
         }
     }
 
