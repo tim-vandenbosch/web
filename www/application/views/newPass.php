@@ -12,6 +12,9 @@
 
 <div class="col-md-7 col-md-offset-2 main home ">
     </br>
+    
+    
+    
     <?php echo form_open('profiel_controller/check_pass'); ?>
     <div class="errors">
             <?php echo validation_errors('<div class="error">', '</div>'); ?>
