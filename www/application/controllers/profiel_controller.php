@@ -42,15 +42,20 @@ class profiel_controller extends CI_Controller
     }
 
 
-
-
     /* @author = Nida
      */
     function aanvraagNewPw()
     {
+        $this -> checkSession();
+        $session_data = $this -> session -> userdata('logged_in');
+        $id['userID'] = $session_data['userID'];
+
+        $this -> load -> model('user_model');
+        $user = (array) $this -> user_model -> get_user_by_id($id['userID']);
+
         $this -> load -> view('Layout/header');
         $this -> load -> view('Layout/navigation');
-        $this-> load -> view ('newPass');
+        $this-> load -> view ('newPass', $user);
         $this -> load -> view('Layout/footer');
     }
 
@@ -126,10 +131,15 @@ class profiel_controller extends CI_Controller
 
     function saveChanges()
     {
-        $email=$this -> input->post('email');
+        $this -> checkSession();
+        $session_data = $this -> session -> userdata('logged_in');
+        $id['userID'] = $session_data['userID'];
+
+
+        $id = $this -> input->post('userId');
         $npass=$this->input->post('newpassword');
 
-        $this -> user_model -> updateAccountPass($email, $npass);
+        $this -> user_model -> updateAccountPass($id, $npass);
 
         // $user = (array) $this -> user_model -> get_user_by_id($id['userID']);
 
