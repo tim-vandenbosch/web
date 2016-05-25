@@ -1,29 +1,28 @@
 <?php
-/* @author = Nida Ilyas
+/* @author = Daniela Lupo
+ *  * Date = 25/05/2016
+
  * Date = 28/04/2016
  */
-class campus_model
+Class campus_model extends CI_Model
 {
-    var $campusID = "";
-    var $naam="";
-    
-    function __construct()
+
+    function getAllCampussen()
     {
-        parent::__construct();
-    }
+        $this->db->select('naam,campusID');
+        $this->db->from('campussen');
 
-/*    function getAllCampussen(){
-
-        $query = $this -> db -> get('campussen');
+        $query = $this->db->get();
 
         // Als er tickets gevonden worden in de db
-        if($query -> num_rows() >= 1)
-        {
+        if ($query->num_rows() >= 1) {
+
             return $query->result();
-        }
-        else
-        {
+
+        } else {
+
             return false;
         }
-    }*/
+    }
+
 }
