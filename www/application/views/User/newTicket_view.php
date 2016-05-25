@@ -62,10 +62,6 @@
                         <label class="" for="omschrijving">Omschrijving</label>
                         <textarea class="form-control" rows="3" name="omschrijving" id="omschrijving"></textarea>
                     </div>
-                    <div class="from-group row">
-                        <label class="" for="foto">Optioneel:foto</label>
-                        <input class="form-control" id="foto" name="foto" type="file"/>
-                    </div>
                     <div class="form-group row">
                         <input class="btn btn-default" type="submit" value="inzenden" name="submit" id="submit"/>
                     </div>
