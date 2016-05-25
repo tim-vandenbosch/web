@@ -64,7 +64,7 @@ class profiel_controller extends CI_Controller
     */
     function check_pass()
     {
-        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+        $this->form_validation->set_rules('email', 'Email', 'valid_email');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|callback_check_database');
         $this->form_validation->set_rules('newpassword', 'Newpassword', 'required|callback_checkPassReq');
         $this -> form_validation -> set_rules('re_password', 'Retype password', 'required|matches[newpassword]'); //Werkt niet :(
