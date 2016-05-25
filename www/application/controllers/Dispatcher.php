@@ -104,6 +104,7 @@ class Dispatcher  extends CI_Controller
      */
     public function deadline_check($ddeadline,$ticketID)
     {
+        //var_dump($_POST); was om te testen wat er met de post meekomt
         $allPrioriteiten = $this -> ticket_model -> getEnums("'prioriteit'");
         $prioriteit =  $this-> input -> post("dprioriteit");
        $maxdag = $this-> input -> post("dmeldingsdatum");
