@@ -61,7 +61,7 @@ class Dispatcher  extends CI_Controller
     function update($ticketID){
         $this -> formRules();
 
-        if ($this -> form_validation -> run() == false)
+        if ($this -> form_validation -> run() == FALSE)
         {
             $this -> details($ticketID,"fout");
 
@@ -133,11 +133,11 @@ class Dispatcher  extends CI_Controller
         if (date('Y-m-d',strtotime($ddeadline)) < $melddate||date('Y-m-d',strtotime($ddeadline)) > $maxdag)
         {
             $this-> form_validation -> set_message('deadline_check', 'Foute ingave voor deadline. Deze mag niet eerder dan de meldingdatum en niet later dan de prioriteit zijn.');
-            return false;
+            return FALSE;
         }
         else
         {
-            return true;
+            return TRUE;
         }
 
     }
@@ -164,11 +164,11 @@ class Dispatcher  extends CI_Controller
         if ($hdate < $melddate || $hdate > $deadlinedate  )
         {
             $this-> form_validation -> set_message('herstelling_check', 'Foute ingave voor herstellingsdatum. Deze mag niet later dan de deadline of eerder dan de meldingdatum zijn');
-            return false;
+            return FALSE;
         }
         else
         {
-            return true;
+            return TRUE;
         }
 
     }
