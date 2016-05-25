@@ -1,5 +1,5 @@
 <?php
-/* @author = Daniela Carmelina
+/* @author = Daniela Lupo
  * Date = 10/05/2016
  * Bron : http://stackoverflow.com/questions/2997288/calling-controller-methods-from-inside-view-in-codeigniter
  */
@@ -23,8 +23,7 @@
             </p>
         </div>
         <div class="col-md-12 center">
-            <!--id="myTable" class="table tablesorter"-->
-            <table class="table table-striped" id="table"> <!-- class="table table-striped"  class="sortable" -->
+            <table class="table table-striped" id="table">
                 <thead>
                     <tr>
                         <th class="hidden-sm hidden-xs">TicketId</th>

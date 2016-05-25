@@ -14,13 +14,13 @@
                 <table class="table table-striped" id="table">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th   class="hidden-sm hidden-xs">ID</th>
                             <th>Onderwerp</th>
-                            <th>Prioriteit</th>
-                            <th>Type</th>
-                            <th>Campus</th>
-                            <th>Blok</th>
-                            <th>lokaalNr</th>
+                            <th  class="hidden-sm hidden-xs">Prioriteit</th>
+                            <th  class="hidden-sm hidden-xs">Type</th>
+                            <th  class="hidden-sm hidden-xs">Campus</th>
+                            <th  class="hidden-sm hidden-xs">Blok</th>
+                            <th  class="hidden-sm hidden-xs">lokaalNr</th>
                             <th>Herstellings datum</th>
                             <th>Status</th>
                         </tr>
@@ -28,13 +28,13 @@
                     <tbody>
                         <?php foreach($tickets as $ticket):?>
                             <tr>
-                                <td> <?= htmlentities($ticket ->ticketID,ENT_QUOTES,'UTF-8');?></td>
+                                <td  class="hidden-sm hidden-xs"> <?= htmlentities($ticket ->ticketID,ENT_QUOTES,'UTF-8');?></td>
                                 <td> <?= htmlentities($ticket ->onderwerp,ENT_QUOTES,'UTF-8');?></td>
-                                <td> <?= htmlentities($ticket ->prioriteit,ENT_QUOTES,'UTF-8');?></td>
-                                <td> <?= htmlentities($ticket ->type,ENT_QUOTES,'UTF-8');?></td>
-                                <td> <?= htmlentities($ticket ->naam,ENT_QUOTES,'UTF-8');?></td>
-                                <td> <?= htmlentities($ticket ->blokLetter,ENT_QUOTES,'UTF-8');?></td>
-                                <td> <?= htmlentities($ticket ->lokaalNummer,ENT_QUOTES,'UTF-8');?></td>
+                                <td  class="hidden-sm hidden-xs"> <?= htmlentities($ticket ->prioriteit,ENT_QUOTES,'UTF-8');?></td>
+                                <td  class="hidden-sm hidden-xs"> <?= htmlentities($ticket ->type,ENT_QUOTES,'UTF-8');?></td>
+                                <td  class="hidden-sm hidden-xs"> <?= htmlentities($ticket ->naam,ENT_QUOTES,'UTF-8');?></td>
+                                <td  class="hidden-sm hidden-xs"> <?= htmlentities($ticket ->blokLetter,ENT_QUOTES,'UTF-8');?></td>
+                                <td  class="hidden-sm hidden-xs"> <?= htmlentities($ticket ->lokaalNummer,ENT_QUOTES,'UTF-8');?></td>
                                 <td> <?= htmlentities($ticket ->herstellingDatum,ENT_QUOTES,'UTF-8');?></td>
                                 <td> <?= htmlentities($ticket ->status,ENT_QUOTES,'UTF-8');?></td>
                             </tr>
