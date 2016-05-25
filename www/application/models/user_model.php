@@ -151,15 +151,8 @@ Class User_model extends CI_Model
         $this -> db -> limit(1);
 
         $query = $this -> db -> get();
-        // als een status is gevonden
-        if($query -> num_rows() ==1)
-        {
-            return $query -> result();
-        }
-        else
-        {
-            return false;
-        }
+        $result = $query -> row();
+        return $result -> active;
     }
 
     /* @author: Tim & Marnix
