@@ -9,6 +9,10 @@ class newTicket_controller extends CI_Controller
         parent::__construct();
         $this -> load -> model('ticket_model', '', TRUE);
         $this -> load -> model('lokaal_model', '', TRUE);
+        $this -> load -> model('campus_model', '', TRUE);
+        $this -> load -> model('blok_model', '', TRUE);
+
+
     }
 
     /* @author= marnix
@@ -25,8 +29,9 @@ class newTicket_controller extends CI_Controller
         $data['ticket']=  $ticketId;
         $data['prio'] = $this -> ticket_model -> getEnums("'prioriteit'");
         $data['type'] = $this -> ticket_model -> getEnums("'type'");
-
-
+        $data['campussen'] = $this -> campus_model ->getAllCampussen();
+        $data['blokken'] = $this -> blok_model ->getAllBlokken();
+        
         if ($this -> form_validation -> run() == FALSE)
         {
             $this -> load -> view('Layout/header');
