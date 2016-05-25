@@ -17,7 +17,7 @@
                 <tr>
                     <!-- <th>TicketId</th> -->
                     <th>Onderwerp</th>
-                    <th class="hidden-sm hidden-xs"">Prioriteit</th>
+                    <th class="hidden-sm hidden-xs">Prioriteit</th>
                     <th class="hidden-sm hidden-xs">Type</th>
                     <th class="hidden-sm hidden-xs">Campus</th>
                     <th class="hidden-sm hidden-xs">Blok</th>
@@ -33,7 +33,6 @@
                         <td> <?= htmlentities($ticket ->onderwerp,ENT_QUOTES,'UTF-8');?></td>
                         <td class="hidden-sm hidden-xs"> <?= htmlentities($ticket ->prioriteit,ENT_QUOTES,'UTF-8');?></td>
                         <td class="hidden-sm hidden-xs"> <?= htmlentities($ticket ->type,ENT_QUOTES,'UTF-8');?></td>
-
                         <td class="hidden-sm hidden-xs"> <?= htmlentities($ticket ->naam,ENT_QUOTES,'UTF-8');?></td> <!-- campus naam-->
                         <td class="hidden-sm hidden-xs"> <?= htmlentities($ticket ->blokLetter,ENT_QUOTES,'UTF-8');?></td>
                         <td class="hidden-sm hidden-xs"> <?= htmlentities($ticket ->lokaalNummer,ENT_QUOTES,'UTF-8');?></td>

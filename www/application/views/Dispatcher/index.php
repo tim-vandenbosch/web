@@ -27,13 +27,13 @@
             <table class="table table-striped" id="table"> <!-- class="table table-striped"  class="sortable" -->
                 <thead>
                     <tr>
-                        <th>TicketId</th>
+                        <th class="hidden-sm hidden-xs">TicketId</th>
                         <th>Onderwerp</th>
-                        <th>Prioriteit</th>
-                        <th>Type</th>
-                        <th>Campus</th>
-                        <th>Blok</th>
-                        <th>Lokaal</th>
+                        <th class="hidden-sm hidden-xs">Prioriteit</th>
+                        <th class="hidden-sm hidden-xs">Type</th>
+                        <th class="hidden-sm hidden-xs">Campus</th>
+                        <th class="hidden-sm hidden-xs">Blok</th>
+                        <th class="hidden-sm hidden-xs">Lokaal</th>
                         <th>Status</th>
                         <th>Beheren</th>
                     </tr>
@@ -41,17 +41,13 @@
                 <tbody>
                     <?php foreach($tickets as $ticket):?>
                         <tr>
-                            <td> <?= $ticketid =  htmlentities($ticket ->ticketID,ENT_QUOTES,'UTF-8');?></td>
+                            <td class="hidden-sm hidden-xs"> <?= $ticketid =  htmlentities($ticket ->ticketID,ENT_QUOTES,'UTF-8');?></td>
                             <td> <?= htmlentities($ticket ->onderwerp,ENT_QUOTES,'UTF-8');?></td>
-                            <td> <?= htmlentities($ticket ->prioriteit,ENT_QUOTES,'UTF-8');?></td>
-                            <td> <?= htmlentities($ticket ->type,ENT_QUOTES,'UTF-8');?></td>
-                            <!--  <?php /*foreach($campussen as $camp):*/?> //poging tot campusnaam te laten verschijnen
-                            --><?php /*if($ticket ->campusID == $campussen ->campusID) : */?>
-                                <td> <?= htmlentities($ticket ->naam,ENT_QUOTES,'UTF-8');?></td>
-                           <!-- <?php /*endif; */?>
-                            --><?php /*endforeach;*/?>
-                            <td> <?= htmlentities($ticket ->blokLetter,ENT_QUOTES,'UTF-8');?></td>
-                            <td> <?= htmlentities($ticket ->lokaalNummer,ENT_QUOTES,'UTF-8');?></td>
+                            <td class="hidden-sm hidden-xs"> <?= htmlentities($ticket ->prioriteit,ENT_QUOTES,'UTF-8');?></td>
+                            <td class="hidden-sm hidden-xs"> <?= htmlentities($ticket ->type,ENT_QUOTES,'UTF-8');?></td>
+                            <td class="hidden-sm hidden-xs"> <?= htmlentities($ticket ->naam,ENT_QUOTES,'UTF-8');?></td>
+                            <td class="hidden-sm hidden-xs"> <?= htmlentities($ticket ->blokLetter,ENT_QUOTES,'UTF-8');?></td>
+                            <td class="hidden-sm hidden-xs"> <?= htmlentities($ticket ->lokaalNummer,ENT_QUOTES,'UTF-8');?></td>
                             <td> <?= htmlentities($ticket ->status,ENT_QUOTES,'UTF-8');?></td>
                             <td><?php echo anchor(site_url(array('Dispatcher','details', $ticketid,"noupdate")),'Details');?></td>
                         </tr>
