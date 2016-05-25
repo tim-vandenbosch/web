@@ -9,7 +9,6 @@ class profiel_controller extends CI_Controller
         parent::__construct();
         $this -> load -> model('user_model', '', TRUE);
         $this -> load -> model('ticket_model', '', TRUE);
-        $this->load->library('form_validation');
     }
 
     /* @author =  Nida
