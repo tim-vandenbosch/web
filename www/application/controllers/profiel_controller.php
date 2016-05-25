@@ -55,30 +55,28 @@ class profiel_controller extends CI_Controller
     }
 
 
-    /* author: Nida*/
+    /* @author: Nida
+    */
     function check_pass()
     {
-
-
-
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'trim|required|callback_check_database');
         $this->form_validation->set_rules('newpassword', 'Newpassword', 'required|callback_checkPassReq');
         $this -> form_validation -> set_rules('re_password', 'Retype password', 'required|matches[newpassword]'); //Werkt niet :(
 
-
-
-        if ($this->form_validation->run() == FALSE) {
+        if ($this->form_validation->run() == FALSE)
+        {
             $this->load->view('layout/header');
             $this->load->view('layout/navigation');
             $this->load->view('newPass');
             $this->load->view('Layout/footer');
-
-        } else {
+        }
+        else
+        {
             $this->saveChanges();
         }
-
     }
+
     function check_database($password)
     {
         $email = $this -> input -> post('email');
@@ -100,10 +98,11 @@ class profiel_controller extends CI_Controller
         }
     }
 
-    function checkPassReq($newpassword){
-
+    function checkPassReq($newpassword)
+    {
         if( strlen($newpassword) < 8 ||  strlen($newpassword) > 20 || (!preg_match("#[0-9]+#", $newpassword)) ||
-            ( !preg_match("#[a-z]+#", $newpassword) ) || ( !preg_match("#[A-Z]+#", $newpassword) ) ) {
+            ( !preg_match("#[a-z]+#", $newpassword) ) || ( !preg_match("#[A-Z]+#", $newpassword) ) )
+        {
             $this->form_validation->set_message('checkPassReq',"Wachtword voldoet niet aan de voorwarden. - Wachtword mag min 8 en max 20 karakters bevatten. - Wachtwordt moet minimum één getal, letter en hoofdletter. ");
             return false;
         }
@@ -113,7 +112,8 @@ class profiel_controller extends CI_Controller
         }
     }
 
-    function check_re_password($newpassword, $re_password){
+    function check_re_password($newpassword, $re_password)
+    {
         if($newpassword != $re_password){
             $this->form_validation->set_message('check_re_password',"Nieuwe wachtword en herlaald veld komt niet overeen.");
             return false;
@@ -123,10 +123,11 @@ class profiel_controller extends CI_Controller
             return TRUE;
         }
     }
-    function saveChanges(){
+
+    function saveChanges()
+    {
         $email=$this -> input->post('email');
         $npass=$this->input->post('newpassword');
-
 
         $this -> user_model -> updateAccountPass($email, $npass);
 
@@ -134,8 +135,7 @@ class profiel_controller extends CI_Controller
 
         redirect('profiel_controller','index');
     }
-
-
+    
     /* @author = Marnix
      * Check of user nog in gelogd is, zoniet opnieuw inloggen
      */
