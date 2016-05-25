@@ -51,9 +51,10 @@ class Home extends CI_Controller
                 $this -> load -> view('Layout/navigation');
                 $this -> load -> view('/Werkman/lijst_ticketsToDo', $data);
                 $this -> load -> view('Layout/footer');
+
                 break;
             case "Docent":
-                $data = array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getAllTickets());
+                $data = array('userID' => $session_data['userID'], 'tickets' => $this->ticket_model->getUserTickets($session_data['userID']));
                 $this -> load -> view('Layout/header');
                 $this -> load -> view('Layout/navigation');
                 $this -> load -> view('User/user_view', $data);
