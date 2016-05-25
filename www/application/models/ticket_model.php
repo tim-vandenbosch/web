@@ -70,25 +70,6 @@ Class Ticket_model extends CI_Model{
         }
     }
 
-    /* @author = Daniela
-     * Date = 25/05/2016
-     * Bron = geen bron voor gebruikt
-     * Deze functie geeft de datum terug van een bepaalde ticket
-     */
-    function getdatum($ticketID){
-        $this -> db -> select('datum');
-        $this -> db -> from('tickets');
-        $query = $this -> db -> get();
-
-        if($query -> num_rows() ==1)
-        {
-            return $query -> result();
-        }
-        else
-        {
-            return false;
-        }
-    }
     /* @author = Marnix
      */
     function  getdetailsTicket($ticketID){
