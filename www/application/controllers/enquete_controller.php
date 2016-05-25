@@ -31,10 +31,15 @@ class enquete_controller extends CI_Controller
      */
     function  validatie()
     {
-        $this -> form_validation -> set_rules('vraag1','Vraag1', 'required');
-        $this -> form_validation -> set_rules('vraag2','Vraag2', 'required');
-        $this -> form_validation -> set_rules('vraag3','Vraag3', 'required');
-        $this -> form_validation -> set_message('Gelieve alles in te vullen');
+        $this -> form_validation -> set_rules('vraag1', 'required');
+        $this -> form_validation -> set_rules('vraag2', 'required');
+        $this -> form_validation -> set_rules('feedback','Feedback', 'required');
+
+        if($this -> form_validation -> run() == FALSE)
+        {
+            $this -> form_validation -> set_message('Gelieve alles in te vullen');
+        }
+
     }
 
     /* @author = Britt
@@ -43,20 +48,20 @@ class enquete_controller extends CI_Controller
      */
     function verzenden()
     {
-                $antw1 = $this -> input -> post('vraag1');
-                $antw2 = $this -> input -> post('vraag2');
-                $antw3 = $this -> input -> post('feedback');
+        $antw1 = $this -> input -> post('vraag1');
+        $antw2 = $this -> input -> post('vraag2');
+        $antw3 = $this -> input -> post('feedback');
 
-            $ingevuld = array
-            (
-                "1" => $antw1,
-                "2" => $antw2,
-                "3" => $antw3
-            );
+        $ingevuld = array
+        (
+            "1" => $antw1,
+            "2" => $antw2,
+            "3" => $antw3
+        );
 
-            for ($i = 1; $i < 4; $i++) {
-                $this -> enquete_model -> voeg_antwoord($i, $ingevuld[$i]);
-            }
+        for ($i = 1; $i < 4; $i++) {
+            $this -> enquete_model -> voeg_antwoord($i, $ingevuld[$i]);
+        }
     }
 
     /* @author = Britt
@@ -78,6 +83,7 @@ class enquete_controller extends CI_Controller
      */
     function afmelden()
     {
+        $this->validatie();
         $this->verzenden();
         $this ->enquete_ingevuld();
         $this->session->unset_userdata('logged_in');
