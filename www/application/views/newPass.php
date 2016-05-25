@@ -22,9 +22,7 @@
             <div class="col-md-1"></div>
             <div style="margin-bottom: 25px" class="input-group col-md-5">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-
-                <input type="text" name="email" id="email" value="<?php echo ($email)?>" class="form-control" disabled="disabled" />
-
+                <input value="<?php echo set_value('email'); ?>" id="email" type="text" name="email" placeholder="Eamil: " class="form-control">
             </div>
             </div>
     <div class="row">

@@ -46,16 +46,11 @@ class profiel_controller extends CI_Controller
      */
     function aanvraagNewPw()
     {
-        $this -> checkSession();
-        $session_data = $this -> session -> userdata('logged_in');
-        $id['userID'] = $session_data['userID'];
 
-        $this -> load -> model('user_model');
-        $user = (array) $this -> user_model -> get_user_by_id($id['userID']);
 
         $this -> load -> view('Layout/header');
         $this -> load -> view('Layout/navigation');
-        $this-> load -> view ('newPass', $user);
+        $this-> load -> view ('newPass');
         $this -> load -> view('Layout/footer');
     }
 
@@ -86,6 +81,24 @@ class profiel_controller extends CI_Controller
     {
         $email = $this -> input -> post('email');
         $result = $this -> user_model -> login($email,$password);
+        
+        $this -> checkSession();
+        $session_data = $this -> session -> userdata('logged_in');
+        $id['userID'] = $session_data['userID'];
+
+        $this -> load -> model('user_model');
+        $user = (array) $this -> user_model -> get_user_by_id($id['userID']);
+
+
+/*
+        echo $email;
+        echo print_r($user['email']);
+        */
+
+        if ($email != $user['email']){
+            $this -> form_validation -> set_message('check_database', 'Het emailadres komt niet overeen met ingelogde account.');
+            return FALSE;
+        }
 
         if($result)
         {
