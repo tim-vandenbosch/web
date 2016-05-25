@@ -102,16 +102,12 @@ class Dispatcher  extends CI_Controller
      *Deze functie controleert de deadline met de meldingsdatum en prioriteit.
      * De deadline moet vòòr de prioriteit zijn en na de meldingsdatum zoniet return deze false
      */
-    public function deadline_check($ddeadline,$ticketID)
+    public function deadline_check($ddeadline)
     {
         //var_dump($_POST); was om te testen wat er met de post meekomt
         $allPrioriteiten = $this -> ticket_model -> getEnums("'prioriteit'");
         $prioriteit =  $this-> input -> post("dprioriteit");
        $maxdag = $this-> input -> post("dmeldingsdatum");
-
-//     $maxdag = $this -> ticket_model ->getdatum($ticketID);
-echo $prioriteit;
-     echo $maxdag;
 
         switch ($prioriteit)
         {
@@ -132,8 +128,6 @@ echo $prioriteit;
                 break;
         }
         $melddateone = strtotime($this -> input -> post('dmeldingsdatum'));
-//        $melddateone  = strtotime($this -> ticket_model ->getdatum($ticketID));
-
         $melddate = date('Y-m-d', $melddateone);
 
         if (date('Y-m-d',strtotime($ddeadline)) < $melddate||date('Y-m-d',strtotime($ddeadline)) > $maxdag)
@@ -161,15 +155,12 @@ echo $prioriteit;
         //string naar date omzetten
         $hdateone =         strtotime($date);
         $melddateone =      strtotime($this -> input -> post('dmeldingsdatum'));
-//        $melddateone =      strtotime( $this -> ticket_model ->getdatum($ticketID));
         $deadlinedateone =  strtotime($this -> input -> post("ddeadline"));
         //juiste formaat meegeven
         $hdate =        date('Y-m-d', $hdateone);
         $melddate =     date('Y-m-d', $melddateone);
         $deadlinedate = date('Y-m-d', $deadlinedateone);
-
-        //echo $melddate;// deze echo is om die datum effe te testen
-
+        
         if ($hdate < $melddate || $hdate > $deadlinedate  )
         {
             $this-> form_validation -> set_message('herstelling_check', 'Foute ingave voor herstellingsdatum. Deze mag niet later dan de deadline of eerder dan de meldingdatum zijn');
