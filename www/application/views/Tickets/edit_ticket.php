@@ -28,23 +28,23 @@
         <h4>Informatie ticket</h4>
         <div class="row">
             <div class="col-md-5">
-                <label for="text">Type:</label>
+                <label for="text"><i class="glyphicon glyphicon-tags"> </i> Type</label>
                 <input disabled type="text" class="form-control"  value=<?= htmlentities($quer ->type,ENT_QUOTES,'UTF-8');?> id="type">
             </div>
             <div class="col-md-5">
-                <label for="text">Onderwerp</label>
+                <label for="text"><i class="glyphicon glyphicon-asterisk"> </i> Onderwerp</label>
                 <p disabled type="text" class="form-control" id="ont"><?= htmlentities($quer ->onderwerp,ENT_QUOTES);?></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-3">
-                <label for="text">Status</label>
+                <label for="text"><i class="glyphicon glyphicon-flag"> </i> Status</label>
                 <p disabled type="text" class="form-control" id="ont"><?= htmlentities($quer ->status,ENT_QUOTES);?></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-10">
-                <label for="text">Omschrijving:</label>
+                <label for="text"><i class="glyphicon glyphicon-pencil"> </i> Omschrijving:</label>
                 <textarea disabled class="form-control" rows="5" id="Omschrijving"> <?= htmlentities($quer ->omschrijving,ENT_QUOTES,'UTF-8');?></textarea>
             </div>
         </div>
@@ -63,12 +63,12 @@
             <h4>Locatie</h4>
             <div class="row">
                 <div class="col-md-5">
-                    <label for="text">Campus</label>
+                    <label for="text"><i class="glyphicon glyphicon-pushpin"> </i> Campus</label>
                     <p disabled type="txt" class="form-control" id="ont">
                         <?=htmlentities($quer ->naam,ENT_QUOTES,'UTF-8');?></p>
                 </div>
                 <div class="col-md-5">
-                    <label for="text">Blok en lokaal</label>
+                    <label for="text"><i class="glyphicon glyphicon-map-marker"> </i> Blok en lokaal</label>
                     <p disabled type="txt" class="form-control" id="ont">
                         <?=htmlentities($quer ->blokLetter,ENT_QUOTES,'UTF-8'), htmlentities($quer ->lokaalNummer,ENT_QUOTES,'UTF-8');?></p>
                 </div>
@@ -76,26 +76,26 @@
             </br>
             <div class="row">
                 <div class="col-md-5">
-                    <label for="text">Aanmaker</label>
+                    <label for="text"><i class="glyphicon glyphicon-user"> </i> Aanmaker</label>
                     <input disabled type="email" class="form-control" id="ont" value=<?= htmlentities($quer ->email,ENT_QUOTES,'UTF-8');?>>
                 </div>
                 <div class="col-md-5">
-                    <label for="text">Meldingdatum:</label>
+                    <label for="text"> <i class="glyphicon glyphicon-calendar"> </i> Meldingdatum</label>
                     <input disabled type="date" class="form-control"  value=<?= htmlentities($quer ->datum,ENT_QUOTES,'UTF-8');?> id="datum">
                 </div>
             </div>
             </br>
             <div class="row">
                 <div class="col-md-4">
-                    <label for="text">Prioriteit:</label>
+                    <label for="text"><i class="glyphicon glyphicon-flash"> </i> Prioriteit</label>
                     <input disabled type="text" class="form-control" id="ont" value=<?= htmlentities($quer ->prioriteit,ENT_QUOTES,'UTF-8');?>>
                 </div>
                 <div class="col-md-3">
-                    <label for="text">Deadline:</label>
+                    <label for="text"> <i class="glyphicon glyphicon-bell"> </i> Deadline</label>
                     <input disabled type="date" class="form-control" id="ont" value=<?= htmlentities($quer ->deadline,ENT_QUOTES,'UTF-8');?>>
                 </div>
                 <div class="col-md-3">
-                    <label for="text">Herstellingdatum:</label>
+                    <label for="text"> <i class="glyphicon glyphicon-hourglass"> </i> Herstellingdatum:</label>
                     <input disabled type="date" class="form-control" id="ont" value=<?= htmlentities($quer ->deadline,ENT_QUOTES,'UTF-8');?>>
                 </div>
             </div>
