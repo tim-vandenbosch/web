@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * Created by PhpStorm.
+ * User: DanielaCarmelina
+ * Date: 26/05/2016
+ * Time: 16:11
+ */
+
+require_once 'Dispatcher.php';
+
+class DispatcherTests  extends PHPUnit_Extensions_PhptTestCase
+{
+    public  $test;
+    public function setup()
+    {
+       $this -> test = new Dispatcher();
+    }
+
+    public function testDetails(){
+        $details = $this -> test -> details(5,'niks');
+        $this->assertTrue($details == 5);
+        $this -> load -> view('Test/test_view');
+
+    }
+}
