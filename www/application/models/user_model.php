@@ -89,7 +89,9 @@ Class User_model extends CI_Model
     }
 
     /* @author =  Nida Ilyas
-     * Date =
+     *
+     * Deze functie dient om de een specfieke user uit de database te halen.
+     * De $userId wordt mee gegeven.
      */
     function get_user_by_id($userID)
     {
@@ -104,6 +106,8 @@ Class User_model extends CI_Model
 
     /* @author = Daniela
      * Date =
+     * Deze functie dient om alle werkmannen uit de database uit te halen.
+     * -> nodig voor de dispatcher: hersteller toekennen bij een ticket.
      */
     function  getWerkmannen(){
 

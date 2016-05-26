@@ -144,9 +144,8 @@ Class Ticket_model extends CI_Model{
     }
 
     /* @author= Nida Ilyas
-     * * Date = datum
-     * Bron =
-     * Uitleg functie
+     * *
+     * Uitleg functie: deze functie dient om de hersteller gegevens op te vragen van een specfieke ticket.
      */
     function  getWerkman($ticketID){
 
@@ -194,7 +193,7 @@ Class Ticket_model extends CI_Model{
     /* @author = Nida
      * Date = datum
      * Bron =
-     * Uitleg functie
+     * Uitleg functie: deze functie dient er om een ticket te verwijderen vanuit de database.
      */
     function deleteTicket($ticket){
         $this -> db -> where('ticketID',$ticket);

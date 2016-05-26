@@ -22,7 +22,7 @@
         <div class="col-lg-offset-4">
             <h3><?= htmlentities($quer ->onderwerp,ENT_QUOTES,'UTF-8');?></h3>
         </div>
-        <div class="col-md-8 col-md-offset-2 center ">
+         <!-- <div class="col-md-7 col-md-offset-2 center "> Nida -->
             <form  role="form" method="post" action="<?php echo  site_url(array('Dispatcher','update', $ticketid))?>">
                 <h4><font color=red> <?php echo form_error('dherstellingsdatum'); ?> </font></h4>
                 <h4><font color=red> <?php echo form_error('ddeadline'); ?> </font></h4>
@@ -151,7 +151,7 @@
                     </div>
                 </div>
             </form>
-        </div>
+       <!-- </div> <!-- Nida -->
     </div>
 </div>
 
