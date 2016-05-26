@@ -13,7 +13,12 @@ class ticket_controller  extends CI_Controller
         $this -> load -> model('ticket_model');
         $this -> load ->model('user_model');
     }
-
+    /* @author: Nida
+     * Deze function dient om de details van een tickets te tonen.
+     * In het geval van een validation failt, wordt er ook een gepaste melding getoond.
+     *
+     * --> Wordt aangeroepen vanuit de view: /Ticket/details
+     */
     function details($ticketID)
     {
         $data['query'] = $this -> ticket_model -> getdetailsTicket($ticketID);
@@ -31,6 +36,13 @@ class ticket_controller  extends CI_Controller
         $this -> load -> view('Layout/footer');
     }
 
+
+    /* @author: Nida
+     * Deze function dient om de tickets aan te passen, die door de user zelf toegevoed zijn.
+     *
+     *
+     * --> Wordt aangeroepen vanuit de view: profiel_view
+     */
     function editOwnTicket($ticketID,$k)
     {
         $data['message'] = "";
@@ -49,7 +61,13 @@ class ticket_controller  extends CI_Controller
         $this -> load -> view('/Tickets/edit_ticket', $data);
         $this -> load -> view('Layout/footer');
     }
-
+    /* @author: Nida
+     * Deze function dient om de aanpassingen van een ticket
+     * naar de model te steuren, die door de user zelf toegevoed zijn.
+     *
+     * --> Wordt niet aangeroepen vanuit de view.
+     * --> wordt gebruikt door: function editOwnTicket
+     */
     function update($ticketID)
     {
         $data = array(
@@ -64,6 +82,12 @@ class ticket_controller  extends CI_Controller
         $this -> ticket_model -> updateTicket($data);
         $this -> details($ticketID,"update");
     }
+
+    /* @author: Nida
+     * Deze function dient om de lijst te tonen van alle tickets.
+     *
+     * --> Wordt aangeroepen vanuit de view: /Tickets/lijst_tickets'
+     */
     function showAllTickets(){
         $data =  array('tickets' => $this->ticket_model->getAllTickets());
         $this -> load -> view('Layout/header');
@@ -72,6 +96,12 @@ class ticket_controller  extends CI_Controller
         $this -> load -> view('/Tickets/lijst_tickets', $data);
         $this -> load -> view('Layout/footer');
     }
+    /* @author: Nida
+     * Deze function dient om de tickets te verwijderen, die door de user zelf toegevoed zijn.
+     *
+     *
+     * --> Wordt aangeroepen vanuit de view: profiel_view
+     */
     function deleteticket($ticketid){
         $this -> ticket_model -> deleteTicket($ticketid);
         redirect(profiel_controller);
