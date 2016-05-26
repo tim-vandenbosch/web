@@ -6,23 +6,20 @@
 ?>
 <head>
 </head>
-<div class="row">
     <div class="col-md-7 col-md-offset-2 titel">
         <h1>Overzicht alle tickets</h1>
     </div>
-</div>
-<div class="row">
     <div class="col-md-7 col-md-offset-2 main home ">
+        <div class="row">
         <div class="col-md-4 left">
             <h2>Welkom dispatcher</h2>
         </div>
         <div class="col-md-7 right">
-            <br/>
             <p>Als dispatcher heb je het recht alle tickets te beheren.
             Dit houd in dat je de prioriteteiten en statussen kunt aanpassen en tickets kan toekennen aan werkmannen.
             </p>
         </div>
-        <div class="col-md-12 center">
+        </div>
             <table class="table table-striped" id="table">
                 <thead>
                     <tr>
@@ -53,7 +50,6 @@
                     <?php endforeach;?>
                 </tbody>
             </table>
-        </div>
         <div class="row">
             <div class="pull-right col-md-1">
                 <a href="#top" class="well well-sm" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
@@ -63,4 +59,3 @@
         </div>
         <br>
     </div>
-</div>
