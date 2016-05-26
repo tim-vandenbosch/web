@@ -15,7 +15,7 @@ class homeTests extends CI_Controller
 
     function index()
     {
-        $this -> unit -> run('la','la');
+        $this -> unit -> run();
         $this -> load -> view('Test/test_view');
     }
 }
