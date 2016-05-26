@@ -11,7 +11,12 @@ class Werkman extends CI_Controller
         $this -> load -> model('ticket_model');
         $this -> load -> model('user_model');
     }
-
+    /* @author: Nida
+     * Deze function dient om de lijst te tonen van alle tickets, waarvoor de
+     * ingelogde werkman toegekend is als hersteller.
+     *
+     * --> Wordt aangeroepen vanuit de view: '/Werkman/lijst_ticketsToDo'
+     */
     function showTicketsToDo()
     {
         $this -> checkSession();
@@ -26,6 +31,37 @@ class Werkman extends CI_Controller
         $this -> load -> view('Layout/footer');
     }
 
+
+    /* @author: Nida
+     * Deze function dient om de status aan te passen van een bepaalde ticket.
+     * Alleen Werkman en een dispatcher kunnen de status aan passen.
+
+     *
+     * --> Wordt aangeroepen vanuit de view: '/Werkman/updateStatus_ticket'
+     */
+    function update($ticketID)
+    {
+        $data = array(
+            // 'ticketId'=>$this -> input -> post('ticketID'),
+            'ticketId'=> $ticketID,
+            'status' => $this -> input -> post('dstatus')
+        );
+        $this -> ticket_model -> updateTicket($data);
+        $this -> updateTicketStatus ($ticketID,"update");
+        $this -> load -> view('Layout/header');
+        $this -> load-> view('Layout/navigation');
+        $this -> load -> view('/Werkman/updateStatus_ticket', $data);
+        $this -> load -> view('Layout/footer');
+    }
+
+    /* @author: Nida
+     * Deze function dient om de status aan te passen van een bepaalde ticket.
+     * Alleen Werkman en een dispatcher kunnen de status aan passen.
+     * Nadat de update van de status gelukt is, wordt er een medlding getoond.
+
+     *
+     * --> Wordt aangeroepen vanuit de view: '/Werkman/updateStatus_ticket'
+     */
     function updateTicketStatus($ticketID,$k)
     {
         $data['message'] = "";
@@ -41,20 +77,6 @@ class Werkman extends CI_Controller
         $data['query'] = $this -> ticket_model -> getdetailsTicket($ticketID);
         $this -> load -> view('Layout/header');
         $this -> load -> view('Layout/navigation');
-        $this -> load -> view('/Werkman/updateStatus_ticket', $data);
-        $this -> load -> view('Layout/footer');
-    }
-    function update($ticketID)
-    {
-        $data = array(
-            // 'ticketId'=>$this -> input -> post('ticketID'),
-            'ticketId'=> $ticketID,
-            'status' => $this -> input -> post('dstatus')
-        );
-        $this -> ticket_model -> updateTicket($data);
-        $this -> updateTicketStatus ($ticketID,"update");
-        $this -> load -> view('Layout/header');
-        $this -> load-> view('Layout/navigation');
         $this -> load -> view('/Werkman/updateStatus_ticket', $data);
         $this -> load -> view('Layout/footer');
     }
