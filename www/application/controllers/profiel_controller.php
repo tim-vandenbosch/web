@@ -41,6 +41,32 @@ class profiel_controller extends CI_Controller
         $this -> load -> view('Layout/footer');
     }
 
+    function profiel_admin(){
+        $this -> checkSession();
+        $session_data = $this -> session -> userdata('logged_in');
+        $id['userID'] = $session_data['userID'];
+
+        // Specfieke methode oproepen vanuit een model
+
+        $this -> load -> model('user_model');
+        $user = (array) $this -> user_model -> get_user_by_id($id['userID']);
+        $rol = $user['rol'];
+
+
+
+        $data = $user;
+        $this -> load -> view('Layout/header');
+        if($rol=='Admin')
+        {
+            $this -> load -> view('Layout/navigationAdmin');
+        }
+        else
+        {
+            $this -> load -> view('Layout/navigation');
+        }
+        $this -> load -> view('Admin/profiel_admin',$data ); // merge 2 arrays
+        $this -> load -> view('Layout/footer');
+    }
 
     /* @author = Nida
      */
