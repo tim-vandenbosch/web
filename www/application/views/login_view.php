@@ -5,11 +5,9 @@
      */
 ?>
 <!DOCTYPE html>
-<div class="row">
     <div class="col-md-7 col-md-offset-2 titel">
         <h1>HOGESCHOOL PXL</h1>
     </div>
-</div>
 <div class="col-md-7 col-md-offset-2 main home ">
 <div class="row">
         <div class="col-md-4 left">
@@ -29,9 +27,13 @@
                     <input type="password" class="form-control" size="40" id="password" name="password" />
                     <br/>
                 </div>
+    <div class="form-group">
                 <a href="">wachtwoord vergeten?</a><br>
-                <input type="submit" value="login" />
-        </div>
+    <button type="submit" value="login" class="btn btn-secondary">login</button>
+    </div>
+
+
+</div>
 </div>
 
 <!-- 
