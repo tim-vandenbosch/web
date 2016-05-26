@@ -17,19 +17,29 @@
         <?php echo validation_errors(); ?>
         <?php echo form_open('verifylogin'); ?>
             <div class="form-group">
-                <label for="email">Gebruiker:</label>
+                <div class="col-md-1"></div>
+                <div style="margin-bottom: 25px" class="input-group col-md-5">
+                <!-- <label for="email">Gebruiker:</label> -->
                 <!-- <input class="form-control" name="user" id="user" type="text" value="<?php echo set_value('email'); ?>"/> -->
-                <input type="text" class="form-control" size="40" id="email" name="email"/>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" class="form-control" size="40" id="email" name="email" placeholder="Email: "/>
+                    </div>
             </div>
             <div class="form-group">
-                    <label for="password">Wachtwoord:</label>
+                <div class="col-md-1"></div>
+                <div style="margin-bottom: 25px" class="input-group col-md-5">
+                    <!-- <label for="password">Wachtwoord:</label> -->
                    <!-- <input class="form-control" name="password" id="password" type="password" value="<?php echo set_value('password'); ?>"/> -->
-                    <input type="password" class="form-control" size="40" id="password" name="password" />
-                    <br/>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input type="password" class="form-control" size="40" id="password" name="password" placeholder="Password: "/>
+                    </div>
                 </div>
+
     <div class="form-group">
+        <div class="col-md-1"></div>
                 <a href="">wachtwoord vergeten?</a><br>
-    <button type="submit" value="login" class="btn btn-secondary">login</button>
+        <div class="col-md-1"></div>
+    <button type="submit" value="login" class="btn btn-secondary" > <span class="glyphicon glyphicon-log-in"></span> Login</button>
     </div>
 
 
