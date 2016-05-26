@@ -98,7 +98,9 @@ textarea{
     resize: none;
 }
 
-
+.white, .white a {
+    color: #fff;
+}
 
 
 
