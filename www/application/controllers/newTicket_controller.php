@@ -42,7 +42,6 @@ class newTicket_controller extends CI_Controller
             $this -> load -> view('Layout/header');
             $this -> load -> view('Layout/navigation');
             $this -> load -> view('User/newTicket_view',$data );
-
             $this -> load -> view('Layout/footer');
         }
         else
