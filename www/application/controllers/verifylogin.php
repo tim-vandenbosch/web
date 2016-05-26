@@ -20,7 +20,10 @@ class Verifylogin extends CI_Controller
 
         if($this -> form_validation -> run() == FALSE)
         {
+            $this -> load -> view('Layout/header');
+            $this -> load -> view('Layout/navigationLogin');
             $this -> load -> view('login_view');
+            $this -> load -> view('Layout/footer');
         }
         else
         {
