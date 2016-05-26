@@ -8,11 +8,11 @@
         <nav class="navbar">
 
             <ul class="nav navbar-nav navbar-style">
-                <li class="active"><?php echo anchor(array('home','index'),'Overzicht'); ?></li>
-                <li><?php echo anchor(site_url(array('profiel_controller','index')),'Profiel');?></li>
+                <li class="active"><?php echo anchor(array('home','index'),'<span class="glyphicon glyphicon-list white"></span> Overzicht'); ?></li>
+                <li><?php echo anchor(site_url(array('profiel_controller','index')),'<span class="glyphicon glyphicon-user white"></span> Profiel');?></li>
                 <!-- <li><?php // echo anchor(site_url(array('enquete_controller','index')),'Enquete');?></li> -->
-                <li><?php echo anchor(site_url(array('Admin', 'newUser')),'Nieuwe User');?></li>
-                <li><?php echo anchor(site_url(array('home','logout')),'Afmelden'); ?></li>
+                <li><?php echo anchor(site_url(array('Admin', 'newUser')),'<span class="glyphicon glyphicon-plus"></span>  Nieuwe User');?></li>
+                <li><?php echo anchor(site_url(array('home','logout')),'<span class="glyphicon glyphicon-log-out white"></span> Afmelden'); ?></li>
             </ul>
         </nav>
     </div>
