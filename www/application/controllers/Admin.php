@@ -105,7 +105,7 @@ class Admin extends CI_Controller
             'active' => 1,
             'enqueteBool' => 0
         );
-        $this -> sendMail($data, $randPass);
+        // $this -> sendMail($data, $randPass);
         $this -> user_model -> addUser($data);
     }
 
