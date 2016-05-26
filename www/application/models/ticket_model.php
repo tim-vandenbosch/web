@@ -97,6 +97,7 @@ Class Ticket_model extends CI_Model{
     }
 
     /* @author = Nida Ilyas
+     * alle tickets uit de database uithalen, en als een list teruggeven.
      */
     function getList()
     {
