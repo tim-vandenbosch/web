@@ -6,7 +6,7 @@
  * Date: 26/05/2016
  * Time: 18:00
  */
-class loginTests
+class loginTests extends TestCase
 {
 
 }

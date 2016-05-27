@@ -5,7 +5,7 @@
  * Date: 26/05/2016
  * Time: 14:43
  */
-class homeTests extends CI_Controller
+class homeTests extends TestCase
 {
     function __construct()
     {
@@ -18,4 +18,6 @@ class homeTests extends CI_Controller
         $this -> unit -> run('lala','lala');
         $this -> load -> view('Test/test_view');
     }
+
+
 }

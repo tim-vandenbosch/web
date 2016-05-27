@@ -9,7 +9,7 @@
 
 require_once 'Dispatcher.php';
 
-class DispatcherTests  extends PHPUnit_Extensions_PhptTestCase
+class DispatcherTests extends TestCase
 {
     public  $test;
     public function setup()

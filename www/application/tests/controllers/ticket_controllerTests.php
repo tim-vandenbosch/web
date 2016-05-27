@@ -6,7 +6,7 @@
  * Date: 26/05/2016
  * Time: 18:01
  */
-class ticket_controllerTests
+class ticket_controllerTests extends TestCase
 {
 
 }

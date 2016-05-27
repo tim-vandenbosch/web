@@ -6,7 +6,7 @@
  * Date: 26/05/2016
  * Time: 18:01
  */
-class verifyloginTests
+class verifyloginTests extends TestCase
 {
 
 }

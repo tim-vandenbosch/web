@@ -6,7 +6,7 @@
  * Date: 26/05/2016
  * Time: 17:59
  */
-class enquete_controllerTests
+class enquete_controllerTests extends TestCase
 {
 
 }
