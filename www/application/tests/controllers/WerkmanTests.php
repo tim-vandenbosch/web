@@ -13,9 +13,12 @@ class WerkmanTests extends TestCase
  * @author= marnix
  * testen of sessie nog in gelogd is
  */
-    public function test_checkSession(){
+    public function test_checkSessionLoggedOut(){
         $CI = & get_instance();
-        $CI -> session -> loggedIn=True;
+        $CI -> session -> username="testUser";
+        $CI -> session -> loggedIn=false;
+        $this -> request('GET',['Werkman','checkSession']);
+        $this -> assertRedirect('login/refresh',302);
 
     }
 }
