@@ -61,4 +61,32 @@ class homeTests extends TestCase
         $this -> request('GET',['home','checkSession']);
         $this -> assertRedirect('login/refresh',302);
     }
+    /*
+    * @author=marnix
+    * test of de docent op de enquete page komt
+    */
+    public function test_logoutDocent()
+    {
+        $CI = & get_instance();
+        $CI -> session -> username="testDocent";
+        $CI -> session -> type ="docent";
+        $CI -> session -> loggedIn=true;
+        $CI -> session -> enqueteBool = 0;
+        $this -> request('GET',['home','logout']);
+        $this -> assertRedirect('enquete_controller/refresh',302);
+    }
+    /*
+     * @author=marnix
+     * testen of een niet docent user wordt geredirect naar de login
+     */
+    public function test_logoutOtherUser()
+    {
+        $CI = & get_instance();
+        $CI -> session -> username="testDocent";
+        $CI -> session -> type ="admin";
+        $CI -> session -> loggedIn=true;
+        $this -> request('GET',['home','logout']);
+        $this -> assertRedirect('login/refresh',302);
+
+    }
 }
