@@ -36,7 +36,8 @@
                 </thead>
                 <tbody>
                     <?php foreach($tickets as $ticket):?>
-                        <tr>
+                    <?php if(count($tickets)>0 &&$tickets[0]!=null){ ?>
+                    <tr>
                             <td class="hidden-sm hidden-xs"> <?= $ticketid =  htmlentities($ticket ->ticketID,ENT_QUOTES,'UTF-8');?></td>
                             <td> <?= htmlentities($ticket ->onderwerp,ENT_QUOTES,'UTF-8');?></td>
                             <td class="hidden-sm hidden-xs"> <?= htmlentities($ticket ->prioriteit,ENT_QUOTES,'UTF-8');?></td>
@@ -47,6 +48,11 @@
                             <td> <?= htmlentities($ticket ->status,ENT_QUOTES,'UTF-8');?></td>
                             <td><?php echo anchor(site_url(array('Dispatcher','details', $ticketid,"noupdate")),'Details');?></td>
                         </tr>
+                        <?php }
+                        else{
+                            echo 'Er zijn geen tickets';
+                        }
+                        ?>
                     <?php endforeach;?>
                 </tbody>
             </table>

@@ -40,7 +40,7 @@
                 </table>
             <?php }
             else{
-                echo 'u heeft nog geen tickets!';
+                echo 'U heeft nog geen tickets!';
             }
             ?>
         </div>
