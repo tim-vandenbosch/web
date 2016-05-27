@@ -7,7 +7,7 @@
     </div>
     <div class="row">
         <div class="col-md-12 center">
-            <?php if(count($tickets)>0){ ?>
+            <?php if(count($tickets)>0 &&$tickets[0]!=null){ ?>
                 <table class="table table-striped" id="table">
                     <thead>
                         <tr>
@@ -38,7 +38,11 @@
                         <?php endforeach;?>
                     </tbody>
                 </table>
-            <?php }?>
+            <?php }
+            else{
+                echo 'u heeft nog geen tickets!';
+            }
+            ?>
         </div>
     </div>
 </div>
