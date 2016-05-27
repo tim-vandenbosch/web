@@ -43,6 +43,10 @@
         "phpdocumentor/reflection":          "~1.0",
         "phpdocumentor/reflection-docblock": "~2.0"
     },
+    "require-dev": {
+        "phpdocumentor/phpdocumentor": "2.*"
+
+    },
     "minimum-stability": "stable",
     "require-dev": {
         "behat/behat":        "~3.0",
@@ -65,4 +69,5 @@
             "dev-develop": "2.9-dev"
         }
     }
+
 }
