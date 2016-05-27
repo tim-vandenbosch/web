@@ -67,7 +67,7 @@
         </div>
         <div class="form-group row">
             <label for="feedback"><?= htmlentities($vragen[2]->vraag_text, ENT_QUOTES, 'UTF-8'); ?></label>
-            <textarea class="form-control" rows="3" name="feedback" id="feedback" value="Feedback" required="required"></textarea>
+            <textarea class="form-control" rows="3" name="feedback" id="feedback" value="Feedback" required="required" lang="nl-BE" spellcheck="true"></textarea>
         </div>
         <div class="form-group row">
             <input class="btn btn-default" type="submit" value="Inzenden" name="submit" id="submit"/>
