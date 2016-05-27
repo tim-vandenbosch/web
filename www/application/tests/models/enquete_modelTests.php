@@ -15,6 +15,13 @@ class enquete_modelTests extends TestCase
         $this->load->library('unit_test');
 
     }
+    /* @author = Nida
+     * Date = 27/05/2016
+     *
+     * test: deze test dient om te controleren dat de function 'get_vragen' in model
+     * een lijst van vragen teruggeeft als output. En dat het niet leeg is.
+     * Er wordt ook naar de juisthuis gecontroleerd.
+     */
     public function test_get_vragen(){
     $expected = [
         0 =>(object) ['vragenID' => '1',
@@ -53,5 +60,3 @@ class enquete_modelTests extends TestCase
     }
 
 }
-//$this -> db -> select('vragenID, vraag_text, antw1_text, antw2_text, antw3_text, antw4_text');
-//Was alles duidelijk bij het ingeven van een probleem?

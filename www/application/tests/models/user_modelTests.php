@@ -16,7 +16,7 @@ class user_modelTests extends TestCase
 
     }
 
-    /* @author = Daniela
+    /* @author = Nida
      * Date = 27/05/2016
      *
      * test: deze test dient om te controleren dat de function 'get_user_by_id' in model
