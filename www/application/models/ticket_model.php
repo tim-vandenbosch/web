@@ -22,7 +22,7 @@ Class Ticket_model extends CI_Model{
         {
 
 
-            return false;
+            return FALSE;
         }
     }
 
@@ -45,7 +45,7 @@ Class Ticket_model extends CI_Model{
         }
         else
         {
-            return false;
+            return FALSE;
         }
     }
 
@@ -68,7 +68,7 @@ Class Ticket_model extends CI_Model{
         }
         else
         {
-            return false;
+            return FALSE;
         }
     }
 
@@ -92,7 +92,7 @@ Class Ticket_model extends CI_Model{
         }
         else
         {
-            return false;
+            return FALSE;
         }
     }
 
@@ -121,7 +121,7 @@ Class Ticket_model extends CI_Model{
         }
         else
         {
-            return false;
+            return FALSE;
         }
     }
 
@@ -167,7 +167,7 @@ Class Ticket_model extends CI_Model{
         }
         else
         {
-            return false;
+            return FALSE;
         }
     }
 
