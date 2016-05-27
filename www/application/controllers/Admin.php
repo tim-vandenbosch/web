@@ -53,7 +53,7 @@ class Admin extends CI_Controller
     }
 
     /* @Author: Tim
-     * Navigatie naar nieuw venster
+     * Navigatie naar nieuw venster met validatie
      */
     function newUser()
     {
@@ -79,7 +79,10 @@ class Admin extends CI_Controller
             $this -> load -> view('Layout/footer');
         }
     }
-    
+
+    /* @author: Tim
+     * het pw resetten voor een bepaalde gebruiker (geen validatie)
+     */
     function admin_reset($userID)
     {
         $this -> checkSession();
@@ -90,6 +93,9 @@ class Admin extends CI_Controller
         $this -> load -> view('Layout/footer');
     }
 
+    /* @author: Tim
+     * Het doorgeven van de pw-reset aan de model
+     */
     function resetForm()
     {
         $id = $this -> input -> post('userID');
