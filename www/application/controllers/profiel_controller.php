@@ -77,8 +77,6 @@ class profiel_controller extends CI_Controller
      */
     function aanvraagNewPw()
     {
-
-
         $this -> load -> view('Layout/header');
         $this -> load -> view('Layout/navigation');
         $this-> load -> view ('newPass');
@@ -115,7 +113,7 @@ class profiel_controller extends CI_Controller
 
     /* @author: Nida
      * Deze function dient om de ingegeven email-adres en huidige wachtwordt
-     * te valideren op de juisyheid.
+     * te valideren op de juistheid.
      * In het geval van een validation failt, wordt er ook een gepaste melding getoond.
      *
      * --> Wordt niet aangeroepen vanuit de view.

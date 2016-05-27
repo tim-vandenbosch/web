@@ -15,7 +15,7 @@ class enquete_controllerTests extends TestCase
  */
     public function test_checkSessionLoggedOut(){
         $CI = & get_instance();
-        $CI -> session -> username="testUser";
+        $CI -> session -> email="testuser@pxl.be";
         $CI -> session -> loggedIn=false;
         $this -> request('GET',['enquete_controller','checkSession']);
         $this -> assertRedirect('login/refresh',302);

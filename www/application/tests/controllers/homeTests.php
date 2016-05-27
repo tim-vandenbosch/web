@@ -7,18 +7,6 @@
  */
 class homeTests extends TestCase
 {
-    function __construct()
-    {
-        parent::__construct();
-        $this -> load -> library('unit_test');
-    }
-
-    function index()
-    {
-        $this -> unit -> run('lala','lala');
-        $this -> load -> view('Test/test_view');
-    }
-
     /*
      * @author=marnix
      * testen wat er gebeurt als er geen functie gevonden wordt
@@ -36,7 +24,7 @@ class homeTests extends TestCase
     public function test_userloggedIn()
     {
         $CI = & get_instance();
-        $CI -> session -> username="testUser";
+        $CI -> session -> email="testuser@pxl.be";
         $CI -> session -> type= "docent";
         $CI -> session -> loggedIn=True;
         $output = $this -> request('GET', ['home','index']);

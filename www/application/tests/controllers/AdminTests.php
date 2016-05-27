@@ -14,7 +14,7 @@ class AdminTests extends TestCase
  */
     public function test_checkSessionLoggedOut(){
         $CI = & get_instance();
-        $CI -> session -> username="testUser";
+        $CI -> session -> email="testuser@pxl.be";
         $CI -> session -> loggedIn=false;
         $this -> request('GET',['Admin','checkSession']);
         $this -> assertRedirect('login/refresh',302);
