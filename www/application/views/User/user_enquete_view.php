@@ -29,7 +29,8 @@
                         <?php echo form_radio(array(
                             'name' => 'vraag1',
                             'value' => $vraag1[$i],
-                            'checked' => set_radio('vraag1', $vraag1[$i])
+                            'checked' => set_radio('vraag1', $vraag1[$i]),
+                            'required'       => 'required'
                         ));
                         echo form_label($vraag1[$i]);
                         ?>
@@ -55,7 +56,8 @@
                         <?php echo form_radio(array(
                             'name' => 'vraag2',
                             'value' => $vraag2[$i],
-                            'checked' => set_radio('vraag2', $vraag2[$i])
+                            'checked' => set_radio('vraag2', $vraag2[$i]),
+                            'required'       => 'required'
                         ));
                         echo form_label($vraag2[$i]);
                         ?>
