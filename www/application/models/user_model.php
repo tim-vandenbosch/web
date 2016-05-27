@@ -216,11 +216,13 @@ Class User_model extends CI_Model
     {
         $this -> db -> insert('users', $user);
     }
+    
     function updateAccountPass($id, $npass){
         $data = array(
             'pws' => md5($npass)
                   );
-        $this->db->update('users', $data);
-        +        $this->db->where('userID', $id);
+
+        $this -> db -> where('userID', $id);
+        $this -> db -> update('users', $data);
     }
 }

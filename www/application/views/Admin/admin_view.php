@@ -24,7 +24,7 @@
                <td><?= htmlentities($user -> rol, ENT_QUOTES, 'UTF-8'); ?></td>
                <td><?= htmlentities($user -> active, ENT_QUOTES, 'UTF-8'); ?></td>
                <td><?php echo anchor(site_url(array('Admin', 'changeStatus', $userid)),'Wijzig');?></td>
-               <td><?php echo anchor(site_url(array('Admin', 'reset', $userid)),'Reset');?></td>
+               <td><?php echo anchor(site_url(array('Admin', 'admin_reset', $userid)),'Reset');?></td>
            </tbody>
         <?php endforeach; ?>
     </table>

@@ -79,6 +79,28 @@ class Admin extends CI_Controller
             $this -> load -> view('Layout/footer');
         }
     }
+    
+    function admin_reset($userID)
+    {
+        $this -> checkSession();
+
+        $this -> load -> view('Layout/header');
+        $this -> load -> view('Layout/navigationAdmin');
+        $this -> load -> view('Admin/admin_reset', $data = array('user' => $userID));
+        $this -> load -> view('Layout/footer');
+    }
+
+    function resetForm()
+    {
+        $id = $this -> input -> post('userID');
+        $ww = $this -> input -> post('pws');
+        $this -> user_model -> updateAccountPass($id, $ww);
+
+        $this -> load -> view('Layout/header');
+        $this -> load -> view('Layout/navigationAdmin');
+        $this -> load -> view('Admin/resetSucces_view');
+        $this -> load -> view('Layout/footer');
+    }
 
     /* @author = Tim
      * Check of user nog in gelogd is, zoniet opnieuw inloggen
@@ -132,18 +154,5 @@ class Admin extends CI_Controller
         {
             redirect('login', 'refresh');
         }
-    }
-
-    /* @Author: Tim
-     * Het verzenden van een mail naar de nieuwe aangemaakte gebruiker
-     */
-    function  sendMail($data, $randPass)
-    {
-        $this -> load -> library('email');
-
-        $this -> email -> from('adminTicketingSysteem@pxl.be', 'TicketingSystem');
-        $this -> email -> to('tim_vandenbosch@msn.com');
-        $this -> email -> subject('Aangemaakt account');
-        $this -> email -> message('test');
     }
 }
