@@ -33,7 +33,7 @@
         <h1>Overzicht toegevoegde tickets</h1>
     </div>
     <br/>
-    <?php if(count($tickets)>0){?>
+    <?php if(count($tickets)>0 &&$tickets[0]!=null){?>
         <table class="table table-striped" id="table"  > <!-- class="table table-striped"  class="sortable" -->
             <thead>
                 <tr>

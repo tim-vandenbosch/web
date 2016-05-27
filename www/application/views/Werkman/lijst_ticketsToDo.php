@@ -11,7 +11,7 @@
     <div class="row">
         <h4 class="col-md-1"> <span class="label label-success"> <a style="color: white" href="<?php echo site_url('ticket_controller/showAllTickets')?>">Overzicht tickets</a>
     </div>
-    <?php if(count($tickets)>0){?>
+    <?php if(count($tickets)>0 &&$tickets[0]!=null){?>
         <table class="table table-striped" id="table" > <!-- class="table table-striped"  class="sortable" -->
             <thead>
                 <tr>
