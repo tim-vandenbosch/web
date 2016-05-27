@@ -24,7 +24,7 @@ class blok_modelTests extends TestCase
           0 =>(object) ['blokID' => '1', 'campusID' => '1','blokLetter'=>'A'],
           1 =>(object) ['blokID' => '2', 'campusID' => '1','blokLetter'=>'B'],
           2 =>(object) ['blokID' => '3', 'campusID' => '1','blokLetter'=>'D'],
-          3 =>(object) ['blokID' => '4', 'campusID' => '1','blokLetter'=>'D'],
+          3 =>(object) ['blokID' => '4', 'campusID' => '1','blokLetter'=>'D']
         ];
         $result = $this -> model ->getAllBlokken();
 
