@@ -10,7 +10,7 @@ class user_modelTests extends TestCase
     public function setUp()
     {
         $this->resetInstance();
-        $this->CI->load->model('blok_model');
-        $this->model = $this->CI->blok_model;
+        $this->CI->load->model('user_model');
+        $this->model = $this->CI->user_model;
     }
 }

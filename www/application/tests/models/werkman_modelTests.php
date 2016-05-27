@@ -10,7 +10,7 @@ class werkman_modelTests extends TestCase
     public function setUp()
     {
         $this->resetInstance();
-        $this->CI->load->model('blok_model');
-        $this->model = $this->CI->blok_model;
+        $this->CI->load->model('werkman_model');
+        $this->model = $this->CI->werkman_model;
     }
 }
