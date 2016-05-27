@@ -129,6 +129,7 @@ Class Ticket_model extends CI_Model{
      * Functie om te enums uit de database te halen en in een string array te zetten
      * geef een string mee tss " " en de naam van de kolom tussen ' '
      * vb voor statussen : getEnums("'status'") of prioriteiten : getEnums("'prioriteit'")
+     * Bron : http://stackoverflow.com/questions/2350052/how-can-i-get-enum-possible-values-in-a-mysql-database
      */
      function getEnums($kolom){
         $query = $this -> db -> query(" SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'tickets' AND COLUMN_NAME = $kolom ");
@@ -143,9 +144,9 @@ Class Ticket_model extends CI_Model{
         return $stringarrayenums;
     }
 
-    /* @author= Nida Ilyas
+    /* @author= Daniela Lupo
      * *
-     * Uitleg functie: deze functie dient om de hersteller gegevens op te vragen van een specfieke ticket.
+     * Uitleg functie: Geeft de email van de werkman van een bepaalde ticket.
      */
     function  getWerkman($ticketID){
 
