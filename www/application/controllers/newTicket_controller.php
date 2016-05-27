@@ -90,7 +90,6 @@ class newTicket_controller extends CI_Controller
             'lokaalNummer' => $this -> input -> post('lokaal'),
             'datum' => date("Y/m/d"),
             'omschrijving' => $this -> input -> post('omschrijving'),
-            'bijlage' => $this -> input -> post('bijlage'),
             'herstellingDatum' => null,
             'deadline' => null,
             'hersteller' => null,
