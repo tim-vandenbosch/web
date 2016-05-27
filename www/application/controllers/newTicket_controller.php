@@ -22,6 +22,7 @@ class newTicket_controller extends CI_Controller
     /* @edit = Daniela
      * Date = 25/05/2016
      * Bron = Geen bron
+     * Prioriteiten, type, campussen & blokken worden nu uit de database gehaald.
      */
 
     function index()
