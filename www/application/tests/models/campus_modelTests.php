@@ -12,6 +12,8 @@ class campus_modelTests extends TestCase
         $this->resetInstance();
         $this->CI->load->model('campus_model');
         $this->model = $this->CI->campus_model;
+        $this->load->library('unit_test');
+
     }
     /*
      * @author=Nida

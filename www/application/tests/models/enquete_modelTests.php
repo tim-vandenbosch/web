@@ -12,5 +12,8 @@ class enquete_modelTests extends TestCase
         $this->resetInstance();
         $this->CI->load->model('enquete_model');
         $this->model = $this->CI->enquete_model;
+        $this->load->library('unit_test');
+
     }
+
 }

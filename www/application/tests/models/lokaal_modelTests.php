@@ -12,5 +12,7 @@ class lokaal_modelTests extends TestCase
         $this->resetInstance();
         $this->CI->load->model('lokaal_model');
         $this->model = $this->CI->lokaal_model;
+        $this->load->library('unit_test');
     }
+    
 }

@@ -12,5 +12,7 @@ class ticket_modelTests extends TestCase
         $this->resetInstance();
         $this->CI->load->model('ticket_model');
         $this->model = $this->CI->ticket_model;
+        $this->load->library('unit_test');
+
     }
 }

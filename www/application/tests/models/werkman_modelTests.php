@@ -12,5 +12,7 @@ class werkman_modelTests extends TestCase
         $this->resetInstance();
         $this->CI->load->model('werkman_model');
         $this->model = $this->CI->werkman_model;
+        $this->load->library('unit_test');
+
     }
 }

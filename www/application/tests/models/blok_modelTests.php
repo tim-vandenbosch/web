@@ -12,6 +12,8 @@ class blok_modelTests extends TestCase
         $this -> resetInstance();
         $this -> CI -> load -> model('blok_model');
         $this -> model = $this -> CI -> blok_model;
+        $this->load->library('unit_test');
+
     }
 
     /*
