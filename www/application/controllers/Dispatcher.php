@@ -21,8 +21,8 @@ class Dispatcher  extends CI_Controller
 
     /* @author = Daniela
      * Date = 12/05/2016
-     * Bron =
-     * Uitleg functie
+     * Bron = https://ellislab.com/codeigniter/user-guide/general/views.html
+     * Haal alle informatie van de gekozen ticket uit de database en toont deze in het formulier
      */
     public function details($ticketID,$k)
     {
@@ -55,7 +55,7 @@ class Dispatcher  extends CI_Controller
      * Date = datum
      * Bronnen = https://www.formget.com/update-data-in-database-using-codeigniter/
      * https://ellislab.com/codeigniter/user-guide/libraries/form_validation.html
-     * Update de ticket op basis van de ticketID. De dispatcher stelt de status, prioriteit en datums in en kies een werkman.
+     * Update de ticket op basis van de ticketID. De dispatcher stelt de status, prioriteit en datums in en kiest een werkman.
      * De veranderingen worden doorgestuurd naar de database.
      */
     function update($ticketID){
@@ -69,7 +69,6 @@ class Dispatcher  extends CI_Controller
         else
         {
             $data = array(
-                // 'ticketId'=>$this -> input -> post('ticketID'),
                 'ticketId'=>            $ticketID,
                 'prioriteit' =>         $this -> input -> post('dprioriteit'),
                 'herstellingDatum' =>   $this -> input -> post('dherstellingsdatum'),
@@ -87,7 +86,7 @@ class Dispatcher  extends CI_Controller
     /* @author = Daniela
      * Date = 22/05/2016
      * Bron = https://ellislab.com/codeigniter/user-guide/libraries/form_validation.html
-     * Deze functie stelt de regels in voor herstellingsdatum & deadline.
+     * Deze functie stelt de voorwaarden in voor herstellingsdatum & deadline.
      */
     function formRules()
     {
@@ -175,7 +174,7 @@ class Dispatcher  extends CI_Controller
     /* @author = Daniela
      * Date = 26/05/2016
      * Bron = Code ticket_controller
-     * Verwijdert de geopende ticket
+     * Verwijdert de geopende ticket.
      */
     function deleteticket($ticketid){
 
