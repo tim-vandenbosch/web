@@ -5,4 +5,4 @@ GOTO RUN
 :USE_PEAR_PATH
 set PHPBIN=%PHP_PEAR_PHP_BIN%
 :RUN
-"%PHPBIN%" "%PHP_PEAR_BIN_DIR%\phpdoc" %*
+"%PHPBIN%" "C:\xampp\htdocs\project\web\www\phpDocumentor-2.8.5\bin\phpdoc.php" %*
