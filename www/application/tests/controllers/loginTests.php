@@ -9,4 +9,14 @@
 class loginTests extends TestCase
 {
 
+
+    /*
+ * @author= marnix
+ * testen of sessie nog in gelogd is
+ */
+    public function test_checkSession(){
+        $CI = & get_instance();
+        $CI -> session -> loggedIn=True;
+
+    }
 }

@@ -23,4 +23,14 @@ class DispatcherTests extends TestCase
         $this -> load -> view('Test/test_view');
 
     }
+
+    /*
+ * @author= marnix
+ * testen of sessie nog in gelogd is
+ */
+    public function test_checkSession(){
+        $CI = & get_instance();
+        $CI -> session -> loggedIn=True;
+
+    }
 }
